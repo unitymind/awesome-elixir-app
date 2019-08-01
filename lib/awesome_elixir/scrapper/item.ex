@@ -1,7 +1,7 @@
 defmodule AwesomeElixir.Scrapper.Item do
+  alias AwesomeElixir.Catalog.Item
   alias AwesomeElixir.Repo
   alias AwesomeElixir.Scrapper.{GithubApi, GitlabApi, HexpmApi}
-  alias AwesomeElixir.Catalog.Item
   alias HTTPoison.Response
 
   def update(%Item{github: github} = item) when is_binary(github) do
@@ -139,16 +139,18 @@ defmodule AwesomeElixir.Scrapper.Item do
   defp extract_repo_from_hexpm(hex_package) do
     case HexpmApi.get(hex_package) do
       {:ok, %Response{body: %{meta: %{links: links}}, status_code: 200}} ->
-        Enum.reduce(Map.values(links), %{}, fn link, repos ->
-          case link do
-            "https://github.com/" <> rest -> Map.put(repos, :github, rest)
-            "https://gitlab.com/" <> rest -> Map.put(repos, :gitlab, rest)
-            _ -> repos
-          end
-        end)
+        Enum.reduce(Map.values(links), %{}, &extract_from_hexpm_link/2)
 
       _ ->
         nil
+    end
+  end
+
+  defp extract_from_hexpm_link(link, repos) do
+    case link do
+      "https://github.com/" <> rest -> Map.put(repos, :github, rest)
+      "https://gitlab.com/" <> rest -> Map.put(repos, :gitlab, rest)
+      _ -> repos
     end
   end
 end

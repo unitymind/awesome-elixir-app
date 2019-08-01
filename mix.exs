@@ -40,6 +40,7 @@ defmodule AwesomeElixir.MixProject do
       {:postgrex, "~> 0.15.0"},
       {:phoenix_html, "~> 2.13"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
       {:exvcr, "~> 0.10.3", only: :test},
       {:gettext, "~> 0.17"},
       {:jason, "~> 1.1"},

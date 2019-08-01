@@ -6,41 +6,46 @@ defmodule AwesomeElixir.Scrapper do
 
   def store_data(data) do
     Enum.each(data, fn {_, category} ->
-      attributes = Map.from_struct(category)
-
       {:ok, category_from_db} =
-        case Repo.get_by(Category, slug: category.slug) do
-          nil ->
-            Category.insert_or_update_changeset(%Category{}, attributes)
-
-          entity ->
-            Category.insert_or_update_changeset(entity, attributes |> Map.delete(:slug))
-        end
-        |> Repo.insert_or_update()
+        build_changeset_for_category(Map.from_struct(category))
+        |> handle_category_changeset()
 
       Enum.each(category.items, fn item ->
-        attributes = Map.from_struct(item)
-
-        changeset =
-          case Repo.get_by(Item, url: item.url) do
-            nil ->
-              Item.insert_or_update_changeset(
-                %Item{},
-                attributes |> Map.put(:category_id, category_from_db.id)
-              )
-
-            entity ->
-              Item.insert_or_update_changeset(entity, attributes |> Map.delete(:url))
-          end
-
-        if map_size(changeset.changes) != 0 do
-          {:ok, item_from_db} = Repo.insert_or_update(changeset)
-
-          Exq.enqueue_in(Exq, "default", Enum.random(5..20), AwesomeElixir.Workers.UpdateItem, [
-            item_from_db.id
-          ])
-        end
+        build_changeset_for_item(Map.from_struct(item), category_from_db.id)
+        |> handle_item_changeset()
       end)
     end)
+  end
+
+  defp build_changeset_for_category(attributes) do
+    case Repo.get_by(Category, slug: attributes.slug) do
+      nil -> %Category{}
+      entity -> entity
+    end
+    |> Category.insert_or_update_changeset(attributes)
+  end
+
+  defp handle_category_changeset(changeset) do
+    changeset |> Repo.insert_or_update()
+  end
+
+  defp build_changeset_for_item(attributes, category_id) do
+    {item, attrs} =
+      case Repo.get_by(Item, url: attributes.url) do
+        nil -> {%Item{}, attributes |> Map.put(:category_id, category_id)}
+        entity -> {entity, attributes}
+      end
+
+    Item.insert_or_update_changeset(item, attrs)
+  end
+
+  defp handle_item_changeset(changeset) do
+    if map_size(changeset.changes) != 0 do
+      {:ok, item_from_db} = Repo.insert_or_update(changeset)
+
+      Exq.enqueue_in(Exq, "default", Enum.random(5..20), AwesomeElixir.Workers.UpdateItem, [
+        item_from_db.id
+      ])
+    end
   end
 end

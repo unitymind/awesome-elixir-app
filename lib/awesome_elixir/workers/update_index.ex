@@ -7,7 +7,7 @@ defmodule AwesomeElixir.Workers.UpdateIndex do
     schedule_update()
   end
 
-  defp schedule_update() do
+  defp schedule_update do
     Exq.enqueue_at(
       Exq,
       "default",
@@ -17,7 +17,7 @@ defmodule AwesomeElixir.Workers.UpdateIndex do
     )
   end
 
-  defp clear_scheduled() do
+  defp clear_scheduled do
     case Exq.Api.scheduled(Exq.Api) do
       {:ok, jobs} ->
         Enum.filter(jobs, fn job -> job.class == "AwesomeElixir.Workers.UpdateIndex" end)

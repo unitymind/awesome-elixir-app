@@ -17,7 +17,7 @@ defmodule AwesomeElixir.Catalog do
     |> Enum.reduce(0, fn category, acc -> acc + length(category.items) end)
   end
 
-  defp base_query() do
+  defp base_query do
     from(categories in Category,
       left_join: items in Item,
       on: categories.id == items.category_id,

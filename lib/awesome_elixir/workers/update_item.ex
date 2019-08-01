@@ -1,6 +1,6 @@
 defmodule AwesomeElixir.Workers.UpdateItem do
-  alias AwesomeElixir.Repo
   alias AwesomeElixir.Catalog
+  alias AwesomeElixir.Repo
   alias AwesomeElixir.Scrapper
 
   def perform(item_id) do

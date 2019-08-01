@@ -10,7 +10,7 @@ defmodule AwesomeElixir.Scrapper.Index do
     defstruct name: nil, url: nil, description: nil
   end
 
-  def update() do
+  def update do
     fetch() |> update_flow() |> Scrapper.store_data()
     :ok
   end
@@ -30,14 +30,18 @@ defmodule AwesomeElixir.Scrapper.Index do
     content |> parse_markdown() |> extract_data()
   end
 
-  defp fetch() do
-    with {:ok, %HTTPoison.Response{body: content}} =
-           HTTPoison.get("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md"),
-         do: content
+  defp fetch do
+    case HTTPoison.get("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md") do
+      {:ok, %HTTPoison.Response{body: content}} -> content
+      _ -> :error
+    end
   end
 
   defp parse_markdown(raw_markdown) do
-    with {markdown_blocks, _} = Parser.parse_markdown(raw_markdown), do: markdown_blocks
+    case Parser.parse_markdown(raw_markdown) do
+      {markdown_blocks, _} -> markdown_blocks
+      _ -> :error
+    end
   end
 
   defp extract_data(parsed_markdown) do
