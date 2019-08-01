@@ -14,13 +14,14 @@ defmodule AwesomeElixir.Scrapper.Item do
         item
         |> Item.insert_or_update_changeset(%{
           stars_count: stars_count,
-          pushed_at: pushed_at
+          pushed_at: pushed_at,
+          is_scrapped: true
         })
         |> Repo.update()
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true})
+        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       {:ok,
@@ -60,13 +61,14 @@ defmodule AwesomeElixir.Scrapper.Item do
         item
         |> Item.insert_or_update_changeset(%{
           stars_count: stars_count,
-          pushed_at: pushed_at
+          pushed_at: pushed_at,
+          is_scrapped: true
         })
         |> Repo.update()
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true})
+        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       _ ->
@@ -97,12 +99,12 @@ defmodule AwesomeElixir.Scrapper.Item do
     case HTTPoison.get(url, [], follow_redirect: true) do
       {:ok, %Response{status_code: 200}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: false})
+        |> Item.insert_or_update_changeset(%{is_dead: false, is_scrapped: true})
         |> Repo.update()
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true})
+        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       _ ->
@@ -127,7 +129,8 @@ defmodule AwesomeElixir.Scrapper.Item do
         |> Item.insert_or_update_changeset(%{
           stars_count: starts_count,
           pushed_at: pushed_at,
-          github: github
+          github: github,
+          is_scrapped: true
         })
         |> Repo.update()
 

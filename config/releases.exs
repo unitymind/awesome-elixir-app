@@ -23,9 +23,6 @@ redis_url =
 config :exq,
   url: redis_url
 
-port = String.to_integer(System.get_env("PORT") || "4000")
-host = System.get_env("HOST") || "localhost"
-
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
     raise """
@@ -33,10 +30,15 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
+port = String.to_integer(System.get_env("PORT") || "4000")
+host = System.get_env("HOST") || "localhost"
+run_server = String.to_existing_atom(System.get_env("RUN_SERVER") || "true")
+
 config :awesome_elixir, AwesomeElixirWeb.Endpoint,
   http: [:inet6, port: port],
   url: [host: host, port: port],
-  secret_key_base: secret_key_base
+  secret_key_base: secret_key_base,
+  server: run_server
 
 github_username =
   System.get_env("GITHUB_USERNAME") ||

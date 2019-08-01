@@ -45,34 +45,38 @@ defmodule AwesomeElixir.Scrapper.Index do
   end
 
   defp extract_data(parsed_markdown) do
-    extract_categories(parsed_markdown) |> enrich_categories(parsed_markdown)
+    parsed_markdown
+    |> extract_categories()
+    |> enrich_categories(parsed_markdown)
   end
 
   defp extract_categories(parsed_markdown) do
-    Enum.reduce_while(parsed_markdown, [], fn markdown_block, result ->
-      case markdown_block do
-        %Block.List{
-          blocks: [
-            %Block.ListItem{
-              blocks: [
-                %Block.Para{lines: ["[Awesome Elixir](#awesome-elixir)"]},
-                %Block.List{blocks: categories} | _
-              ]
-            }
-            | _
-          ]
-        } ->
-          {:halt, categories}
-
-        _ ->
-          {:cont, result}
-      end
-    end)
+    Enum.reduce_while(parsed_markdown, [], &reducer_find_categories/2)
     |> Stream.map(&build_category_from_block_list_item/1)
     |> Stream.map(fn category ->
       {category.name, category}
     end)
     |> Enum.into(%{})
+  end
+
+  defp reducer_find_categories(markdown_block, result) do
+    case markdown_block do
+      %Block.List{
+        blocks: [
+          %Block.ListItem{
+            blocks: [
+              %Block.Para{lines: ["[Awesome Elixir](#awesome-elixir)"]},
+              %Block.List{blocks: categories} | _
+            ]
+          }
+          | _
+        ]
+      } ->
+        {:halt, categories}
+
+      _ ->
+        {:cont, result}
+    end
   end
 
   defp build_category_from_block_list_item(list_item) do
@@ -91,83 +95,77 @@ defmodule AwesomeElixir.Scrapper.Index do
         grab_category_description: false,
         grab_category_items: false
       },
-      fn markdown_block, enrich_state ->
-        case markdown_block do
-          %Block.Heading{content: category_name, level: 2} ->
-            case Map.fetch(enrich_state.categories, category_name) do
-              {:ok, category} ->
-                case enrich_state.current_category do
-                  nil ->
-                    %{
-                      enrich_state
-                      | current_category_key: category_name,
-                        current_category: category,
-                        grab_category_description: true,
-                        grab_category_items: false
-                    }
-
-                  _ ->
-                    categories =
-                      Map.replace!(
-                        enrich_state.categories,
-                        enrich_state.current_category_key,
-                        enrich_state.current_category
-                      )
-
-                    %{
-                      enrich_state
-                      | categories: categories,
-                        current_category_key: category_name,
-                        current_category: category,
-                        grab_category_description: true,
-                        grab_category_items: false
-                    }
-                end
-
-              :error ->
-                enrich_state
-            end
-
-          %Block.Para{lines: [category_description | _]} ->
-            if enrich_state.grab_category_description do
-              current_category = %Category{
-                enrich_state.current_category
-                | description: String.replace(category_description, ~r/^\*|\*$/, "")
-              }
-
-              %{
-                enrich_state
-                | current_category: current_category,
-                  grab_category_description: false,
-                  grab_category_items: true
-              }
-            else
-              enrich_state
-            end
-
-          %Block.List{blocks: item_blocks} ->
-            if enrich_state.grab_category_items do
-              current_category = %Category{
-                enrich_state.current_category
-                | items: Enum.map(item_blocks, &build_item_from_block_list_item/1)
-              }
-
-              %{
-                enrich_state
-                | current_category: current_category,
-                  grab_category_description: false,
-                  grab_category_items: false
-              }
-            else
-              enrich_state
-            end
-
-          _ ->
-            enrich_state
-        end
-      end
+      &reducer_enrich_category/2
     ).categories
   end
+
+  defp reducer_enrich_category(%Block.Heading{content: category_name, level: 2}, enrich_state) do
+    case Map.fetch(enrich_state.categories, category_name) do
+      {:ok, category} ->
+        case enrich_state.current_category do
+          nil ->
+            %{
+              enrich_state
+              | current_category_key: category_name,
+                current_category: category,
+                grab_category_description: true,
+                grab_category_items: false
+            }
+
+          _ ->
+            %{
+              enrich_state
+              | categories:
+                  Map.replace!(
+                    enrich_state.categories,
+                    enrich_state.current_category_key,
+                    enrich_state.current_category
+                  ),
+                current_category_key: category_name,
+                current_category: category,
+                grab_category_description: true,
+                grab_category_items: false
+            }
+        end
+
+      :error ->
+        enrich_state
+    end
+  end
+
+  defp reducer_enrich_category(%Block.Para{lines: [category_description | _]}, enrich_state) do
+    if enrich_state.grab_category_description do
+      %{
+        enrich_state
+        | current_category: %Category{
+            enrich_state.current_category
+            | description: String.replace(category_description, ~r/^\*|\*$/, "")
+          },
+          grab_category_description: false,
+          grab_category_items: true
+      }
+    else
+      enrich_state
+    end
+  end
+
+  defp reducer_enrich_category(%Block.List{blocks: item_blocks}, enrich_state) do
+    if enrich_state.grab_category_items do
+      %{
+        enrich_state
+        | current_category: %Category{
+            enrich_state.current_category
+            | items: Enum.map(item_blocks, &build_item_from_block_list_item/1)
+          },
+          grab_category_description: false,
+          grab_category_items: false
+      }
+    else
+      enrich_state
+    end
+  end
+
+  defp reducer_enrich_category(_, enrich_state), do: enrich_state
 
   defp build_item_from_block_list_item(list_item) do
     %Block.ListItem{blocks: [%Block.Para{lines: [item_line | _]}]} = list_item

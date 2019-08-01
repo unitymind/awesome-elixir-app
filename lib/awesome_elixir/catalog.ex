@@ -21,6 +21,7 @@ defmodule AwesomeElixir.Catalog do
     from(categories in Category,
       left_join: items in Item,
       on: categories.id == items.category_id,
+      where: items.is_scrapped == true,
       where: items.is_dead == false,
       order_by: [categories.name, items.name],
       select: [

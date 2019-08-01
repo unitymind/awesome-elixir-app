@@ -17,6 +17,7 @@ defmodule AwesomeElixir.Catalog.Item do
     field :gitlab, :string
     field :pushed_at, :utc_datetime
     field :is_dead, :boolean
+    field :is_scrapped, :boolean
 
     timestamps()
   end
@@ -31,6 +32,7 @@ defmodule AwesomeElixir.Catalog.Item do
       :stars_count,
       :pushed_at,
       :is_dead,
+      :is_scrapped,
       :github,
       :gitlab,
       :category_id

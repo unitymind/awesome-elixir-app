@@ -12,6 +12,7 @@ defmodule AwesomeElixir.Repo.Migrations.CreateItems do
       add :updated_in, :integer
       add :pushed_at, :utc_datetime
       add :is_dead, :boolean, default: false
+      add :is_scrapped, :boolean, default: false
       add :category_id, references(:categories, on_delete: :restrict, on_update: :update_all)
 
       timestamps()
@@ -21,6 +22,6 @@ defmodule AwesomeElixir.Repo.Migrations.CreateItems do
     create unique_index(:items, [:url])
     create index(:items, [:stars_count])
     create index(:items, [:updated_in])
-    create index(:items, [:is_dead])
+    create index(:items, [:is_dead, :is_scrapped])
   end
 end
