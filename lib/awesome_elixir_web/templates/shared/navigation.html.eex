@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">Awesome Elixir</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <%= for {key, value} <- @navigation_filter_list do %>
+                <li class="nav-item <%= if(@min_stars == key, do: "active") %>">
+                    <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, min_stars: key) %>">&ge;<%= value %>&nbsp;⭐</a>
+                </li>
+            <% end %>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item text-white">Total <%= raw(if(@min_stars != "all", do: "at least <b>#{@min_stars}</b> stars ")) %>items: <b><%= @total_items_count %></b> (in <b><%= @total_categories_count %></b> categories)</li>
+        </ul>
+    </div>
+</nav>
