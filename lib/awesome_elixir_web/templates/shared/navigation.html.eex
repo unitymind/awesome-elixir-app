@@ -20,7 +20,7 @@
           <label for="hideOutdated" class="text-white">Hide Outdated</label>
         </form>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item text-white">Total <%= raw(if(@params["min_stars"] != "all", do: "at least <b>#{@params["min_stars"]}</b> stars ")) %>items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
+          <li class="nav-item text-white">Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
         </ul>
       </div>
     </nav>

@@ -2,16 +2,15 @@
     <main role="main">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <h4>
-                Elixir is awesome. And it has a vast awesome list: <a href="https://github.com/h4cc/awesome-elixir" target="_blank">h4cc/awesome-elixir</a>.<br/>
-                This is a mirror of it where each library is marked with number of
-                stars at <a href="https://github.com" target="_blank">Github</a> and number of days since the last commit.
-            </h4>
-          </div>
+          <h5>
+              Elixir is awesome. And it has a vast awesome list: <a href="https://github.com/h4cc/awesome-elixir" target="_blank">h4cc/awesome-elixir</a>.<br/>
+              This is a mirror of it where each library is marked with number of
+              stars at <a href="https://github.com" target="_blank">Github</a> and number of days since the last commit.
+          </h5>
         </div>
         <div class="row">
-          <div class="col"><h1>Contents</h1></div>
+            <h1>Contents</h1>
+            <span class="text-success">&nbsp;&nbsp;&nbsp;<b><%= @counters.categories %></b></span>
         </div>
         <div class="row">
           <ul>
