@@ -16,22 +16,21 @@ RUN mkdir /app
 WORKDIR /app
 
 # Copy over all the necessary application files and directories
-COPY assets ./assets
-COPY config ./config
-COPY lib ./lib
-COPY priv ./priv
 COPY mix.exs .
 COPY mix.lock .
+COPY run.sh .
+RUN chmod +x run.sh
+CMD ["./run.sh"]
 
 # Fetch the application dependencies and build the application
 RUN mix deps.get --only prod
 RUN mix deps.compile
+COPY assets ./assets
+COPY priv ./priv
 RUN cd assets && npm install && cd ..
 RUN npm run deploy --prefix ./assets
+COPY config ./config
+COPY lib ./lib
+
 RUN mix phx.digest
 RUN mix release
-
-COPY run.sh .
-RUN chmod +x run.sh
-
-CMD ["./run.sh"]
