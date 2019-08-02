@@ -9,7 +9,7 @@
           </h5>
         </div>
         <div class="row">
-            <h1>Contents</h1>
+            <h1>Categories </h1>
             <span class="text-success">&nbsp;&nbsp;&nbsp;<b><%= @counters.categories %></b></span>
         </div>
         <div class="row">

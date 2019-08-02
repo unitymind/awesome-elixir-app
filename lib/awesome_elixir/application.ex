@@ -6,6 +6,7 @@ defmodule AwesomeElixir.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
@@ -17,15 +18,18 @@ defmodule AwesomeElixir.Application do
       %{
         id: Exq,
         start: {Exq, :start_link, []}
-      }
+      },
+      worker(
+        Task,
+        [fn -> Exq.enqueue(Exq, "default", AwesomeElixir.Workers.UpdateIndex, []) end],
+        restart: :temporary
+      )
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: AwesomeElixir.Supervisor]
-    start_result = Supervisor.start_link(children, opts)
-    Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
-    start_result
+    Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration

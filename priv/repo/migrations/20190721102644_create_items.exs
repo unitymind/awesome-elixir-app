@@ -21,7 +21,13 @@ defmodule AwesomeElixir.Repo.Migrations.CreateItems do
     create index(:items, [:category_id])
     create index(:items, [:name])
     create unique_index(:items, [:url])
-    create index(:items, [:is_scrapped, :is_dead, :stars_count, :updated_in], name: :items_full_filters_index)
-    create index(:items, [:is_scrapped, :is_dead, :updated_in], name: :items_filters_without_stars_count_index)
+
+    create index(:items, [:is_scrapped, :is_dead, :stars_count, :updated_in],
+             name: :items_full_filters_index
+           )
+
+    create index(:items, [:is_scrapped, :is_dead, :updated_in],
+             name: :items_filters_without_stars_count_index
+           )
   end
 end
