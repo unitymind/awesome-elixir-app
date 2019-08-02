@@ -37,7 +37,11 @@
               ⭐<sub><%= item.stars_count %></sub>
             <% end %>
             <%= if !is_nil(item.updated_in) do %>
-              📅<sub><%= item.updated_in %></sub>
+              <%= if(item.updated_in != 0) do %>
+                📅<sub><%= item.updated_in %></sub>
+              <% else %>
+                📅<sub class="text-danger">Just updated!</sub>
+              <% end %>
             <% end %>
               <%= item.description |> Earmark.as_html! |> raw %>
              </li>
