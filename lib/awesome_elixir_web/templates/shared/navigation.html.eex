@@ -1,18 +1,26 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="/">Awesome Elixir</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Awesome Elixir</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <%= for {key, value} <- @navigation_filter_list do %>
-                <li class="nav-item <%= if(@min_stars == key, do: "active") %>">
-                    <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, min_stars: key) %>">&ge;<%= value %>&nbsp;⭐</a>
-                </li>
-            <% end %>
+        <%= for {key, value} <- @navigation_filter_list do %>
+          <li class="nav-item <%= if(@params.min_stars == key, do: "active") %>">
+            <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) %>">&ge;<%= value %>&nbsp;⭐</a>
+          </li>
+        <% end %>
         </ul>
+        <form class="form-inline mt-2 mt-md-0 mr-auto" id="tweakCheckboxesForm" action="<%= Routes.catalog_path(@conn, :index) %>">
+          <input type="hidden" name="min_stars" value="<%= @params.min_stars %>"/>
+          <input class="form-control mr-sm-2" type="checkbox" id="showUnstarred" name="show_unstarred" value="true" <%= if @params.show_unstarred, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
+          <label for="showUnstarred" class="text-white">Show Unstarred</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control mr-sm-2" type="checkbox" id="hideOutdated" name="hide_outdated" value="true" <%= if @params.hide_outdated, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
+          <label for="hideOutdated" class="text-white">Hide Outdated</label>
+        </form>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item text-white">Total <%= raw(if(@min_stars != "all", do: "at least <b>#{@min_stars}</b> stars ")) %>items: <b><%= @total_items_count %></b> (in <b><%= @total_categories_count %></b> categories)</li>
+          <li class="nav-item text-white">Total <%= raw(if(@params["min_stars"] != "all", do: "at least <b>#{@params["min_stars"]}</b> stars ")) %>items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
         </ul>
-    </div>
-</nav>
+      </div>
+    </nav>

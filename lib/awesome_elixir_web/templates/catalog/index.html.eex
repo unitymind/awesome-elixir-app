@@ -1,49 +1,49 @@
-<%= render(AwesomeElixirWeb.SharedView, "navigation.html", conn: @conn, navigation_filter_list: @navigation_filter_list, total_categories_count: @total_categories_count, total_items_count: @total_items_count, min_stars: @min_stars) %>
-<main role="main" class="container">
-    <div class="row">
-        <div class="col">
-            <p>
+<%= render(AwesomeElixirWeb.SharedView, "navigation.html", conn: @conn, navigation_filter_list: @navigation_filter_list, counters: @counters, params: @params) %>
+    <main role="main">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4>
                 Elixir is awesome. And it has a vast awesome list: <a href="https://github.com/h4cc/awesome-elixir" target="_blank">h4cc/awesome-elixir</a>.<br/>
                 This is a mirror of it where each library is marked with number of
                 stars at <a href="https://github.com" target="_blank">Github</a> and number of days since the last commit.
-            </p>
+            </h4>
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <h1>Contents</h1>
+        <div class="row">
+          <div class="col"><h1>Contents</h1></div>
         </div>
-    </div>
-    <div class="row">
-        <ul>
-        <%= for {name, slug} <- @categories |> Enum.map(fn c -> {c.name, c.slug} end) do %>
+        <div class="row">
+          <ul>
+          <%= for {name, slug} <- @categories |> Enum.map(fn c -> {c.name, c.slug} end) do %>
             <li><a href="#<%= slug %>"><%= name %></a></li>
+          <% end %>
+          </ul>
+        </div>
+        <%= for category <- @categories do %>
+        <div class="row">
+          <h2 id="<%= category.slug %>"><%= category.name %></h2>
+          <span class="text-success">&nbsp;&nbsp;&nbsp;<b><%= length(category.items) %></b></span>
+        </div>
+        <div class="row">
+          <span><%= category.description |> Earmark.as_html! |> raw %></span>
+        </div>
+        <div class="row">
+          <ul>
+          <%= for item <- category.items do %>
+            <li class="<%= if(item.updated_in >= 365 && !is_nil(item.updated_in), do: "outdated") %>">
+              <a href="<%= item.url %>" target="_blank"><%= item.name %></a>
+            <%= if !is_nil(item.stars_count) do %>
+              ⭐<sub><%= item.stars_count %></sub>
+            <% end %>
+            <%= if !is_nil(item.updated_in) do %>
+              📅<sub><%= item.updated_in %></sub>
+            <% end %>
+              <%= item.description |> Earmark.as_html! |> raw %>
+             </li>
+          <% end %>
+          </ul>
+        </div>
         <% end %>
-        </ul>
-    </div>
-    <%= for category <- @categories do %>
-        <div class="row">
-            <h2 id="<%= category.slug %>"><%= category.name %></h2>
-        </div>
-        <div class="row">
-            <%= category.description |> Earmark.as_html! |> raw %>
-        </div>
-        <div class="row">
-            <ul>
-                <%= for item <- category.items do %>
-                    <li class="<%= if(item.updated_in >= 365 && !is_nil(item.updated_in), do: "outdated") %>">
-                        <a href="<%= item.url %>" target="_blank"><%= item.name %></a>
-                        <%= if !is_nil(item.stars_count) do %>
-                            ⭐<sub><%= item.stars_count %></sub>
-                        <% end %>
-                        <%= if !is_nil(item.updated_in) do %>
-                            📅<sub><%= item.updated_in %></sub>
-                        <% end %>
-                        <%= item.description |> Earmark.as_html! |> raw %>
-                     </li>
-                <% end %>
-            </ul>
-        </div>
-
-    <% end %>
-</main>
+      </div>
+    </main>

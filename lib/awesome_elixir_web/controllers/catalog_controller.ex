@@ -1,6 +1,7 @@
 defmodule AwesomeElixirWeb.CatalogController do
   use AwesomeElixirWeb, :controller
   alias AwesomeElixir.Catalog
+  alias Ecto.Changeset
 
   @navigation_filter_list [
     {"all", "All"},
@@ -11,25 +12,33 @@ defmodule AwesomeElixirWeb.CatalogController do
     {"1000", "1000"}
   ]
 
-  def index(conn, %{"min_stars" => min_stars}) when min_stars in ~w(all 10 50 100 500 1000) do
-    render_index(conn, min_stars)
+  def index(conn, params) do
+    conn |> render_index(filter_params(params))
   end
 
-  def index(conn, _params) do
-    render_index(conn, "all")
-  end
+  defp render_index(conn, filtered_params) do
+    categories = Catalog.list_categories(filtered_params)
 
-  defp render_index(conn, min_stars) do
-    categories = Catalog.list_categories(min_stars)
-    total_categories_count = Catalog.total_categories_count(categories)
-    total_items_count = Catalog.total_items_count(categories)
+    counters = %{
+      categories: Catalog.total_categories_count(categories),
+      items: Catalog.total_items_count(categories)
+    }
 
     render(conn, "index.html",
       navigation_filter_list: @navigation_filter_list,
       categories: categories,
-      total_categories_count: total_categories_count,
-      total_items_count: total_items_count,
-      min_stars: min_stars
+      counters: counters,
+      params: Map.from_struct(filtered_params)
     )
+  end
+
+  defp filter_params(params) do
+    case Catalog.FilterParams.validate(params) do
+      %Changeset{valid?: true} = changeset ->
+        Changeset.apply_changes(changeset)
+
+      %Changeset{} = changeset ->
+        changeset.data |> Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))
+    end
   end
 end

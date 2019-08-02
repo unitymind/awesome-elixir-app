@@ -1,10 +1,10 @@
 defmodule AwesomeElixir.Catalog do
   import Ecto.Query
   alias AwesomeElixir.Repo
-  alias AwesomeElixir.Catalog.{Category, Item}
+  alias AwesomeElixir.Catalog.{Category, Item, FilterParams}
 
-  def list_categories(min_stars \\ "all") do
-    build_query(min_stars)
+  def list_categories(filter_params) do
+    build_query(filter_params)
     |> Repo.all()
   end
 
@@ -35,13 +35,56 @@ defmodule AwesomeElixir.Catalog do
     )
   end
 
-  defp build_query("all") do
-    base_query()
-  end
-
-  defp build_query(min_stars) when min_stars in ~w(10 50 100 500 1000) do
+  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true, hide_outdated: false})
+       when min_stars != "all" do
     from([categories, item] in base_query(),
       where: item.stars_count >= ^min_stars or is_nil(item.stars_count)
     )
+  end
+
+  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true, hide_outdated: true})
+       when min_stars != "all" do
+    from([categories, item] in base_query(),
+      where: item.stars_count >= ^min_stars or is_nil(item.stars_count),
+      where: item.updated_in < 365 or is_nil(item.updated_in)
+    )
+  end
+
+  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false, hide_outdated: false})
+       when min_stars != "all" do
+    from([categories, item] in base_query(),
+      where: item.stars_count >= ^min_stars
+    )
+  end
+
+  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false, hide_outdated: true})
+       when min_stars != "all" do
+    from([categories, item] in base_query(),
+      where: item.stars_count >= ^min_stars,
+      where: item.updated_in < 365 or is_nil(item.updated_in)
+    )
+  end
+
+  defp build_query(%FilterParams{min_stars: "all", show_unstarred: false, hide_outdated: false}) do
+    from([categories, item] in base_query(),
+      where: not is_nil(item.stars_count)
+    )
+  end
+
+  defp build_query(%FilterParams{min_stars: "all", show_unstarred: false, hide_outdated: true}) do
+    from([categories, item] in base_query(),
+      where: not is_nil(item.stars_count),
+      where: item.updated_in < 365 or is_nil(item.updated_in)
+    )
+  end
+
+  defp build_query(%FilterParams{hide_outdated: true}) do
+    from([categories, item] in base_query(),
+      where: item.updated_in < 365 or is_nil(item.updated_in)
+    )
+  end
+
+  defp build_query(%FilterParams{}) do
+    base_query()
   end
 end

@@ -24,7 +24,7 @@ defmodule AwesomeElixir.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: AwesomeElixir.Supervisor]
     start_result = Supervisor.start_link(children, opts)
-    Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
+    #    Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
     start_result
   end
 
