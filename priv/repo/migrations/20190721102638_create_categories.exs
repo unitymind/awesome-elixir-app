@@ -11,5 +11,6 @@ defmodule AwesomeElixir.Repo.Migrations.CreateCategories do
     end
 
     create unique_index(:categories, [:slug])
+    create index(:categories, [:name])
   end
 end
