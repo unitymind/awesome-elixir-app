@@ -9,12 +9,13 @@ defmodule AwesomeElixir.Scrapper.Item do
       {:ok,
        %Response{
          status_code: 200,
-         body: %{pushed_at: pushed_at, watchers: stars_count}
+         body: %{pushed_at: pushed_at, watchers: stars_count, description: description}
        }} ->
         item
         |> Item.insert_or_update_changeset(%{
           stars_count: stars_count,
           pushed_at: pushed_at,
+          description: description,
           is_scrapped: true
         })
         |> Repo.update()

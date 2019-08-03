@@ -36,7 +36,7 @@ defmodule AwesomeElixir.Scrapper do
         entity -> {entity, attributes}
       end
 
-    Item.insert_or_update_changeset(item, attrs)
+    Item.insert_or_update_changeset(item, attrs) |> prevent_description_update()
   end
 
   defp handle_item_changeset(changeset) do
@@ -48,4 +48,10 @@ defmodule AwesomeElixir.Scrapper do
       ])
     end
   end
+
+  defp prevent_description_update(%Ecto.Changeset{data: %Item{is_scrapped: true}} = changeset) do
+    Ecto.Changeset.delete_change(changeset, :description)
+  end
+
+  defp prevent_description_update(changeset), do: changeset
 end

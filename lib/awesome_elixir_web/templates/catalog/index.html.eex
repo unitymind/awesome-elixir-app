@@ -25,7 +25,7 @@
           <span class="text-success">&nbsp;&nbsp;&nbsp;<b><%= length(category.items) %></b></span>
         </div>
         <div class="row">
-          <span><%= category.description |> Earmark.as_html! |> raw %></span>
+          <span><%= category.description |> Earmark.as_html!(%Earmark.Options{pure_links: false}) |> raw %></span>
         </div>
         <div class="row">
           <ul>
@@ -42,7 +42,7 @@
                 📅<sub class="text-danger">Just updated!</sub>
               <% end %>
             <% end %>
-              <%= item.description |> Earmark.as_html! |> raw %>
+              <%= item.description |> Earmark.as_html!(%Earmark.Options{pure_links: false}) |> raw %>
              </li>
           <% end %>
           </ul>
