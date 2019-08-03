@@ -1,36 +1,54 @@
 # ---- Build Stage ----
-FROM elixir:alpine
+FROM elixir:alpine as build
 
 ENV MIX_ENV=prod \
     LANG=C.UTF-8
 
 # Install required packages
-RUN apk --no-cache add openssl nodejs nodejs-npm git
-
-# Install hex and rebar
-RUN mix local.hex --force && \
-    mix local.rebar --force
+RUN apk --no-cache add git nodejs nodejs-npm
 
 # Create the application build directory
 RUN mkdir /app
 WORKDIR /app
 
-# Copy over all the necessary application files and directories
-COPY mix.exs .
-COPY mix.lock .
-COPY run.sh .
-RUN chmod +x run.sh
-CMD ["./run.sh"]
+# Install hex and rebar
+RUN mix local.hex --force && \
+    mix local.rebar --force
 
-# Fetch the application dependencies and build the application
+# Install mix dependencies
+COPY mix.exs mix.lock ./
+COPY config config
 RUN mix deps.get --only prod
 RUN mix deps.compile
-COPY assets ./assets
-COPY priv ./priv
-RUN cd assets && npm install && cd ..
-RUN npm run deploy --prefix ./assets
-COPY config ./config
-COPY lib ./lib
 
+# Build assets
+COPY assets assets
+RUN cd assets && npm install && npm run deploy
 RUN mix phx.digest
+
+# Build project
+COPY priv priv
+COPY lib lib
+RUN mix compile
+
+# Build release
+COPY rel rel
 RUN mix release
+
+# ---- App Stage ----
+FROM alpine:3.9 AS app
+RUN apk add --no-cache bash openssl
+
+RUN mkdir /app
+WORKDIR /app
+ENV HOME=/app
+
+# Copy and prepare run script
+COPY run.sh .
+RUN chmod +x run.sh
+
+COPY --from=build /app/_build/prod/rel/awesome_elixir ./
+RUN chown -R nobody: /app
+USER nobody
+
+CMD ["./run.sh"]

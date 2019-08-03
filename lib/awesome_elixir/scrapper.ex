@@ -5,16 +5,16 @@ defmodule AwesomeElixir.Scrapper do
   def get_item_by_id(item_id), do: Repo.get(Item, item_id)
 
   def store_data(data) do
-    Enum.each(data, fn {_, category} ->
+    for {_, category} <- data do
       {:ok, category_from_db} =
         build_changeset_for_category(Map.from_struct(category))
         |> handle_category_changeset()
 
-      Enum.each(category.items, fn item ->
+      for item <- category.items do
         build_changeset_for_item(Map.from_struct(item), category_from_db.id)
         |> handle_item_changeset()
-      end)
-    end)
+      end
+    end
   end
 
   defp build_changeset_for_category(attributes) do
