@@ -21,7 +21,8 @@ defmodule AwesomeElixirWeb.CatalogController do
 
     counters = %{
       categories: Catalog.total_categories_count(categories),
-      items: Catalog.total_items_count(categories)
+      items: Catalog.total_items_count(categories),
+      last_updated_at: Catalog.last_updated_at()
     }
 
     render(conn, "index.html",

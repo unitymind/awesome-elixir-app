@@ -5,7 +5,7 @@ defmodule AwesomeElixir.Catalog do
 
   def list_categories(filter_params) do
     build_query(filter_params)
-    |> filter_outdated(filter_params)
+    |> filter_by_updated_in(filter_params)
     |> Repo.all()
   end
 
@@ -15,6 +15,13 @@ defmodule AwesomeElixir.Catalog do
 
   def total_items_count(categories) do
     Enum.reduce(categories, 0, fn category, acc -> acc + length(category.items) end)
+  end
+
+  def last_updated_at do
+    case Repo.one(from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1) do
+      nil -> "never"
+      item -> item.updated_at
+    end
   end
 
   defp base_query do
@@ -56,11 +63,17 @@ defmodule AwesomeElixir.Catalog do
 
   defp build_query(%FilterParams{}), do: base_query()
 
-  defp filter_outdated(query, %FilterParams{hide_outdated: true}) do
+  defp filter_by_updated_in(query, %FilterParams{show_just_updated: true}) do
+    from([categories, item] in query,
+      where: item.updated_in <= 7 or is_nil(item.updated_in)
+    )
+  end
+
+  defp filter_by_updated_in(query, %FilterParams{hide_outdated: true}) do
     from([categories, item] in query,
       where: item.updated_in < 365 or is_nil(item.updated_in)
     )
   end
 
-  defp filter_outdated(query, %FilterParams{}), do: query
+  defp filter_by_updated_in(query, %FilterParams{}), do: query
 end

@@ -36,10 +36,10 @@
               ⭐<sub><%= item.stars_count %></sub>
             <% end %>
             <%= if !is_nil(item.updated_in) do %>
-              <%= if(item.updated_in != 0) do %>
-                📅<sub><%= item.updated_in %></sub>
-              <% else %>
+              <%= if(item.updated_in <= 7) do %>
                 📅<sub class="text-danger">Just updated!</sub>
+              <% else %>
+                📅<sub><%= item.updated_in %></sub>
               <% end %>
             <% end %>
               <%= item.description |> Earmark.as_html!(%Earmark.Options{pure_links: false}) |> raw %>
@@ -50,3 +50,4 @@
         <% end %>
       </div>
     </main>
+<%= render(AwesomeElixirWeb.SharedView, "footer.html", conn: @conn, last_updated_at: @counters.last_updated_at) %>

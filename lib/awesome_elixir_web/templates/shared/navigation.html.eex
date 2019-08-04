@@ -11,16 +11,27 @@
           </li>
         <% end %>
         </ul>
-        <form class="form-inline mt-2 mt-md-0 mr-auto" id="tweakCheckboxesForm" action="<%= Routes.catalog_path(@conn, :index) %>">
-          <input type="hidden" name="min_stars" value="<%= @params.min_stars %>"/>
-          <input class="form-control mr-sm-2" type="checkbox" id="showUnstarred" name="show_unstarred" value="true" <%= if @params.show_unstarred, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
-          <label for="showUnstarred" class="text-white">Show Unstarred</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input class="form-control mr-sm-2" type="checkbox" id="hideOutdated" name="hide_outdated" value="true" <%= if @params.hide_outdated, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
-          <label for="hideOutdated" class="text-white">Hide Outdated</label>
-        </form>
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item text-white">Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
         </ul>
       </div>
     </nav>
+
+    <div class="navbar navbar-expand-md bg-white shadow-sm fixed-top justify-content-md-center" style="margin-top: 3.5em;">
+      <div>
+        <form class="form-inline mt-2 mt-md-0 mr-auto" id="tweakCheckboxesForm" action="<%= Routes.catalog_path(@conn, :index) %>">
+          <input type="hidden" name="min_stars" value="<%= @params.min_stars %>"/>
+          <input class="form-control mr-sm-2" type="checkbox" id="showUnstarred" name="show_unstarred" value="true" <%= if @params.show_unstarred, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
+          <label for="showUnstarred">Show Unstarred</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control mr-sm-2" type="checkbox" id="hideOutdated" name="hide_outdated" value="true" <%= if @params.hide_outdated, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
+          <label for="hideOutdated">Hide Outdated</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input class="form-control mr-sm-2" type="checkbox" id="showJustUpdated" name="show_just_updated" value="true" <%= if @params.show_just_updated, do: "checked" %> onchange="$('#tweakCheckboxesForm').submit();"/>
+          <label for="showJustUpdated">Show Just Updated &nbsp;<sup class="text-success">(in one week)</sup></label>
+        </form>
+      </div>
+    </div>
+
+    <footer class="fixed-bottom"><span class="outdated">Last updated at: <%= @counters.last_updated_at %></span></footer>
