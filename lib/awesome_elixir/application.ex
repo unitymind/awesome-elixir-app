@@ -6,20 +6,17 @@ defmodule AwesomeElixir.Application do
   use Application
 
   def start(_type, _args) do
-    update_index_spec =
-      if Phoenix.Endpoint.Supervisor.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
-        [
-          Task.child_spec(fn ->
-            Exq.enqueue(Exq, "default", AwesomeElixir.Workers.UpdateIndex, [])
-          end)
-        ]
+    {migration_spec, update_index_spec} =
+      if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
+        {migration_task_spec(), update_index_task_spec()}
       else
-        []
+        {nil, nil}
       end
 
     children =
-      [AwesomeElixir.Repo | Exq.Support.Mode.children([])] ++
-        update_index_spec ++ [AwesomeElixirWeb.Endpoint]
+      ([AwesomeElixir.Repo, migration_spec | Exq.Support.Mode.children([])] ++
+         [update_index_spec, AwesomeElixirWeb.Endpoint])
+      |> Enum.reject(&is_nil/1)
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -32,5 +29,25 @@ defmodule AwesomeElixir.Application do
   def config_change(changed, _new, removed) do
     AwesomeElixirWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp migration_task_spec do
+    Supervisor.child_spec(
+      {Task,
+        fn ->
+          AwesomeElixir.ReleaseTasks.migrate()
+        end},
+      id: {Task, 1}
+    )
+  end
+
+  defp update_index_task_spec do
+    Supervisor.child_spec(
+      {Task,
+        fn ->
+          Exq.enqueue_in(Exq, "default", 15, AwesomeElixir.Workers.UpdateIndex, [])
+        end},
+      id: {Task, 2}
+    )
   end
 end
