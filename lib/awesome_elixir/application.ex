@@ -8,7 +8,7 @@ defmodule AwesomeElixir.Application do
   def start(_type, _args) do
     {migration_spec, update_index_spec} =
       if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
-        {migration_task_spec(), update_index_task_spec()}
+        {migration_task_spec(), update_index_task_spec(5)}
       else
         {nil, nil}
       end
@@ -41,11 +41,11 @@ defmodule AwesomeElixir.Application do
     )
   end
 
-  defp update_index_task_spec do
+  defp update_index_task_spec(delay) do
     Supervisor.child_spec(
       {Task,
         fn ->
-          Exq.enqueue_in(Exq, "default", 15, AwesomeElixir.Workers.UpdateIndex, [])
+          Exq.enqueue_in(Exq, "default", delay, AwesomeElixir.Workers.UpdateIndex, [])
         end},
       id: {Task, 2}
     )

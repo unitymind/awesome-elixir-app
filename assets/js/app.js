@@ -22,3 +22,19 @@ import 'phoenix_html'
 import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
+
+$(document).ready(function(e) {
+    $(".js-scroll-to").click(function(e) {
+
+        // Get the href dynamically
+        let destination = $(this).attr('href');
+
+        // Prevent href=“#” link from changing the URL hash (optional)
+        // e.preventDefault();
+
+        // Animate scroll to destination
+        $('html, body').animate({
+            scrollTop: parseInt($(destination).offset().top) - 125
+        }, 500);
+    });
+});

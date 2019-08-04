@@ -15,7 +15,7 @@
         <div class="row">
           <ul>
           <%= for {name, slug} <- @categories |> Enum.map(fn c -> {c.name, c.slug} end) do %>
-            <li><a href="#<%= slug %>"><%= name %></a></li>
+            <li><a href="#<%= slug %>" class="js-scroll-to"><%= name %></a></li>
           <% end %>
           </ul>
         </div>
