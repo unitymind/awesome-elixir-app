@@ -1,15 +1,7 @@
 defmodule AwesomeElixir.Scrapper.GithubApi do
-  use HTTPoison.Base
+  use AwesomeElixir.Scrapper.BaseApi, "https://api.github.com"
 
-  def process_request_url(url) do
-    "https://api.github.com" <> url
-  end
-
-  def process_response_body(body) do
-    body
-    |> Jason.decode!(%{keys: :atoms})
-  end
-
+  @impl true
   def process_request_options(options) do
     case Application.fetch_env(:awesome_elixir, AwesomeElixirWeb.GithubApi) do
       {:ok, github_api_config} ->
