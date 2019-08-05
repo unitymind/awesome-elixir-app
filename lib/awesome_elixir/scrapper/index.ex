@@ -105,70 +105,67 @@ defmodule AwesomeElixir.Scrapper.Index do
     ).categories
   end
 
-  defp reducer_enrich_category(%Block.Heading{content: category_name, level: 2}, enrich_state) do
-    case Map.fetch(enrich_state.categories, category_name) do
-      {:ok, category} ->
-        case enrich_state.current_category do
-          nil ->
-            %{
-              enrich_state
-              | current_category_key: category_name,
-                current_category: category,
-                grab_category_description: true,
-                grab_category_items: false
-            }
-
-          _ ->
-            %{
-              enrich_state
-              | categories:
-                  Map.replace!(
-                    enrich_state.categories,
-                    enrich_state.current_category_key,
-                    enrich_state.current_category
-                  ),
-                current_category_key: category_name,
-                current_category: category,
-                grab_category_description: true,
-                grab_category_items: false
-            }
-        end
-
-      :error ->
-        enrich_state
-    end
-  end
-
-  defp reducer_enrich_category(%Block.Para{lines: [category_description | _]}, enrich_state) do
-    if enrich_state.grab_category_description do
-      %{
-        enrich_state
-        | current_category: %Category{
-            enrich_state.current_category
-            | description: String.replace(category_description, ~r/^\*|\*$/, "")
-          },
-          grab_category_description: false,
-          grab_category_items: true
-      }
-    else
-      enrich_state
-    end
-  end
-
-  defp reducer_enrich_category(%Block.List{blocks: item_blocks}, enrich_state) do
-    if enrich_state.grab_category_items do
-      %{
-        enrich_state
-        | current_category: %Category{
-            enrich_state.current_category
-            | items: Enum.map(item_blocks, &build_item_from_block_list_item/1)
-          },
-          grab_category_description: false,
+  defp reducer_enrich_category(
+         %Block.Heading{content: category_name, level: 2},
+         enrich_state
+       ) do
+    case enrich_state do
+      %{categories: %{^category_name => category}} ->
+        %{
+          enrich_state
+        | current_category_key: category_name,
+          current_category: category,
+          grab_category_description: true,
           grab_category_items: false
-      }
-    else
-      enrich_state
+        }
+      _ -> enrich_state
     end
+  end
+
+  defp reducer_enrich_category(
+         %Block.Para{lines: [category_description | _]},
+         %{grab_category_description: true} = enrich_state
+       ) do
+    current_category = %Category{
+      enrich_state.current_category
+      | description: String.replace(category_description, ~r/^\*|\*$/, "")
+    }
+
+    %{
+      enrich_state
+      | categories:
+          Map.replace!(
+            enrich_state.categories,
+            enrich_state.current_category_key,
+            current_category
+          ),
+        current_category: current_category,
+        grab_category_description: false,
+        grab_category_items: true
+    }
+  end
+
+  defp reducer_enrich_category(
+         %Block.List{blocks: item_blocks},
+         %{grab_category_items: true} = enrich_state
+       ) do
+    current_category = %Category{
+      enrich_state.current_category
+      | items: Enum.map(item_blocks, &build_item_from_block_list_item/1)
+    }
+
+    %{
+      enrich_state
+      | categories:
+          Map.replace!(
+            enrich_state.categories,
+            enrich_state.current_category_key,
+            current_category
+          ),
+        current_category: current_category,
+        grab_category_description: false,
+        grab_category_items: false
+    }
   end
 
   defp reducer_enrich_category(_, enrich_state), do: enrich_state
