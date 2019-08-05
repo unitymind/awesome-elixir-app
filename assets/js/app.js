@@ -10,9 +10,7 @@ import css from "../css/app.css"
 // Import dependencies
 //
 import 'jquery'
-import 'popper.js'
 import 'bootstrap'
-import 'phoenix_html'
 
 // Import local files
 //
@@ -24,17 +22,14 @@ window.jQuery = $;
 window.$ = $;
 
 $(document).ready(function(e) {
-    $(".js-scroll-to").click(function(e) {
+  $(".js-scroll-to").click(function(e) {
 
-        // Get the href dynamically
-        let destination = $(this).attr('href');
+    // Get the href dynamically
+    let destination = $(this).attr('href');
 
-        // Prevent href=“#” link from changing the URL hash (optional)
-        // e.preventDefault();
-
-        // Animate scroll to destination
-        $('html, body').animate({
-            scrollTop: parseInt($(destination).offset().top) - 125
-        }, 500);
-    });
+    // Animate scroll to destination
+    $('html, body').animate({
+      scrollTop: parseInt($(destination).offset().top) - 125
+    }, 500);
+  });
 });
