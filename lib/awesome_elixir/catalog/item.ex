@@ -1,11 +1,11 @@
 defmodule AwesomeElixir.Catalog.Item do
-  use Ecto.Schema
+  use TypedEctoSchema
   import Ecto.Changeset
 
   @github_url_prefix "https://github.com/"
   @gitlab_url_prefix "https://gitlab.com/"
 
-  schema "items" do
+  typed_schema "items" do
     belongs_to :category, AwesomeElixir.Catalog.Category
 
     field :description, :string
@@ -23,6 +23,7 @@ defmodule AwesomeElixir.Catalog.Item do
   end
 
   @doc false
+  @spec insert_or_update_changeset(AwesomeElixir.Catalog.Item.t(), map()) :: Ecto.Changeset.t()
   def insert_or_update_changeset(item, attrs) do
     item
     |> cast(attrs, [
@@ -74,14 +75,10 @@ defmodule AwesomeElixir.Catalog.Item do
     end
   end
 
-  defp set_updated_in(changeset) do
-    case changeset.changes do
-      %{pushed_at: pushed_at} ->
-        changeset
-        |> put_change(:updated_in, Date.diff(Date.utc_today(), DateTime.to_date(pushed_at)))
-
-      _ ->
-        changeset
-    end
+  defp set_updated_in(%Ecto.Changeset{changes: %{pushed_at: pushed_at}} = changeset) do
+    changeset
+    |> put_change(:updated_in, Date.diff(Date.utc_today(), DateTime.to_date(pushed_at)))
   end
+
+  defp set_updated_in(changeset), do: changeset
 end

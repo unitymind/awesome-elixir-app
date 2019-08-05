@@ -4,7 +4,7 @@ defmodule AwesomeElixir.Scrapper.Item do
   alias AwesomeElixir.Scrapper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
-  def update(%Item{github: github} = item) when is_binary(github) do
+  def update(%Item{github: github} = item) when not is_nil(github) do
     case GithubApi.get("/repos/" <> github) do
       {:ok,
        %Response{
@@ -52,7 +52,7 @@ defmodule AwesomeElixir.Scrapper.Item do
     end
   end
 
-  def update(%Item{gitlab: gitlab} = item) when is_binary(gitlab) do
+  def update(%Item{gitlab: gitlab} = item) when not is_nil(gitlab) do
     case GitlabApi.get("/projects/" <> URI.encode_www_form(gitlab)) do
       {:ok,
        %Response{
@@ -78,19 +78,10 @@ defmodule AwesomeElixir.Scrapper.Item do
   end
 
   def update(%Item{url: "https://hex.pm" <> hex_package} = item) do
-    changeset =
-      case extract_repo_from_hexpm(hex_package) do
-        %{github: github} ->
-          Item.insert_or_update_changeset(item, %{github: github})
-
-        %{gitlab: gitlab} ->
-          Item.insert_or_update_changeset(item, %{gitlab: gitlab})
-
-        _ ->
-          %Ecto.Changeset{}
-      end
-
-    case Repo.update(changeset) do
+    case Repo.update(
+           item
+           |> Item.insert_or_update_changeset(extract_repo_from_hexpm(hex_package))
+         ) do
       {:error, _} -> :error
       {:ok, _} -> {:retry, :now}
     end
@@ -142,11 +133,11 @@ defmodule AwesomeElixir.Scrapper.Item do
 
   defp extract_repo_from_hexpm(hex_package) do
     case HexpmApi.get(hex_package) do
-      {:ok, %Response{body: %{meta: %{links: links}}, status_code: 200}} ->
+      {:ok, %Response{status_code: 200, body: %{meta: %{links: links}}}} ->
         Enum.reduce(Map.values(links), %{}, &extract_from_hexpm_link/2)
 
       _ ->
-        nil
+        %{}
     end
   end
 

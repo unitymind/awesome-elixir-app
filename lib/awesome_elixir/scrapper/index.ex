@@ -4,10 +4,18 @@ defmodule AwesomeElixir.Scrapper.Index do
 
   defmodule Category do
     defstruct name: nil, slug: nil, description: nil, items: []
+
+    @type t :: %__MODULE__{
+            name: String.t(),
+            slug: String.t(),
+            description: String.t(),
+            items: [AwesomeElixir.Scrapper.Index.Item.t()]
+          }
   end
 
   defmodule Item do
     defstruct name: nil, url: nil, description: nil
+    @type t :: %__MODULE__{name: String.t(), url: String.t(), description: String.t()}
   end
 
   def update do
@@ -38,10 +46,8 @@ defmodule AwesomeElixir.Scrapper.Index do
   end
 
   defp parse_markdown(raw_markdown) do
-    case Parser.parse_markdown(raw_markdown) do
-      {markdown_blocks, _} -> markdown_blocks
-      _ -> :error
-    end
+    {markdown_blocks, _} = Parser.parse_markdown(raw_markdown)
+    markdown_blocks
   end
 
   defp extract_data(parsed_markdown) do

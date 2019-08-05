@@ -1,10 +1,10 @@
 defmodule AwesomeElixir.Catalog.FilterParams do
-  use Ecto.Schema
+  use TypedEctoSchema
   import Ecto.Changeset
 
   @primary_key false
 
-  embedded_schema do
+  typed_embedded_schema do
     field :min_stars, :string, default: "all"
     field :show_unstarred, :boolean, default: false
     field :hide_outdated, :boolean, default: false
