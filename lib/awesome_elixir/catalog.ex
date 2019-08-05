@@ -18,9 +18,11 @@ defmodule AwesomeElixir.Catalog do
   end
 
   def last_updated_at do
-    case Repo.one(from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1) do
-      nil -> "never"
-      item -> item.updated_at
+    case Repo.one(
+           from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1
+         ) do
+      %Item{updated_at: updated_at} -> updated_at
+      _ -> "never"
     end
   end
 

@@ -6,17 +6,10 @@ defmodule AwesomeElixir.Application do
   use Application
 
   def start(_type, _args) do
-    {migration_spec, update_index_spec} =
-      if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
-        {migration_task_spec(), update_index_task_spec(5)}
-      else
-        {nil, nil}
-      end
-
-    children =
-      ([AwesomeElixir.Repo, migration_spec | Exq.Support.Mode.children([])] ++
-         [update_index_spec, AwesomeElixirWeb.Endpoint])
-      |> Enum.reject(&is_nil/1)
+    children = [
+      AwesomeElixir.Repo,
+      AwesomeElixir.Application.SupervisorWithBlockedMigration
+    ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -31,23 +24,33 @@ defmodule AwesomeElixir.Application do
     :ok
   end
 
-  defp migration_task_spec do
-    Supervisor.child_spec(
-      {Task,
-        fn ->
-          AwesomeElixir.ReleaseTasks.migrate()
-        end},
-      id: {Task, 1}
-    )
-  end
+  defmodule SupervisorWithBlockedMigration do
+    use Supervisor
 
-  defp update_index_task_spec(delay) do
-    Supervisor.child_spec(
-      {Task,
-        fn ->
-          Exq.enqueue_in(Exq, "default", delay, AwesomeElixir.Workers.UpdateIndex, [])
-        end},
-      id: {Task, 2}
-    )
+    def start_link(init_arg) do
+      Supervisor.start_link(__MODULE__, init_arg, name: __MODULE__)
+    end
+
+    @impl true
+    def init(_init_arg) do
+      update_index_spec =
+        if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
+          AwesomeElixir.ReleaseTasks.migrate()
+
+          Supervisor.child_spec(
+            {Task,
+             fn ->
+               Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
+             end},
+            id: {Task, :update_index}
+          )
+        end
+
+      children =
+        (Exq.Support.Mode.children([]) ++ [update_index_spec, AwesomeElixirWeb.Endpoint])
+        |> Enum.reject(&is_nil/1)
+
+      Supervisor.init(children, strategy: :one_for_one)
+    end
   end
 end
