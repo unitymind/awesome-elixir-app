@@ -3,9 +3,9 @@ defmodule AwesomeElixir.Repo.Migrations.CreateCategories do
 
   def change do
     create table(:categories) do
-      add :name, :string
-      add :slug, :string
-      add :description, :text
+      add :name, :string, null: false
+      add :slug, :string, null: false
+      add :description, :text, null: false
 
       timestamps()
     end
