@@ -4,6 +4,9 @@ defmodule AwesomeElixir.Scrapper.Item do
   alias AwesomeElixir.Scrapper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
+  @spec update(Item.t()) ::
+          {:ok, Item.t()} | {:error, Ecto.Changeset.t()} | {:retry, :now} | {:retry, DateTime.t()}
+
   def update(%Item{git_source: %{github: github}} = item) when not is_nil(github) do
     case GithubApi.get("/repos/" <> github) do
       {:ok,

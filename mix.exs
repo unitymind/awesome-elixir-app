@@ -38,6 +38,7 @@ defmodule AwesomeElixir.MixProject do
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.1"},
       {:typed_ecto_schema, "~> 0.1.0"},
+      {:typed_struct, "~> 0.1.4"},
       {:postgrex, "~> 0.15.0"},
       {:phoenix_html, "~> 2.13"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},

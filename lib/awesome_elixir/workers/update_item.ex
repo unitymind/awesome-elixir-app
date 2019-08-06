@@ -12,11 +12,11 @@ defmodule AwesomeElixir.Workers.UpdateItem do
           {:retry, :now} ->
             retry_in(item.id, Enum.random(50..70))
 
+          {:ok, %Catalog.Item{}} ->
+            schedule_update(item.id)
+
           {:retry, at} ->
             retry_at(item.id, at)
-
-          {:ok, %Catalog.Item{} = item} ->
-            schedule_update(item.id)
 
           _ ->
             nil

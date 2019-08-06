@@ -3,66 +3,81 @@ defmodule AwesomeElixir.Scrapper.Index do
   alias Earmark.{Block, Parser}
 
   defmodule Category do
-    defstruct name: nil, slug: nil, description: nil, items: []
+    use TypedStruct
 
-    @type t :: %__MODULE__{
-            name: String.t(),
-            slug: String.t(),
-            description: String.t(),
-            items: [AwesomeElixir.Scrapper.Index.Item.t()]
-          }
-  end
-
-  defmodule Item do
-    defstruct name: nil, url: nil, description: nil
-    @type t :: %__MODULE__{name: String.t(), url: String.t(), description: String.t()}
-  end
-
-  def update do
-    fetch() |> update_flow() |> Scrapper.store_data()
-    :ok
-  end
-
-  def update_from_file(path) do
-    case File.read(path) do
-      {:ok, content} ->
-        update_flow(content) |> Scrapper.store_data()
-        :ok
-
-      _ ->
-        :error
+    typedstruct do
+      field :name, :string
+      field :slug, :string
+      field :description, :text
+      field :items, {:array, AwesomeElixir.Scrapper.Index.Item}
     end
   end
 
-  defp update_flow(content) do
-    content |> parse_markdown() |> extract_data()
+  defmodule Item do
+    use TypedStruct
+
+    typedstruct do
+      field :name, :string
+      field :url, :string
+      field :description, :text
+    end
+  end
+
+  @spec update() ::
+          %{required(String.t()) => AwesomeElixir.Scrapper.Index.Category.t()}
+          | {:error, HTTPoison.Error.t()}
+  def update do
+    with content when is_binary(content) <- fetch(),
+         data when is_map(data) <- update_flow(content) do
+      Scrapper.store_data(data)
+    end
+  end
+
+  @spec update_from_file(String.t()) ::
+          %{
+            required(String.t()) => AwesomeElixir.Scrapper.Index.Category.t()
+          }
+          | {:error, File.posix()}
+  def update_from_file(path) do
+    with {:ok, content} when is_binary(content) <- File.read(path),
+         data when is_map(data) <- update_flow(content) do
+      Scrapper.store_data(data)
+    end
+  end
+
+  defp update_flow(raw_markdown) do
+    raw_markdown |> parse_markdown() |> extract_data()
   end
 
   defp fetch do
-    case HTTPoison.get("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md") do
-      {:ok, %HTTPoison.Response{body: content}} -> content
-      _ -> :error
+    with {:ok, %HTTPoison.Response{body: content, status_code: 200}} <-
+           HTTPoison.get("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md") do
+      content
     end
   end
 
   defp parse_markdown(raw_markdown) do
-    {markdown_blocks, _} = Parser.parse_markdown(raw_markdown)
+    with {markdown_blocks, _} <- Parser.parse_markdown(raw_markdown) do
+      markdown_blocks
+    end
+  end
+
+  defp extract_data(markdown_blocks) do
     markdown_blocks
-  end
-
-  defp extract_data(parsed_markdown) do
-    parsed_markdown
     |> extract_categories()
-    |> enrich_categories(parsed_markdown)
+    |> enrich_categories()
   end
 
-  defp extract_categories(parsed_markdown) do
-    Enum.reduce_while(parsed_markdown, [], &reducer_find_categories/2)
-    |> Stream.map(&build_category_from_block_list_item/1)
-    |> Stream.map(fn category ->
-      {category.name, category}
-    end)
-    |> Enum.into(%{})
+  defp extract_categories(markdown_blocks) do
+    categories =
+      Enum.reduce_while(markdown_blocks, [], &reducer_find_categories/2)
+      |> Stream.map(&build_category_from_block_list_item/1)
+      |> Stream.map(fn category ->
+        {category.name, category}
+      end)
+      |> Enum.into(%{})
+
+    {categories, markdown_blocks}
   end
 
   defp reducer_find_categories(markdown_block, result) do
@@ -91,9 +106,9 @@ defmodule AwesomeElixir.Scrapper.Index do
     %Category{name: String.replace(name, ~r/^\[/, ""), slug: String.replace(slug, ~r/\)$/, "")}
   end
 
-  defp enrich_categories(categories, parsed_markdown) do
+  defp enrich_categories({categories, markdown_blocks}) do
     Enum.reduce(
-      parsed_markdown,
+      markdown_blocks,
       %{
         categories: categories,
         current_category_key: nil,
@@ -113,12 +128,14 @@ defmodule AwesomeElixir.Scrapper.Index do
       %{categories: %{^category_name => category}} ->
         %{
           enrich_state
-        | current_category_key: category_name,
-          current_category: category,
-          grab_category_description: true,
-          grab_category_items: false
+          | current_category_key: category_name,
+            current_category: category,
+            grab_category_description: true,
+            grab_category_items: false
         }
-      _ -> enrich_state
+
+      _ ->
+        enrich_state
     end
   end
 
