@@ -33,22 +33,26 @@ defmodule AwesomeElixir.Application do
 
     @impl true
     def init(_init_arg) do
-      update_index_spec =
+      server_mode_specs =
         if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
+          # Migrate before running Exq facilities and endpoints
           AwesomeElixir.ReleaseTasks.migrate()
 
-          Supervisor.child_spec(
-            {Task,
-             fn ->
-               Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
-             end},
-            id: {Task, :update_index}
-          )
+          Exq.Support.Mode.children([]) ++
+            [
+              Supervisor.child_spec(
+                {Task,
+                 fn ->
+                   Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
+                 end},
+                id: {Task, :update_index}
+              )
+            ]
+        else
+          []
         end
 
-      children =
-        (Exq.Support.Mode.children([]) ++ [update_index_spec, AwesomeElixirWeb.Endpoint])
-        |> Enum.reject(&is_nil/1)
+      children = (server_mode_specs ++ [AwesomeElixirWeb.Endpoint]) |> Enum.reject(&is_nil/1)
 
       Supervisor.init(children, strategy: :one_for_one)
     end
