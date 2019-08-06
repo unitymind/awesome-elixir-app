@@ -13,8 +13,12 @@ defmodule AwesomeElixir.Catalog.Item do
     field :stars_count, :integer
     field :updated_in, :integer
     field :url, :string
-    field :github, :string
-    field :gitlab, :string
+
+    embeds_one :git_source, GitSource, on_replace: :delete, primary_key: false do
+      field :github, :string
+      field :gitlab, :string
+    end
+
     field :pushed_at, :utc_datetime
     field :is_dead, :boolean
     field :is_scrapped, :boolean
@@ -34,44 +38,42 @@ defmodule AwesomeElixir.Catalog.Item do
       :pushed_at,
       :is_dead,
       :is_scrapped,
-      :github,
-      :gitlab,
       :category_id
     ])
+    |> cast_embed(:git_source, with: &git_source_changeset/2)
     |> validate_required([:name, :url, :description])
     |> unique_constraint(:url)
     |> foreign_key_constraint(:category_id)
     |> assoc_constraint(:category)
-    |> set_github()
-    |> set_gitlab()
+    |> set_git_source()
     |> set_updated_in()
   end
 
-  defp set_github(changeset) do
-    case changeset.changes do
-      %{url: @github_url_prefix <> github} ->
-        if String.split(github, "/", trim: true) |> length == 2 do
-          changeset |> put_change(:github, String.replace(github, ~r/\/$|\.git$/, ""))
-        else
-          changeset
-        end
-
-      _ ->
-        changeset
-    end
+  defp git_source_changeset(schema, params) do
+    schema
+    |> cast(params, ~w(github gitlab)a)
   end
 
-  defp set_gitlab(changeset) do
-    case changeset.changes do
-      %{url: @gitlab_url_prefix <> gitlab} ->
-        if String.split(gitlab, "/", trim: true) |> length == 2 do
-          changeset |> put_change(:gitlab, String.replace(gitlab, ~r/\/$|\.git$/, ""))
-        else
-          changeset
-        end
+  defp set_git_source(%Ecto.Changeset{changes: %{url: @github_url_prefix <> rest}} = changeset) do
+    handle_git_source(changeset, :github, rest)
+  end
 
-      _ ->
-        changeset
+  defp set_git_source(%Ecto.Changeset{changes: %{url: @gitlab_url_prefix <> rest}} = changeset) do
+    handle_git_source(changeset, :gitlab, rest)
+  end
+
+  defp set_git_source(changeset), do: changeset
+
+  defp handle_git_source(changeset, kind, uri) do
+    if String.split(uri, "/", trim: true) |> length == 2 do
+      changeset
+      |> put_embed(
+        :git_source,
+        %AwesomeElixir.Catalog.Item.GitSource{}
+        |> Map.put(kind, String.replace(uri, ~r/\/$|\.git$/, ""))
+      )
+    else
+      changeset
     end
   end
 

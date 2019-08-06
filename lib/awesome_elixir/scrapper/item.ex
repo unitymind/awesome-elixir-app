@@ -4,7 +4,7 @@ defmodule AwesomeElixir.Scrapper.Item do
   alias AwesomeElixir.Scrapper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
-  def update(%Item{github: github} = item) when not is_nil(github) do
+  def update(%Item{git_source: %{github: github}} = item) when not is_nil(github) do
     case GithubApi.get("/repos/" <> github) do
       {:ok,
        %Response{
@@ -52,7 +52,7 @@ defmodule AwesomeElixir.Scrapper.Item do
     end
   end
 
-  def update(%Item{gitlab: gitlab} = item) when not is_nil(gitlab) do
+  def update(%Item{git_source: %{gitlab: gitlab}} = item) when not is_nil(gitlab) do
     case GitlabApi.get("/projects/" <> URI.encode_www_form(gitlab)) do
       {:ok,
        %Response{
@@ -77,17 +77,26 @@ defmodule AwesomeElixir.Scrapper.Item do
     end
   end
 
-  def update(%Item{url: "https://hex.pm" <> hex_package} = item) do
-    case Repo.update(
-           item
-           |> Item.insert_or_update_changeset(extract_repo_from_hexpm(hex_package))
-         ) do
-      {:error, _} -> :error
-      {:ok, _} -> {:retry, :now}
+  def update(%Item{url: "https://hex.pm/packages/" <> hex_package} = item) do
+    case extract_repo_from_hexpm(hex_package) do
+      :retry ->
+        {:retry, :now}
+
+      :not_found ->
+        Item.insert_or_update_changeset(item, %{is_dead: true, is_scrapped: true})
+        |> Repo.update()
+
+      %{} = changes when map_size(changes) == 0 ->
+        Item.insert_or_update_changeset(item, %{is_dead: false, is_scrapped: true})
+        |> Repo.update()
+
+      %{} = changes ->
+        Item.insert_or_update_changeset(item, %{git_source: changes}) |> Repo.update()
+        {:retry, :now}
     end
   end
 
-  def update(%Item{url: url} = item) when is_binary(url) do
+  def update(%Item{url: url} = item) do
     case HTTPoison.get(url, [], follow_redirect: true) do
       {:ok, %Response{status_code: 200}} ->
         item
@@ -132,20 +141,26 @@ defmodule AwesomeElixir.Scrapper.Item do
   end
 
   defp extract_repo_from_hexpm(hex_package) do
-    case HexpmApi.get(hex_package) do
+    case HexpmApi.get("/packages/#{hex_package}") do
       {:ok, %Response{status_code: 200, body: %{meta: %{links: links}}}} ->
         Enum.reduce(Map.values(links), %{}, &extract_from_hexpm_link/2)
 
-      _ ->
+      {:ok, %Response{status_code: 200}} ->
         %{}
+
+      {:ok, %Response{status_code: 404}} ->
+        :not_found
+
+      _ ->
+        :retry
     end
   end
 
-  defp extract_from_hexpm_link(link, repos) do
-    case link do
-      "https://github.com/" <> rest -> Map.put(repos, :github, rest)
-      "https://gitlab.com/" <> rest -> Map.put(repos, :gitlab, rest)
-      _ -> repos
-    end
-  end
+  defp extract_from_hexpm_link("https://github.com/" <> rest, repos),
+    do: Map.put(repos, :github, rest)
+
+  defp extract_from_hexpm_link("https://gitlab.com/" <> rest, repos),
+    do: Map.put(repos, :gitlab, rest)
+
+  defp extract_from_hexpm_link(_, repos), do: repos
 end

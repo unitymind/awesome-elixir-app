@@ -5,8 +5,7 @@ defmodule AwesomeElixir.Repo.Migrations.CreateItems do
     create table(:items) do
       add :name, :string, null: false
       add :url, :string, null: false
-      add :github, :string
-      add :gitlab, :string
+      add :git_source, :map, default: %{}, null: false
       add :description, :text, null: false
       add :stars_count, :integer
       add :updated_in, :integer
@@ -22,11 +21,15 @@ defmodule AwesomeElixir.Repo.Migrations.CreateItems do
     create index(:items, [:name])
     create unique_index(:items, [:url])
 
-    create index(:items, [:is_scrapped, :is_dead, :stars_count, :updated_in],
+    create index(
+             :items,
+             [:is_scrapped, :is_dead, :stars_count, :updated_in],
              name: :items_full_filters_index
            )
 
-    create index(:items, [:is_scrapped, :is_dead, :updated_in],
+    create index(
+             :items,
+             [:is_scrapped, :is_dead, :updated_in],
              name: :items_filters_without_stars_count_index
            )
   end
