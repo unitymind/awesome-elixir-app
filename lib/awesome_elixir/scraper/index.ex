@@ -1,5 +1,4 @@
-defmodule AwesomeElixir.Scrapper.Index do
-  alias AwesomeElixir.Scrapper
+defmodule AwesomeElixir.Scraper.Index do
   alias Earmark.{Block, Parser}
 
   defmodule Category do
@@ -9,7 +8,7 @@ defmodule AwesomeElixir.Scrapper.Index do
       field :name, :string
       field :slug, :string
       field :description, :text
-      field :items, {:array, AwesomeElixir.Scrapper.Index.Item}
+      field :items, {:array, AwesomeElixir.Scraper.Index.Item}
     end
   end
 
@@ -17,31 +16,19 @@ defmodule AwesomeElixir.Scrapper.Index do
     use TypedStruct
 
     typedstruct do
-      field :name, :string
-      field :url, :string
-      field :description, :text
+      field :name, :string, enforce: true
+      field :url, :string, enforce: true
+      field :description, :text, enforce: true
     end
   end
 
   @spec update() ::
-          %{required(String.t()) => AwesomeElixir.Scrapper.Index.Category.t()}
+          [AwesomeElixir.Scraper.Index.Category.t()]
           | {:error, HTTPoison.Error.t()}
   def update do
     with content when is_binary(content) <- fetch(),
          data when is_map(data) <- update_flow(content) do
-      Scrapper.store_data(data)
-    end
-  end
-
-  @spec update_from_file(String.t()) ::
-          %{
-            required(String.t()) => AwesomeElixir.Scrapper.Index.Category.t()
-          }
-          | {:error, File.posix()}
-  def update_from_file(path) do
-    with {:ok, content} when is_binary(content) <- File.read(path),
-         data when is_map(data) <- update_flow(content) do
-      Scrapper.store_data(data)
+      data |> Map.values()
     end
   end
 

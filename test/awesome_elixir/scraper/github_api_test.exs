@@ -1,7 +1,7 @@
-defmodule AwesomeElixir.Scrapper.GithubApiTest do
+defmodule AwesomeElixir.Scraper.GithubApiTest do
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
-  alias AwesomeElixir.Scrapper.GithubApi
+  alias AwesomeElixir.Scraper.GithubApi
   alias HTTPoison.Response
 
   setup_all do

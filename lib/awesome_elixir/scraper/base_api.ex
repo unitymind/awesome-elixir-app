@@ -1,4 +1,4 @@
-defmodule AwesomeElixir.Scrapper.BaseApi do
+defmodule AwesomeElixir.Scraper.BaseApi do
   defmacro __using__(base_uri) do
     quote do
       use HTTPoison.Base

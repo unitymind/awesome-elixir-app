@@ -1,9 +1,9 @@
 defmodule AwesomeElixir.Workers.UpdateIndex do
-  alias AwesomeElixir.Scrapper
+  alias AwesomeElixir.Scraper
 
   def perform do
     clear_scheduled()
-    Scrapper.Index.update()
+    Scraper.update_index()
     schedule_update()
   end
 

@@ -1,5 +1,5 @@
-defmodule AwesomeElixir.Scrapper.GitlabApi do
-  use AwesomeElixir.Scrapper.BaseApi, "https://gitlab.com/api/v4"
+defmodule AwesomeElixir.Scraper.GitlabApi do
+  use AwesomeElixir.Scraper.BaseApi, "https://gitlab.com/api/v4"
 
   @impl true
   def process_request_options(options) do

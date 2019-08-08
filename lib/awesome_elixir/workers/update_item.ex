@@ -1,14 +1,14 @@
 defmodule AwesomeElixir.Workers.UpdateItem do
   alias AwesomeElixir.Catalog
   alias AwesomeElixir.Repo
-  alias AwesomeElixir.Scrapper
+  alias AwesomeElixir.Scraper
 
   def perform(item_id) do
-    case Repo.get(Catalog.Item, item_id) do
+    case Repo.get_item_by_id(item_id) do
       %Catalog.Item{} = item ->
         clear_scheduled(item.id)
 
-        case Scrapper.Item.update(item) do
+        case Scraper.Item.update(item) do
           {:retry, :now} ->
             retry_in(item.id, Enum.random(50..70))
 
@@ -32,7 +32,7 @@ defmodule AwesomeElixir.Workers.UpdateItem do
       Exq,
       "default",
       Timex.now() |> Timex.shift(days: 1),
-      AwesomeElixir.Workers.UpdateItem,
+      __MODULE__,
       [item_id]
     )
   end
@@ -42,7 +42,7 @@ defmodule AwesomeElixir.Workers.UpdateItem do
       Exq,
       "default",
       seconds,
-      AwesomeElixir.Workers.UpdateItem,
+      __MODULE__,
       [item_id]
     )
   end
@@ -52,7 +52,7 @@ defmodule AwesomeElixir.Workers.UpdateItem do
       Exq,
       "default",
       at,
-      AwesomeElixir.Workers.UpdateItem,
+      __MODULE__,
       [item_id]
     )
   end

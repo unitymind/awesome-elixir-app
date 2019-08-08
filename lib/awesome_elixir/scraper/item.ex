@@ -1,7 +1,7 @@
-defmodule AwesomeElixir.Scrapper.Item do
+defmodule AwesomeElixir.Scraper.Item do
   alias AwesomeElixir.Catalog.Item
   alias AwesomeElixir.Repo
-  alias AwesomeElixir.Scrapper.{GithubApi, GitlabApi, HexpmApi}
+  alias AwesomeElixir.Scraper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
   @spec update(Item.t()) ::

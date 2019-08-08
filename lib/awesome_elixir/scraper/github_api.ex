@@ -1,5 +1,5 @@
-defmodule AwesomeElixir.Scrapper.GithubApi do
-  use AwesomeElixir.Scrapper.BaseApi, "https://api.github.com"
+defmodule AwesomeElixir.Scraper.GithubApi do
+  use AwesomeElixir.Scraper.BaseApi, "https://api.github.com"
 
   @impl true
   def process_request_options(options) do
