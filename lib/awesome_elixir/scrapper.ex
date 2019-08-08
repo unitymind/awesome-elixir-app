@@ -7,51 +7,58 @@ defmodule AwesomeElixir.Scrapper do
   def store_data(data) do
     for {_, category} <- data do
       {:ok, category_from_db} =
-        build_changeset_for_category(Map.from_struct(category))
+        build_changeset_for_category(category)
         |> handle_category_changeset()
 
       for item <- category.items do
-        build_changeset_for_item(Map.from_struct(item), category_from_db.id)
+        build_changeset_for_item(item, category_from_db.id)
         |> handle_item_changeset()
       end
     end
   end
 
-  defp build_changeset_for_category(attributes) do
+  defp build_changeset_for_category(category) do
+    attributes = Map.from_struct(category)
+
     case Repo.get_by(Category, slug: attributes.slug) do
-      nil -> %Category{}
-      entity -> entity
+      nil -> Category.insert_changeset(attributes)
+      categories -> Category.update_changeset(categories, attributes)
     end
-    |> Category.insert_or_update_changeset(attributes)
   end
 
-  defp handle_category_changeset(changeset) do
+  defp handle_category_changeset(%Ecto.Changeset{} = changeset) do
     changeset |> Repo.insert_or_update()
   end
 
-  defp build_changeset_for_item(attributes, category_id) do
-    {item, attrs} =
-      case Repo.get_by(Item, url: attributes.url) do
-        nil -> {%Item{}, attributes |> Map.put(:category_id, category_id)}
-        entity -> {entity, attributes}
-      end
+  defp build_changeset_for_item(item, category_id) do
+    attributes = Map.from_struct(item)
 
-    Item.insert_or_update_changeset(item, attrs) |> prevent_description_update()
-  end
+    case Repo.get_by(Item, url: attributes.url) do
+      nil ->
+        {:insert, Item.insert_changeset(attributes |> Map.put(:category_id, category_id))}
 
-  defp handle_item_changeset(changeset) do
-    if map_size(changeset.changes) != 0 do
-      {:ok, item_from_db} = Repo.insert_or_update(changeset)
-
-      Exq.enqueue_in(Exq, "default", Enum.random(5..20), AwesomeElixir.Workers.UpdateItem, [
-        item_from_db.id
-      ])
+      item_from_db ->
+        {:update,
+         Item.update_changeset(item_from_db, attributes |> Map.put(:category_id, category_id))
+         |> Item.prevent_description_update()}
     end
+    |> handle_item_changeset()
   end
 
-  defp prevent_description_update(%Ecto.Changeset{data: %Item{is_scrapped: true}} = changeset) do
-    Ecto.Changeset.delete_change(changeset, :description)
+  defp handle_item_changeset({:insert, changeset}) do
+    Repo.insert(changeset) |> enqueue_scrapper_item_update()
   end
 
-  defp prevent_description_update(changeset), do: changeset
+  defp handle_item_changeset({:update, %Ecto.Changeset{changes: changes} = changeset})
+       when map_size(changes) > 0 do
+    Repo.update(changeset) |> enqueue_scrapper_item_update()
+  end
+
+  defp handle_item_changeset(_), do: :ok
+
+  defp enqueue_scrapper_item_update({:ok, item}) do
+    Exq.enqueue_in(Exq, "default", Enum.random(5..20), AwesomeElixir.Workers.UpdateItem, [item.id])
+  end
+
+  defp enqueue_scrapper_item_update(_), do: :ok
 end

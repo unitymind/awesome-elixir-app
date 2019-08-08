@@ -15,7 +15,7 @@ defmodule AwesomeElixir.Scrapper.Item do
          body: %{pushed_at: pushed_at, watchers: stars_count, description: description}
        }} ->
         item
-        |> Item.insert_or_update_changeset(%{
+        |> Item.update_changeset(%{
           stars_count: stars_count,
           pushed_at: pushed_at,
           description: description,
@@ -25,7 +25,7 @@ defmodule AwesomeElixir.Scrapper.Item do
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
+        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       {:ok,
@@ -63,7 +63,7 @@ defmodule AwesomeElixir.Scrapper.Item do
          body: %{star_count: stars_count, last_activity_at: pushed_at}
        }} ->
         item
-        |> Item.insert_or_update_changeset(%{
+        |> Item.update_changeset(%{
           stars_count: stars_count,
           pushed_at: pushed_at,
           is_scrapped: true
@@ -72,7 +72,7 @@ defmodule AwesomeElixir.Scrapper.Item do
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
+        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       _ ->
@@ -86,15 +86,15 @@ defmodule AwesomeElixir.Scrapper.Item do
         {:retry, :now}
 
       :not_found ->
-        Item.insert_or_update_changeset(item, %{is_dead: true, is_scrapped: true})
+        Item.update_changeset(item, %{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       %{} = changes when map_size(changes) == 0 ->
-        Item.insert_or_update_changeset(item, %{is_dead: false, is_scrapped: true})
+        Item.update_changeset(item, %{is_dead: false, is_scrapped: true})
         |> Repo.update()
 
       %{} = changes ->
-        Item.insert_or_update_changeset(item, %{git_source: changes}) |> Repo.update()
+        Item.update_changeset(item, %{git_source: changes}) |> Repo.update()
         {:retry, :now}
     end
   end
@@ -103,12 +103,12 @@ defmodule AwesomeElixir.Scrapper.Item do
     case HTTPoison.get(url, [], follow_redirect: true) do
       {:ok, %Response{status_code: 200}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: false, is_scrapped: true})
+        |> Item.update_changeset(%{is_dead: false, is_scrapped: true})
         |> Repo.update()
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.insert_or_update_changeset(%{is_dead: true, is_scrapped: true})
+        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
         |> Repo.update()
 
       _ ->
@@ -130,12 +130,16 @@ defmodule AwesomeElixir.Scrapper.Item do
          }
        }} ->
         item
-        |> Item.insert_or_update_changeset(%{
+        |> Item.update_changeset(%{
           stars_count: starts_count,
           pushed_at: pushed_at,
-          github: github,
           is_scrapped: true
         })
+        |> Ecto.Changeset.put_embed(
+          :git_source,
+          %AwesomeElixir.Catalog.Item.GitSource{}
+          |> Map.put(:github, github)
+        )
         |> Repo.update()
 
       _ ->
