@@ -33,7 +33,7 @@ host = System.get_env("HOST") || "localhost"
 run_server = String.to_existing_atom(System.get_env("RUN_SERVER") || "true")
 
 config :awesome_elixir, AwesomeElixirWeb.Endpoint,
-  http: [:inet6, port: port],
+  http: [:inet6, port: port, compress: true],
   url: [host: host, port: port],
   secret_key_base: secret_key_base,
   server: run_server

@@ -16,7 +16,7 @@ config :awesome_elixir, AwesomeElixir.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :awesome_elixir, AwesomeElixirWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 4000, compress: true],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
