@@ -18,7 +18,7 @@ defmodule AwesomeElixir.Catalog do
 
   @spec total_items_count([Category.t()]) :: non_neg_integer()
   defmemo total_items_count(categories) do
-    Enum.reduce(categories, 0, fn category, acc -> acc + length(category.items) end)
+    Enum.reduce(categories, 0, fn %{items: items}, acc -> acc + length(items) end)
   end
 
   @spec last_updated_at() :: String.t() | DateTime.t()

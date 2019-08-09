@@ -8,7 +8,7 @@ defmodule AwesomeElixir.Catalog.CategoryTest do
     [category: build(:category)]
   end
 
-  describe "insert_changeset validations" do
+  describe "insert_changeset() validations" do
     test "not inserted with blank: name, url, slug", %{category: category} do
       assert_insert_cant_be_blank(category, ~w(name slug description)a, &insert_category/1)
     end
@@ -21,7 +21,7 @@ defmodule AwesomeElixir.Catalog.CategoryTest do
     end
   end
 
-  describe "update_changeset validations" do
+  describe "update_changeset() validations" do
     setup %{category: category} do
       {:ok, category} = category |> insert_category()
       [category: category]

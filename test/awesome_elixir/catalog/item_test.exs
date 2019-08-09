@@ -1,7 +1,6 @@
 defmodule AwesomeElixir.Catalog.ItemTest do
   use AwesomeElixir.DataCase
   import AwesomeElixir.Factory
-  alias AwesomeElixir.Repo
   alias AwesomeElixir.Catalog.{Category, Item}
 
   setup do
@@ -16,7 +15,7 @@ defmodule AwesomeElixir.Catalog.ItemTest do
     [item: item]
   end
 
-  describe "insert_changeset validations" do
+  describe "insert_changeset() validations" do
     test "not inserted with blank: name, url, description", %{item: item} do
       assert_insert_cant_be_blank(item, ~w(name url description)a, &insert_item/1)
     end
@@ -48,7 +47,7 @@ defmodule AwesomeElixir.Catalog.ItemTest do
     end
   end
 
-  describe "set_git_source within insert_changeset" do
+  describe "set_git_source() within insert_changeset()" do
     test "set git_source for github url", %{item: item} do
       {:ok, item} =
         %{item | url: "https://github.com/github_user/repo"}
@@ -72,7 +71,7 @@ defmodule AwesomeElixir.Catalog.ItemTest do
     end
   end
 
-  describe "update_changeset validations" do
+  describe "update_changeset() validations" do
     setup %{item: item} do
       {:ok, item} = item |> insert_item()
       [item: item]
@@ -103,7 +102,7 @@ defmodule AwesomeElixir.Catalog.ItemTest do
     end
   end
 
-  describe "set_updated_in within update_changeset" do
+  describe "set_updated_in() within update_changeset()" do
     setup %{item: item} do
       {:ok, item} = item |> insert_item()
       [item: item]

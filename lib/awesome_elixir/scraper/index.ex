@@ -5,20 +5,20 @@ defmodule AwesomeElixir.Scraper.Index do
     use TypedStruct
 
     typedstruct do
-      field :name, :string
-      field :slug, :string
-      field :description, :text
-      field :items, {:array, AwesomeElixir.Scraper.Index.Item}
+      field :name, String.t(), enforce: true
+      field :slug, String.t(), enforce: true
+      field :description, String.t()
+      field :items, {:array, AwesomeElixir.Scraper.Index.Item.t()}
     end
   end
 
   defmodule Item do
     use TypedStruct
 
-    typedstruct do
-      field :name, :string, enforce: true
-      field :url, :string, enforce: true
-      field :description, :text, enforce: true
+    typedstruct enforce: true do
+      field :name, String.t()
+      field :url, String.t()
+      field :description, String.t()
     end
   end
 
