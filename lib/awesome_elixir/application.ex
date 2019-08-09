@@ -5,6 +5,8 @@ defmodule AwesomeElixir.Application do
 
   use Application
 
+  alias AwesomeElixir.Workers
+
   def start(_type, _args) do
     children = [
       AwesomeElixir.Repo,
@@ -41,10 +43,7 @@ defmodule AwesomeElixir.Application do
           Exq.Support.Mode.children([]) ++
             [
               Supervisor.child_spec(
-                {Task,
-                 fn ->
-                   Exq.enqueue_in(Exq, "default", 5, AwesomeElixir.Workers.UpdateIndex, [])
-                 end},
+                {Task, fn -> Workers.schedule_update_in(5) end},
                 id: {Task, :update_index}
               )
             ]

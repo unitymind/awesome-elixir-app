@@ -1,5 +1,6 @@
 defmodule AwesomeElixirWeb.CatalogController do
   use AwesomeElixirWeb, :controller
+
   alias AwesomeElixir.Catalog
   alias Ecto.Changeset
 
@@ -16,8 +17,8 @@ defmodule AwesomeElixirWeb.CatalogController do
     conn |> render_index(filter_params(params))
   end
 
-  defp render_index(conn, filtered_params) do
-    categories = Catalog.list_categories(filtered_params)
+  defp render_index(conn, params) do
+    categories = Catalog.list_categories(params)
 
     counters = %{
       categories: Catalog.total_categories_count(categories),
@@ -29,7 +30,7 @@ defmodule AwesomeElixirWeb.CatalogController do
       navigation_filter_list: @navigation_filter_list,
       categories: categories,
       counters: counters,
-      params: Map.from_struct(filtered_params)
+      params: params |> Map.from_struct()
     )
   end
 

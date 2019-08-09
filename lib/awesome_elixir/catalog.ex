@@ -1,32 +1,39 @@
 defmodule AwesomeElixir.Catalog do
   import Ecto.Query
+  use Memoize
   alias AwesomeElixir.Repo
   alias AwesomeElixir.Catalog.{Category, Item, FilterParams}
 
   @spec list_categories(FilterParams.t()) :: [Category.t()]
-  def list_categories(filter_params) do
+  defmemo list_categories(filter_params) do
     build_query(filter_params)
     |> filter_by_updated_in(filter_params)
     |> Repo.all()
   end
 
   @spec total_categories_count([Category.t()]) :: non_neg_integer()
-  def total_categories_count(categories) do
+  defmemo total_categories_count(categories) do
     length(categories)
   end
 
   @spec total_items_count([Category.t()]) :: non_neg_integer()
-  def total_items_count(categories) do
+  defmemo total_items_count(categories) do
     Enum.reduce(categories, 0, fn category, acc -> acc + length(category.items) end)
   end
 
   @spec last_updated_at() :: String.t() | DateTime.t()
-  def last_updated_at do
+  defmemo last_updated_at do
     case Repo.one(
            from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1
          ) do
       %Item{updated_at: updated_at} -> updated_at
       _ -> "never"
+    end
+  end
+
+  def invalidate_cached do
+    for method <- ~w(list_categories total_categories_count total_items_count last_updated_at)a do
+      Memoize.invalidate(AwesomeElixir.Catalog, method)
     end
   end
 
