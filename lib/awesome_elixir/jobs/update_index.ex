@@ -13,6 +13,7 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
     Scraper.update_index()
     Catalog.invalidate_cached()
     Jobs.schedule_update()
+    :ok
   end
 
   @impl true

@@ -24,6 +24,8 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
           Jobs.schedule_update(item_id)
       end
     end
+
+    :ok
   end
 
   @impl true
