@@ -1,6 +1,6 @@
 defmodule AwesomeElixir.Repo do
   alias AwesomeElixir.Catalog.{Category, Item}
-  alias AwesomeElixir.Workers
+  alias AwesomeElixir.Jobs
 
   use Ecto.Repo,
     otp_app: :awesome_elixir,
@@ -66,7 +66,7 @@ defmodule AwesomeElixir.Repo do
   defp handle_item_changeset(_), do: :ok
 
   defp enqueue_scraper_item_update({:ok, item}) do
-    Workers.retry_item_in(item.id, Enum.random(5..20))
+    Jobs.retry_item_in(item.id, Enum.random(5..20))
   end
 
   defp enqueue_scraper_item_update(_), do: :ok

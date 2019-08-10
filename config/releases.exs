@@ -11,16 +11,6 @@ config :awesome_elixir, AwesomeElixir.Repo,
   url: database_url,
   pool_size: String.to_integer(System.get_env("DATABASE_POOL_SIZE") || "20")
 
-redis_url =
-  System.get_env("REDIS_URL") ||
-    raise """
-    environment variable REDIS_URL is missing.
-    For example: redis://[:password@]host[:port][/database]
-    """
-
-config :exq,
-  url: redis_url
-
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
     raise """
@@ -53,19 +43,3 @@ github_token =
 config :awesome_elixir, AwesomeElixirWeb.GithubApi,
   username: github_username,
   token: github_token
-
-exq_ui_auth_username =
-  System.get_env("EXQ_UI_AUTH_USERNAME") ||
-    raise """
-    environment variable EXQ_UI_AUTH_USERNAME is missing.
-    """
-
-exq_ui_auth_password =
-  System.get_env("EXQ_UI_AUTH_PASSWORD") ||
-    raise """
-    environment variable EXQ_UI_AUTH_PASSWORD is missing.
-    """
-
-config :exq_ui, :basic_auth,
-  username: exq_ui_auth_username,
-  password: exq_ui_auth_password

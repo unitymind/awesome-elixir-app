@@ -34,6 +34,6 @@ defmodule AwesomeElixir.Scraper.IndexTest do
   end
 
   defp assert_is_binary_list(list) when is_list(list) do
-    for field <- list, do: assert is_binary(field)
+    for field <- list, do: assert(is_binary(field))
   end
 end

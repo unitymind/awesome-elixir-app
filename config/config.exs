@@ -25,15 +25,11 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Configure your Exq job processing
-config :exq,
-  start_on_application: false,
-  concurrency: 10,
-  scheduler_enable: true,
-  max_retries: 25
-
-config :exq_ui,
-  server: false
+config :rihanna,
+  producer_postgres_connection: {Ecto, AwesomeElixir.Repo},
+  behaviour_only: true,
+  dispatcher_max_concurrency: 10,
+  dispatcher_poll_interval: :timer.seconds(1)
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

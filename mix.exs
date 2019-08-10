@@ -56,8 +56,7 @@ defmodule AwesomeElixir.MixProject do
       {:plug_cowboy, "~> 2.1"},
       {:httpoison, "~> 1.5"},
       {:earmark, "~> 1.3"},
-      {:exq, "~> 0.13.3"},
-      {:exq_ui, "~> 0.10.0"},
+      {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
       {:timex, "~> 3.6"},
       {:basic_auth, "~> 2.2.2"}
     ]

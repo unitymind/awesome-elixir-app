@@ -5,7 +5,7 @@ defmodule AwesomeElixir.Application do
 
   use Application
 
-  alias AwesomeElixir.Workers
+  alias AwesomeElixir.Jobs
 
   def start(_type, _args) do
     children = [
@@ -40,13 +40,13 @@ defmodule AwesomeElixir.Application do
           # Migrate before running Exq facilities and endpoints
           AwesomeElixir.ReleaseTasks.migrate()
 
-          Exq.Support.Mode.children([]) ++
-            [
-              Supervisor.child_spec(
-                {Task, fn -> Workers.schedule_update_in(5) end},
-                id: {Task, :update_index}
-              )
-            ]
+          [
+            {Rihanna.Supervisor, [postgrex: AwesomeElixir.Repo.config()]},
+            Supervisor.child_spec(
+              {Task, fn -> Jobs.schedule_update_in(5) end},
+              id: {Task, :update_index}
+            )
+          ]
         else
           []
         end
