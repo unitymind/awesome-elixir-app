@@ -8,8 +8,9 @@ database_url =
     """
 
 config :awesome_elixir, AwesomeElixir.Repo,
+  ssl: true,
   url: database_url,
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "20")
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "18")
 
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
@@ -24,7 +25,8 @@ run_server = String.to_existing_atom(System.get_env("RUN_SERVER") || "true")
 
 config :awesome_elixir, AwesomeElixirWeb.Endpoint,
   http: [:inet6, port: port, compress: true],
-  url: [host: host, port: port],
+  url: [scheme: "https", host: host, port: port],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   secret_key_base: secret_key_base,
   server: run_server
 
