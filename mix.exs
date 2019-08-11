@@ -58,7 +58,8 @@ defmodule AwesomeElixir.MixProject do
       {:earmark, "~> 1.3"},
       {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
       {:timex, "~> 3.6"},
-      {:basic_auth, "~> 2.2.2"}
+      {:basic_auth, "~> 2.2.2"},
+      {:observer_cli, "~> 1.5"}
     ]
   end
 
