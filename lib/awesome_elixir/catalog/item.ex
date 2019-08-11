@@ -72,12 +72,19 @@ defmodule AwesomeElixir.Catalog.Item do
 
   defp set_git_source(changeset), do: changeset
 
-  defp handle_git_source(changeset, kind, uri) when is_binary(uri) do
-    handle_git_source(changeset, kind, String.split(uri, "/", trim: true))
-  end
+  defp handle_git_source(changeset, kind, uri) when is_binary(uri),
+    do:
+      handle_git_source(
+        changeset,
+        kind,
+        uri |> String.replace(~r/\.git$/, "") |> String.split("/", trim: true)
+      )
 
-  defp handle_git_source(changeset, kind, uri) when is_list(uri) and length(uri) == 2 do
-    uri = uri |> Enum.join("/") |> String.replace(~r/\.git$/, "")
+  defp handle_git_source(changeset, :github, uri) when is_list(uri) and length(uri) != 2,
+    do: changeset
+
+  defp handle_git_source(changeset, kind, uri) when is_list(uri) do
+    uri = uri |> Enum.join("/")
 
     changeset
     |> put_embed(
@@ -86,8 +93,6 @@ defmodule AwesomeElixir.Catalog.Item do
       |> Map.put(kind, uri)
     )
   end
-
-  defp handle_git_source(changeset, _kind, _uri), do: changeset
 
   defp set_updated_in(%Ecto.Changeset{changes: %{pushed_at: pushed_at}} = changeset)
        when not is_nil(pushed_at) do

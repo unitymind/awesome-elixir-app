@@ -175,7 +175,7 @@ defmodule AwesomeElixir.Scraper.Item do
 
   defp extract_from_hexpm_link(_, repos), do: repos
 
-  defp reject_blank_values(map) do
+  defp reject_blank_values(map) when is_map(map) do
     map |> Enum.filter(fn {_key, value} -> is_not_blank(value) end) |> Map.new()
   end
 
