@@ -19,4 +19,17 @@ defmodule AwesomeElixir.Support.Assertions do
   def assert_is_binary_list(list) when is_list(list) do
     for field <- list, do: assert(is_binary(field))
   end
+
+  def refute_list_of_keys(entity, list) when is_map(entity) and is_list(list) do
+    for key <- list do
+      refute Map.get(entity, key)
+    end
+  end
+
+  def assert_not_equals_keys(left, right, list)
+      when is_map(left) and is_map(right) and is_list(list) do
+    for key <- list do
+      assert Map.get(left, key) != Map.get(right, key)
+    end
+  end
 end

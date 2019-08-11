@@ -1,0 +1,19 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/elixir-lang/elixir"
+    },
+    "response": {
+      "binary": false,
+      "body": "nxdomain",
+      "headers": [],
+      "status_code": null,
+      "type": "error"
+    }
+  }
+]

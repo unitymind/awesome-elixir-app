@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://gitlab.com/api/v4/projects/missed%2Frepo"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"404 Project Not Found\"}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Sun, 11 Aug 2019 09:08:09 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "35",
+        "Cache-Control": "no-cache",
+        "Vary": "Origin",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Request-Id": "4BD3CtZB5Z4",
+        "X-Runtime": "0.019513",
+        "RateLimit-Limit": "600",
+        "RateLimit-Observed": "3",
+        "RateLimit-Remaining": "597",
+        "RateLimit-Reset": "1565514549",
+        "RateLimit-ResetTime": "Sun, 11 Aug 2019 09:09:09 GMT"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

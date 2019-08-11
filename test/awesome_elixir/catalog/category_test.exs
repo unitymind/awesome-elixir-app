@@ -22,7 +22,7 @@ defmodule AwesomeElixir.Catalog.CategoryTest do
       {:ok, _} = Catalog.insert_category(category)
 
       {:error, changeset} = Catalog.insert_category(category)
-      assert "has already been taken" in errors_on(changeset).slug
+      assert %{slug: ["has already been taken"]} = errors_on(changeset)
     end
   end
 

@@ -1,0 +1,35 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://hex.pm/api/packages/stream_weaver"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"docs_html_url\":null,\"downloads\":{\"all\":406,\"day\":4,\"recent\":17,\"week\":4},\"html_url\":\"https://hex.pm/packages/stream_weaver\",\"inserted_at\":\"2015-12-11T13:10:37.948628Z\",\"meta\":{\"description\":\"Library for working with streams\",\"licenses\":[],\"links\":{},\"maintainers\":[]},\"name\":\"stream_weaver\",\"owners\":[{\"email\":\"julianhaeger@gmail.com\",\"url\":\"https://hex.pm/api/users/foo42\",\"username\":\"foo42\"}],\"releases\":[{\"has_docs\":false,\"url\":\"https://hex.pm/api/packages/stream_weaver/releases/0.0.2\",\"version\":\"0.0.2\"},{\"has_docs\":false,\"url\":\"https://hex.pm/api/packages/stream_weaver/releases/0.0.1\",\"version\":\"0.0.1\"}],\"repository\":\"hexpm\",\"retirements\":{},\"updated_at\":\"2015-12-16T08:20:26.059587Z\",\"url\":\"https://hex.pm/api/packages/stream_weaver\"}",
+      "headers": {
+        "server": "Cowboy",
+        "date": "Sun, 11 Aug 2019 11:20:34 GMT",
+        "content-length": "745",
+        "content-type": "application/vnd.hex+json; charset=utf-8",
+        "cache-control": "public, max-age=60",
+        "x-request-id": "2mstkn0lkqfgbjjot8057aih",
+        "strict-transport-security": "max-age=31536000",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "99",
+        "x-ratelimit-reset": "1565522460",
+        "etag": "551c43ab3c08b92a7853c4dfdd0b59b9",
+        "last-modified": "Wed, 16 Dec 2015 08:20:26 GMT",
+        "vary": "accept, accept-encoding, accept-encoding",
+        "Via": "1.1 google",
+        "Alt-Svc": "clear"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "https://gitlab.com/api/v4/projects/olhado%2Frollex"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":192839,\"description\":\"\",\"name\":\"rollex\",\"name_with_namespace\":\"Mike Chmielewski / rollex\",\"path\":\"rollex\",\"path_with_namespace\":\"olhado/rollex\",\"created_at\":\"2015-03-14T01:53:43.974Z\",\"default_branch\":\"master\",\"tag_list\":[],\"ssh_url_to_repo\":\"git@gitlab.com:olhado/rollex.git\",\"http_url_to_repo\":\"https://gitlab.com/olhado/rollex.git\",\"web_url\":\"https://gitlab.com/olhado/rollex\",\"readme_url\":\"https://gitlab.com/olhado/rollex/blob/master/README.md\",\"avatar_url\":null,\"star_count\":0,\"forks_count\":0,\"last_activity_at\":\"2015-10-11T01:53:56.755Z\",\"namespace\":{\"id\":130419,\"name\":\"Mike Chmielewski\",\"path\":\"olhado\",\"kind\":\"user\",\"full_path\":\"olhado\",\"parent_id\":null,\"avatar_url\":\"https://secure.gravatar.com/avatar/5bbaccdbe42690019285a14129205066?s=80\\u0026d=identicon\",\"web_url\":\"https://gitlab.com/olhado\"}}",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Sun, 11 Aug 2019 09:27:55 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "814",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Etag": "W/\"69ed5fe1e646454b935035af34413df7\"",
+        "Vary": "Origin",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Request-Id": "TnpA4vKX4y1",
+        "X-Runtime": "0.055031",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "RateLimit-Limit": "600",
+        "RateLimit-Observed": "1",
+        "RateLimit-Remaining": "599",
+        "RateLimit-Reset": "1565515735",
+        "RateLimit-ResetTime": "Sun, 11 Aug 2019 09:28:55 GMT"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

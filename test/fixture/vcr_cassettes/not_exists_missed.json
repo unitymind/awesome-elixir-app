@@ -1,0 +1,21 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "follow_redirect": "true"
+      },
+      "request_body": "",
+      "url": "http://notexistmissed.com"
+    },
+    "response": {
+      "binary": false,
+      "body": "nxdomain",
+      "headers": [],
+      "status_code": null,
+      "type": "error"
+    }
+  }
+]

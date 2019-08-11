@@ -36,6 +36,7 @@ defmodule AwesomeElixir.DataCase do
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(AwesomeElixir.Repo, {:shared, self()})
     end
+
     :ok
   end
 end

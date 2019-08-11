@@ -1,0 +1,35 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://hex.pm/api/packages/data_morph"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"docs_html_url\":\"https://hexdocs.pm/data_morph/\",\"downloads\":{\"all\":2225,\"day\":20,\"recent\":62,\"week\":20},\"html_url\":\"https://hex.pm/packages/data_morph\",\"inserted_at\":\"2016-08-01T22:46:03.015867Z\",\"meta\":{\"description\":\"Create Elixir structs, maps with atom keys, and keyword lists from CSV/TSV data.\",\"licenses\":[\"MIT\"],\"links\":{\"github\":\"https://github.com/robmckinnon/data_morph\"},\"maintainers\":[]},\"name\":\"data_morph\",\"owners\":[{\"email\":\"rob@movingflow.co.uk\",\"url\":\"https://hex.pm/api/users/robmckinnon\",\"username\":\"robmckinnon\"}],\"releases\":[{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.1.0\",\"version\":\"0.1.0\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.9\",\"version\":\"0.0.9\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.8\",\"version\":\"0.0.8\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.7\",\"version\":\"0.0.7\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.6\",\"version\":\"0.0.6\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.5\",\"version\":\"0.0.5\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.4\",\"version\":\"0.0.4\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.3\",\"version\":\"0.0.3\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.2\",\"version\":\"0.0.2\"},{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/data_morph/releases/0.0.1\",\"version\":\"0.0.1\"}],\"repository\":\"hexpm\",\"retirements\":{},\"updated_at\":\"2019-07-22T14:19:07.193001Z\",\"url\":\"https://hex.pm/api/packages/data_morph\"}",
+      "headers": {
+        "server": "Cowboy",
+        "date": "Sun, 11 Aug 2019 11:09:57 GMT",
+        "content-length": "1658",
+        "content-type": "application/vnd.hex+json; charset=utf-8",
+        "cache-control": "public, max-age=60",
+        "x-request-id": "2mstjhve4nq03g4ens05bkn1",
+        "strict-transport-security": "max-age=31536000",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "99",
+        "x-ratelimit-reset": "1565521800",
+        "etag": "3866a8474d17cc774f6c3fb3f5ab1088",
+        "last-modified": "Mon, 22 Jul 2019 14:19:07 GMT",
+        "vary": "accept, accept-encoding, accept-encoding",
+        "Via": "1.1 google",
+        "Alt-Svc": "clear"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

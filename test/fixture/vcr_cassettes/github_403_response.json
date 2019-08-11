@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/elixir-lang/elixir"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"API rate limit exceeded for 62.249.146.201. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)\",\"documentation_url\":\"https://developer.github.com/v3/#rate-limiting\"}",
+      "headers": {
+        "Date": "Sun, 11 Aug 2019 09:52:08 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "248",
+        "Server": "GitHub.com",
+        "Status": "403 Forbidden",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "0",
+        "X-RateLimit-Reset": "1565520446",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "A9F4:1FE5B:34E72AB:40E8A22:5D4FE548"
+      },
+      "status_code": 403,
+      "type": "ok"
+    }
+  }
+]

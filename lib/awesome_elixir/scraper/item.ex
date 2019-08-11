@@ -35,15 +35,15 @@ defmodule AwesomeElixir.Scraper.Item do
       {:ok,
        %Response{
          status_code: 301,
-         body: %{message: "Moved Permanently", url: "https://api.github.com" <> moved_uri}
+         body: %{message: "Moved Permanently", url: "https://api.github.com" <> uri_moved_to}
        }} ->
         item
-        |> handle_github_moved(moved_uri)
+        |> handle_github_moved(uri_moved_to)
 
       {:ok,
        %Response{
          status_code: 403,
-         body: %{message: "API rate limit exceeded for user" <> _},
+         body: %{message: "API rate limit exceeded for " <> _},
          headers: headers
        }} ->
         timestamp =
@@ -54,6 +54,7 @@ defmodule AwesomeElixir.Scraper.Item do
 
         {:retry, DateTime.from_unix!(timestamp + Enum.random(10..60))}
 
+      # TODO. Handle 401 response
       _ ->
         {:retry, :now}
     end
@@ -83,7 +84,7 @@ defmodule AwesomeElixir.Scraper.Item do
         |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
 
       _ ->
-        {:retry, :now}
+        {:retry, Timex.now() |> Timex.shift(seconds: Enum.random(60..120))}
     end
   end
 
@@ -110,12 +111,9 @@ defmodule AwesomeElixir.Scraper.Item do
         item
         |> Catalog.update_item(%{is_dead: false, is_scrapped: true})
 
-      {:ok, %Response{status_code: 404}} ->
+      _ ->
         item
         |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
-
-      _ ->
-        {:retry, :now}
     end
   end
 

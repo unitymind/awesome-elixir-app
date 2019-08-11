@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/missed/repo"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"Not Found\",\"documentation_url\":\"https://developer.github.com/v3/repos/#get\"}",
+      "headers": {
+        "Date": "Sun, 11 Aug 2019 09:08:16 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "88",
+        "Server": "GitHub.com",
+        "Status": "404 Not Found",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "54",
+        "X-RateLimit-Reset": "1565518011",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "67A0:239AA:285AFC8:319D643:5D4FDB00"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]
