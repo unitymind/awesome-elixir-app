@@ -1,13 +1,15 @@
 defmodule AwesomeElixir.Scraper.Item do
-  alias AwesomeElixir.Catalog.Item
-  alias AwesomeElixir.Repo
+  alias AwesomeElixir.Catalog
   alias AwesomeElixir.Scraper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
-  @spec update(Item.t()) ::
-          {:ok, Item.t()} | {:error, Ecto.Changeset.t()} | {:retry, :now} | {:retry, DateTime.t()}
+  @spec update(Catalog.Item.t()) ::
+          {:ok, Catalog.Item.t()}
+          | {:error, Ecto.Changeset.t()}
+          | {:retry, :now}
+          | {:retry, DateTime.t()}
 
-  def update(%Item{git_source: %{github: github}} = item) when not is_nil(github) do
+  def update(%Catalog.Item{git_source: %{github: github}} = item) when not is_nil(github) do
     case GithubApi.get("/repos/" <> github) do
       {:ok,
        %Response{
@@ -15,18 +17,20 @@ defmodule AwesomeElixir.Scraper.Item do
          body: %{pushed_at: pushed_at, watchers: stars_count, description: description}
        }} ->
         item
-        |> Item.update_changeset(%{
-          stars_count: stars_count,
-          pushed_at: pushed_at,
-          description: description,
-          is_scrapped: true
-        })
-        |> Repo.update()
+        |> Catalog.update_item(
+          %{
+            description: description,
+            stars_count: stars_count,
+            pushed_at: pushed_at,
+            is_dead: false,
+            is_scrapped: true
+          }
+          |> reject_blank_values()
+        )
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
-        |> Repo.update()
+        |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
 
       {:ok,
        %Response{
@@ -55,61 +59,60 @@ defmodule AwesomeElixir.Scraper.Item do
     end
   end
 
-  def update(%Item{git_source: %{gitlab: gitlab}} = item) when not is_nil(gitlab) do
+  def update(%Catalog.Item{git_source: %{gitlab: gitlab}} = item) when not is_nil(gitlab) do
     case GitlabApi.get("/projects/" <> URI.encode_www_form(gitlab)) do
       {:ok,
        %Response{
          status_code: 200,
-         body: %{star_count: stars_count, last_activity_at: pushed_at}
+         body: %{star_count: stars_count, last_activity_at: pushed_at, description: description}
        }} ->
         item
-        |> Item.update_changeset(%{
-          stars_count: stars_count,
-          pushed_at: pushed_at,
-          is_scrapped: true
-        })
-        |> Repo.update()
+        |> Catalog.update_item(
+          %{
+            description: description,
+            stars_count: stars_count,
+            pushed_at: pushed_at,
+            is_dead: false,
+            is_scrapped: true
+          }
+          |> reject_blank_values()
+        )
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
-        |> Repo.update()
+        |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
 
       _ ->
         {:retry, :now}
     end
   end
 
-  def update(%Item{url: "https://hex.pm/packages/" <> hex_package} = item) do
+  def update(%Catalog.Item{url: "https://hex.pm/packages/" <> hex_package} = item) do
     case extract_repo_from_hexpm(hex_package) do
       :retry ->
         {:retry, :now}
 
       :not_found ->
-        Item.update_changeset(item, %{is_dead: true, is_scrapped: true})
-        |> Repo.update()
+        Catalog.update_item(item, %{is_dead: true, is_scrapped: true})
 
-      %{} = changes when map_size(changes) == 0 ->
-        Item.update_changeset(item, %{is_dead: false, is_scrapped: true})
-        |> Repo.update()
+      %{} = git_source when map_size(git_source) == 0 ->
+        Catalog.update_item(item, %{is_dead: false, is_scrapped: true})
 
-      %{} = changes ->
-        Item.update_changeset(item, %{git_source: changes}) |> Repo.update()
+      %{} = git_source ->
+        Catalog.update_item(item, %{git_source: git_source})
         {:retry, :now}
     end
   end
 
-  def update(%Item{url: url} = item) do
+  def update(%Catalog.Item{url: url} = item) do
     case HTTPoison.get(url, [], follow_redirect: true) do
       {:ok, %Response{status_code: 200}} ->
         item
-        |> Item.update_changeset(%{is_dead: false, is_scrapped: true})
-        |> Repo.update()
+        |> Catalog.update_item(%{is_dead: false, is_scrapped: true})
 
       {:ok, %Response{status_code: 404}} ->
         item
-        |> Item.update_changeset(%{is_dead: true, is_scrapped: true})
-        |> Repo.update()
+        |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
 
       _ ->
         {:retry, :now}
@@ -124,23 +127,24 @@ defmodule AwesomeElixir.Scraper.Item do
        %Response{
          status_code: 200,
          body: %{
+           description: description,
            pushed_at: pushed_at,
-           watchers: starts_count,
+           watchers: stars_count,
            html_url: "https://github.com/" <> github
          }
        }} ->
         item
-        |> Item.update_changeset(%{
-          stars_count: starts_count,
-          pushed_at: pushed_at,
-          is_scrapped: true
-        })
-        |> Ecto.Changeset.put_embed(
-          :git_source,
-          %AwesomeElixir.Catalog.Item.GitSource{}
-          |> Map.put(:github, github)
+        |> Catalog.update_item(
+          %{
+            description: description,
+            stars_count: stars_count,
+            pushed_at: pushed_at,
+            is_dead: false,
+            is_scrapped: true,
+            git_source: %{github: github}
+          }
+          |> reject_blank_values()
         )
-        |> Repo.update()
 
       _ ->
         {:retry, :now}
@@ -170,4 +174,11 @@ defmodule AwesomeElixir.Scraper.Item do
     do: Map.put(repos, :gitlab, rest)
 
   defp extract_from_hexpm_link(_, repos), do: repos
+
+  defp reject_blank_values(map) do
+    map |> Enum.filter(fn {_key, value} -> is_not_blank(value) end) |> Map.new()
+  end
+
+  defp is_not_blank(value) when is_binary(value), do: value != ""
+  defp is_not_blank(value), do: !is_nil(value)
 end
