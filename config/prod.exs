@@ -5,6 +5,7 @@ config :awesome_elixir, AwesomeElixirWeb.Endpoint,
 
 config :logger, level: :info
 
-deploy_on_heroku = String.to_existing_atom(System.get_env("DEPLOY_ON_HEROKU") || "false")
+# deploy_on_heroku = String.to_existing_atom(System.get_env("DEPLOY_ON_HEROKU") || "false")
 
-if deploy_on_heroku, do: import_config("prod.secret.exs")
+if System.get_env("DEPLOY_ON_HEROKU") || "false" |> String.to_existing_atom(),
+  do: import_config("prod.heroku.secret.exs")
