@@ -22,12 +22,18 @@ defmodule AwesomeElixir.Catalog do
     |> Repo.update()
   end
 
-  @spec insert_item(Category.t()) :: term()
+  @spec insert_category(Category.t()) :: term()
   def insert_category(%Category{} = category) do
     category
     |> Map.from_struct()
     |> Category.insert_changeset()
     |> Repo.insert()
+  end
+
+  @spec update_category(Category.t(), map()) :: term()
+  def update_category(%Category{} = category, %{} = changes) do
+    Category.update_changeset(category, changes)
+    |> Repo.update()
   end
 
   @spec list_categories(FilterParams.t()) :: [Category.t()]

@@ -4,8 +4,10 @@ defmodule AwesomeElixir.Scraper.IndexTest do
 
   alias AwesomeElixir.Scraper.Index
 
+  import AwesomeElixir.Support.Assertions
+
   setup_all do
-    HTTPoison.start()
+    with {:ok, _} <- HTTPoison.start(), do: :ok
   end
 
   describe "update()" do
@@ -31,9 +33,5 @@ defmodule AwesomeElixir.Scraper.IndexTest do
                  Enum.reduce(categories, 0, fn %{items: items}, acc -> acc + length(items) end)
       end
     end
-  end
-
-  defp assert_is_binary_list(list) when is_list(list) do
-    for field <- list, do: assert(is_binary(field))
   end
 end

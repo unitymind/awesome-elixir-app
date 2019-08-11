@@ -2,6 +2,9 @@ defmodule AwesomeElixir.Catalog.ItemTest do
   use AwesomeElixir.DataCase, async: true
   alias AwesomeElixir.Catalog
 
+  import AwesomeElixir.Support.Assertions
+  import AwesomeElixir.Support.Helpers
+
   setup do
     {:ok, category} =
       build(:category)
