@@ -1,16 +1,11 @@
 defmodule AwesomeElixir.ScraperTest do
-  use AwesomeElixir.DataCase
+  use AwesomeElixir.DataCase, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   alias AwesomeElixir.Catalog.{Category, Item}
   alias AwesomeElixir.Scraper
 
   describe "update_index()" do
-    setup do
-      HTTPoison.start()
-      :ok
-    end
-
     test "should be store parsed data to db and schedule AwesomeElixir.Jobs.UpdateItem jobs" do
       use_cassette "grab_awesome_elixir_markdown_readme" do
         assert 0 == Repo.aggregate(Category, :count, :id)

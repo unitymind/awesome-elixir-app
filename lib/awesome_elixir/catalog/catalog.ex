@@ -4,6 +4,32 @@ defmodule AwesomeElixir.Catalog do
   alias AwesomeElixir.Repo
   alias AwesomeElixir.Catalog.{Category, Item, FilterParams}
 
+  def get_item_by_id(item_id), do: Repo.get(Item, item_id)
+  def get_item_by_url(url), do: Repo.get_by(Item, url: url)
+  def get_category_by_slug(slug), do: Repo.get_by(Category, slug: slug)
+
+  @spec insert_item(Item.t()) :: term()
+  def insert_item(%Item{} = item) do
+    item
+    |> Map.from_struct()
+    |> Item.insert_changeset()
+    |> Repo.insert()
+  end
+
+  @spec update_item(Item.t(), map()) :: term()
+  def update_item(%Item{} = item, %{} = changes) do
+    Item.update_changeset(item, changes)
+    |> Repo.update()
+  end
+
+  @spec insert_item(Category.t()) :: term()
+  def insert_category(%Category{} = category) do
+    category
+    |> Map.from_struct()
+    |> Category.insert_changeset()
+    |> Repo.insert()
+  end
+
   @spec list_categories(FilterParams.t()) :: [Category.t()]
   defmemo list_categories(filter_params) do
     build_query(filter_params)

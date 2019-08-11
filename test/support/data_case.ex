@@ -22,6 +22,7 @@ defmodule AwesomeElixir.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import AwesomeElixir.DataCase
+      import AwesomeElixir.Factory
     end
   end
 
@@ -32,7 +33,7 @@ defmodule AwesomeElixir.DataCase do
       Ecto.Adapters.SQL.Sandbox.mode(AwesomeElixir.Repo, {:shared, self()})
     end
 
-    :ok
+    with {:ok, _} <- HTTPoison.start(), do: :ok
   end
 
   @doc """

@@ -1,7 +1,5 @@
 defmodule AwesomeElixir.Catalog.CategoryTest do
-  use AwesomeElixir.DataCase
-  import AwesomeElixir.Factory
-  alias AwesomeElixir.Repo
+  use AwesomeElixir.DataCase, async: true
   alias AwesomeElixir.Catalog.Category
 
   setup do
