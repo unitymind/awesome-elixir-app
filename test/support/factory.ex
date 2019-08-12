@@ -16,7 +16,14 @@ defmodule AwesomeElixir.Factory do
     %Item{
       name: Faker.Lorem.word(),
       description: Faker.Lorem.sentence(),
-      url: Faker.Internet.url()
+      url: Faker.Internet.url() <> "/" <> Faker.Lorem.word()
     }
+  end
+
+  def scraped_item_factory do
+    struct!(
+      item_factory(),
+      %{is_dead: false, is_scrapped: true}
+    )
   end
 end

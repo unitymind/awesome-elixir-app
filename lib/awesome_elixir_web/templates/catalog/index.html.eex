@@ -31,7 +31,7 @@
           <ul>
           <%= for item <- category.items do %>
             <li class="<%= if(item.updated_in >= 365 && !is_nil(item.updated_in), do: "outdated") %>">
-              <a href="<%= item.url %>" target="_blank"><%= item.name %></a>
+              <a class="item-link" href="<%= item.url %>" target="_blank"><%= item.name %></a>
             <%= if !is_nil(item.stars_count) do %>
               ⭐<sub><%= item.stars_count %></sub>
             <% end %>

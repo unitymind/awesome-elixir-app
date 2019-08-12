@@ -50,6 +50,7 @@ defmodule AwesomeElixir.MixProject do
       {:exvcr, "~> 0.10.3", only: :test},
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.12", only: :test},
+      {:floki, "~> 0.21.0", only: :test},
       {:gettext, "~> 0.17"},
       {:jason, "~> 1.1"},
       {:poison, "~> 4.0"},
