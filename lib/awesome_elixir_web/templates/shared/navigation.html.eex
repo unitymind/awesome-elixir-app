@@ -7,13 +7,13 @@
         <ul class="navbar-nav mr-auto">
         <%= for {key, value} <- @navigation_filter_list do %>
           <li class="nav-item <%= if(@params.min_stars == key, do: "active") %>">
-            <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) %>">&ge;<%= value %>&nbsp;⭐</a>
+            <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) |> raw %>">&ge;<%= value %>&nbsp;⭐</a>
           </li>
         <% end %>
         </ul>
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item text-white">Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
+          <li class="nav-item text-white" id="totalCounters">Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
         </ul>
       </div>
     </nav>
