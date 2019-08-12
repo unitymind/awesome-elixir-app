@@ -10,7 +10,9 @@ defmodule AwesomeElixir.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test]
     ]
   end
 
@@ -51,6 +53,7 @@ defmodule AwesomeElixir.MixProject do
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.12", only: :test},
       {:floki, "~> 0.21.0", only: :test},
+      {:excoveralls, "~> 0.11.1", only: :test},
       {:gettext, "~> 0.17"},
       {:jason, "~> 1.1"},
       {:poison, "~> 4.0"},
