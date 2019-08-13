@@ -22,17 +22,21 @@ defmodule AwesomeElixir.Jobs do
     schedule(UpdateItem, [item_id], at: Timex.now() |> Timex.shift(days: 1))
   end
 
+  # coveralls-ignore-start
+
   @spec schedule_update_in(integer()) :: {:ok, Rihanna.Job.t()}
   def schedule_update_in(seconds) when is_integer(seconds) do
     schedule(UpdateIndex, [], in: :timer.seconds(seconds))
   end
+
+  # coveralls-ignore-stop
 
   @spec retry_item_in(integer(), integer()) :: {:ok, Rihanna.Job.t()}
   def retry_item_in(item_id, seconds) when is_integer(item_id) and is_integer(seconds) do
     schedule(UpdateItem, [item_id], in: :timer.seconds(seconds))
   end
 
-  @spec retry_item_in(integer(), DateTime.t()) :: {:ok, Rihanna.Job.t()}
+  @spec retry_item_at(integer(), DateTime.t()) :: {:ok, Rihanna.Job.t()}
   def retry_item_at(item_id, at) when is_integer(item_id) and is_map(at) do
     schedule(UpdateItem, [item_id], at: at)
   end

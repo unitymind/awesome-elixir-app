@@ -1,0 +1,35 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://hex.pm/api/packages/ueberauth_bitbucket"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"docs_html_url\":\"https://hexdocs.pm/ueberauth_bitbucket/\",\"downloads\":{\"all\":7112,\"day\":20,\"recent\":1391,\"week\":69},\"html_url\":\"https://hex.pm/packages/ueberauth_bitbucket\",\"inserted_at\":\"2017-01-08T14:27:02.749521Z\",\"meta\":{\"description\":\"An Ueberauth strategy for using Bitbucket to authenticate your users.\",\"licenses\":[\"MIT\"],\"links\":{\"Bitbucket\":\"https://bitbucket.com/npa_io/ueberauth_bitbucket\"},\"maintainers\":[\"Jakob Dam Jensen\"]},\"name\":\"ueberauth_bitbucket\",\"owners\":[{\"email\":\"jakob@npapps.com\",\"url\":\"https://hex.pm/api/users/jdj_dk\",\"username\":\"jdj_dk\"}],\"releases\":[{\"has_docs\":true,\"url\":\"https://hex.pm/api/packages/ueberauth_bitbucket/releases/1.0.0\",\"version\":\"1.0.0\"}],\"repository\":\"hexpm\",\"retirements\":{},\"updated_at\":\"2017-01-08T14:27:06.556748Z\",\"url\":\"https://hex.pm/api/packages/ueberauth_bitbucket\"}",
+      "headers": {
+        "cache-control": "public, max-age=60",
+        "content-length": "826",
+        "content-type": "application/vnd.hex+json; charset=utf-8",
+        "date": "Tue, 13 Aug 2019 07:14:53 GMT",
+        "etag": "e6a67963a5d639f46a2f677561e26db3",
+        "last-modified": "Sun, 08 Jan 2017 14:27:06 GMT",
+        "server": "Cowboy",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "accept, accept-encoding, accept-encoding",
+        "x-ratelimit-limit": "100",
+        "x-ratelimit-remaining": "99",
+        "x-ratelimit-reset": "1565680500",
+        "x-request-id": "FbpqHPs1Ei4FPV0ADHqB",
+        "Via": "1.1 google",
+        "Alt-Svc": "clear"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

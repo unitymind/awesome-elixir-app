@@ -1,8 +1,12 @@
 {
   "skip_files": [
-    "lib/awesome_elixir_web/views/error_helpers.ex"
+    "lib/awesome_elixir_web/views/error_helpers.ex",
+    "test/"
   ],
   "coverage_options": {
     "treat_no_relevant_lines_as_covered": true
+  },
+  "terminal_options": {
+    "file_column_width": 55
   }
 }

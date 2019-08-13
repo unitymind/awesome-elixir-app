@@ -1,5 +1,5 @@
 defmodule AwesomeElixir.Jobs.UpdateIndexTest do
-  use AwesomeElixir.DataCase, async: true
+  use AwesomeElixir.DataCase
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   alias AwesomeElixir.Catalog

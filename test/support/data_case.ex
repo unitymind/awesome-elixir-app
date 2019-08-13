@@ -35,12 +35,9 @@ defmodule AwesomeElixir.DataCase do
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(AwesomeElixir.Repo)
 
-    # coveralls-ignore-start
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(AwesomeElixir.Repo, {:shared, self()})
     end
-
-    # coveralls-ignore-stop
 
     :ok
   end

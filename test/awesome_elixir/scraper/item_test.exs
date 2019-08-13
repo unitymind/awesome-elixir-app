@@ -212,6 +212,21 @@ defmodule AwesomeElixir.Scraper.ItemTest do
                 } = updated_item} = Item.update(item)
       end
     end
+
+    test "with bitbucket git link on hex.pm page (which ignored)", %{item: item} do
+      use_cassette "hexpm_bitbucket_git_link" do
+        item = create_item_with_url(item, "https://hex.pm/packages/ueberauth_bitbucket")
+
+        refute item.git_source
+
+        assert {:ok,
+                %Catalog.Item{
+                  git_source: nil,
+                  is_dead: false,
+                  is_scrapped: true
+                } = updated_item} = Item.update(item)
+      end
+    end
   end
 
   describe "update() with regular url" do

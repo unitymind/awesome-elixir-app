@@ -15,7 +15,6 @@ defmodule AwesomeElixirWeb.ChannelCase do
 
   use ExUnit.CaseTemplate
 
-  # coveralls-ignore-start
   using do
     quote do
       # Import conveniences for testing with channels
@@ -35,6 +34,4 @@ defmodule AwesomeElixirWeb.ChannelCase do
 
     :ok
   end
-
-  # coveralls-ignore-stop
 end
