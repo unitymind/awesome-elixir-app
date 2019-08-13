@@ -10,7 +10,7 @@ defmodule AwesomeElixir.Scraper.Item do
           | {:retry, DateTime.t()}
 
   def update(%Catalog.Item{git_source: %{github: github}} = item) when not is_nil(github) do
-    case GithubApi.get("/repos/" <> github) do
+    case GithubApi.get_repo(github) do
       {:ok,
        %Response{
          status_code: 200,
@@ -61,7 +61,7 @@ defmodule AwesomeElixir.Scraper.Item do
   end
 
   def update(%Catalog.Item{git_source: %{gitlab: gitlab}} = item) when not is_nil(gitlab) do
-    case GitlabApi.get("/projects/" <> URI.encode_www_form(gitlab)) do
+    case GitlabApi.get_project(gitlab) do
       {:ok,
        %Response{
          status_code: 200,
@@ -149,9 +149,10 @@ defmodule AwesomeElixir.Scraper.Item do
     end
   end
 
-  defp extract_repo_from_hexpm(hex_package) do
-    case HexpmApi.get("/packages/#{hex_package}") do
-      {:ok, %Response{status_code: 200, body: %{meta: %{links: links}}}} ->
+  defp extract_repo_from_hexpm(package) do
+    case HexpmApi.get_package(package) do
+      {:ok, %Response{status_code: 200, body: %{meta: %{links: links}}}}
+      when map_size(links) > 0 ->
         Enum.reduce(Map.values(links), %{}, &extract_from_hexpm_link/2)
 
       {:ok, %Response{status_code: 200}} ->

@@ -269,12 +269,4 @@ defmodule AwesomeElixir.Scraper.ItemTest do
       end
     end
   end
-
-  defp create_item_with_url(item, url) do
-    assert {:ok, item} =
-             %{item | url: url}
-             |> Catalog.insert_item()
-
-    item
-  end
 end

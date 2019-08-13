@@ -1,6 +1,7 @@
 defmodule AwesomeElixir.ReleaseTasks do
   @app :awesome_elixir
 
+  # coveralls-ignore-start
   def migrate do
     for repo <- repos() do
       {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :up, all: true))
@@ -15,4 +16,6 @@ defmodule AwesomeElixir.ReleaseTasks do
     Application.load(@app)
     Application.fetch_env!(@app, :ecto_repos)
   end
+
+  # coveralls-ignore-stop
 end

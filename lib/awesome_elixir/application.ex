@@ -21,10 +21,13 @@ defmodule AwesomeElixir.Application do
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
+  # coveralls-ignore-start
   def config_change(changed, _new, removed) do
     AwesomeElixirWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  # coveralls-ignore-stop
 
   defmodule SupervisorWithBlockedMigration do
     use Supervisor
@@ -38,6 +41,7 @@ defmodule AwesomeElixir.Application do
       server_mode_specs =
         if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
           # Migrate before running Exq facilities and endpoints
+          # coveralls-ignore-start
           AwesomeElixir.ReleaseTasks.migrate()
 
           [
@@ -47,6 +51,8 @@ defmodule AwesomeElixir.Application do
               id: {Task, :update_index}
             )
           ]
+
+          # coveralls-ignore-stop
         else
           []
         end

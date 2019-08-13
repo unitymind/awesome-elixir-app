@@ -23,6 +23,8 @@ defmodule AwesomeElixir.DataCase do
       import Ecto.Query
       import AwesomeElixir.DataCase
       import AwesomeElixir.Factory
+
+      def count_jobs, do: Repo.aggregate(from(j in "rihanna_jobs"), :count, :id)
     end
   end
 
@@ -33,10 +35,21 @@ defmodule AwesomeElixir.DataCase do
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(AwesomeElixir.Repo)
 
+    # coveralls-ignore-start
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(AwesomeElixir.Repo, {:shared, self()})
     end
 
+    # coveralls-ignore-stop
+
     :ok
+  end
+
+  def create_item_with_url(item, url) do
+    assert {:ok, item} =
+             %{item | url: url}
+             |> AwesomeElixir.Catalog.insert_item()
+
+    item
   end
 end

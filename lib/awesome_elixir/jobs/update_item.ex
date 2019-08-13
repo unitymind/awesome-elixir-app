@@ -11,7 +11,7 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
   def perform([item_id]) do
     Jobs.clear_scheduled(item_id)
 
-    with {result, data} when result == :retry or result == :ok <- Scraper.update_item(item_id) do
+    with {result, data} when result in [:retry, :ok] <- Scraper.update_item(item_id) do
       cond do
         {:retry, :now} == {result, data} ->
           Jobs.retry_item_in(item_id, Enum.random(50..70))
@@ -28,6 +28,7 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
     :ok
   end
 
+  # coveralls-ignore-start
   @impl true
   def retry_at(_failure_reason, _args, attempts) when attempts < 3 do
     due_at = DateTime.add(DateTime.utc_now(), attempts * 5, :second)
@@ -39,4 +40,6 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
     Logger.warn("Job failed after 3 attempts")
     :noop
   end
+
+  # coveralls-ignore-stop
 end

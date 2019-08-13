@@ -1,6 +1,7 @@
 defmodule AwesomeElixir.Scraper.Index do
   alias Earmark.{Block, Parser}
 
+  # coveralls-ignore-start
   defmodule Category do
     use TypedStruct
 
@@ -22,8 +23,10 @@ defmodule AwesomeElixir.Scraper.Index do
     end
   end
 
+  # coveralls-ignore-stop
+
   @spec update() ::
-          [AwesomeElixir.Scraper.Index.Category.t()]
+          [__MODULE__.Category.t()]
           | {:error, HTTPoison.Error.t()}
   def update do
     with content when is_binary(content) <- fetch(),

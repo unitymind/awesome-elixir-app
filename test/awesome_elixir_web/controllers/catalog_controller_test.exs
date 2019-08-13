@@ -16,6 +16,20 @@ defmodule AwesomeElixirWeb.CatalogControllerTest do
       |> assert_last_updated(:never)
     end
 
+    test "GET /min_stars=missed&show_unstarred=missed&hide_outdated=missed&show_just_updated=missed",
+         %{conn: conn} do
+      get_catalog_parsed_html(conn,
+        min_stars: "missed",
+        show_unstarred: "missed",
+        hide_outdated: "missed",
+        show_just_updated: "missed"
+      )
+      |> assert_nav_links()
+      |> assert_input_hidden_min_stars()
+      |> assert_counters(items: 0, categories: 0)
+      |> assert_last_updated(:never)
+    end
+
     test "GET /?show_unstarred=true&hide_outdated=true&show_just_updated=true", %{conn: conn} do
       get_catalog_parsed_html(conn,
         show_unstarred: true,
@@ -128,6 +142,16 @@ defmodule AwesomeElixirWeb.CatalogControllerTest do
       |> assert_counters(items: 0, categories: 0)
       |> assert_input_checkbox(1)
       |> assert_input_checkbox("showJustUpdated")
+      |> assert_last_updated()
+    end
+
+    test "GET /min_stars=500&show_unstarred=true", %{conn: conn} do
+      get_catalog_parsed_html(conn, min_stars: "500", show_unstarred: true)
+      |> assert_nav_links(%{show_unstarred: true})
+      |> assert_input_hidden_min_stars(500)
+      |> assert_counters(items: 3, categories: 3)
+      |> assert_input_checkbox(1)
+      |> assert_input_checkbox("showUnstarred")
       |> assert_last_updated()
     end
 

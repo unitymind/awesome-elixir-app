@@ -3,19 +3,15 @@ defmodule AwesomeElixir.Scraper.GithubApi do
 
   @impl true
   def process_request_options(options) do
-    case Application.fetch_env(:awesome_elixir, AwesomeElixirWeb.GithubApi) do
-      {:ok, github_api_config} ->
-        case Enum.into(github_api_config, %{}) do
-          %{username: username, token: token} ->
-            options
-            |> Keyword.put(:hackney, basic_auth: {username, token})
-
-          _ ->
-            options
-        end
-
-      :error ->
-        options
+    with {:ok, github_api_config} <-
+           Application.fetch_env(:awesome_elixir, AwesomeElixirWeb.GithubApi),
+         %{username: username, token: token} <- Enum.into(github_api_config, %{}) do
+      options
+      |> Keyword.put(:hackney, basic_auth: {username, token})
+    else
+      _ -> options
     end
   end
+
+  def get_repo(uri), do: get("/repos/" <> uri)
 end

@@ -16,6 +16,7 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
     :ok
   end
 
+  # coveralls-ignore-start
   @impl true
   def retry_at(_failure_reason, _args, attempts) when attempts < 3 do
     due_at = DateTime.add(DateTime.utc_now(), attempts * 5, :second)
@@ -27,4 +28,6 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
     Logger.warn("Job failed after 3 attempts")
     :noop
   end
+
+  # coveralls-ignore-stop
 end

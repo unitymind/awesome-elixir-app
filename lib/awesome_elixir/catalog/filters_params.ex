@@ -12,7 +12,7 @@ defmodule AwesomeElixir.Catalog.FilterParams do
   end
 
   def validate(params) do
-    %AwesomeElixir.Catalog.FilterParams{}
+    %__MODULE__{}
     |> cast(params, ~w(min_stars show_unstarred hide_outdated show_just_updated)a)
     |> validate_inclusion(:min_stars, ~w(all 10 50 100 500 1000))
   end

@@ -1,0 +1,8 @@
+{
+  "skip_files": [
+    "lib/awesome_elixir_web/views/error_helpers.ex"
+  ],
+  "coverage_options": {
+    "treat_no_relevant_lines_as_covered": true
+  }
+}

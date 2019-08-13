@@ -2,6 +2,7 @@ defmodule AwesomeElixir.Support.Assertions do
   import ExUnit.Assertions
   import AwesomeElixir.Support.Helpers
 
+  # coveralls-ignore-start
   def assert_insert_cant_be_blank(entity, fields, insert_func) do
     for field <- fields, value <- [nil, ""] do
       {:error, changeset} = entity |> Map.put(field, value) |> insert_func.()
@@ -32,4 +33,6 @@ defmodule AwesomeElixir.Support.Assertions do
       assert Map.get(left, key) != Map.get(right, key)
     end
   end
+
+  # coveralls-ignore-stop
 end
