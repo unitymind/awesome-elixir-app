@@ -1,5 +1,7 @@
 # AwesomeElixir
 
+[![CircleCI](https://circleci.com/gh/unitymind/awesome-elixir-app.svg?style=svg)](https://circleci.com/gh/unitymind/awesome-elixir-app)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
