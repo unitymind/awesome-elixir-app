@@ -40,9 +40,7 @@ defmodule AwesomeElixir.Application do
     def init(_init_arg) do
       server_mode_specs =
         if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
-          # Migrate before running Exq facilities and endpoints
           # coveralls-ignore-start
-#          AwesomeElixir.ReleaseTasks.migrate()
 
           [
             {Rihanna.Supervisor, [postgrex: AwesomeElixir.Repo.config()]},
