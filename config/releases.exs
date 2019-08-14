@@ -33,20 +33,21 @@ run_server = String.to_existing_atom(System.get_env("RUN_SERVER") || "true")
 pool_size =
   if System.get_env("DEPLOYED_ON_HEROKU") || "false" |> String.to_existing_atom() do
     config :awesome_elixir, AwesomeElixirWeb.Endpoint,
-           http: [:inet6, port: port, compress: true],
-           url: [scheme: "https", host: host, port: port],
-           force_ssl: [rewrite_on: [:x_forwarded_proto]],
-           secret_key_base: secret_key_base,
-           server: run_server
+      http: [:inet6, port: port, compress: true],
+      url: [scheme: "https", host: host, port: port],
+      force_ssl: [rewrite_on: [:x_forwarded_proto]],
+      secret_key_base: secret_key_base,
+      server: run_server
+
     "16"
   else
     config :awesome_elixir, AwesomeElixirWeb.Endpoint,
-           http: [:inet6, port: port, compress: true],
-           url: [host: host, port: port],
-           secret_key_base: secret_key_base,
-           server: run_server
-    "20"
+      http: [:inet6, port: port, compress: true],
+      url: [host: host, port: port],
+      secret_key_base: secret_key_base,
+      server: run_server
 
+    "20"
   end
 
 config :awesome_elixir, AwesomeElixir.Repo,

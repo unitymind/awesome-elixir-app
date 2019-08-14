@@ -76,7 +76,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
                 %Catalog.Item{
                   is_dead: false,
                   is_scrapped: true,
-                  stars_count: 15713,
+                  stars_count: 15_713,
                   updated_in: updated_in,
                   pushed_at: pushed_at
                 } = updated_item} = Item.update(item)
