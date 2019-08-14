@@ -10,7 +10,7 @@ defmodule AwesomeElixir.Application do
   def start(_type, _args) do
     children = [
       AwesomeElixir.Repo,
-      AwesomeElixir.Application.SupervisorWithBlockedMigration
+      __MODULE__.ServerModeSupervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -29,7 +29,7 @@ defmodule AwesomeElixir.Application do
 
   # coveralls-ignore-stop
 
-  defmodule SupervisorWithBlockedMigration do
+  defmodule ServerModeSupervisor do
     use Supervisor
 
     def start_link(init_arg) do
@@ -42,7 +42,7 @@ defmodule AwesomeElixir.Application do
         if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
           # Migrate before running Exq facilities and endpoints
           # coveralls-ignore-start
-          AwesomeElixir.ReleaseTasks.migrate()
+#          AwesomeElixir.ReleaseTasks.migrate()
 
           [
             {Rihanna.Supervisor, [postgrex: AwesomeElixir.Repo.config()]},
