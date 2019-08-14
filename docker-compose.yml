@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  postgres:
+    image: "postgres:alpine"
+    restart: always
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:-awesome_elixir}"
+      POSTGRES_USER: "${POSTGRES_USER:-postgres}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-postgres}"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+  web:
+    build: .
+    restart: always
+    environment:
+      DATABASE_URL: "ecto://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres/${POSTGRES_DB:-awesome_elixir}"
+      GITHUB_USERNAME: "${GITHUB_USERNAME}"
+      GITHUB_TOKEN: "${GITHUB_TOKEN}"
+      SECRET_KEY_BASE: "${SECRET_KEY_BASE}"
+    ports:
+      - "${PORT:-4000}:${PORT:-4000}"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

@@ -34,7 +34,7 @@ pool_size =
   if System.get_env("DEPLOYED_ON_HEROKU") || "false" |> String.to_existing_atom() do
     config :awesome_elixir, AwesomeElixirWeb.Endpoint,
       http: [:inet6, port: port, compress: true],
-      url: [scheme: "https", host: host, port: port],
+      url: [scheme: "https", host: host, port: 443],
       force_ssl: [rewrite_on: [:x_forwarded_proto]],
       secret_key_base: secret_key_base,
       server: run_server
