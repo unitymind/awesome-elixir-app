@@ -14,12 +14,6 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-github_username =
-  System.get_env("GITHUB_USERNAME") ||
-    raise """
-    environment variable GITHUB_USERNAME is missing.
-    """
-
 github_token =
   System.get_env("GITHUB_TOKEN") ||
     raise """
@@ -55,5 +49,5 @@ config :awesome_elixir, AwesomeElixir.Repo,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || pool_size)
 
 config :awesome_elixir, AwesomeElixirWeb.GithubApi,
-  username: github_username,
+  username: "awesome_elixir",
   token: github_token

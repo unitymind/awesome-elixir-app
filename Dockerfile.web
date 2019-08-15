@@ -30,6 +30,7 @@ RUN mix phx.digest
 COPY priv priv
 COPY lib lib
 RUN mix compile
+COPY README.md README.md
 RUN mix docs
 
 # Build release

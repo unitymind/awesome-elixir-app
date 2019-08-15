@@ -3,5 +3,5 @@ defmodule AwesomeElixirWeb.SharedView do
   use AwesomeElixirWeb, :view
   use Memoize
 
-  defmemo app_version(), do: Application.spec(:awesome_elixir, :vsn)
+  defmemo(app_version(), do: Application.spec(:awesome_elixir, :vsn))
 end

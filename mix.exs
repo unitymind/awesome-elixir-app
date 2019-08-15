@@ -13,11 +13,9 @@ defmodule AwesomeElixir.MixProject do
       aliases: aliases(),
       deps: deps(),
       releases: releases(),
+      docs: docs(),
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.html": :test],
-      docs: [
-        output: "priv/static/doc"
-      ]
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.html": :test]
     ]
   end
 
@@ -92,6 +90,14 @@ defmodule AwesomeElixir.MixProject do
       awesome_elixir: [
         include_executables_for: [:unix]
       ]
+    ]
+  end
+
+  defp docs() do
+    [
+      source_url: "https://github.com/unitymind/awesome-elixir-app",
+      output: "priv/static/doc",
+      extras: ["README.md"]
     ]
   end
 end
