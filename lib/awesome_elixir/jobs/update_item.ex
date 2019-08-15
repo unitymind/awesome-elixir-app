@@ -1,4 +1,7 @@
 defmodule AwesomeElixir.Jobs.UpdateItem do
+  @moduledoc """
+  Perform work on updating item data from source url.
+  """
   @behaviour Rihanna.Job
 
   require Logger
@@ -7,6 +10,14 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
   alias AwesomeElixir.Scraper
   alias AwesomeElixir.Jobs
 
+  @doc """
+  Execute update pipeline actions for a given `item_id`.
+
+  * Clear previously scheduled job
+  * Scrape data and update in `AwesomeElixir.Repo` (or schedule retry within short period)
+  * Invalidate `AwesomeElixir.Catalog` caches
+  * Schedule update on the next day
+  """
   @impl true
   def perform([item_id]) do
     Jobs.clear_scheduled(item_id)

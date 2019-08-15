@@ -1,4 +1,7 @@
 defmodule AwesomeElixir.Jobs.UpdateIndex do
+  @moduledoc """
+  Perform work on updating index data from source `README.md`.
+  """
   @behaviour Rihanna.Job
 
   require Logger
@@ -7,6 +10,14 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
   alias AwesomeElixir.Scraper
   alias AwesomeElixir.Jobs
 
+  @doc """
+  Execute update pipeline actions.
+
+  * Clear previously scheduled job
+  * Scrape data and update in `AwesomeElixir.Repo`
+  * Invalidate `AwesomeElixir.Catalog` caches
+  * Schedule update on the next day
+  """
   @impl true
   def perform([]) do
     Jobs.clear_scheduled()

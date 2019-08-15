@@ -25,6 +25,7 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Configure Rihanna Producer and Dispatcher
 config :rihanna,
   producer_postgres_connection: {Ecto, AwesomeElixir.Repo},
   behaviour_only: true,

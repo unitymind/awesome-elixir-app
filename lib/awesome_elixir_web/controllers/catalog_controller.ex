@@ -1,4 +1,7 @@
 defmodule AwesomeElixirWeb.CatalogController do
+  @moduledoc """
+  Filter incoming params and prepare data for rendering via `AwesomeElixir.Catalog` context calls.
+  """
   use AwesomeElixirWeb, :controller
 
   alias AwesomeElixir.Catalog
@@ -13,6 +16,10 @@ defmodule AwesomeElixirWeb.CatalogController do
     {"1000", "1000"}
   ]
 
+  @doc """
+  Filter params and render Catalog index page.
+  """
+  @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def index(conn, params) do
     conn |> render_index(filter_params(params))
   end
@@ -34,6 +41,7 @@ defmodule AwesomeElixirWeb.CatalogController do
     )
   end
 
+  # Validate incoming params and reject fields with errors
   defp filter_params(params) do
     case Catalog.FilterParams.validate(params) do
       %Changeset{valid?: true} = changeset ->

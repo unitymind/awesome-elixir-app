@@ -1,4 +1,7 @@
 defmodule AwesomeElixirWeb.Router do
+  @moduledoc """
+  Defines application specific pipelines and routes.
+  """
   use AwesomeElixirWeb, :router
 
   pipeline :browser do

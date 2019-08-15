@@ -1,8 +1,16 @@
 defmodule AwesomeElixir.Scraper.Index do
+  @moduledoc """
+  Scraping and parse data from source `README.md` file.
+  """
+
   alias Earmark.{Block, Parser}
 
   # coveralls-ignore-start
   defmodule Category do
+    @moduledoc """
+    Internal `TypedStruct` for holding `Category` fields for source index scraping.
+    """
+
     use TypedStruct
 
     typedstruct do
@@ -14,6 +22,10 @@ defmodule AwesomeElixir.Scraper.Index do
   end
 
   defmodule Item do
+    @moduledoc """
+    Internal `TypedStruct` for holding `Item` fields for source index scraping.
+    """
+
     use TypedStruct
 
     typedstruct enforce: true do
@@ -25,6 +37,9 @@ defmodule AwesomeElixir.Scraper.Index do
 
   # coveralls-ignore-stop
 
+  @doc """
+  Fetch `README.md` and parse Markdown markup using `Earmark`.
+  """
   @spec update() ::
           [__MODULE__.Category.t()]
           | {:error, HTTPoison.Error.t()}

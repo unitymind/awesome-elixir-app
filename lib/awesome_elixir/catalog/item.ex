@@ -1,4 +1,27 @@
 defmodule AwesomeElixir.Catalog.Item do
+  @moduledoc """
+  Describes `Item` entity using `TypedEctoSchema`.
+
+      belongs_to :category, AwesomeElixir.Catalog.Category
+
+      field :description, :string
+      field :name, :string
+      field :stars_count, :integer
+      field :updated_in, :integer
+      field :url, EctoFields.URL
+
+      embeds_one :git_source, GitSource, on_replace: :delete, primary_key: false do
+        field :github, :string
+        field :gitlab, :string
+      end
+
+      field :pushed_at, :utc_datetime
+      field :is_dead, :boolean
+      field :is_scrapped, :boolean
+
+      timestamps()
+  """
+
   use TypedEctoSchema
   import Ecto.Changeset
 
@@ -26,6 +49,15 @@ defmodule AwesomeElixir.Catalog.Item do
     timestamps()
   end
 
+  @doc """
+  Cast and validate data for insert.
+
+    * Allowed and required: `category_id`, `name`, `url` and `description`
+    * Unique constraint: `url`
+    * Assoc constraint: `category`
+
+  Also set `git_source` derived from `url` if applicable.
+  """
   @spec insert_changeset(map()) :: Ecto.Changeset.t()
   def insert_changeset(%{} = attrs) do
     %__MODULE__{}
@@ -36,27 +68,27 @@ defmodule AwesomeElixir.Catalog.Item do
     |> set_git_source()
   end
 
+  @doc """
+    Cast and validate data for update.
+
+    * Allowed: `category_id`, `name`, `description`, `stars_count`, `pushed_at`, `is_dead`, `is_scrapped` and `git_source`
+    * Cast `git_source` on embedded schema
+    * Required: `category_id`, `name`, `description`
+    * Assoc constraint: `category`
+    * Validate that `stars_count` is greater than or equal to 0
+  """
   @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def update_changeset(%__MODULE__{} = item, %{} = attrs) do
     item
     |> cast(attrs, ~w(category_id name description stars_count pushed_at is_dead is_scrapped)a)
-    |> cast_embed(:git_source, with: &git_source_changeset/2)
     |> validate_required(~w(category_id name description)a)
+    |> cast_embed(:git_source, with: &git_source_changeset/2)
     |> assoc_constraint(:category)
     |> validate_number(:stars_count, greater_than_or_equal_to: 0)
     |> set_updated_in()
   end
 
-  @spec prevent_description_update(Ecto.Changeset.t()) :: Ecto.Changeset.t()
-  def prevent_description_update(
-        %Ecto.Changeset{data: %__MODULE__{is_scrapped: true}} = changeset
-      ) do
-    changeset
-    |> Ecto.Changeset.delete_change(:description)
-  end
-
-  def prevent_description_update(changeset), do: changeset
-
+  # TODO. Validate format of urls for github and gitlab
   defp git_source_changeset(schema, params) do
     schema
     |> cast(params, ~w(github gitlab)a)

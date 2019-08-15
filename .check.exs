@@ -10,7 +10,7 @@
 
     ## ...or adjusted (e.g. use one-line formatter for more compact credo output)
     {:sobelow, false},
-    {:ex_doc, false},
+    {:ex_doc, "mix docs"},
     {:ex_unit, "mix coveralls.html"}
 
     ## custom new tools may be added (mix tasks or arbitrary commands)

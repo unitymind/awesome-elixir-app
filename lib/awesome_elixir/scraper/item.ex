@@ -1,8 +1,18 @@
 defmodule AwesomeElixir.Scraper.Item do
+  @moduledoc """
+  Scraping and parse data according to `AwesomeElixir.Catalog.Item` `git_source` or `url` fields value.
+  """
+
   alias AwesomeElixir.Catalog
   alias AwesomeElixir.Scraper.{GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
+  @doc """
+    Fetch and update actual info about `AwesomeElixir.Catalog.Item`.
+
+    * Make API-calls to `GitHub`, `GitLab` or `Hex.pm`, or just check 200/404 status codes for not API url source
+    * Handle API-responses (update `AwesomeElixir.Catalog.Item`, or extract `git_source` from `Hex.pm` project metadata)
+  """
   @spec update(Catalog.Item.t()) ::
           {:ok, Catalog.Item.t()}
           | {:error, Ecto.Changeset.t()}

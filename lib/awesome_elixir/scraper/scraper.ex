@@ -1,18 +1,42 @@
 defmodule AwesomeElixir.Scraper do
+  @moduledoc """
+  Acts as context module for scraping and update data.
+  """
+
   alias AwesomeElixir.Catalog
   alias AwesomeElixir.Jobs
   alias AwesomeElixir.Repo
   alias AwesomeElixir.Scraper.{Index, Item}
 
+  @doc """
+  Updating index data from source `README.md`.
+  """
+  @spec update_index() :: :ok | :error
   def update_index do
-    with data when is_list(data) <- Index.update(), do: store_index(data)
+    with data when is_list(data) <- Index.update() do
+      store_index(data)
+      :ok
+    else
+      _ ->
+        :error
+    end
   end
 
+  @doc """
+  Updating item data from source url for a given `item_id`.
+  """
+  @spec update_item(integer()) :: :ok | :error
   def update_item(item_id) do
-    with item when is_map(item) <- Catalog.get_item_by_id(item_id), do: Item.update(item)
+    with item when is_map(item) <- Catalog.get_item_by_id(item_id) do
+      Item.update(item)
+      :ok
+    else
+      _ ->
+        :error
+    end
   end
 
-  def store_index(data) do
+  defp store_index(data) do
     for category <- data do
       {:ok, category_from_db} =
         build_changeset_for_category(category) |> handle_category_changeset()
@@ -47,13 +71,20 @@ defmodule AwesomeElixir.Scraper do
         {:update,
          item_from_db
          |> Catalog.Item.update_changeset(attributes)
-         |> Catalog.Item.prevent_description_update()}
+         |> prevent_description_update()}
 
       _ ->
         {:insert, Catalog.Item.insert_changeset(attributes)}
     end
     |> handle_item_changeset()
   end
+
+  defp prevent_description_update(%Ecto.Changeset{data: %{is_scrapped: true}} = changeset) do
+    changeset
+    |> Ecto.Changeset.delete_change(:description)
+  end
+
+  defp prevent_description_update(changeset), do: changeset
 
   defp handle_item_changeset({:insert, changeset}) do
     Repo.insert(changeset)

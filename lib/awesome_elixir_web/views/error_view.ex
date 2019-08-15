@@ -1,4 +1,5 @@
 defmodule AwesomeElixirWeb.ErrorView do
+  @moduledoc false
   use AwesomeElixirWeb, :view
 
   # If you want to customize a particular status code

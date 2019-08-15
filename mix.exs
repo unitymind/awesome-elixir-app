@@ -14,7 +14,10 @@ defmodule AwesomeElixir.MixProject do
       deps: deps(),
       releases: releases(),
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.html": :test]
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.html": :test],
+      docs: [
+        output: "priv/static/doc"
+      ]
     ]
   end
 
@@ -56,6 +59,7 @@ defmodule AwesomeElixir.MixProject do
       {:faker, "~> 0.12", only: :test},
       {:floki, "~> 0.21.0", only: :test},
       {:excoveralls, "~> 0.11.1", only: :test},
+      {:ex_doc, "~> 0.21.1", runtime: false},
       {:gettext, "~> 0.17"},
       {:jason, "~> 1.1"},
       {:poison, "~> 4.0"},

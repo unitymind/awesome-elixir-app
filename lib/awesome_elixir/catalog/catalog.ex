@@ -1,14 +1,35 @@
 defmodule AwesomeElixir.Catalog do
+  @moduledoc """
+    Acts as context module for accessing to `AwesomeElixir.Catalog.Category` and `AwesomeElixir.Catalog.Item` entities.
+  """
+
   import Ecto.Query
   use Memoize
   alias AwesomeElixir.Repo
   alias AwesomeElixir.Catalog.{Category, Item, FilterParams}
 
+  @doc """
+  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `id`
+  """
+  @spec get_item_by_id(integer()) :: Item.t() | nil
   def get_item_by_id(item_id), do: Repo.get(Item, item_id)
+
+  @doc """
+  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `url`
+  """
+  @spec get_item_by_url(String.t()) :: Item.t() | nil
   def get_item_by_url(url), do: Repo.get_by(Item, url: url)
+
+  @doc """
+  Get `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by `slug`
+  """
+  @spec get_category_by_slug(String.t()) :: Category.t() | nil
   def get_category_by_slug(slug), do: Repo.get_by(Category, slug: slug)
 
-  @spec insert_item(Item.t()) :: term()
+  @doc """
+  Insert `AwesomeElixir.Catalog.Item` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.insert_changeset/1`
+  """
+  @spec insert_item(Item.t()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def insert_item(%Item{} = item) do
     item
     |> Map.from_struct()
@@ -16,13 +37,19 @@ defmodule AwesomeElixir.Catalog do
     |> Repo.insert()
   end
 
-  @spec update_item(Item.t(), map()) :: term()
+  @doc """
+  Update `AwesomeElixir.Catalog.Item` in `AwesomeElixir.Repo`,  using `AwesomeElixir.Catalog.Item.update_changeset/2`
+  """
+  @spec update_item(Item.t(), map()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def update_item(%Item{} = item, %{} = changes) do
     Item.update_changeset(item, changes)
     |> Repo.update()
   end
 
-  @spec insert_category(Category.t()) :: term()
+  @doc """
+  Insert `AwesomeElixir.Catalog.Category` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Category.insert_changeset/1`
+  """
+  @spec insert_category(Category.t()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def insert_category(%Category{} = category) do
     category
     |> Map.from_struct()
@@ -30,12 +57,18 @@ defmodule AwesomeElixir.Catalog do
     |> Repo.insert()
   end
 
-  @spec update_category(Category.t(), map()) :: term()
+  @doc """
+  Update `AwesomeElixir.Catalog.Category` in `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.update_changeset/2`
+  """
+  @spec update_category(Category.t(), map()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def update_category(%Category{} = category, %{} = changes) do
     Category.update_changeset(category, changes)
     |> Repo.update()
   end
 
+  @doc """
+  List `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by applying `AwesomeElixir.Catalog.FilterParams`
+  """
   @spec list_categories(FilterParams.t()) :: [Category.t()]
   defmemo list_categories(filter_params) do
     build_query(filter_params)
@@ -43,16 +76,25 @@ defmodule AwesomeElixir.Catalog do
     |> Repo.all()
   end
 
+  @doc """
+  Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
+  """
   @spec total_categories_count([Category.t()]) :: non_neg_integer()
   defmemo total_categories_count(categories) do
     length(categories)
   end
 
+  @doc """
+  Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
+  """
   @spec total_items_count([Category.t()]) :: non_neg_integer()
   defmemo total_items_count(categories) do
     Enum.reduce(categories, 0, fn %{items: items}, acc -> acc + length(items) end)
   end
 
+  @doc """
+  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `never` for empty dataset
+  """
   @spec last_updated_at() :: String.t() | DateTime.t()
   defmemo last_updated_at do
     case Repo.one(
@@ -63,6 +105,9 @@ defmodule AwesomeElixir.Catalog do
     end
   end
 
+  @doc """
+  Invalidate memoization for `list_categories/1`, `total_categories_count/1`, `total_items_count/1` and `last_updated_at/0` calls
+  """
   def invalidate_cached do
     for method <- ~w(list_categories total_categories_count total_items_count last_updated_at)a do
       Memoize.invalidate(AwesomeElixir.Catalog, method)
