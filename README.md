@@ -67,6 +67,8 @@ Running IEx shell on running system:
 
 ## Heroku deployment (using Heroku CLI)
 
+To get more control on building we use Docker deployment Heroku feature.
+
 Prepare locally after checkout:
 
   * Run `cp config/dev.secret.example.exs config/dev.secret.exs`
@@ -123,3 +125,33 @@ To https://git.heroku.com/floating-woodland-78564.git
 ```
 
 Now you can visit [`https://floating-woodland-78564.herokuapp.com/`](https://floating-woodland-78564.herokuapp.com/) from your browser.
+
+And **ONE MORE THING** - you can access to running docker container as usual (thanks to workaround placed in `.profile.d/heroku-exec.sh` and specially modified Docker image)
+
+```shell script
+$ heroku ps:exec bash
+
+stablishing credentials... done
+Connecting to web.1 on ⬢ awesome-elixir...
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <http://wiki.alpinelinux.org/>.
+
+You can setup the system with the command: setup-alpine
+
+You may change this message by editing /etc/motd.
+
+~ $ bin/awesome_elixir remote
+Erlang/OTP 22 [erts-10.4.4] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [hipe]
+
+Interactive Elixir (1.9.1) - press Ctrl+C to exit (type h() ENTER for help)
+iex(awesome_elixir@7b5daba9-2ac6-4d41-8453-563bfda5e5aa)1> :observer_cli.start()
+```
+
+Gotcha! We have minimal production ready system.
+
+## P.S.
+
+Circle CI config is also ready (`.circleci/config.yml`). Just fork and connect Circle CI to you repo.
