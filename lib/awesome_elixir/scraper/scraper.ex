@@ -11,29 +11,15 @@ defmodule AwesomeElixir.Scraper do
   @doc """
   Updating index data from source `README.md`.
   """
-  @spec update_index() :: :ok | :error
   def update_index do
-    with data when is_list(data) <- Index.update() do
-      store_index(data)
-      :ok
-    else
-      _ ->
-        :error
-    end
+    with data when is_list(data) <- Index.update(), do: store_index(data)
   end
 
   @doc """
   Updating item data from source url for a given `item_id`.
   """
-  @spec update_item(integer()) :: :ok | :error
   def update_item(item_id) do
-    with item when is_map(item) <- Catalog.get_item_by_id(item_id) do
-      Item.update(item)
-      :ok
-    else
-      _ ->
-        :error
-    end
+    with item when is_map(item) <- Catalog.get_item_by_id(item_id), do: Item.update(item)
   end
 
   defp store_index(data) do
