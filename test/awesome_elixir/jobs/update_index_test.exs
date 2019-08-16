@@ -4,6 +4,23 @@ defmodule AwesomeElixir.Jobs.UpdateIndexTest do
 
   alias AwesomeElixir.Catalog
   alias AwesomeElixir.Jobs
+  alias AwesomeElixir.Scraper.Index.NotFetchedError
+
+  test "Should be handle AwesomeElixir.Scraper.Index.NotFetchedError" do
+    use_cassette "awesome_elixir_markdown_readme_not_found" do
+      assert {0, 0, 0} = {count_categories(), count_items(), count_jobs()}
+      assert {:error, %NotFetchedError{message: "404: Not Found"}} = Jobs.UpdateIndex.perform([])
+      assert {0, 0, 0} = {count_categories(), count_items(), count_jobs()}
+    end
+  end
+
+  test "Should be handle HTTPoison.Error" do
+    use_cassette "awesome_elixir_markdown_readme_httpoison_error" do
+      assert {0, 0, 0} = {count_categories(), count_items(), count_jobs()}
+      assert {:error, %HTTPoison.Error{}} = Jobs.UpdateIndex.perform([])
+      assert {0, 0, 0} = {count_categories(), count_items(), count_jobs()}
+    end
+  end
 
   test "should be store parsed data to db and schedule AwesomeElixir.Jobs.UpdateItem jobs" do
     use_cassette "grab_awesome_elixir_markdown_readme" do

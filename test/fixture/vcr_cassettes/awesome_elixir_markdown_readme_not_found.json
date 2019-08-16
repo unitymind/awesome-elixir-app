@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md"
+    },
+    "response": {
+      "binary": false,
+      "body": "404: Not Found\n",
+      "headers": {
+        "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; sandbox",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-GitHub-Request-Id": "956E:5E86:128002:1581D6:5D561D5E",
+        "Content-Length": "15",
+        "Accept-Ranges": "bytes",
+        "Date": "Fri, 16 Aug 2019 03:05:02 GMT",
+        "Via": "1.1 varnish",
+        "Connection": "keep-alive",
+        "X-Served-By": "cache-hkg17931-HKG",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1565924702.493057,VS0,VE249",
+        "Vary": "Authorization,Accept-Encoding",
+        "Access-Control-Allow-Origin": "*",
+        "X-Fastly-Request-ID": "9a4056481fd2e35eba4605786b65923a325be46f",
+        "Expires": "Fri, 16 Aug 2019 03:10:02 GMT",
+        "Source-Age": "0"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

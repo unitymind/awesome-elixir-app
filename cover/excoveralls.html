@@ -672,7 +672,7 @@ function find(y) {
       <div id='stats' class='high'>
         <div class='percentage'>100</div>
         <div class='sloc'>165</div>
-        <div class='hits'>142864</div>
+        <div class='hits'>142874</div>
         <div class='misses'>0</div>
       </div>
       <div id='files'>
@@ -4504,7 +4504,7 @@ function find(y) {
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
               <div class='sloc'>6</div>
-              <div class='hits'>6293</div>
+              <div class='hits'>6295</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -4623,7 +4623,7 @@ function find(y) {
                   
                       <tr class='hit'>
                         <td class='line'>13</td>
-                        <td class='hits'>6</td>
+                        <td class='hits'>8</td>
                         <td class='source'>    delete_by(mod: UpdateIndex, arg: [])</td>
                       </tr>
                     
@@ -5068,8 +5068,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir/jobs/update_index.ex'>lib/awesome_elixir/jobs/update_index.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>4</div>
-              <div class='hits'>24</div>
+              <div class='sloc'>6</div>
+              <div class='hits'>38</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -5226,17 +5226,17 @@ function find(y) {
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>18</td>
-                        <td class='hits'></td>
+                        <td class='hits'>8</td>
                         <td class='source'>  def perform([]) do</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr class='hit'>
                         <td class='line'>19</td>
-                        <td class='hits'>6</td>
+                        <td class='hits'>8</td>
                         <td class='source'>    Jobs.clear_scheduled()</td>
                       </tr>
                     
@@ -5244,7 +5244,7 @@ function find(y) {
                   
                       <tr class='hit'>
                         <td class='line'>20</td>
-                        <td class='hits'>6</td>
+                        <td class='hits'>8</td>
                         <td class='source'>    Scraper.update_index()</td>
                       </tr>
                     
@@ -5277,23 +5277,23 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  rescue</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>25</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='hits'>2</td>
+                        <td class='source'>    e in [Scraper.Index.NotFetchedError, HTTPoison.Error] -&gt; {:error, e}</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-start</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -5301,7 +5301,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>  @impl true</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -5309,7 +5309,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>  def retry_at(_failure_reason, _args, attempts) when attempts &lt; 3 do</td>
+                        <td class='source'>  # coveralls-ignore-start</td>
                       </tr>
                   
                 
@@ -5317,7 +5317,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>    due_at = DateTime.add(DateTime.utc_now(), attempts * 5, :second)</td>
+                        <td class='source'>  @impl true</td>
                       </tr>
                   
                 
@@ -5325,7 +5325,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>    {:ok, due_at}</td>
+                        <td class='source'>  def retry_at(_failure_reason, _args, attempts) when attempts &lt; 3 do</td>
                       </tr>
                   
                 
@@ -5333,7 +5333,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    due_at = DateTime.add(DateTime.utc_now(), attempts * 5 * 60, :second)</td>
                       </tr>
                   
                 
@@ -5341,7 +5341,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    {:ok, due_at}</td>
                       </tr>
                   
                 
@@ -5349,7 +5349,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>  @impl true</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -5357,7 +5357,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'>  def retry_at(_failure_reason, _args, _attempts) do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -5365,7 +5365,7 @@ function find(y) {
                       <tr>
                         <td class='line'>35</td>
                         <td class='hits'></td>
-                        <td class='source'>    Logger.warn(&quot;Job failed after 3 attempts&quot;)</td>
+                        <td class='source'>  @impl true</td>
                       </tr>
                   
                 
@@ -5373,7 +5373,7 @@ function find(y) {
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>    :noop</td>
+                        <td class='source'>  def retry_at(_failure_reason, _args, _attempts) do</td>
                       </tr>
                   
                 
@@ -5381,7 +5381,7 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    Logger.warn(</td>
                       </tr>
                   
                 
@@ -5389,7 +5389,7 @@ function find(y) {
                       <tr>
                         <td class='line'>38</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>      &quot;AwesomeElixir.Jobs.UpdateIndex failed after 3 attempts. Re-schedule within 1 day.&quot;</td>
                       </tr>
                   
                 
@@ -5397,13 +5397,61 @@ function find(y) {
                       <tr>
                         <td class='line'>39</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-stop</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'>    Jobs.schedule_update()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>    :noop</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>45</td>
+                        <td class='hits'></td>
+                        <td class='source'>  # coveralls-ignore-stop</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -7156,8 +7204,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir/scraper/index.ex'>lib/awesome_elixir/scraper/index.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>34</div>
-              <div class='hits'>38286</div>
+              <div class='sloc'>32</div>
+              <div class='hits'>38278</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -7493,7 +7541,7 @@ function find(y) {
                       <tr>
                         <td class='line'>40</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  defmodule NotFetchedError do</td>
                       </tr>
                   
                 
@@ -7501,7 +7549,7 @@ function find(y) {
                       <tr>
                         <td class='line'>41</td>
                         <td class='hits'></td>
-                        <td class='source'>  Fetch `README.md` and parse Markdown markup using `Earmark`.</td>
+                        <td class='source'>    @moduledoc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -7509,7 +7557,7 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>    Raised on not 200 response on fetching</td>
                       </tr>
                   
                 
@@ -7517,7 +7565,7 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec update() ::</td>
+                        <td class='source'>    &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -7525,7 +7573,7 @@ function find(y) {
                       <tr>
                         <td class='line'>44</td>
                         <td class='hits'></td>
-                        <td class='source'>          [__MODULE__.Category.t()]</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7533,7 +7581,7 @@ function find(y) {
                       <tr>
                         <td class='line'>45</td>
                         <td class='hits'></td>
-                        <td class='source'>          | {:error, HTTPoison.Error.t()}</td>
+                        <td class='source'>    defexception message: nil, full_response: nil</td>
                       </tr>
                   
                 
@@ -7541,45 +7589,13 @@ function find(y) {
                       <tr>
                         <td class='line'>46</td>
                         <td class='hits'></td>
-                        <td class='source'>  def update do</td>
+                        <td class='source'>    @type t :: %__MODULE__{message: String.t(), full_response: HTTPoison.Response.t()}</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>47</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    with content when is_binary(content) &lt;- fetch(),</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>48</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>         data when is_map(data) &lt;- update_flow(content) do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>49</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>      data |&gt; Map.values()</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>50</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>51</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -7587,7 +7603,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>52</td>
+                        <td class='line'>48</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -7595,17 +7611,49 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Fetch `README.md` and parse Markdown markup using `Earmark`.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>51</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>52</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec update() :: [__MODULE__.Category.t()] | no_return()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>53</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp update_flow(raw_markdown) do</td>
+                        <td class='source'>  def update do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
                         <td class='line'>54</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    raw_markdown |&gt; parse_markdown() |&gt; extract_data()</td>
+                        <td class='hits'>10</td>
+                        <td class='source'>    fetch() |&gt; parse_markdown() |&gt; extract_data() |&gt; Map.values()</td>
                       </tr>
                     
                 
@@ -7636,8 +7684,8 @@ function find(y) {
                   
                       <tr class='hit'>
                         <td class='line'>58</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    with {:ok, %HTTPoison.Response{body: content, status_code: 200}} &lt;-</td>
+                        <td class='hits'>10</td>
+                        <td class='source'>    case HTTPoison.get!(&quot;https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md&quot;) do</td>
                       </tr>
                     
                 
@@ -7645,7 +7693,7 @@ function find(y) {
                       <tr>
                         <td class='line'>59</td>
                         <td class='hits'></td>
-                        <td class='source'>           HTTPoison.get(&quot;https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md&quot;) do</td>
+                        <td class='source'>      %HTTPoison.Response{body: body, status_code: 200} -&gt;</td>
                       </tr>
                   
                 
@@ -7653,7 +7701,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>60</td>
                         <td class='hits'>6</td>
-                        <td class='source'>      content</td>
+                        <td class='source'>        body</td>
                       </tr>
                     
                 
@@ -7661,7 +7709,7 @@ function find(y) {
                       <tr>
                         <td class='line'>61</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7669,45 +7717,21 @@ function find(y) {
                       <tr>
                         <td class='line'>62</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      %HTTPoison.Response{body: body} = resp -&gt;</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>63</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='hits'>2</td>
+                        <td class='source'>        raise NotFetchedError, message: body |&gt; String.trim(), full_response: resp</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>64</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp parse_markdown(raw_markdown) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>65</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    with {markdown_blocks, _} &lt;- Parser.parse_markdown(raw_markdown) do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>66</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>      markdown_blocks</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>67</td>
                         <td class='hits'></td>
                         <td class='source'>    end</td>
                       </tr>
@@ -7715,7 +7739,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>68</td>
+                        <td class='line'>65</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -7723,7 +7747,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>69</td>
+                        <td class='line'>66</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -7731,9 +7755,33 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>67</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp parse_markdown(raw_markdown) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>68</td>
+                        <td class='hits'>6</td>
+                        <td class='source'>    with {markdown_blocks, _} &lt;- Parser.parse_markdown(raw_markdown) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>69</td>
+                        <td class='hits'>6</td>
+                        <td class='source'>      markdown_blocks</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
                         <td class='line'>70</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp extract_data(markdown_blocks) do</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -7741,7 +7789,7 @@ function find(y) {
                       <tr>
                         <td class='line'>71</td>
                         <td class='hits'></td>
-                        <td class='source'>    markdown_blocks</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -7749,23 +7797,23 @@ function find(y) {
                       <tr>
                         <td class='line'>72</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; extract_categories()</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>73</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    |&gt; enrich_categories()</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp extract_data(markdown_blocks) do</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>74</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    markdown_blocks</td>
                       </tr>
                   
                 
@@ -7773,31 +7821,31 @@ function find(y) {
                       <tr>
                         <td class='line'>75</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>76</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp extract_categories(markdown_blocks) do</td>
+                        <td class='source'>    |&gt; extract_categories()</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>77</td>
+                        <td class='line'>76</td>
                         <td class='hits'>6</td>
-                        <td class='source'>    categories =</td>
+                        <td class='source'>    |&gt; enrich_categories()</td>
                       </tr>
                     
                 
                   
                       <tr>
+                        <td class='line'>77</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>78</td>
                         <td class='hits'></td>
-                        <td class='source'>      Enum.reduce_while(markdown_blocks, [], &amp;reducer_find_categories/2)</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7805,31 +7853,31 @@ function find(y) {
                       <tr>
                         <td class='line'>79</td>
                         <td class='hits'></td>
-                        <td class='source'>      |&gt; Stream.map(&amp;build_category_from_block_list_item/1)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>80</td>
-                        <td class='hits'></td>
-                        <td class='source'>      |&gt; Stream.map(fn category -&gt;</td>
+                        <td class='source'>  defp extract_categories(markdown_blocks) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>81</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>        {category.name, category}</td>
+                        <td class='line'>80</td>
+                        <td class='hits'>6</td>
+                        <td class='source'>    categories =</td>
                       </tr>
                     
                 
                   
                       <tr>
+                        <td class='line'>81</td>
+                        <td class='hits'></td>
+                        <td class='source'>      Enum.reduce_while(markdown_blocks, [], &amp;reducer_find_categories/2)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>82</td>
                         <td class='hits'></td>
-                        <td class='source'>      end)</td>
+                        <td class='source'>      |&gt; Stream.map(&amp;build_category_from_block_list_item/1)</td>
                       </tr>
                   
                 
@@ -7837,23 +7885,23 @@ function find(y) {
                       <tr>
                         <td class='line'>83</td>
                         <td class='hits'></td>
-                        <td class='source'>      |&gt; Enum.into(%{})</td>
+                        <td class='source'>      |&gt; Stream.map(fn category -&gt;</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>84</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='hits'>486</td>
+                        <td class='source'>        {category.name, category}</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>85</td>
                         <td class='hits'></td>
-                        <td class='source'>    {categories, markdown_blocks}</td>
+                        <td class='source'>      end)</td>
                       </tr>
                   
                 
@@ -7861,7 +7909,7 @@ function find(y) {
                       <tr>
                         <td class='line'>86</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      |&gt; Map.new()</td>
                       </tr>
                   
                 
@@ -7877,23 +7925,23 @@ function find(y) {
                       <tr>
                         <td class='line'>88</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp reducer_find_categories(markdown_block, result) do</td>
+                        <td class='source'>    {categories, markdown_blocks}</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>89</td>
-                        <td class='hits'>30</td>
-                        <td class='source'>    case markdown_block do</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>90</td>
                         <td class='hits'></td>
-                        <td class='source'>      %Block.List{</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7901,23 +7949,23 @@ function find(y) {
                       <tr>
                         <td class='line'>91</td>
                         <td class='hits'></td>
-                        <td class='source'>        blocks: [</td>
+                        <td class='source'>  defp reducer_find_categories(markdown_block, result) do</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>92</td>
-                        <td class='hits'></td>
-                        <td class='source'>          %Block.ListItem{</td>
+                        <td class='hits'>30</td>
+                        <td class='source'>    case markdown_block do</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>93</td>
                         <td class='hits'></td>
-                        <td class='source'>            blocks: [</td>
+                        <td class='source'>      %Block.List{</td>
                       </tr>
                   
                 
@@ -7925,7 +7973,7 @@ function find(y) {
                       <tr>
                         <td class='line'>94</td>
                         <td class='hits'></td>
-                        <td class='source'>              %Block.Para{lines: [&quot;[Awesome Elixir](#awesome-elixir)&quot;]},</td>
+                        <td class='source'>        blocks: [</td>
                       </tr>
                   
                 
@@ -7933,7 +7981,7 @@ function find(y) {
                       <tr>
                         <td class='line'>95</td>
                         <td class='hits'></td>
-                        <td class='source'>              %Block.List{blocks: categories} | _</td>
+                        <td class='source'>          %Block.ListItem{</td>
                       </tr>
                   
                 
@@ -7941,7 +7989,7 @@ function find(y) {
                       <tr>
                         <td class='line'>96</td>
                         <td class='hits'></td>
-                        <td class='source'>            ]</td>
+                        <td class='source'>            blocks: [</td>
                       </tr>
                   
                 
@@ -7949,7 +7997,7 @@ function find(y) {
                       <tr>
                         <td class='line'>97</td>
                         <td class='hits'></td>
-                        <td class='source'>          }</td>
+                        <td class='source'>              %Block.Para{lines: [&quot;[Awesome Elixir](#awesome-elixir)&quot;]},</td>
                       </tr>
                   
                 
@@ -7957,7 +8005,7 @@ function find(y) {
                       <tr>
                         <td class='line'>98</td>
                         <td class='hits'></td>
-                        <td class='source'>          | _</td>
+                        <td class='source'>              %Block.List{blocks: categories} | _</td>
                       </tr>
                   
                 
@@ -7965,7 +8013,7 @@ function find(y) {
                       <tr>
                         <td class='line'>99</td>
                         <td class='hits'></td>
-                        <td class='source'>        ]</td>
+                        <td class='source'>            ]</td>
                       </tr>
                   
                 
@@ -7973,7 +8021,7 @@ function find(y) {
                       <tr>
                         <td class='line'>100</td>
                         <td class='hits'></td>
-                        <td class='source'>      } -&gt;</td>
+                        <td class='source'>          }</td>
                       </tr>
                   
                 
@@ -7981,7 +8029,7 @@ function find(y) {
                       <tr>
                         <td class='line'>101</td>
                         <td class='hits'></td>
-                        <td class='source'>        {:halt, categories}</td>
+                        <td class='source'>          | _</td>
                       </tr>
                   
                 
@@ -7989,7 +8037,7 @@ function find(y) {
                       <tr>
                         <td class='line'>102</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>        ]</td>
                       </tr>
                   
                 
@@ -7997,7 +8045,7 @@ function find(y) {
                       <tr>
                         <td class='line'>103</td>
                         <td class='hits'></td>
-                        <td class='source'>      _ -&gt;</td>
+                        <td class='source'>      } -&gt;</td>
                       </tr>
                   
                 
@@ -8005,7 +8053,7 @@ function find(y) {
                       <tr>
                         <td class='line'>104</td>
                         <td class='hits'></td>
-                        <td class='source'>        {:cont, result}</td>
+                        <td class='source'>        {:halt, categories}</td>
                       </tr>
                   
                 
@@ -8013,7 +8061,7 @@ function find(y) {
                       <tr>
                         <td class='line'>105</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -8021,7 +8069,7 @@ function find(y) {
                       <tr>
                         <td class='line'>106</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      _ -&gt;</td>
                       </tr>
                   
                 
@@ -8029,7 +8077,7 @@ function find(y) {
                       <tr>
                         <td class='line'>107</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>        {:cont, result}</td>
                       </tr>
                   
                 
@@ -8037,13 +8085,37 @@ function find(y) {
                       <tr>
                         <td class='line'>108</td>
                         <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>109</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>110</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>111</td>
+                        <td class='hits'></td>
                         <td class='source'>  defp build_category_from_block_list_item(list_item) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>109</td>
+                        <td class='line'>112</td>
                         <td class='hits'>486</td>
                         <td class='source'>    %Block.ListItem{blocks: [%Block.Para{lines: [category_line | _]}]} = list_item</td>
                       </tr>
@@ -8051,7 +8123,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>110</td>
+                        <td class='line'>113</td>
                         <td class='hits'>486</td>
                         <td class='source'>    [name, slug] = String.split(category_line, &quot;](#&quot;)</td>
                       </tr>
@@ -8059,7 +8131,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>111</td>
+                        <td class='line'>114</td>
                         <td class='hits'>486</td>
                         <td class='source'>    %Category{name: String.replace(name, ~r/^\[/, &quot;&quot;), slug: String.replace(slug, ~r/\)$/, &quot;&quot;)}</td>
                       </tr>
@@ -8067,33 +8139,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>112</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>113</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>114</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp enrich_categories({categories, markdown_blocks}) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>115</td>
                         <td class='hits'></td>
-                        <td class='source'>    Enum.reduce(</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -8101,7 +8149,7 @@ function find(y) {
                       <tr>
                         <td class='line'>116</td>
                         <td class='hits'></td>
-                        <td class='source'>      markdown_blocks,</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -8109,7 +8157,7 @@ function find(y) {
                       <tr>
                         <td class='line'>117</td>
                         <td class='hits'></td>
-                        <td class='source'>      %{</td>
+                        <td class='source'>  defp enrich_categories({categories, markdown_blocks}) do</td>
                       </tr>
                   
                 
@@ -8117,7 +8165,7 @@ function find(y) {
                       <tr>
                         <td class='line'>118</td>
                         <td class='hits'></td>
-                        <td class='source'>        categories: categories,</td>
+                        <td class='source'>    Enum.reduce(</td>
                       </tr>
                   
                 
@@ -8125,7 +8173,7 @@ function find(y) {
                       <tr>
                         <td class='line'>119</td>
                         <td class='hits'></td>
-                        <td class='source'>        current_category_key: nil,</td>
+                        <td class='source'>      markdown_blocks,</td>
                       </tr>
                   
                 
@@ -8133,7 +8181,7 @@ function find(y) {
                       <tr>
                         <td class='line'>120</td>
                         <td class='hits'></td>
-                        <td class='source'>        current_category: nil,</td>
+                        <td class='source'>      %{</td>
                       </tr>
                   
                 
@@ -8141,7 +8189,7 @@ function find(y) {
                       <tr>
                         <td class='line'>121</td>
                         <td class='hits'></td>
-                        <td class='source'>        grab_category_description: false,</td>
+                        <td class='source'>        categories: categories,</td>
                       </tr>
                   
                 
@@ -8149,7 +8197,7 @@ function find(y) {
                       <tr>
                         <td class='line'>122</td>
                         <td class='hits'></td>
-                        <td class='source'>        grab_category_items: false</td>
+                        <td class='source'>        current_category_key: nil,</td>
                       </tr>
                   
                 
@@ -8157,7 +8205,7 @@ function find(y) {
                       <tr>
                         <td class='line'>123</td>
                         <td class='hits'></td>
-                        <td class='source'>      },</td>
+                        <td class='source'>        current_category: nil,</td>
                       </tr>
                   
                 
@@ -8165,525 +8213,13 @@ function find(y) {
                       <tr>
                         <td class='line'>124</td>
                         <td class='hits'></td>
-                        <td class='source'>      &amp;reducer_enrich_category/2</td>
+                        <td class='source'>        grab_category_description: false,</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>125</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    ).categories</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>126</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>127</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>128</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp reducer_enrich_category(</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>129</td>
-                        <td class='hits'></td>
-                        <td class='source'>         %Block.Heading{content: category_name, level: 2},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>130</td>
-                        <td class='hits'></td>
-                        <td class='source'>         enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>131</td>
-                        <td class='hits'></td>
-                        <td class='source'>       ) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>132</td>
-                        <td class='hits'>546</td>
-                        <td class='source'>    case enrich_state do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>133</td>
-                        <td class='hits'></td>
-                        <td class='source'>      %{categories: %{^category_name =&gt; category}} -&gt;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>134</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>        %{</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>135</td>
-                        <td class='hits'></td>
-                        <td class='source'>          enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>136</td>
-                        <td class='hits'></td>
-                        <td class='source'>          | current_category_key: category_name,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>137</td>
-                        <td class='hits'></td>
-                        <td class='source'>            current_category: category,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>138</td>
-                        <td class='hits'></td>
-                        <td class='source'>            grab_category_description: true,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>139</td>
-                        <td class='hits'></td>
-                        <td class='source'>            grab_category_items: false</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>140</td>
-                        <td class='hits'></td>
-                        <td class='source'>        }</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>141</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>142</td>
-                        <td class='hits'></td>
-                        <td class='source'>      _ -&gt;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>143</td>
-                        <td class='hits'>60</td>
-                        <td class='source'>        enrich_state</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>144</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>145</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>146</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>147</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp reducer_enrich_category(</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>148</td>
-                        <td class='hits'></td>
-                        <td class='source'>         %Block.Para{lines: [category_description | _]},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>149</td>
-                        <td class='hits'></td>
-                        <td class='source'>         %{grab_category_description: true} = enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>150</td>
-                        <td class='hits'></td>
-                        <td class='source'>       ) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>151</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>    current_category = %Category{</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>152</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>      enrich_state.current_category</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>153</td>
-                        <td class='hits'></td>
-                        <td class='source'>      | description: String.replace(category_description, ~r/^\*|\*$/, &quot;&quot;)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>154</td>
-                        <td class='hits'></td>
-                        <td class='source'>    }</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>155</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>156</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>    %{</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>157</td>
-                        <td class='hits'></td>
-                        <td class='source'>      enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>158</td>
-                        <td class='hits'></td>
-                        <td class='source'>      | categories:</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>159</td>
-                        <td class='hits'></td>
-                        <td class='source'>          Map.replace!(</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>160</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>            enrich_state.categories,</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>161</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>            enrich_state.current_category_key,</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>162</td>
-                        <td class='hits'></td>
-                        <td class='source'>            current_category</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>163</td>
-                        <td class='hits'></td>
-                        <td class='source'>          ),</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>164</td>
-                        <td class='hits'></td>
-                        <td class='source'>        current_category: current_category,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>165</td>
-                        <td class='hits'></td>
-                        <td class='source'>        grab_category_description: false,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>166</td>
-                        <td class='hits'></td>
-                        <td class='source'>        grab_category_items: true</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>167</td>
-                        <td class='hits'></td>
-                        <td class='source'>    }</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>168</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>169</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>170</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp reducer_enrich_category(</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>171</td>
-                        <td class='hits'></td>
-                        <td class='source'>         %Block.List{blocks: item_blocks},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>172</td>
-                        <td class='hits'></td>
-                        <td class='source'>         %{grab_category_items: true} = enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>173</td>
-                        <td class='hits'></td>
-                        <td class='source'>       ) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>174</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>    current_category = %Category{</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>175</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>      enrich_state.current_category</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>176</td>
-                        <td class='hits'></td>
-                        <td class='source'>      | items: Enum.map(item_blocks, &amp;build_item_from_block_list_item/1)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>177</td>
-                        <td class='hits'></td>
-                        <td class='source'>    }</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>178</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>179</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>    %{</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>180</td>
-                        <td class='hits'></td>
-                        <td class='source'>      enrich_state</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>181</td>
-                        <td class='hits'></td>
-                        <td class='source'>      | categories:</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>182</td>
-                        <td class='hits'></td>
-                        <td class='source'>          Map.replace!(</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>183</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>            enrich_state.categories,</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>184</td>
-                        <td class='hits'>486</td>
-                        <td class='source'>            enrich_state.current_category_key,</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>185</td>
-                        <td class='hits'></td>
-                        <td class='source'>            current_category</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>186</td>
-                        <td class='hits'></td>
-                        <td class='source'>          ),</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>187</td>
-                        <td class='hits'></td>
-                        <td class='source'>        current_category: current_category,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>188</td>
-                        <td class='hits'></td>
-                        <td class='source'>        grab_category_description: false,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>189</td>
                         <td class='hits'></td>
                         <td class='source'>        grab_category_items: false</td>
                       </tr>
@@ -8691,7 +8227,255 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>190</td>
+                        <td class='line'>126</td>
+                        <td class='hits'></td>
+                        <td class='source'>      },</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>127</td>
+                        <td class='hits'></td>
+                        <td class='source'>      &amp;reducer_enrich_category/2</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>128</td>
+                        <td class='hits'>6</td>
+                        <td class='source'>    ).categories</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>129</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>130</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>131</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp reducer_enrich_category(</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>132</td>
+                        <td class='hits'></td>
+                        <td class='source'>         %Block.Heading{content: category_name, level: 2},</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>133</td>
+                        <td class='hits'></td>
+                        <td class='source'>         enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>134</td>
+                        <td class='hits'></td>
+                        <td class='source'>       ) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>135</td>
+                        <td class='hits'>546</td>
+                        <td class='source'>    case enrich_state do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>136</td>
+                        <td class='hits'></td>
+                        <td class='source'>      %{categories: %{^category_name =&gt; category}} -&gt;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>137</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>        %{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>138</td>
+                        <td class='hits'></td>
+                        <td class='source'>          enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>139</td>
+                        <td class='hits'></td>
+                        <td class='source'>          | current_category_key: category_name,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>140</td>
+                        <td class='hits'></td>
+                        <td class='source'>            current_category: category,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>141</td>
+                        <td class='hits'></td>
+                        <td class='source'>            grab_category_description: true,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>142</td>
+                        <td class='hits'></td>
+                        <td class='source'>            grab_category_items: false</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>143</td>
+                        <td class='hits'></td>
+                        <td class='source'>        }</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>144</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>145</td>
+                        <td class='hits'></td>
+                        <td class='source'>      _ -&gt;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>146</td>
+                        <td class='hits'>60</td>
+                        <td class='source'>        enrich_state</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>147</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>148</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>149</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>150</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp reducer_enrich_category(</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>151</td>
+                        <td class='hits'></td>
+                        <td class='source'>         %Block.Para{lines: [category_description | _]},</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>152</td>
+                        <td class='hits'></td>
+                        <td class='source'>         %{grab_category_description: true} = enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>153</td>
+                        <td class='hits'></td>
+                        <td class='source'>       ) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>154</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>    current_category = %Category{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>155</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>      enrich_state.current_category</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>156</td>
+                        <td class='hits'></td>
+                        <td class='source'>      | description: String.replace(category_description, ~r/^\*|\*$/, &quot;&quot;)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>157</td>
                         <td class='hits'></td>
                         <td class='source'>    }</td>
                       </tr>
@@ -8699,9 +8483,273 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>191</td>
+                        <td class='line'>158</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>159</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>    %{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>160</td>
+                        <td class='hits'></td>
+                        <td class='source'>      enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>161</td>
+                        <td class='hits'></td>
+                        <td class='source'>      | categories:</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>162</td>
+                        <td class='hits'></td>
+                        <td class='source'>          Map.replace!(</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>163</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>            enrich_state.categories,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>164</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>            enrich_state.current_category_key,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>165</td>
+                        <td class='hits'></td>
+                        <td class='source'>            current_category</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>166</td>
+                        <td class='hits'></td>
+                        <td class='source'>          ),</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>167</td>
+                        <td class='hits'></td>
+                        <td class='source'>        current_category: current_category,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>168</td>
+                        <td class='hits'></td>
+                        <td class='source'>        grab_category_description: false,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>169</td>
+                        <td class='hits'></td>
+                        <td class='source'>        grab_category_items: true</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>170</td>
+                        <td class='hits'></td>
+                        <td class='source'>    }</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>171</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>172</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>173</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp reducer_enrich_category(</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>174</td>
+                        <td class='hits'></td>
+                        <td class='source'>         %Block.List{blocks: item_blocks},</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>175</td>
+                        <td class='hits'></td>
+                        <td class='source'>         %{grab_category_items: true} = enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>176</td>
+                        <td class='hits'></td>
+                        <td class='source'>       ) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>177</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>    current_category = %Category{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>178</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>      enrich_state.current_category</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>179</td>
+                        <td class='hits'></td>
+                        <td class='source'>      | items: Enum.map(item_blocks, &amp;build_item_from_block_list_item/1)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>180</td>
+                        <td class='hits'></td>
+                        <td class='source'>    }</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>181</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>182</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>    %{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>183</td>
+                        <td class='hits'></td>
+                        <td class='source'>      enrich_state</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>184</td>
+                        <td class='hits'></td>
+                        <td class='source'>      | categories:</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>185</td>
+                        <td class='hits'></td>
+                        <td class='source'>          Map.replace!(</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>186</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>            enrich_state.categories,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>187</td>
+                        <td class='hits'>486</td>
+                        <td class='source'>            enrich_state.current_category_key,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>188</td>
+                        <td class='hits'></td>
+                        <td class='source'>            current_category</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>189</td>
+                        <td class='hits'></td>
+                        <td class='source'>          ),</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>190</td>
+                        <td class='hits'></td>
+                        <td class='source'>        current_category: current_category,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>191</td>
+                        <td class='hits'></td>
+                        <td class='source'>        grab_category_description: false,</td>
                       </tr>
                   
                 
@@ -8709,69 +8757,21 @@ function find(y) {
                       <tr>
                         <td class='line'>192</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>        grab_category_items: false</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>193</td>
-                        <td class='hits'>174</td>
-                        <td class='source'>  defp reducer_enrich_category(_, enrich_state), do: enrich_state</td>
+                        <td class='hits'></td>
+                        <td class='source'>    }</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>194</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>195</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp build_item_from_block_list_item(list_item) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>196</td>
-                        <td class='hits'>7530</td>
-                        <td class='source'>    %Block.ListItem{blocks: [%Block.Para{lines: [item_line | _]}]} = list_item</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>197</td>
-                        <td class='hits'>7530</td>
-                        <td class='source'>    [name_url, description] = String.split(item_line, &quot;) - &quot;)</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>198</td>
-                        <td class='hits'>7530</td>
-                        <td class='source'>    [name, url] = String.split(name_url, &quot;](&quot;)</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>199</td>
-                        <td class='hits'>7530</td>
-                        <td class='source'>    %Item{name: String.replace(name, ~r/^\[/, &quot;&quot;), url: url, description: description}</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>200</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -8779,7 +8779,79 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>195</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>196</td>
+                        <td class='hits'>174</td>
+                        <td class='source'>  defp reducer_enrich_category(_, enrich_state), do: enrich_state</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>197</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>198</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp build_item_from_block_list_item(list_item) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>199</td>
+                        <td class='hits'>7530</td>
+                        <td class='source'>    %Block.ListItem{blocks: [%Block.Para{lines: [item_line | _]}]} = list_item</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>200</td>
+                        <td class='hits'>7530</td>
+                        <td class='source'>    [name_url, description] = String.split(item_line, &quot;) - &quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
                         <td class='line'>201</td>
+                        <td class='hits'>7530</td>
+                        <td class='source'>    [name, url] = String.split(name_url, &quot;](&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>202</td>
+                        <td class='hits'>7530</td>
+                        <td class='source'>    %Item{name: String.replace(name, ~r/^\[/, &quot;&quot;), url: url, description: description}</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>203</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>204</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -10359,7 +10431,7 @@ function find(y) {
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
               <div class='sloc'>18</div>
-              <div class='hits'>46856</div>
+              <div class='hits'>46858</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -10486,7 +10558,7 @@ function find(y) {
                   
                       <tr class='hit'>
                         <td class='line'>14</td>
-                        <td class='hits'>6</td>
+                        <td class='hits'>8</td>
                         <td class='source'>    with data when is_list(data) &lt;- Index.update(), do: store_index(data)</td>
                       </tr>
                     

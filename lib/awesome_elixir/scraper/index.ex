@@ -38,27 +38,30 @@ defmodule AwesomeElixir.Scraper.Index do
 
   # coveralls-ignore-stop
 
+  defmodule NotFetchedError do
+    @moduledoc """
+    Raised on not 200 response on fetching
+    """
+
+    defexception message: nil, full_response: nil
+    @type t :: %__MODULE__{message: String.t(), full_response: HTTPoison.Response.t()}
+  end
+
   @doc """
   Fetch `README.md` and parse Markdown markup using `Earmark`.
   """
-  @spec update() ::
-          [__MODULE__.Category.t()]
-          | {:error, HTTPoison.Error.t()}
+  @spec update() :: [__MODULE__.Category.t()] | no_return()
   def update do
-    with content when is_binary(content) <- fetch(),
-         data when is_map(data) <- update_flow(content) do
-      data |> Map.values()
-    end
-  end
-
-  defp update_flow(raw_markdown) do
-    raw_markdown |> parse_markdown() |> extract_data()
+    fetch() |> parse_markdown() |> extract_data() |> Map.values()
   end
 
   defp fetch do
-    with {:ok, %HTTPoison.Response{body: content, status_code: 200}} <-
-           HTTPoison.get("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md") do
-      content
+    case HTTPoison.get!("https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md") do
+      %HTTPoison.Response{body: body, status_code: 200} ->
+        body
+
+      %HTTPoison.Response{body: body} = resp ->
+        raise NotFetchedError, message: body |> String.trim(), full_response: resp
     end
   end
 
@@ -81,7 +84,7 @@ defmodule AwesomeElixir.Scraper.Index do
       |> Stream.map(fn category ->
         {category.name, category}
       end)
-      |> Enum.into(%{})
+      |> Map.new()
 
     {categories, markdown_blocks}
   end
