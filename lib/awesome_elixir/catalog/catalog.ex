@@ -5,8 +5,8 @@ defmodule AwesomeElixir.Catalog do
 
   import Ecto.Query
   use Memoize
+  alias AwesomeElixir.Catalog.{Category, FilterParams, Item}
   alias AwesomeElixir.Repo
-  alias AwesomeElixir.Catalog.{Category, Item, FilterParams}
 
   @doc """
   Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `id`

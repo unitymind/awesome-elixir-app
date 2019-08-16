@@ -1,3 +1,4 @@
+# credo:disable-for-this-file
 defmodule AwesomeElixir.Support.Assertions do
   import ExUnit.Assertions
   import AwesomeElixir.Support.Helpers

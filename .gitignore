@@ -28,5 +28,6 @@ npm-debug.log
 /priv/static/
 
 /.idea/
-
+.DS_Store
 config/dev.secret.exs
+

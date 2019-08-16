@@ -5,10 +5,7 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
   @behaviour Rihanna.Job
 
   require Logger
-
-  alias AwesomeElixir.Catalog
-  alias AwesomeElixir.Scraper
-  alias AwesomeElixir.Jobs
+  alias AwesomeElixir.{Catalog, Jobs, Scraper}
 
   @doc """
   Execute update pipeline actions.

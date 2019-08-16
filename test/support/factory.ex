@@ -1,3 +1,4 @@
+# credo:disable-for-this-file
 defmodule AwesomeElixir.Factory do
   use ExMachina.Ecto, repo: AwesomeElixir.Repo
   alias AwesomeElixir.Catalog.{Category, Item}

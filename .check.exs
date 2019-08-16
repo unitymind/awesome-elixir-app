@@ -11,7 +11,8 @@
     ## ...or adjusted (e.g. use one-line formatter for more compact credo output)
     {:sobelow, false},
     {:ex_doc, "mix docs"},
-    {:ex_unit, "mix coveralls.html"}
+    {:ex_unit, "mix coveralls.html"},
+    {:credo, "mix credo --strict"}
 
     ## custom new tools may be added (mix tasks or arbitrary commands)
     # {:my_mix_task, command: "mix release", env: %{"MIX_ENV" => "prod"}},

@@ -12,12 +12,13 @@ defmodule AwesomeElixir.Scraper.Index do
     """
 
     use TypedStruct
+    alias AwesomeElixir.Scraper.Index.Item
 
     typedstruct do
       field :name, String.t(), enforce: true
       field :slug, String.t(), enforce: true
       field :description, String.t()
-      field :items, {:array, AwesomeElixir.Scraper.Index.Item.t()}
+      field :items, {:array, Item.t()}
     end
   end
 

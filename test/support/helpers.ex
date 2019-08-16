@@ -1,3 +1,4 @@
+# credo:disable-for-this-file
 defmodule AwesomeElixir.Support.Helpers do
   @doc """
   A helper that transforms changeset errors into a map of messages.

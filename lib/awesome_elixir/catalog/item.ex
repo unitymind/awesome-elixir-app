@@ -88,7 +88,6 @@ defmodule AwesomeElixir.Catalog.Item do
     |> set_updated_in()
   end
 
-  # TODO. Validate format of urls for github and gitlab
   defp git_source_changeset(schema, params) do
     schema
     |> cast(params, ~w(github gitlab)a)
