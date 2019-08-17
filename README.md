@@ -10,6 +10,9 @@ Visit the running application at: [https://awesome-elixir.herokuapp.com](https:/
 
 Check generated **ExDoc** at: [https://awesome-elixir.herokuapp.com/docs/index.html](https://awesome-elixir.herokuapp.com/docs/index.html)
 
+## Ongoing efforts on GraphQL API, Vue.JS UI and Guardian auth with GitHub signup/login
+- [x] Basic GraphQL API pointed to `/api/graphql`
+
 ## Development
 
 Issue new GitHub Personal Access Token without any allowed scope at: [https://github.com/settings/tokens](https://github.com/settings/tokens)

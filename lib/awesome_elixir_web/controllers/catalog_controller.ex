@@ -5,7 +5,6 @@ defmodule AwesomeElixirWeb.CatalogController do
   use AwesomeElixirWeb, :controller
 
   alias AwesomeElixir.Catalog
-  alias Ecto.Changeset
 
   @navigation_filter_list [
     {"all", "All"},
@@ -21,15 +20,15 @@ defmodule AwesomeElixirWeb.CatalogController do
   """
   @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def index(conn, params) do
-    conn |> render_index(filter_params(params))
+    conn |> render_index(Catalog.FilterParams.execute(params))
   end
 
   defp render_index(conn, params) do
     categories = Catalog.list_categories(params)
 
     counters = %{
-      categories: Catalog.total_categories_count(categories),
-      items: Catalog.total_items_count(categories),
+      categories: Catalog.categories_count(categories),
+      items: Catalog.items_count(categories),
       last_updated_at: Catalog.last_updated_at()
     }
 
@@ -39,16 +38,5 @@ defmodule AwesomeElixirWeb.CatalogController do
       counters: counters,
       params: params |> Map.from_struct()
     )
-  end
-
-  # Validate incoming params and reject fields with errors
-  defp filter_params(params) do
-    case Catalog.FilterParams.validate(params) do
-      %Changeset{valid?: true} = changeset ->
-        Changeset.apply_changes(changeset)
-
-      %Changeset{} = changeset ->
-        changeset.data |> Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))
-    end
   end
 end

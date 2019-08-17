@@ -79,16 +79,16 @@ defmodule AwesomeElixir.Catalog do
   @doc """
   Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
   """
-  @spec total_categories_count([Category.t()]) :: non_neg_integer()
-  defmemo total_categories_count(categories) do
+  @spec categories_count([Category.t()]) :: non_neg_integer()
+  defmemo categories_count(categories) do
     length(categories)
   end
 
   @doc """
   Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
   """
-  @spec total_items_count([Category.t()]) :: non_neg_integer()
-  defmemo total_items_count(categories) do
+  @spec items_count([Category.t()]) :: non_neg_integer()
+  defmemo items_count(categories) do
     Enum.reduce(categories, 0, fn %{items: items}, acc -> acc + length(items) end)
   end
 
@@ -106,27 +106,28 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Invalidate memoization for `list_categories/1`, `total_categories_count/1`, `total_items_count/1` and `last_updated_at/0` calls
+  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls
   """
   def invalidate_cached do
-    for method <- ~w(list_categories total_categories_count total_items_count last_updated_at)a do
+    for method <- ~w(list_categories categories_count items_count last_updated_at)a do
       Memoize.invalidate(AwesomeElixir.Catalog, method)
     end
   end
 
   defp base_query do
+    select =
+      ~w(id name slug description inserted_at updated_at)a ++
+        [
+          items:
+            ~w(id category_id name description url git_source is_dead is_scrapped stars_count updated_in pushed_at inserted_at updated_at)a
+        ]
+
     from(categories in Category,
       left_join: items in Item,
       on: categories.id == items.category_id,
       where: items.is_scrapped == true and items.is_dead == false,
       order_by: [categories.name, items.name],
-      select: [
-        :id,
-        :name,
-        :slug,
-        :description,
-        items: [:id, :category_id, :name, :description, :url, :stars_count, :updated_in]
-      ],
+      select: ^select,
       preload: [items: items]
     )
   end

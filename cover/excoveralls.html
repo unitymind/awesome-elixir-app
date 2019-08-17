@@ -613,13 +613,35 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov high'>100</span>
+            <span class='cov none'>100</span>
+            <a href='#lib/awesome_elixir_web/resolvers.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/</span>
+              
+              <span class='basename'>resolvers.ex</span>
+            </a>
+          </li>
+        
+          <li>
+            <span class='cov medium'>66.7</span>
             <a href='#lib/awesome_elixir_web/router.ex'>
               
               
                 <span class='dirname'>lib/awesome_elixir_web/</span>
               
               <span class='basename'>router.ex</span>
+            </a>
+          </li>
+        
+          <li>
+            <span class='cov none'>100</span>
+            <a href='#lib/awesome_elixir_web/schema.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/</span>
+              
+              <span class='basename'>schema.ex</span>
             </a>
           </li>
         
@@ -670,10 +692,10 @@ function find(y) {
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>98.8</div>
-        <div class='sloc'>163</div>
+        <div class='percentage'>98.2</div>
+        <div class='sloc'>164</div>
         <div class='hits'>142852</div>
-        <div class='misses'>2</div>
+        <div class='misses'>3</div>
       </div>
       <div id='files'>
         
@@ -3125,8 +3147,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir/catalog/filters_params.ex'>lib/awesome_elixir/catalog/filters_params.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>2</div>
-              <div class='hits'>32</div>
+              <div class='sloc'>5</div>
+              <div class='hits'>64</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -3438,6 +3460,86 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>38</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def execute(params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>39</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    case validate(params) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'>      %Ecto.Changeset{valid?: true} = changeset -&gt;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>41</td>
+                        <td class='hits'>15</td>
+                        <td class='source'>        Ecto.Changeset.apply_changes(changeset)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
+                        <td class='source'>      %Ecto.Changeset{} = changeset -&gt;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>44</td>
+                        <td class='hits'>1</td>
+                        <td class='source'>        changeset.data |&gt; Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>45</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
                   
@@ -3515,7 +3617,7 @@ function find(y) {
                       <tr>
                         <td class='line'>6</td>
                         <td class='hits'></td>
-                        <td class='source'>      field :description, :string</td>
+                        <td class='source'>      field :name, :string</td>
                       </tr>
                   
                 
@@ -3523,7 +3625,7 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>      field :name, :string</td>
+                        <td class='source'>      field :description, :string</td>
                       </tr>
                   
                 
@@ -3731,7 +3833,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :description, :string</td>
+                        <td class='source'>    field :name, :string</td>
                       </tr>
                   
                 
@@ -3739,7 +3841,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :name, :string</td>
+                        <td class='source'>    field :description, :string</td>
                       </tr>
                   
                 
@@ -12205,8 +12307,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir_web/controllers/catalog_controller.ex'>lib/awesome_elixir_web/controllers/catalog_controller.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>7</div>
-              <div class='hits'>96</div>
+              <div class='sloc'>4</div>
+              <div class='hits'>64</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -12278,7 +12380,7 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>  alias Ecto.Changeset</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12286,7 +12388,7 @@ function find(y) {
                       <tr>
                         <td class='line'>8</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @navigation_filter_list [</td>
                       </tr>
                   
                 
@@ -12294,7 +12396,7 @@ function find(y) {
                       <tr>
                         <td class='line'>9</td>
                         <td class='hits'></td>
-                        <td class='source'>  @navigation_filter_list [</td>
+                        <td class='source'>    {&quot;all&quot;, &quot;All&quot;},</td>
                       </tr>
                   
                 
@@ -12302,7 +12404,7 @@ function find(y) {
                       <tr>
                         <td class='line'>10</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;all&quot;, &quot;All&quot;},</td>
+                        <td class='source'>    {&quot;10&quot;, &quot;10&quot;},</td>
                       </tr>
                   
                 
@@ -12310,7 +12412,7 @@ function find(y) {
                       <tr>
                         <td class='line'>11</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;10&quot;, &quot;10&quot;},</td>
+                        <td class='source'>    {&quot;50&quot;, &quot;50&quot;},</td>
                       </tr>
                   
                 
@@ -12318,7 +12420,7 @@ function find(y) {
                       <tr>
                         <td class='line'>12</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;50&quot;, &quot;50&quot;},</td>
+                        <td class='source'>    {&quot;100&quot;, &quot;100&quot;},</td>
                       </tr>
                   
                 
@@ -12326,7 +12428,7 @@ function find(y) {
                       <tr>
                         <td class='line'>13</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;100&quot;, &quot;100&quot;},</td>
+                        <td class='source'>    {&quot;500&quot;, &quot;500&quot;},</td>
                       </tr>
                   
                 
@@ -12334,7 +12436,7 @@ function find(y) {
                       <tr>
                         <td class='line'>14</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;500&quot;, &quot;500&quot;},</td>
+                        <td class='source'>    {&quot;1000&quot;, &quot;1000&quot;}</td>
                       </tr>
                   
                 
@@ -12342,7 +12444,7 @@ function find(y) {
                       <tr>
                         <td class='line'>15</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;1000&quot;, &quot;1000&quot;}</td>
+                        <td class='source'>  ]</td>
                       </tr>
                   
                 
@@ -12350,7 +12452,7 @@ function find(y) {
                       <tr>
                         <td class='line'>16</td>
                         <td class='hits'></td>
-                        <td class='source'>  ]</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12358,7 +12460,7 @@ function find(y) {
                       <tr>
                         <td class='line'>17</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -12366,7 +12468,7 @@ function find(y) {
                       <tr>
                         <td class='line'>18</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  Filter params and render Catalog index page.</td>
                       </tr>
                   
                 
@@ -12374,7 +12476,7 @@ function find(y) {
                       <tr>
                         <td class='line'>19</td>
                         <td class='hits'></td>
-                        <td class='source'>  Filter params and render Catalog index page.</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -12382,7 +12484,7 @@ function find(y) {
                       <tr>
                         <td class='line'>20</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
                       </tr>
                   
                 
@@ -12390,31 +12492,31 @@ function find(y) {
                       <tr>
                         <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>22</td>
-                        <td class='hits'></td>
                         <td class='source'>  def index(conn, params) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>23</td>
+                        <td class='line'>22</td>
                         <td class='hits'>16</td>
-                        <td class='source'>    conn |&gt; render_index(filter_params(params))</td>
+                        <td class='source'>    conn |&gt; render_index(Catalog.FilterParams.execute(params))</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>24</td>
+                        <td class='line'>23</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12422,21 +12524,13 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>26</td>
-                        <td class='hits'></td>
                         <td class='source'>  defp render_index(conn, params) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>27</td>
+                        <td class='line'>26</td>
                         <td class='hits'>16</td>
                         <td class='source'>    categories = Catalog.list_categories(params)</td>
                       </tr>
@@ -12444,7 +12538,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>28</td>
+                        <td class='line'>27</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -12452,7 +12546,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>29</td>
+                        <td class='line'>28</td>
                         <td class='hits'>16</td>
                         <td class='source'>    counters = %{</td>
                       </tr>
@@ -12460,7 +12554,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>30</td>
+                        <td class='line'>29</td>
                         <td class='hits'></td>
                         <td class='source'>      categories: Catalog.total_categories_count(categories),</td>
                       </tr>
@@ -12468,7 +12562,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>31</td>
+                        <td class='line'>30</td>
                         <td class='hits'></td>
                         <td class='source'>      items: Catalog.total_items_count(categories),</td>
                       </tr>
@@ -12476,7 +12570,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>32</td>
+                        <td class='line'>31</td>
                         <td class='hits'></td>
                         <td class='source'>      last_updated_at: Catalog.last_updated_at()</td>
                       </tr>
@@ -12484,7 +12578,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>33</td>
+                        <td class='line'>32</td>
                         <td class='hits'></td>
                         <td class='source'>    }</td>
                       </tr>
@@ -12492,7 +12586,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>34</td>
+                        <td class='line'>33</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -12500,7 +12594,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>35</td>
+                        <td class='line'>34</td>
                         <td class='hits'>16</td>
                         <td class='source'>    render(conn, &quot;index.html&quot;,</td>
                       </tr>
@@ -12508,7 +12602,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>36</td>
+                        <td class='line'>35</td>
                         <td class='hits'></td>
                         <td class='source'>      navigation_filter_list: @navigation_filter_list,</td>
                       </tr>
@@ -12516,7 +12610,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>37</td>
+                        <td class='line'>36</td>
                         <td class='hits'></td>
                         <td class='source'>      categories: categories,</td>
                       </tr>
@@ -12524,7 +12618,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>38</td>
+                        <td class='line'>37</td>
                         <td class='hits'></td>
                         <td class='source'>      counters: counters,</td>
                       </tr>
@@ -12532,7 +12626,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>39</td>
+                        <td class='line'>38</td>
                         <td class='hits'></td>
                         <td class='source'>      params: params |&gt; Map.from_struct()</td>
                       </tr>
@@ -12540,7 +12634,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>40</td>
+                        <td class='line'>39</td>
                         <td class='hits'></td>
                         <td class='source'>    )</td>
                       </tr>
@@ -12548,103 +12642,15 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>41</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>42</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>43</td>
-                        <td class='hits'></td>
-                        <td class='source'>  # Validate incoming params and reject fields with errors</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>44</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp filter_params(params) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>45</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    case Catalog.FilterParams.validate(params) do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>46</td>
-                        <td class='hits'></td>
-                        <td class='source'>      %Changeset{valid?: true} = changeset -&gt;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>47</td>
-                        <td class='hits'>15</td>
-                        <td class='source'>        Changeset.apply_changes(changeset)</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>48</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>49</td>
-                        <td class='hits'></td>
-                        <td class='source'>      %Changeset{} = changeset -&gt;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>50</td>
-                        <td class='hits'>1</td>
-                        <td class='source'>        changeset.data |&gt; Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>51</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>52</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>53</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -12931,7 +12937,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>    parsers: [:urlencoded, :multipart, :json],</td>
+                        <td class='source'>    parsers: [:urlencoded, :multipart, :json, Absinthe.Plug.Parser],</td>
                       </tr>
                   
                 
@@ -13281,12 +13287,89 @@ function find(y) {
           </div>
         
           <div class='file'>
-            <h2 id='lib/awesome_elixir_web/router.ex'>lib/awesome_elixir_web/router.ex</h1>
-            <div id='stats' class='high'>
+            <h2 id='lib/awesome_elixir_web/resolvers.ex'>lib/awesome_elixir_web/resolvers.ex</h1>
+            <div id='stats' class='none'>
               <div class='percentage'>100</div>
-              <div class='sloc'>2</div>
-              <div class='hits'>32</div>
+              <div class='sloc'>0</div>
+              <div class='hits'>0</div>
               <div class='misses'>0</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.Resolvers do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixir.Catalog</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def list_categories(params, _) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'>    {:ok, Catalog.FilterParams.execute(params) |&gt; Catalog.list_categories()}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/router.ex'>lib/awesome_elixir_web/router.ex</h1>
+            <div id='stats' class='medium'>
+              <div class='percentage'>66.7</div>
+              <div class='sloc'>3</div>
+              <div class='hits'>32</div>
+              <div class='misses'>1</div>
             </div>
             <table id='source'>
               <thead>
@@ -13452,6 +13535,459 @@ function find(y) {
                   
                       <tr>
                         <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>20</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  forward &quot;/api&quot;, Absinthe.Plug, schema: AwesomeElixirWeb.Schema</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/schema.ex'>lib/awesome_elixir_web/schema.ex</h1>
+            <div id='stats' class='none'>
+              <div class='percentage'>100</div>
+              <div class='sloc'>0</div>
+              <div class='hits'>0</div>
+              <div class='misses'>0</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.Schema do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use Absinthe.Schema</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixirWeb.Resolvers</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>  object :git_source do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :github, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :gitlab, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>  object :item do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :id, :id</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :name, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>13</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :description, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :stars_count, :integer</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :updated_in, :integer</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :url, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>17</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :git_source, :git_source</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :is_dead, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :is_scrapped, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>  object :category do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :id, :id</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :name, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :description, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :slug, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :items, list_of(:item)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>30</td>
+                        <td class='hits'></td>
+                        <td class='source'>  input_object :contact_input do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :email, non_null(:string)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>33</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>  input_object :list_categories_input do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :min_stars, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>36</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :show_unstarred, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :hide_outdated, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>38</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :show_just_updated, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>39</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'>  query do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :list_categories, list_of(:category) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg(:min_stars, :string)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg(:show_unstarred, :boolean)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>45</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg(:hide_outdated, :boolean)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg(:show_just_updated, :boolean)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>48</td>
+                        <td class='hits'></td>
+                        <td class='source'>      resolve(&amp;Resolvers.list_categories/2)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>51</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

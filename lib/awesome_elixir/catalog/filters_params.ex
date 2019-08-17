@@ -35,4 +35,14 @@ defmodule AwesomeElixir.Catalog.FilterParams do
     |> cast(params, @fields)
     |> validate_inclusion(:min_stars, @allowed_min_stars_values)
   end
+
+  def execute(params) do
+    case validate(params) do
+      %Ecto.Changeset{valid?: true} = changeset ->
+        Ecto.Changeset.apply_changes(changeset)
+
+      %Ecto.Changeset{} = changeset ->
+        changeset.data |> Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))
+    end
+  end
 end

@@ -4,8 +4,8 @@ defmodule AwesomeElixir.Catalog.Item do
 
       belongs_to :category, AwesomeElixir.Catalog.Category
 
-      field :description, :string
       field :name, :string
+      field :description, :string
       field :stars_count, :integer
       field :updated_in, :integer
       field :url, EctoFields.URL
@@ -31,8 +31,8 @@ defmodule AwesomeElixir.Catalog.Item do
   typed_schema "items" do
     belongs_to :category, AwesomeElixir.Catalog.Category
 
-    field :description, :string
     field :name, :string
+    field :description, :string
     field :stars_count, :integer
     field :updated_in, :integer
     field :url, EctoFields.URL
