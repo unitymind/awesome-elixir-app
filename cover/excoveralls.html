@@ -1255,7 +1255,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>58</td>
                         <td class='hits'>1</td>
-                        <td class='source'>      children = (server_mode_specs ++ [AwesomeElixirWeb.Endpoint]) |&gt; Enum.reject(&amp;is_nil/1)</td>
+                        <td class='source'>      children = server_mode_specs ++ [AwesomeElixirWeb.Endpoint]</td>
                       </tr>
                     
                 
@@ -2889,7 +2889,7 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  @insert_fields ~w(name slug description)a</td>
                       </tr>
                   
                 
@@ -2897,7 +2897,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  Cast and validate data for insert.</td>
+                        <td class='source'>  @update_fields @insert_fields -- [:slug]</td>
                       </tr>
                   
                 
@@ -2913,7 +2913,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Allowed and required: `name`, `slug` and `description`</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -2921,7 +2921,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Unique constraint: `slug`</td>
+                        <td class='source'>  Cast and validate data for insert.</td>
                       </tr>
                   
                 
@@ -2929,7 +2929,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -2937,7 +2937,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec insert_changeset(map()) :: Ecto.Changeset.t()</td>
+                        <td class='source'>    * Allowed and required: `name`, `slug` and `description`</td>
                       </tr>
                   
                 
@@ -2945,7 +2945,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>  def insert_changeset(%{} = attrs) do</td>
+                        <td class='source'>    * Unique constraint: `slug`</td>
                       </tr>
                   
                 
@@ -2953,7 +2953,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>    %__MODULE__{}</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -2961,7 +2961,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; cast(attrs, ~w(name slug description)a)</td>
+                        <td class='source'>  @spec insert_changeset(map()) :: Ecto.Changeset.t()</td>
                       </tr>
                   
                 
@@ -2969,23 +2969,23 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; validate_required(~w(name slug description)a)</td>
+                        <td class='source'>  def insert_changeset(%{} = attrs) do</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>35</td>
-                        <td class='hits'>449</td>
-                        <td class='source'>    |&gt; unique_constraint(:slug)</td>
+                        <td class='hits'></td>
+                        <td class='source'>    %__MODULE__{}</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    |&gt; cast(attrs, @insert_fields)</td>
                       </tr>
                   
                 
@@ -2993,23 +2993,23 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    |&gt; validate_required(@insert_fields)</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>38</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='hits'>449</td>
+                        <td class='source'>    |&gt; unique_constraint(:slug)</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>39</td>
                         <td class='hits'></td>
-                        <td class='source'>  Cast and validate data for update.</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -3025,7 +3025,7 @@ function find(y) {
                       <tr>
                         <td class='line'>41</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Allowed and required: `name` and `description`</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3033,7 +3033,7 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  Cast and validate data for update.</td>
                       </tr>
                   
                 
@@ -3041,7 +3041,7 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3049,7 +3049,7 @@ function find(y) {
                       <tr>
                         <td class='line'>44</td>
                         <td class='hits'></td>
-                        <td class='source'>  def update_changeset(%__MODULE__{} = category, %{} = attrs) do</td>
+                        <td class='source'>    * Allowed and required: `name` and `description`</td>
                       </tr>
                   
                 
@@ -3057,7 +3057,7 @@ function find(y) {
                       <tr>
                         <td class='line'>45</td>
                         <td class='hits'></td>
-                        <td class='source'>    category</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3065,21 +3065,45 @@ function find(y) {
                       <tr>
                         <td class='line'>46</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; cast(attrs, ~w(name description)a)</td>
+                        <td class='source'>  @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def update_changeset(%__MODULE__{} = category, %{} = attrs) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>48</td>
+                        <td class='hits'></td>
+                        <td class='source'>    category</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; cast(attrs, @update_fields)</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>47</td>
+                        <td class='line'>50</td>
                         <td class='hits'>86</td>
-                        <td class='source'>    |&gt; validate_required(~w(name description)a)</td>
+                        <td class='source'>    |&gt; validate_required(@update_fields)</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>48</td>
+                        <td class='line'>51</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -3087,7 +3111,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>49</td>
+                        <td class='line'>52</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -3294,7 +3318,7 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  @fields ~w(min_stars show_unstarred hide_outdated show_just_updated)a</td>
                       </tr>
                   
                 
@@ -3302,7 +3326,7 @@ function find(y) {
                       <tr>
                         <td class='line'>23</td>
                         <td class='hits'></td>
-                        <td class='source'>    Cast and validate incoming params according to field&#39;s types.</td>
+                        <td class='source'>  @allowed_min_stars_values ~w(all 10 50 100 500 1000)</td>
                       </tr>
                   
                 
@@ -3318,7 +3342,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Allowed: `min_stars`, `show_unstarred`, `hide_outdated` and `show_just_updated`</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3326,7 +3350,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Validate inclusion of `min_stars` in list ```[&quot;all&quot;, &quot;10&quot;, &quot;50&quot;, &quot;100&quot;, &quot;500&quot;, &quot;1000&quot;]```</td>
+                        <td class='source'>    Cast and validate incoming params according to field&#39;s types.</td>
                       </tr>
                   
                 
@@ -3334,7 +3358,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3342,7 +3366,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec validate(map()) :: Ecto.Changeset.t()</td>
+                        <td class='source'>    * Allowed: `min_stars`, `show_unstarred`, `hide_outdated` and `show_just_updated`</td>
                       </tr>
                   
                 
@@ -3350,7 +3374,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>  def validate(params) do</td>
+                        <td class='source'>    * Validate inclusion of `min_stars` in list ```[&quot;all&quot;, &quot;10&quot;, &quot;50&quot;, &quot;100&quot;, &quot;500&quot;, &quot;1000&quot;]```</td>
                       </tr>
                   
                 
@@ -3358,7 +3382,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>    %__MODULE__{}</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3366,21 +3390,45 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; cast(params, ~w(min_stars show_unstarred hide_outdated show_just_updated)a)</td>
+                        <td class='source'>  @spec validate(map()) :: Ecto.Changeset.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def validate(params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>33</td>
+                        <td class='hits'></td>
+                        <td class='source'>    %__MODULE__{}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; cast(params, @fields)</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>32</td>
+                        <td class='line'>35</td>
                         <td class='hits'>16</td>
-                        <td class='source'>    |&gt; validate_inclusion(:min_stars, ~w(all 10 50 100 500 1000))</td>
+                        <td class='source'>    |&gt; validate_inclusion(:min_stars, @allowed_min_stars_values)</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>33</td>
+                        <td class='line'>36</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -3388,7 +3436,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>34</td>
+                        <td class='line'>37</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -3827,7 +3875,7 @@ function find(y) {
                       <tr>
                         <td class='line'>51</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  @allowed_git_sources ~w(github gitlab)a</td>
                       </tr>
                   
                 
@@ -3835,7 +3883,7 @@ function find(y) {
                       <tr>
                         <td class='line'>52</td>
                         <td class='hits'></td>
-                        <td class='source'>  Cast and validate data for insert.</td>
+                        <td class='source'>  @insert_fields ~w(category_id name url description)a</td>
                       </tr>
                   
                 
@@ -3843,7 +3891,7 @@ function find(y) {
                       <tr>
                         <td class='line'>53</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @update_required_fields ~w(category_id name description)a</td>
                       </tr>
                   
                 
@@ -3851,7 +3899,7 @@ function find(y) {
                       <tr>
                         <td class='line'>54</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Allowed and required: `category_id`, `name`, `url` and `description`</td>
+                        <td class='source'>  @update_optional_fields ~w(stars_count pushed_at is_dead is_scrapped)a</td>
                       </tr>
                   
                 
@@ -3859,7 +3907,7 @@ function find(y) {
                       <tr>
                         <td class='line'>55</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Unique constraint: `url`</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3867,7 +3915,7 @@ function find(y) {
                       <tr>
                         <td class='line'>56</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Assoc constraint: `category`</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3875,7 +3923,7 @@ function find(y) {
                       <tr>
                         <td class='line'>57</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  Cast and validate data for insert.</td>
                       </tr>
                   
                 
@@ -3883,7 +3931,7 @@ function find(y) {
                       <tr>
                         <td class='line'>58</td>
                         <td class='hits'></td>
-                        <td class='source'>  Also set `git_source` derived from `url` if applicable.</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3891,7 +3939,7 @@ function find(y) {
                       <tr>
                         <td class='line'>59</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>    * Allowed and required: `category_id`, `name`, `url` and `description`</td>
                       </tr>
                   
                 
@@ -3899,7 +3947,7 @@ function find(y) {
                       <tr>
                         <td class='line'>60</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec insert_changeset(map()) :: Ecto.Changeset.t()</td>
+                        <td class='source'>    * Unique constraint: `url`</td>
                       </tr>
                   
                 
@@ -3907,7 +3955,7 @@ function find(y) {
                       <tr>
                         <td class='line'>61</td>
                         <td class='hits'></td>
-                        <td class='source'>  def insert_changeset(%{} = attrs) do</td>
+                        <td class='source'>    * Assoc constraint: `category`</td>
                       </tr>
                   
                 
@@ -3915,7 +3963,7 @@ function find(y) {
                       <tr>
                         <td class='line'>62</td>
                         <td class='hits'></td>
-                        <td class='source'>    %__MODULE__{}</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3923,7 +3971,7 @@ function find(y) {
                       <tr>
                         <td class='line'>63</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; cast(attrs, ~w(category_id name url description)a)</td>
+                        <td class='source'>  Also set `git_source` derived from `url` if applicable.</td>
                       </tr>
                   
                 
@@ -3931,7 +3979,7 @@ function find(y) {
                       <tr>
                         <td class='line'>64</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; validate_required(~w(category_id name url description)a)</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3939,7 +3987,7 @@ function find(y) {
                       <tr>
                         <td class='line'>65</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; unique_constraint(:url)</td>
+                        <td class='source'>  @spec insert_changeset(map()) :: Ecto.Changeset.t()</td>
                       </tr>
                   
                 
@@ -3947,23 +3995,23 @@ function find(y) {
                       <tr>
                         <td class='line'>66</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; assoc_constraint(:category)</td>
+                        <td class='source'>  def insert_changeset(%{} = attrs) do</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>67</td>
-                        <td class='hits'>6315</td>
-                        <td class='source'>    |&gt; set_git_source()</td>
+                        <td class='hits'></td>
+                        <td class='source'>    %__MODULE__{}</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>68</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    |&gt; cast(attrs, @insert_fields)</td>
                       </tr>
                   
                 
@@ -3971,7 +4019,7 @@ function find(y) {
                       <tr>
                         <td class='line'>69</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    |&gt; validate_required(@insert_fields)</td>
                       </tr>
                   
                 
@@ -3979,7 +4027,7 @@ function find(y) {
                       <tr>
                         <td class='line'>70</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>    |&gt; unique_constraint(:url)</td>
                       </tr>
                   
                 
@@ -3987,141 +4035,21 @@ function find(y) {
                       <tr>
                         <td class='line'>71</td>
                         <td class='hits'></td>
-                        <td class='source'>    Cast and validate data for update.</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>72</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>73</td>
-                        <td class='hits'></td>
-                        <td class='source'>    * Allowed: `category_id`, `name`, `description`, `stars_count`, `pushed_at`, `is_dead`, `is_scrapped` and `git_source`</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>74</td>
-                        <td class='hits'></td>
-                        <td class='source'>    * Cast `git_source` on embedded schema</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>75</td>
-                        <td class='hits'></td>
-                        <td class='source'>    * Required: `category_id`, `name`, `description`</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>76</td>
-                        <td class='hits'></td>
-                        <td class='source'>    * Assoc constraint: `category`</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>77</td>
-                        <td class='hits'></td>
-                        <td class='source'>    * Validate that `stars_count` is greater than or equal to 0</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>78</td>
-                        <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>79</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>80</td>
-                        <td class='hits'></td>
-                        <td class='source'>  def update_changeset(%__MODULE__{} = item, %{} = attrs) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>81</td>
-                        <td class='hits'></td>
-                        <td class='source'>    item</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>82</td>
-                        <td class='hits'></td>
-                        <td class='source'>    |&gt; cast(attrs, ~w(category_id name description stars_count pushed_at is_dead is_scrapped)a)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>83</td>
-                        <td class='hits'></td>
-                        <td class='source'>    |&gt; validate_required(~w(category_id name description)a)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>84</td>
-                        <td class='hits'></td>
-                        <td class='source'>    |&gt; cast_embed(:git_source, with: &amp;git_source_changeset/2)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>85</td>
-                        <td class='hits'></td>
                         <td class='source'>    |&gt; assoc_constraint(:category)</td>
                       </tr>
                   
                 
                   
-                      <tr>
-                        <td class='line'>86</td>
-                        <td class='hits'></td>
-                        <td class='source'>    |&gt; validate_number(:stars_count, greater_than_or_equal_to: 0)</td>
-                      </tr>
-                  
-                
-                  
                       <tr class='hit'>
-                        <td class='line'>87</td>
-                        <td class='hits'>1282</td>
-                        <td class='source'>    |&gt; set_updated_in()</td>
+                        <td class='line'>72</td>
+                        <td class='hits'>6315</td>
+                        <td class='source'>    |&gt; set_git_source()</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>88</td>
+                        <td class='line'>73</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -4129,7 +4057,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>89</td>
+                        <td class='line'>74</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -4137,9 +4065,129 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>75</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>76</td>
+                        <td class='hits'></td>
+                        <td class='source'>    Cast and validate data for update.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>77</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>78</td>
+                        <td class='hits'></td>
+                        <td class='source'>    * Allowed: `category_id`, `name`, `description`, `stars_count`, `pushed_at`, `is_dead`, `is_scrapped` and `git_source`</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>79</td>
+                        <td class='hits'></td>
+                        <td class='source'>    * Cast `git_source` on embedded schema</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>80</td>
+                        <td class='hits'></td>
+                        <td class='source'>    * Required: `category_id`, `name`, `description`</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>81</td>
+                        <td class='hits'></td>
+                        <td class='source'>    * Assoc constraint: `category`</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>82</td>
+                        <td class='hits'></td>
+                        <td class='source'>    * Validate that `stars_count` is greater than or equal to 0</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>83</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>84</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>85</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def update_changeset(%__MODULE__{} = item, %{} = attrs) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>86</td>
+                        <td class='hits'></td>
+                        <td class='source'>    item</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>87</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; cast(attrs, @update_required_fields ++ @update_optional_fields)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>88</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; validate_required(@update_required_fields)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>89</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; cast_embed(:git_source, with: &amp;git_source_changeset/2)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>90</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp git_source_changeset(schema, params) do</td>
+                        <td class='source'>    |&gt; assoc_constraint(:category)</td>
                       </tr>
                   
                 
@@ -4147,15 +4195,15 @@ function find(y) {
                       <tr>
                         <td class='line'>91</td>
                         <td class='hits'></td>
-                        <td class='source'>    schema</td>
+                        <td class='source'>    |&gt; validate_number(:stars_count, greater_than_or_equal_to: 0)</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
                         <td class='line'>92</td>
-                        <td class='hits'>4</td>
-                        <td class='source'>    |&gt; cast(params, ~w(github gitlab)a)</td>
+                        <td class='hits'>1282</td>
+                        <td class='source'>    |&gt; set_updated_in()</td>
                       </tr>
                     
                 
@@ -4179,31 +4227,31 @@ function find(y) {
                       <tr>
                         <td class='line'>95</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp set_git_source(%Ecto.Changeset{changes: %{url: @github_url_prefix &lt;&gt; uri}} = changeset) do</td>
+                        <td class='source'>  defp git_source_changeset(schema, params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>96</td>
+                        <td class='hits'></td>
+                        <td class='source'>    schema</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>96</td>
-                        <td class='hits'>6163</td>
-                        <td class='source'>    handle_git_source(changeset, :github, uri)</td>
+                        <td class='line'>97</td>
+                        <td class='hits'>4</td>
+                        <td class='source'>    |&gt; cast(params, @allowed_git_sources)</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>97</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>98</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -4211,13 +4259,53 @@ function find(y) {
                       <tr>
                         <td class='line'>99</td>
                         <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>100</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp set_git_source(%Ecto.Changeset{changes: %{url: @github_url_prefix &lt;&gt; uri}} = changeset) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>101</td>
+                        <td class='hits'>6163</td>
+                        <td class='source'>    handle_git_source(changeset, :github, uri)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>102</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>103</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>104</td>
+                        <td class='hits'></td>
                         <td class='source'>  defp set_git_source(%Ecto.Changeset{changes: %{url: @gitlab_url_prefix &lt;&gt; uri}} = changeset) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>100</td>
+                        <td class='line'>105</td>
                         <td class='hits'>30</td>
                         <td class='source'>    handle_git_source(changeset, :gitlab, uri)</td>
                       </tr>
@@ -4225,7 +4313,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>101</td>
+                        <td class='line'>106</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -4233,7 +4321,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>102</td>
+                        <td class='line'>107</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -4241,7 +4329,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>103</td>
+                        <td class='line'>108</td>
                         <td class='hits'>122</td>
                         <td class='source'>  defp set_git_source(changeset), do: changeset</td>
                       </tr>
@@ -4249,49 +4337,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>104</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>105</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp handle_git_source(changeset, kind, uri) when is_binary(uri),</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>106</td>
-                        <td class='hits'></td>
-                        <td class='source'>    do:</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>107</td>
-                        <td class='hits'>6193</td>
-                        <td class='source'>      handle_git_source(</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>108</td>
-                        <td class='hits'></td>
-                        <td class='source'>        changeset,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>109</td>
                         <td class='hits'></td>
-                        <td class='source'>        kind,</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4299,7 +4347,7 @@ function find(y) {
                       <tr>
                         <td class='line'>110</td>
                         <td class='hits'></td>
-                        <td class='source'>        uri |&gt; String.replace(~r/\.git$/, &quot;&quot;) |&gt; String.split(&quot;/&quot;, trim: true)</td>
+                        <td class='source'>  defp handle_git_source(changeset, kind, uri) when is_binary(uri),</td>
                       </tr>
                   
                 
@@ -4307,39 +4355,39 @@ function find(y) {
                       <tr>
                         <td class='line'>111</td>
                         <td class='hits'></td>
-                        <td class='source'>      )</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>112</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>113</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp handle_git_source(changeset, :github, uri) when is_list(uri) and length(uri) != 2,</td>
+                        <td class='source'>    do:</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>114</td>
-                        <td class='hits'>7</td>
-                        <td class='source'>    do: changeset</td>
+                        <td class='line'>112</td>
+                        <td class='hits'>6193</td>
+                        <td class='source'>      handle_git_source(</td>
                       </tr>
                     
                 
                   
                       <tr>
+                        <td class='line'>113</td>
+                        <td class='hits'></td>
+                        <td class='source'>        changeset,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>114</td>
+                        <td class='hits'></td>
+                        <td class='source'>        kind,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>115</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>        uri |&gt; String.replace(~r/\.git$/, &quot;&quot;) |&gt; String.split(&quot;/&quot;, trim: true)</td>
                       </tr>
                   
                 
@@ -4347,13 +4395,53 @@ function find(y) {
                       <tr>
                         <td class='line'>116</td>
                         <td class='hits'></td>
+                        <td class='source'>      )</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>117</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>118</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp handle_git_source(changeset, :github, uri) when is_list(uri) and length(uri) != 2,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>119</td>
+                        <td class='hits'>7</td>
+                        <td class='source'>    do: changeset</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>120</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>121</td>
+                        <td class='hits'></td>
                         <td class='source'>  defp handle_git_source(changeset, kind, uri) when is_list(uri) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>117</td>
+                        <td class='line'>122</td>
                         <td class='hits'>6186</td>
                         <td class='source'>    uri = uri |&gt; Enum.join(&quot;/&quot;)</td>
                       </tr>
@@ -4361,49 +4449,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>118</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>119</td>
-                        <td class='hits'></td>
-                        <td class='source'>    changeset</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>120</td>
-                        <td class='hits'>6186</td>
-                        <td class='source'>    |&gt; put_embed(</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>121</td>
-                        <td class='hits'></td>
-                        <td class='source'>      :git_source,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>122</td>
-                        <td class='hits'></td>
-                        <td class='source'>      %__MODULE__.GitSource{}</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>123</td>
                         <td class='hits'></td>
-                        <td class='source'>      |&gt; Map.put(kind, uri)</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4411,23 +4459,23 @@ function find(y) {
                       <tr>
                         <td class='line'>124</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>    changeset</td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>125</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='hits'>6186</td>
+                        <td class='source'>    |&gt; put_embed(</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>126</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>      :git_source,</td>
                       </tr>
                   
                 
@@ -4435,7 +4483,7 @@ function find(y) {
                       <tr>
                         <td class='line'>127</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp set_updated_in(%Ecto.Changeset{changes: %{pushed_at: pushed_at}} = changeset)</td>
+                        <td class='source'>      %__MODULE__.GitSource{}</td>
                       </tr>
                   
                 
@@ -4443,7 +4491,7 @@ function find(y) {
                       <tr>
                         <td class='line'>128</td>
                         <td class='hits'></td>
-                        <td class='source'>       when not is_nil(pushed_at) do</td>
+                        <td class='source'>      |&gt; Map.put(kind, uri)</td>
                       </tr>
                   
                 
@@ -4451,21 +4499,13 @@ function find(y) {
                       <tr>
                         <td class='line'>129</td>
                         <td class='hits'></td>
-                        <td class='source'>    changeset</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>130</td>
-                        <td class='hits'>6</td>
-                        <td class='source'>    |&gt; put_change(:updated_in, Date.diff(Date.utc_today(), DateTime.to_date(pushed_at)))</td>
-                      </tr>
-                    
                 
                   
                       <tr>
-                        <td class='line'>131</td>
+                        <td class='line'>130</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -4473,7 +4513,55 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>131</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>132</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp set_updated_in(%Ecto.Changeset{changes: %{pushed_at: pushed_at}} = changeset)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>133</td>
+                        <td class='hits'></td>
+                        <td class='source'>       when not is_nil(pushed_at) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>134</td>
+                        <td class='hits'></td>
+                        <td class='source'>    changeset</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>135</td>
+                        <td class='hits'>6</td>
+                        <td class='source'>    |&gt; put_change(:updated_in, Date.diff(Date.utc_today(), DateTime.to_date(pushed_at)))</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>136</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>137</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -4481,7 +4569,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>133</td>
+                        <td class='line'>138</td>
                         <td class='hits'>1276</td>
                         <td class='source'>  defp set_updated_in(changeset), do: changeset</td>
                       </tr>
@@ -4489,7 +4577,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>134</td>
+                        <td class='line'>139</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

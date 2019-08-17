@@ -56,7 +56,7 @@ defmodule AwesomeElixir.Application do
           []
         end
 
-      children = (server_mode_specs ++ [AwesomeElixirWeb.Endpoint]) |> Enum.reject(&is_nil/1)
+      children = server_mode_specs ++ [AwesomeElixirWeb.Endpoint]
 
       Supervisor.init(children, strategy: :one_for_one)
     end

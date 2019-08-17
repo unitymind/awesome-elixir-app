@@ -22,6 +22,9 @@ defmodule AwesomeElixir.Catalog.Category do
     has_many :items, AwesomeElixir.Catalog.Item
   end
 
+  @insert_fields ~w(name slug description)a
+  @update_fields @insert_fields -- [:slug]
+
   @doc """
   Cast and validate data for insert.
 
@@ -31,8 +34,8 @@ defmodule AwesomeElixir.Catalog.Category do
   @spec insert_changeset(map()) :: Ecto.Changeset.t()
   def insert_changeset(%{} = attrs) do
     %__MODULE__{}
-    |> cast(attrs, ~w(name slug description)a)
-    |> validate_required(~w(name slug description)a)
+    |> cast(attrs, @insert_fields)
+    |> validate_required(@insert_fields)
     |> unique_constraint(:slug)
   end
 
@@ -44,7 +47,7 @@ defmodule AwesomeElixir.Catalog.Category do
   @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def update_changeset(%__MODULE__{} = category, %{} = attrs) do
     category
-    |> cast(attrs, ~w(name description)a)
-    |> validate_required(~w(name description)a)
+    |> cast(attrs, @update_fields)
+    |> validate_required(@update_fields)
   end
 end

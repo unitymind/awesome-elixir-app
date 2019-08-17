@@ -49,6 +49,11 @@ defmodule AwesomeElixir.Catalog.Item do
     timestamps()
   end
 
+  @allowed_git_sources ~w(github gitlab)a
+  @insert_fields ~w(category_id name url description)a
+  @update_required_fields ~w(category_id name description)a
+  @update_optional_fields ~w(stars_count pushed_at is_dead is_scrapped)a
+
   @doc """
   Cast and validate data for insert.
 
@@ -61,8 +66,8 @@ defmodule AwesomeElixir.Catalog.Item do
   @spec insert_changeset(map()) :: Ecto.Changeset.t()
   def insert_changeset(%{} = attrs) do
     %__MODULE__{}
-    |> cast(attrs, ~w(category_id name url description)a)
-    |> validate_required(~w(category_id name url description)a)
+    |> cast(attrs, @insert_fields)
+    |> validate_required(@insert_fields)
     |> unique_constraint(:url)
     |> assoc_constraint(:category)
     |> set_git_source()
@@ -80,8 +85,8 @@ defmodule AwesomeElixir.Catalog.Item do
   @spec update_changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def update_changeset(%__MODULE__{} = item, %{} = attrs) do
     item
-    |> cast(attrs, ~w(category_id name description stars_count pushed_at is_dead is_scrapped)a)
-    |> validate_required(~w(category_id name description)a)
+    |> cast(attrs, @update_required_fields ++ @update_optional_fields)
+    |> validate_required(@update_required_fields)
     |> cast_embed(:git_source, with: &git_source_changeset/2)
     |> assoc_constraint(:category)
     |> validate_number(:stars_count, greater_than_or_equal_to: 0)
@@ -90,7 +95,7 @@ defmodule AwesomeElixir.Catalog.Item do
 
   defp git_source_changeset(schema, params) do
     schema
-    |> cast(params, ~w(github gitlab)a)
+    |> cast(params, @allowed_git_sources)
   end
 
   defp set_git_source(%Ecto.Changeset{changes: %{url: @github_url_prefix <> uri}} = changeset) do

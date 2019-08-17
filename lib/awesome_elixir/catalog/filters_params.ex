@@ -20,6 +20,9 @@ defmodule AwesomeElixir.Catalog.FilterParams do
     field :show_just_updated, :boolean, default: false
   end
 
+  @fields ~w(min_stars show_unstarred hide_outdated show_just_updated)a
+  @allowed_min_stars_values ~w(all 10 50 100 500 1000)
+
   @doc """
     Cast and validate incoming params according to field's types.
 
@@ -29,7 +32,7 @@ defmodule AwesomeElixir.Catalog.FilterParams do
   @spec validate(map()) :: Ecto.Changeset.t()
   def validate(params) do
     %__MODULE__{}
-    |> cast(params, ~w(min_stars show_unstarred hide_outdated show_just_updated)a)
-    |> validate_inclusion(:min_stars, ~w(all 10 50 100 500 1000))
+    |> cast(params, @fields)
+    |> validate_inclusion(:min_stars, @allowed_min_stars_values)
   end
 end
