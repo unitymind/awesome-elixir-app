@@ -17,7 +17,7 @@ defmodule AwesomeElixir.Jobs.UpdateIndex do
   """
   @impl true
   def perform([]) do
-    Jobs.clear_scheduled()
+    #    Jobs.clear_scheduled()
     Scraper.update_index()
     Catalog.invalidate_cached()
     Jobs.schedule_update()

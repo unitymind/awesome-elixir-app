@@ -17,7 +17,7 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
   """
   @impl true
   def perform([item_id]) do
-    Jobs.clear_scheduled(item_id)
+    #    Jobs.clear_scheduled(item_id)
 
     with {result, data} when result in [:retry, :ok] <- Scraper.update_item(item_id) do
       cond do
