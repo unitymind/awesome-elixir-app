@@ -1,4 +1,7 @@
 defmodule AwesomeElixirWeb.Endpoint do
+  @moduledoc """
+  Application specific `Phoenix.Endpoint` pipeline.
+  """
   use Phoenix.Endpoint, otp_app: :awesome_elixir
 
   socket "/socket", AwesomeElixirWeb.UserSocket,
