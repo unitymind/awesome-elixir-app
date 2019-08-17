@@ -37,9 +37,9 @@
             <% end %>
             <%= if !is_nil(item.updated_in) do %>
               <%= if(item.updated_in <= 7) do %>
-                📅<sub class="text-danger">Just updated!</sub>
+                &nbsp;📅<sub class="text-danger">&nbsp;Just updated!</sub>
               <% else %>
-                📅<sub><%= item.updated_in %></sub>
+                &nbsp;📅<sub>&nbsp;<%= item.updated_in %></sub>
               <% end %>
             <% end %>
               <%= item.description |> render_markdown() |> raw() %>
