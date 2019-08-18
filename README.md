@@ -10,8 +10,12 @@ Visit the running application at: [https://awesome-elixir.herokuapp.com](https:/
 
 Check generated **ExDoc** at: [https://awesome-elixir.herokuapp.com/docs/index.html](https://awesome-elixir.herokuapp.com/docs/index.html)
 
-## Ongoing efforts on GraphQL API, Vue.JS UI and Guardian auth with GitHub signup/login
-- [x] Basic GraphQL API pointed to `/api/graphql`
+## Ongoing efforts on GraphQL API, Vue.JS UI and Guardian Auth with GitHub Signup/Login
+- [x] Basic GraphQL API. Pointed to: `/api/graphql`
+- [ ] REST-endpoints for handling Guardian flow with GitHub strategy. Pointed to: `/api/auth`
+- [ ] Integrate Guardian flow to current HTML-based app
+- [ ] Base Vue.JS SPA-application, which consumes GraphQL API. Pointed to: `/spa`
+- [ ] Integrate Guardian flow to Vue.JS application and GraphQL API
 
 ## Development
 
