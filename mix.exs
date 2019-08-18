@@ -4,7 +4,7 @@ defmodule AwesomeElixir.MixProject do
   def project do
     [
       app: :awesome_elixir,
-      version: "0.1.0",
+      version: "0.1.5",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -51,6 +51,9 @@ defmodule AwesomeElixir.MixProject do
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
       {:absinthe_phoenix, "~> 1.4.0"},
+      {:guardian, "~> 2.0"},
+      {:ueberauth, "~> 0.6.1"},
+      {:ueberauth_github, "~> 0.7.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.6", only: :dev, runtime: false},
@@ -69,7 +72,6 @@ defmodule AwesomeElixir.MixProject do
       {:earmark, "~> 1.3"},
       {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
       {:timex, "~> 3.6"},
-      {:basic_auth, "~> 2.2.2"},
       {:observer_cli, "~> 1.5"}
     ]
   end

@@ -27,4 +27,11 @@ defmodule AwesomeElixirWeb.Router do
 
     forward "/graphql", Absinthe.Plug, schema: AwesomeElixirWeb.Schema
   end
+
+  scope "/auth", AwesomeElixirWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end
 end
