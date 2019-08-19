@@ -3,13 +3,13 @@ defmodule AwesomeElixir.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :name, :string
-      add :email, :string
-      add :github_token, :string
+      add :github_uid, :id, null: false
+      add :github_token, :string, null: false
+      add :profile, :map, default: %{}, null: false
 
       timestamps()
     end
 
-    create unique_index(:users, [:email])
+    create index(:users, [:github_uid])
   end
 end

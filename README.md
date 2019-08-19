@@ -12,7 +12,10 @@ Check generated **ExDoc** at: [https://awesome-elixir.herokuapp.com/docs/index.h
 
 ## Ongoing efforts on GraphQL API, Vue.JS UI and Guardian Auth with GitHub Signup/Login
 - [x] Basic GraphQL API. Pointed to: `/api/graphql`
-- [ ] REST-endpoints for handling Guardian flow with GitHub strategy. Pointed to: `/auth`
+- [x] Endpoints for handling Guardian flow with GitHub strategy. Pointed to: `/auth`
+  - `/auth/github`
+  - `/auth/github/callback`
+  - `/auth/logout` 
 - [ ] Integrate Guardian flow to current HTML-based app
 - [ ] Base Vue.JS SPA-application, which consumes GraphQL API. Pointed to: `/spa`
 - [ ] Integrate Guardian flow to Vue.JS application and GraphQL API

@@ -371,6 +371,28 @@ function find(y) {
           </li>
         
           <li>
+            <span class='cov terrible'>0</span>
+            <a href='#lib/awesome_elixir/accounts/accounts.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir/accounts/</span>
+              
+              <span class='basename'>accounts.ex</span>
+            </a>
+          </li>
+        
+          <li>
+            <span class='cov terrible'>0</span>
+            <a href='#lib/awesome_elixir/accounts/user.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir/accounts/</span>
+              
+              <span class='basename'>user.ex</span>
+            </a>
+          </li>
+        
+          <li>
             <span class='cov high'>100</span>
             <a href='#lib/awesome_elixir/application.ex'>
               
@@ -580,6 +602,17 @@ function find(y) {
           </li>
         
           <li>
+            <span class='cov terrible'>0</span>
+            <a href='#lib/awesome_elixir_web/controllers/auth_controller.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/controllers/</span>
+              
+              <span class='basename'>auth_controller.ex</span>
+            </a>
+          </li>
+        
+          <li>
             <span class='cov high'>100</span>
             <a href='#lib/awesome_elixir_web/controllers/catalog_controller.ex'>
               
@@ -613,7 +646,18 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov none'>100</span>
+            <span class='cov terrible'>0</span>
+            <a href='#lib/awesome_elixir_web/guardian.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/</span>
+              
+              <span class='basename'>guardian.ex</span>
+            </a>
+          </li>
+        
+          <li>
+            <span class='cov terrible'>0</span>
             <a href='#lib/awesome_elixir_web/resolvers.ex'>
               
               
@@ -624,7 +668,7 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov medium'>66.7</span>
+            <span class='cov low'>30</span>
             <a href='#lib/awesome_elixir_web/router.ex'>
               
               
@@ -642,6 +686,17 @@ function find(y) {
                 <span class='dirname'>lib/awesome_elixir_web/</span>
               
               <span class='basename'>schema.ex</span>
+            </a>
+          </li>
+        
+          <li>
+            <span class='cov none'>100</span>
+            <a href='#lib/awesome_elixir_web/schema/catalog_types.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/schema/</span>
+              
+              <span class='basename'>catalog_types.ex</span>
             </a>
           </li>
         
@@ -692,10 +747,10 @@ function find(y) {
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>98.2</div>
-        <div class='sloc'>164</div>
-        <div class='hits'>142852</div>
-        <div class='misses'>3</div>
+        <div class='percentage'>81.9</div>
+        <div class='sloc'>199</div>
+        <div class='hits'>142884</div>
+        <div class='misses'>36</div>
       </div>
       <div id='files'>
         
@@ -783,6 +838,544 @@ function find(y) {
                   
                       <tr>
                         <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir/accounts/accounts.ex'>lib/awesome_elixir/accounts/accounts.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>7</div>
+              <div class='hits'>0</div>
+              <div class='misses'>7</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixir.Accounts do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixir.Accounts.User</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixir.Repo</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>4</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  def get_user_by_id(id), do: Repo.get(User, id)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def find_or_create_from_auth(%Ueberauth.Auth{} = auth) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>7</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    attrs = extract_attrs_from_auth(auth)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>9</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    case Repo.get_by(User, github_uid: attrs.github_uid) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>10</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      nil -&gt; User.changeset(%User{}, attrs) |&gt; Repo.insert()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>11</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      user -&gt; User.changeset(user, attrs) |&gt; Repo.update()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>13</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp extract_attrs_from_auth(auth) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>    %{</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>17</td>
+                        <td class='hits'></td>
+                        <td class='source'>      uid: github_uid,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>      credentials: %{token: github_token},</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'>      info: %{email: email, name: name, nickname: nickname}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>20</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    } = auth</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>22</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    %{</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'>      github_uid: github_uid,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>      github_token: github_token,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
+                        <td class='hits'></td>
+                        <td class='source'>      profile: %{email: email, name: name, nickname: nickname}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'>    }</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir/accounts/user.ex'>lib/awesome_elixir/accounts/user.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>3</div>
+              <div class='hits'>0</div>
+              <div class='misses'>3</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixir.Accounts.User do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use TypedEctoSchema</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  import Ecto.Changeset</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>4</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  typed_schema &quot;users&quot; do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :github_uid, :id</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :github_token, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>    embeds_one :profile, Profile, on_replace: :delete, primary_key: false do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>      field :name, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>      field :nickname, :string</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>      field :email, EctoFields.Email</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>13</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>    timestamps()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>17</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @fields ~w(github_uid github_token)a</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @profile_fields ~w(name nickname email)a</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc false</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def changeset(%__MODULE__{} = user, attrs) when is_map(attrs) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>    user</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; cast(attrs, @fields)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; validate_required(@fields)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>25</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    |&gt; cast_embed(:profile, with: &amp;profile_changeset/2)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp profile_changeset(schema, params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'>    schema</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>30</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    |&gt; cast(params, @profile_fields)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -1329,8 +1922,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir/catalog/catalog.ex'>lib/awesome_elixir/catalog/catalog.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>25</div>
-              <div class='hits'>8356</div>
+              <div class='sloc'>26</div>
+              <div class='hits'>8372</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -1994,7 +2587,7 @@ function find(y) {
                       <tr>
                         <td class='line'>81</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec total_categories_count([Category.t()]) :: non_neg_integer()</td>
+                        <td class='source'>  @spec categories_count([Category.t()]) :: non_neg_integer()</td>
                       </tr>
                   
                 
@@ -2002,7 +2595,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>82</td>
                         <td class='hits'>16</td>
-                        <td class='source'>  defmemo total_categories_count(categories) do</td>
+                        <td class='source'>  defmemo categories_count(categories) do</td>
                       </tr>
                     
                 
@@ -2058,7 +2651,7 @@ function find(y) {
                       <tr>
                         <td class='line'>89</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec total_items_count([Category.t()]) :: non_neg_integer()</td>
+                        <td class='source'>  @spec items_count([Category.t()]) :: non_neg_integer()</td>
                       </tr>
                   
                 
@@ -2066,7 +2659,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>90</td>
                         <td class='hits'>16</td>
-                        <td class='source'>  defmemo total_items_count(categories) do</td>
+                        <td class='source'>  defmemo items_count(categories) do</td>
                       </tr>
                     
                 
@@ -2210,7 +2803,7 @@ function find(y) {
                       <tr>
                         <td class='line'>108</td>
                         <td class='hits'></td>
-                        <td class='source'>  Invalidate memoization for `list_categories/1`, `total_categories_count/1`, `total_items_count/1` and `last_updated_at/0` calls</td>
+                        <td class='source'>  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls</td>
                       </tr>
                   
                 
@@ -2234,7 +2827,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>111</td>
                         <td class='hits'>23</td>
-                        <td class='source'>    for method &lt;- ~w(list_categories total_categories_count total_items_count last_updated_at)a do</td>
+                        <td class='source'>    for method &lt;- ~w(list_categories categories_count items_count last_updated_at)a do</td>
                       </tr>
                     
                 
@@ -2282,7 +2875,7 @@ function find(y) {
                       <tr class='hit'>
                         <td class='line'>117</td>
                         <td class='hits'>16</td>
-                        <td class='source'>    from(categories in Category,</td>
+                        <td class='source'>    select =</td>
                       </tr>
                     
                 
@@ -2290,7 +2883,7 @@ function find(y) {
                       <tr>
                         <td class='line'>118</td>
                         <td class='hits'></td>
-                        <td class='source'>      left_join: items in Item,</td>
+                        <td class='source'>      ~w(id name slug description inserted_at updated_at)a ++</td>
                       </tr>
                   
                 
@@ -2298,7 +2891,7 @@ function find(y) {
                       <tr>
                         <td class='line'>119</td>
                         <td class='hits'></td>
-                        <td class='source'>      on: categories.id == items.category_id,</td>
+                        <td class='source'>        [</td>
                       </tr>
                   
                 
@@ -2306,7 +2899,7 @@ function find(y) {
                       <tr>
                         <td class='line'>120</td>
                         <td class='hits'></td>
-                        <td class='source'>      where: items.is_scrapped == true and items.is_dead == false,</td>
+                        <td class='source'>          items:</td>
                       </tr>
                   
                 
@@ -2314,7 +2907,7 @@ function find(y) {
                       <tr>
                         <td class='line'>121</td>
                         <td class='hits'></td>
-                        <td class='source'>      order_by: [categories.name, items.name],</td>
+                        <td class='source'>            ~w(id category_id name description url git_source is_dead is_scrapped stars_count updated_in pushed_at inserted_at updated_at)a</td>
                       </tr>
                   
                 
@@ -2322,7 +2915,7 @@ function find(y) {
                       <tr>
                         <td class='line'>122</td>
                         <td class='hits'></td>
-                        <td class='source'>      select: [</td>
+                        <td class='source'>        ]</td>
                       </tr>
                   
                 
@@ -2330,23 +2923,23 @@ function find(y) {
                       <tr>
                         <td class='line'>123</td>
                         <td class='hits'></td>
-                        <td class='source'>        :id,</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>124</td>
-                        <td class='hits'></td>
-                        <td class='source'>        :name,</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    from(categories in Category,</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>125</td>
                         <td class='hits'></td>
-                        <td class='source'>        :slug,</td>
+                        <td class='source'>      left_join: items in Item,</td>
                       </tr>
                   
                 
@@ -2354,7 +2947,7 @@ function find(y) {
                       <tr>
                         <td class='line'>126</td>
                         <td class='hits'></td>
-                        <td class='source'>        :description,</td>
+                        <td class='source'>      on: categories.id == items.category_id,</td>
                       </tr>
                   
                 
@@ -2362,7 +2955,7 @@ function find(y) {
                       <tr>
                         <td class='line'>127</td>
                         <td class='hits'></td>
-                        <td class='source'>        items: [:id, :category_id, :name, :description, :url, :stars_count, :updated_in]</td>
+                        <td class='source'>      where: items.is_scrapped == true and items.is_dead == false,</td>
                       </tr>
                   
                 
@@ -2370,7 +2963,7 @@ function find(y) {
                       <tr>
                         <td class='line'>128</td>
                         <td class='hits'></td>
-                        <td class='source'>      ],</td>
+                        <td class='source'>      order_by: [categories.name, items.name],</td>
                       </tr>
                   
                 
@@ -2378,7 +2971,7 @@ function find(y) {
                       <tr>
                         <td class='line'>129</td>
                         <td class='hits'></td>
-                        <td class='source'>      preload: [items: items]</td>
+                        <td class='source'>      select: ^select,</td>
                       </tr>
                   
                 
@@ -2386,7 +2979,7 @@ function find(y) {
                       <tr>
                         <td class='line'>130</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>      preload: [items: items]</td>
                       </tr>
                   
                 
@@ -2394,7 +2987,7 @@ function find(y) {
                       <tr>
                         <td class='line'>131</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -2402,7 +2995,7 @@ function find(y) {
                       <tr>
                         <td class='line'>132</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2410,7 +3003,7 @@ function find(y) {
                       <tr>
                         <td class='line'>133</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true})</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -2418,13 +3011,21 @@ function find(y) {
                       <tr>
                         <td class='line'>134</td>
                         <td class='hits'></td>
+                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true})</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>135</td>
+                        <td class='hits'></td>
                         <td class='source'>       when min_stars != &quot;all&quot; do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>135</td>
+                        <td class='line'>136</td>
                         <td class='hits'>1</td>
                         <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
@@ -2432,7 +3033,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>136</td>
+                        <td class='line'>137</td>
                         <td class='hits'></td>
                         <td class='source'>      where: item.stars_count &gt;= ^min_stars or is_nil(item.stars_count)</td>
                       </tr>
@@ -2440,17 +3041,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>137</td>
-                        <td class='hits'></td>
-                        <td class='source'>    )</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>138</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -2458,7 +3051,7 @@ function find(y) {
                       <tr>
                         <td class='line'>139</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2466,7 +3059,7 @@ function find(y) {
                       <tr>
                         <td class='line'>140</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false})</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -2474,13 +3067,21 @@ function find(y) {
                       <tr>
                         <td class='line'>141</td>
                         <td class='hits'></td>
+                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false})</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>142</td>
+                        <td class='hits'></td>
                         <td class='source'>       when min_stars != &quot;all&quot; do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>142</td>
+                        <td class='line'>143</td>
                         <td class='hits'>6</td>
                         <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
@@ -2488,7 +3089,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>143</td>
+                        <td class='line'>144</td>
                         <td class='hits'></td>
                         <td class='source'>      where: item.stars_count &gt;= ^min_stars</td>
                       </tr>
@@ -2496,17 +3097,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>144</td>
-                        <td class='hits'></td>
-                        <td class='source'>    )</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>145</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -2514,7 +3107,7 @@ function find(y) {
                       <tr>
                         <td class='line'>146</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2522,13 +3115,21 @@ function find(y) {
                       <tr>
                         <td class='line'>147</td>
                         <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>148</td>
+                        <td class='hits'></td>
                         <td class='source'>  defp build_query(%FilterParams{min_stars: &quot;all&quot;, show_unstarred: false}) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>148</td>
+                        <td class='line'>149</td>
                         <td class='hits'>5</td>
                         <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
@@ -2536,7 +3137,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>149</td>
+                        <td class='line'>150</td>
                         <td class='hits'></td>
                         <td class='source'>      where: not is_nil(item.stars_count)</td>
                       </tr>
@@ -2544,17 +3145,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>150</td>
-                        <td class='hits'></td>
-                        <td class='source'>    )</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>151</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -2562,13 +3155,21 @@ function find(y) {
                       <tr>
                         <td class='line'>152</td>
                         <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>153</td>
+                        <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>153</td>
+                        <td class='line'>154</td>
                         <td class='hits'>4</td>
                         <td class='source'>  defp build_query(%FilterParams{}), do: base_query()</td>
                       </tr>
@@ -2576,7 +3177,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>154</td>
+                        <td class='line'>155</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -2584,7 +3185,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>155</td>
+                        <td class='line'>156</td>
                         <td class='hits'></td>
                         <td class='source'>  defp filter_by_updated_in(query, %FilterParams{show_just_updated: true}) do</td>
                       </tr>
@@ -2592,7 +3193,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>156</td>
+                        <td class='line'>157</td>
                         <td class='hits'>4</td>
                         <td class='source'>    from([categories, item] in query,</td>
                       </tr>
@@ -2600,7 +3201,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>157</td>
+                        <td class='line'>158</td>
                         <td class='hits'></td>
                         <td class='source'>      where: item.updated_in &lt;= 7 or is_nil(item.updated_in)</td>
                       </tr>
@@ -2608,17 +3209,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>158</td>
-                        <td class='hits'></td>
-                        <td class='source'>    )</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>159</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -2626,7 +3219,7 @@ function find(y) {
                       <tr>
                         <td class='line'>160</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2634,13 +3227,21 @@ function find(y) {
                       <tr>
                         <td class='line'>161</td>
                         <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>162</td>
+                        <td class='hits'></td>
                         <td class='source'>  defp filter_by_updated_in(query, %FilterParams{hide_outdated: true}) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>162</td>
+                        <td class='line'>163</td>
                         <td class='hits'>2</td>
                         <td class='source'>    from([categories, item] in query,</td>
                       </tr>
@@ -2648,7 +3249,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>163</td>
+                        <td class='line'>164</td>
                         <td class='hits'></td>
                         <td class='source'>      where: item.updated_in &lt; 365 or is_nil(item.updated_in)</td>
                       </tr>
@@ -2656,7 +3257,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>164</td>
+                        <td class='line'>165</td>
                         <td class='hits'></td>
                         <td class='source'>    )</td>
                       </tr>
@@ -2664,7 +3265,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>165</td>
+                        <td class='line'>166</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -2672,7 +3273,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>166</td>
+                        <td class='line'>167</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -2680,7 +3281,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>167</td>
+                        <td class='line'>168</td>
                         <td class='hits'>10</td>
                         <td class='source'>  defp filter_by_updated_in(query, %FilterParams{}), do: query</td>
                       </tr>
@@ -2688,7 +3289,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>168</td>
+                        <td class='line'>169</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -12304,6 +12905,339 @@ function find(y) {
           </div>
         
           <div class='file'>
+            <h2 id='lib/awesome_elixir_web/controllers/auth_controller.ex'>lib/awesome_elixir_web/controllers/auth_controller.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>7</div>
+              <div class='hits'>0</div>
+              <div class='misses'>7</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.AuthController do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @moduledoc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Implements `Ueberauth` callback route</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use AwesomeElixirWeb, :controller</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixir.Accounts</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixirWeb.Guardian</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>  plug Ueberauth</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def callback(%{assigns: %{ueberauth_failure: fail}} = conn, _params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>12</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    message = Enum.map(fail.errors, fn %{message: message} -&gt; message end) |&gt; Enum.join(&quot; &quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>13</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    redirect_to_root_with_flash(conn, :error, message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>17</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    {:ok, %Accounts.User{} = user} = Accounts.find_or_create_from_auth(auth)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'>    conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; Guardian.Plug.sign_in(user)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>21</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    |&gt; redirect_to_root_with_flash(</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>      :success,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>23</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      &quot;Successfully authenticated as: #{user.profile.name}&quot;</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>    )</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def logout(conn, _params) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>    conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; Guardian.Plug.sign_out()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>30</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    |&gt; redirect_to_root_with_flash(:info, &quot;Signed out&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>33</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp redirect_to_root_with_flash(conn, flash_key, flash_message) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>    conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; put_flash(flash_key, flash_message)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>36</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    |&gt; redirect(to: &quot;/&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>38</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
             <h2 id='lib/awesome_elixir_web/controllers/catalog_controller.ex'>lib/awesome_elixir_web/controllers/catalog_controller.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
@@ -12556,7 +13490,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>      categories: Catalog.total_categories_count(categories),</td>
+                        <td class='source'>      categories: Catalog.categories_count(categories),</td>
                       </tr>
                   
                 
@@ -12564,7 +13498,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>      items: Catalog.total_items_count(categories),</td>
+                        <td class='source'>      items: Catalog.items_count(categories),</td>
                       </tr>
                   
                 
@@ -13287,12 +14221,537 @@ function find(y) {
           </div>
         
           <div class='file'>
-            <h2 id='lib/awesome_elixir_web/resolvers.ex'>lib/awesome_elixir_web/resolvers.ex</h1>
-            <div id='stats' class='none'>
-              <div class='percentage'>100</div>
-              <div class='sloc'>0</div>
+            <h2 id='lib/awesome_elixir_web/guardian.ex'>lib/awesome_elixir_web/guardian.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>9</div>
               <div class='hits'>0</div>
-              <div class='misses'>0</div>
+              <div class='misses'>9</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.Guardian do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use Guardian, otp_app: :awesome_elixir</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixir.Accounts</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>4</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  def subject_for_token(%Accounts.User{id: id}, _claims), do: {:ok, to_string(id)}</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def subject_for_token(_, _), do: {:error, :invalid_resource}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def resource_from_claims(claims) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>8</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    case Accounts.get_user_by_id(claims[&quot;sub&quot;]) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>      nil -&gt; {:error, :user_not_found}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>      user -&gt; {:ok, user}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>13</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defmodule CommonPipeline do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug Guardian.Plug.VerifySession, claims: %{&quot;typ&quot; =&gt; &quot;access&quot;}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>17</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug Guardian.Plug.VerifyHeader, claims: %{&quot;typ&quot; =&gt; &quot;access&quot;}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defmodule AuthenticatedPipeline do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug Guardian.Plug.EnsureAuthenticated</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defmodule NotAuthenticatedPipeline do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug Guardian.Plug.EnsureNotAuthenticated</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>30</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defmodule AuthErrorHandler do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'>    import Plug.Conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'>    import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>33</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @behaviour Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>36</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
+                        <td class='hits'></td>
+                        <td class='source'>    def auth_error(conn, {:already_authenticated, :already_authenticated}, _opts) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>38</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      render_response(conn, &quot;Already authenticated&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>39</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>    def auth_error(conn, {:unauthenticated, :unauthenticated}, _opts) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>43</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      render_response(conn, &quot;Not authenticated&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>45</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'>    def auth_error(conn, {type, reason}, _opts) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>48</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      render_response(conn, inspect({type, reason}))</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>51</td>
+                        <td class='hits'></td>
+                        <td class='source'>    defp render_response(conn, message) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>52</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      if get_format(conn) == &quot;html&quot; do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>53</td>
+                        <td class='hits'></td>
+                        <td class='source'>        conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>54</td>
+                        <td class='hits'></td>
+                        <td class='source'>        |&gt; put_flash(:error, message)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>55</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>        |&gt; redirect(to: &quot;/&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>56</td>
+                        <td class='hits'></td>
+                        <td class='source'>      else</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>57</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>        body = Jason.encode!(%{message: message})</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>58</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>        send_resp(conn, 401, body)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>59</td>
+                        <td class='hits'></td>
+                        <td class='source'>      end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>60</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>61</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>62</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/resolvers.ex'>lib/awesome_elixir_web/resolvers.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>1</div>
+              <div class='hits'>0</div>
+              <div class='misses'>1</div>
             </div>
             <table id='source'>
               <thead>
@@ -13336,16 +14795,80 @@ function find(y) {
                   
                 
                   
-                      <tr>
+                      <tr class='miss'>
                         <td class='line'>4</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    categories = Catalog.FilterParams.execute(params) |&gt; Catalog.list_categories()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
                         <td class='hits'></td>
-                        <td class='source'>    {:ok, Catalog.FilterParams.execute(params) |&gt; Catalog.list_categories()}</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>5</td>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>    {:ok,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>     %{</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>       entities: categories,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>       categories_count: Catalog.categories_count(categories),</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>       items_count: Catalog.items_count(categories),</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>       last_updated_at: Catalog.last_updated_at()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>     }}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>13</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -13353,7 +14876,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>6</td>
+                        <td class='line'>14</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -13365,11 +14888,11 @@ function find(y) {
         
           <div class='file'>
             <h2 id='lib/awesome_elixir_web/router.ex'>lib/awesome_elixir_web/router.ex</h1>
-            <div id='stats' class='medium'>
-              <div class='percentage'>66.7</div>
-              <div class='sloc'>3</div>
-              <div class='hits'>32</div>
-              <div class='misses'>1</div>
+            <div id='stats' class='low'>
+              <div class='percentage'>30</div>
+              <div class='sloc'>10</div>
+              <div class='hits'>48</div>
+              <div class='misses'>7</div>
             </div>
             <table id='source'>
               <thead>
@@ -13493,18 +15016,18 @@ function find(y) {
                   
                 
                   
-                      <tr>
+                      <tr class='miss'>
                         <td class='line'>14</td>
-                        <td class='hits'></td>
-                        <td class='source'>  scope &quot;/&quot;, AwesomeElixirWeb do</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  pipeline :api do</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>15</td>
                         <td class='hits'></td>
-                        <td class='source'>    pipe_through :browser</td>
+                        <td class='source'>    plug :accepts, [&quot;json&quot;]</td>
                       </tr>
                   
                 
@@ -13512,21 +15035,37 @@ function find(y) {
                       <tr>
                         <td class='line'>16</td>
                         <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>17</td>
+                        <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>17</td>
+                        <td class='line'>18</td>
                         <td class='hits'>16</td>
-                        <td class='source'>    get &quot;/&quot;, CatalogController, :index</td>
+                        <td class='source'>  pipeline :guardian_common do</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>18</td>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug AwesomeElixirWeb.Guardian.CommonPipeline</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -13534,7 +15073,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>19</td>
+                        <td class='line'>21</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -13542,15 +15081,263 @@ function find(y) {
                 
                   
                       <tr class='miss'>
-                        <td class='line'>20</td>
+                        <td class='line'>22</td>
                         <td class='hits'>0</td>
-                        <td class='source'>  forward &quot;/api&quot;, Absinthe.Plug, schema: AwesomeElixirWeb.Schema</td>
+                        <td class='source'>  pipeline :guardian_authenticated do</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>21</td>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug AwesomeElixirWeb.Guardian.AuthenticatedPipeline</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>26</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>  pipeline :guardian_not_authenticated do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'>    plug AwesomeElixirWeb.Guardian.NotAuthenticatedPipeline</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>30</td>
+                        <td class='hits'></td>
+                        <td class='source'>  scope &quot;/&quot;, AwesomeElixirWeb do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>33</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    get &quot;/&quot;, CatalogController, :index</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>36</td>
+                        <td class='hits'></td>
+                        <td class='source'>  scope &quot;/api&quot; do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
+                        <td class='hits'></td>
+                        <td class='source'>    pipe_through [:api, :guardian_common]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>38</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>39</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    forward &quot;/graphql&quot;, Absinthe.Plug, schema: AwesomeElixirWeb.Schema</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>  scope &quot;/auth&quot;, AwesomeElixirWeb do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_authenticated]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>45</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    get &quot;/logout&quot;, AuthController, :logout</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>48</td>
+                        <td class='hits'></td>
+                        <td class='source'>  scope &quot;/auth&quot;, AwesomeElixirWeb do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_not_authenticated]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>51</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    get &quot;/:provider&quot;, AuthController, :request</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>52</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    get &quot;/:provider/callback&quot;, AuthController, :callback</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>53</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>54</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -13605,7 +15392,7 @@ function find(y) {
                       <tr>
                         <td class='line'>3</td>
                         <td class='hits'></td>
-                        <td class='source'>  alias AwesomeElixirWeb.Resolvers</td>
+                        <td class='source'>  import_types AwesomeElixirWeb.Schema.CatalogTypes</td>
                       </tr>
                   
                 
@@ -13621,7 +15408,7 @@ function find(y) {
                       <tr>
                         <td class='line'>5</td>
                         <td class='hits'></td>
-                        <td class='source'>  object :git_source do</td>
+                        <td class='source'>  query do</td>
                       </tr>
                   
                 
@@ -13629,7 +15416,7 @@ function find(y) {
                       <tr>
                         <td class='line'>6</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :github, :string</td>
+                        <td class='source'>    import_fields(:catalog_queries)</td>
                       </tr>
                   
                 
@@ -13637,7 +15424,7 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :gitlab, :string</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13645,7 +15432,100 @@ function find(y) {
                       <tr>
                         <td class='line'>8</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/schema/catalog_types.ex'>lib/awesome_elixir_web/schema/catalog_types.ex</h1>
+            <div id='stats' class='none'>
+              <div class='percentage'>100</div>
+              <div class='sloc'>0</div>
+              <div class='hits'>0</div>
+              <div class='misses'>0</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.Schema.CatalogTypes do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use Absinthe.Schema.Notation</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  import_types Absinthe.Type.Custom</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'>  alias AwesomeElixirWeb.Resolvers</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @desc &quot;Hold verified uris to github/gitlab source&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>  object :git_source do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @desc &quot;Github uri&quot;</td>
                       </tr>
                   
                 
@@ -13653,7 +15533,7 @@ function find(y) {
                       <tr>
                         <td class='line'>9</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    field :github, :string</td>
                       </tr>
                   
                 
@@ -13661,7 +15541,7 @@ function find(y) {
                       <tr>
                         <td class='line'>10</td>
                         <td class='hits'></td>
-                        <td class='source'>  object :item do</td>
+                        <td class='source'>    @desc &quot;Gitlab uri&quot;</td>
                       </tr>
                   
                 
@@ -13669,7 +15549,7 @@ function find(y) {
                       <tr>
                         <td class='line'>11</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :id, :id</td>
+                        <td class='source'>    field :gitlab, :string</td>
                       </tr>
                   
                 
@@ -13677,7 +15557,7 @@ function find(y) {
                       <tr>
                         <td class='line'>12</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :name, :string</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13685,7 +15565,7 @@ function find(y) {
                       <tr>
                         <td class='line'>13</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :description, :string</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13693,7 +15573,7 @@ function find(y) {
                       <tr>
                         <td class='line'>14</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :stars_count, :integer</td>
+                        <td class='source'>  @desc &quot;Describes project included in Awesome Elixir curated list&quot;</td>
                       </tr>
                   
                 
@@ -13701,7 +15581,7 @@ function find(y) {
                       <tr>
                         <td class='line'>15</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :updated_in, :integer</td>
+                        <td class='source'>  object :item do</td>
                       </tr>
                   
                 
@@ -13709,7 +15589,7 @@ function find(y) {
                       <tr>
                         <td class='line'>16</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :url, :string</td>
+                        <td class='source'>    field :id, :id</td>
                       </tr>
                   
                 
@@ -13717,7 +15597,7 @@ function find(y) {
                       <tr>
                         <td class='line'>17</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :git_source, :git_source</td>
+                        <td class='source'>    field :name, :string</td>
                       </tr>
                   
                 
@@ -13725,7 +15605,7 @@ function find(y) {
                       <tr>
                         <td class='line'>18</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :is_dead, :boolean</td>
+                        <td class='source'>    field :description, :string</td>
                       </tr>
                   
                 
@@ -13733,7 +15613,7 @@ function find(y) {
                       <tr>
                         <td class='line'>19</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :is_scrapped, :boolean</td>
+                        <td class='source'>    field :stars_count, :integer</td>
                       </tr>
                   
                 
@@ -13741,7 +15621,7 @@ function find(y) {
                       <tr>
                         <td class='line'>20</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    field :updated_in, :integer</td>
                       </tr>
                   
                 
@@ -13749,7 +15629,7 @@ function find(y) {
                       <tr>
                         <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    field :url, :string</td>
                       </tr>
                   
                 
@@ -13757,7 +15637,7 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
-                        <td class='source'>  object :category do</td>
+                        <td class='source'>    field :git_source, :git_source</td>
                       </tr>
                   
                 
@@ -13765,7 +15645,7 @@ function find(y) {
                       <tr>
                         <td class='line'>23</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :id, :id</td>
+                        <td class='source'>    field :is_dead, :boolean</td>
                       </tr>
                   
                 
@@ -13773,7 +15653,7 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :name, :string</td>
+                        <td class='source'>    field :is_scrapped, :boolean</td>
                       </tr>
                   
                 
@@ -13781,7 +15661,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :description, :string</td>
+                        <td class='source'>    field :pushed_at, :datetime</td>
                       </tr>
                   
                 
@@ -13789,7 +15669,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :slug, :string</td>
+                        <td class='source'>    field :inserted_at, :naive_datetime</td>
                       </tr>
                   
                 
@@ -13797,7 +15677,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :items, list_of(:item)</td>
+                        <td class='source'>    field :updated_at, :naive_datetime</td>
                       </tr>
                   
                 
@@ -13821,7 +15701,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>  input_object :contact_input do</td>
+                        <td class='source'>  @desc &quot;Describes project&#39;s category included in Awesome Elixir curated list&quot;</td>
                       </tr>
                   
                 
@@ -13829,7 +15709,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :email, non_null(:string)</td>
+                        <td class='source'>  object :category do</td>
                       </tr>
                   
                 
@@ -13837,7 +15717,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    field :id, :id</td>
                       </tr>
                   
                 
@@ -13845,7 +15725,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    field :name, :string</td>
                       </tr>
                   
                 
@@ -13853,7 +15733,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'>  input_object :list_categories_input do</td>
+                        <td class='source'>    field :description, :string</td>
                       </tr>
                   
                 
@@ -13861,7 +15741,7 @@ function find(y) {
                       <tr>
                         <td class='line'>35</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :min_stars, :string</td>
+                        <td class='source'>    field :slug, :string</td>
                       </tr>
                   
                 
@@ -13869,7 +15749,7 @@ function find(y) {
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :show_unstarred, :boolean</td>
+                        <td class='source'>    field :items, list_of(:item)</td>
                       </tr>
                   
                 
@@ -13877,7 +15757,7 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :hide_outdated, :boolean</td>
+                        <td class='source'>    field :inserted_at, :naive_datetime</td>
                       </tr>
                   
                 
@@ -13885,7 +15765,7 @@ function find(y) {
                       <tr>
                         <td class='line'>38</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :show_just_updated, :boolean</td>
+                        <td class='source'>    field :updated_at, :naive_datetime</td>
                       </tr>
                   
                 
@@ -13909,7 +15789,7 @@ function find(y) {
                       <tr>
                         <td class='line'>41</td>
                         <td class='hits'></td>
-                        <td class='source'>  query do</td>
+                        <td class='source'>  @desc &quot;Hold result of `listCategory` query&quot;</td>
                       </tr>
                   
                 
@@ -13917,7 +15797,7 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'>    field :list_categories, list_of(:category) do</td>
+                        <td class='source'>  object :categories do</td>
                       </tr>
                   
                 
@@ -13925,7 +15805,7 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
-                        <td class='source'>      arg(:min_stars, :string)</td>
+                        <td class='source'>    @desc &quot;List of fetched Category entities&quot;</td>
                       </tr>
                   
                 
@@ -13933,7 +15813,7 @@ function find(y) {
                       <tr>
                         <td class='line'>44</td>
                         <td class='hits'></td>
-                        <td class='source'>      arg(:show_unstarred, :boolean)</td>
+                        <td class='source'>    field :entities, list_of(:category)</td>
                       </tr>
                   
                 
@@ -13941,7 +15821,7 @@ function find(y) {
                       <tr>
                         <td class='line'>45</td>
                         <td class='hits'></td>
-                        <td class='source'>      arg(:hide_outdated, :boolean)</td>
+                        <td class='source'>    field :categories_count, :integer</td>
                       </tr>
                   
                 
@@ -13949,7 +15829,7 @@ function find(y) {
                       <tr>
                         <td class='line'>46</td>
                         <td class='hits'></td>
-                        <td class='source'>      arg(:show_just_updated, :boolean)</td>
+                        <td class='source'>    field :items_count, :integer</td>
                       </tr>
                   
                 
@@ -13957,7 +15837,7 @@ function find(y) {
                       <tr>
                         <td class='line'>47</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    field :last_updated_at, :naive_datetime</td>
                       </tr>
                   
                 
@@ -13965,7 +15845,7 @@ function find(y) {
                       <tr>
                         <td class='line'>48</td>
                         <td class='hits'></td>
-                        <td class='source'>      resolve(&amp;Resolvers.list_categories/2)</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13973,7 +15853,7 @@ function find(y) {
                       <tr>
                         <td class='line'>49</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13981,13 +15861,205 @@ function find(y) {
                       <tr>
                         <td class='line'>50</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  @desc &quot;Supporting Enum for `minStars` `listCategory` query argument&quot;</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>51</td>
+                        <td class='hits'></td>
+                        <td class='source'>  enum :min_stars_values do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>52</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :all, as: &quot;all&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>53</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :s_10, as: &quot;10&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>54</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :s_50, as: &quot;50&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>55</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :s_100, as: &quot;100&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>56</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :s_500, as: &quot;500&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>57</td>
+                        <td class='hits'></td>
+                        <td class='source'>    value :s_1000, as: &quot;1000&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>58</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>59</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>60</td>
+                        <td class='hits'></td>
+                        <td class='source'>  object :catalog_queries do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>61</td>
+                        <td class='hits'></td>
+                        <td class='source'>    @desc &quot;Fetch list of `Category` entities filtered according to args&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>62</td>
+                        <td class='hits'></td>
+                        <td class='source'>    field :list_categories, :categories do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>63</td>
+                        <td class='hits'></td>
+                        <td class='source'>      @desc &quot;Minimal `starsCount` of `Item`s&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>64</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg :min_stars, :min_stars_values</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>65</td>
+                        <td class='hits'></td>
+                        <td class='source'>      @desc &quot;Include unstarred `Item`&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>66</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg :show_unstarred, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>67</td>
+                        <td class='hits'></td>
+                        <td class='source'>      @desc &quot;Hide outdated `Item`s&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>68</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg :hide_outdated, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>69</td>
+                        <td class='hits'></td>
+                        <td class='source'>      @desc &quot;Sho only just updated `Item`s&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>70</td>
+                        <td class='hits'></td>
+                        <td class='source'>      arg :show_just_updated, :boolean</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>71</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>72</td>
+                        <td class='hits'></td>
+                        <td class='source'>      resolve &amp;Resolvers.list_categories/2</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>73</td>
+                        <td class='hits'></td>
+                        <td class='source'>    end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>74</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>75</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

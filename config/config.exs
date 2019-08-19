@@ -37,6 +37,18 @@ config :ueberauth, Ueberauth,
     github: {Ueberauth.Strategy.Github, []}
   ]
 
+config :awesome_elixir, AwesomeElixirWeb.Guardian.CommonPipeline,
+  module: AwesomeElixirWeb.Guardian,
+  error_handler: AwesomeElixirWeb.Guardian.AuthErrorHandler
+
+config :awesome_elixir, AwesomeElixirWeb.Guardian.AuthenticatedPipeline,
+  module: AwesomeElixirWeb.Guardian,
+  error_handler: AwesomeElixirWeb.Guardian.AuthErrorHandler
+
+config :awesome_elixir, AwesomeElixirWeb.Guardian.NotAuthenticatedPipeline,
+  module: AwesomeElixirWeb.Guardian,
+  error_handler: AwesomeElixirWeb.Guardian.AuthErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

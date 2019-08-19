@@ -16,20 +16,38 @@ defmodule AwesomeElixirWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :guardian_common do
+    plug AwesomeElixirWeb.Guardian.CommonPipeline
+  end
+
+  pipeline :guardian_authenticated do
+    plug AwesomeElixirWeb.Guardian.AuthenticatedPipeline
+  end
+
+  pipeline :guardian_not_authenticated do
+    plug AwesomeElixirWeb.Guardian.NotAuthenticatedPipeline
+  end
+
   scope "/", AwesomeElixirWeb do
-    pipe_through :browser
+    pipe_through [:browser, :guardian_common]
 
     get "/", CatalogController, :index
   end
 
   scope "/api" do
-    pipe_through :api
+    pipe_through [:api, :guardian_common]
 
     forward "/graphql", Absinthe.Plug, schema: AwesomeElixirWeb.Schema
   end
 
   scope "/auth", AwesomeElixirWeb do
-    pipe_through :browser
+    pipe_through [:browser, :guardian_common, :guardian_authenticated]
+
+    get "/logout", AuthController, :logout
+  end
+
+  scope "/auth", AwesomeElixirWeb do
+    pipe_through [:browser, :guardian_common, :guardian_not_authenticated]
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
