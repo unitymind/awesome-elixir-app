@@ -7,13 +7,24 @@
         <ul class="navbar-nav mr-auto">
         <%= for {key, value} <- @navigation_filter_list do %>
           <li class="nav-item <%= if(@params.min_stars == key, do: "active") %>">
-            <a class="nav-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) |> raw %>">&ge;<%= value %>&nbsp;⭐</a>
+            <a class="nav-link filter-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) |> raw %>">&ge;<%= value %>&nbsp;⭐</a>
           </li>
         <% end %>
         </ul>
 
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item text-white" id="totalCounters">Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)</li>
+        <%= if is_nil(@current_user) do %>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.auth_path(@conn, :request, "github") |> raw %>">Login via GitHub</a>
+          <li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.profile_path(@conn, :index) |> raw %>"><%= @current_user.profile.name %></a>
+          </li>>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.auth_path(@conn, :logout) |> raw %>">Logout</a>
+          </li>>
+        <% end %>
         </ul>
       </div>
     </nav>
@@ -32,6 +43,7 @@
           <label for="showJustUpdated">Show Just Updated &nbsp;<sup class="text-success">(in one week)</sup></label>
         </form>
       </div>
+      <div id="totalCounters" class="ml-auto">
+        Total items: <b><%= @counters.items %></b> (in <b><%= @counters.categories %></b> categories)
+      </div>
     </div>
-
-    <footer class="fixed-bottom"><span class="outdated">Last updated at: <%= @counters.last_updated_at %></span></footer>

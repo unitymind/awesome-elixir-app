@@ -16,7 +16,7 @@ Check generated **ExDoc** at: [https://awesome-elixir.herokuapp.com/docs/index.h
   - `/auth/github`
   - `/auth/github/callback`
   - `/auth/logout` 
-- [ ] Integrate Guardian flow to current HTML-based app
+- [x] Integrate Guardian flow to current HTML-based app
 - [ ] Base Vue.JS SPA-application, which consumes GraphQL API. Pointed to: `/spa`
 - [ ] Integrate Guardian flow to Vue.JS application and GraphQL API
 

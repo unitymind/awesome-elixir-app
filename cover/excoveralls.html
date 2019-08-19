@@ -624,6 +624,17 @@ function find(y) {
           </li>
         
           <li>
+            <span class='cov terrible'>0</span>
+            <a href='#lib/awesome_elixir_web/controllers/profile_controller.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/controllers/</span>
+              
+              <span class='basename'>profile_controller.ex</span>
+            </a>
+          </li>
+        
+          <li>
             <span class='cov none'>100</span>
             <a href='#lib/awesome_elixir_web/endpoint.ex'>
               
@@ -668,7 +679,7 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov low'>30</span>
+            <span class='cov low'>27.3</span>
             <a href='#lib/awesome_elixir_web/router.ex'>
               
               
@@ -734,7 +745,7 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov high'>100</span>
+            <span class='cov low'>40</span>
             <a href='#lib/awesome_elixir_web/views/shared_view.ex'>
               
               
@@ -747,10 +758,10 @@ function find(y) {
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>81.9</div>
-        <div class='sloc'>199</div>
-        <div class='hits'>142884</div>
-        <div class='misses'>36</div>
+        <div class='percentage'>80.8</div>
+        <div class='sloc'>203</div>
+        <div class='hits'>142900</div>
+        <div class='misses'>39</div>
       </div>
       <div id='files'>
         
@@ -12243,7 +12254,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12251,7 +12262,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      # FIXME. Refactor to helper module</td>
                       </tr>
                   
                 
@@ -12259,7 +12270,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>      def redirect_to_with_flash(conn, to, flash_key, flash_message) do</td>
                       </tr>
                   
                 
@@ -12267,7 +12278,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>  def view do</td>
+                        <td class='source'>        conn</td>
                       </tr>
                   
                 
@@ -12275,7 +12286,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>    quote do</td>
+                        <td class='source'>        |&gt; put_flash(flash_key, flash_message)</td>
                       </tr>
                   
                 
@@ -12283,7 +12294,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.View,</td>
+                        <td class='source'>        |&gt; redirect(to: to)</td>
                       </tr>
                   
                 
@@ -12291,7 +12302,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>        root: &quot;lib/awesome_elixir_web/templates&quot;,</td>
+                        <td class='source'>      end</td>
                       </tr>
                   
                 
@@ -12299,7 +12310,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>        namespace: AwesomeElixirWeb</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -12307,7 +12318,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -12315,7 +12326,7 @@ function find(y) {
                       <tr>
                         <td class='line'>35</td>
                         <td class='hits'></td>
-                        <td class='source'>      # Import convenience functions from controllers</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12323,7 +12334,7 @@ function find(y) {
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]</td>
+                        <td class='source'>  def view do</td>
                       </tr>
                   
                 
@@ -12331,7 +12342,7 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    quote do</td>
                       </tr>
                   
                 
@@ -12339,7 +12350,7 @@ function find(y) {
                       <tr>
                         <td class='line'>38</td>
                         <td class='hits'></td>
-                        <td class='source'>      # Use all HTML functionality (forms, tags, etc)</td>
+                        <td class='source'>      use Phoenix.View,</td>
                       </tr>
                   
                 
@@ -12347,7 +12358,7 @@ function find(y) {
                       <tr>
                         <td class='line'>39</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.HTML</td>
+                        <td class='source'>        root: &quot;lib/awesome_elixir_web/templates&quot;,</td>
                       </tr>
                   
                 
@@ -12355,7 +12366,7 @@ function find(y) {
                       <tr>
                         <td class='line'>40</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>        namespace: AwesomeElixirWeb</td>
                       </tr>
                   
                 
@@ -12363,7 +12374,7 @@ function find(y) {
                       <tr>
                         <td class='line'>41</td>
                         <td class='hits'></td>
-                        <td class='source'>      import AwesomeElixirWeb.ErrorHelpers</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12371,7 +12382,7 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
+                        <td class='source'>      # Import convenience functions from controllers</td>
                       </tr>
                   
                 
@@ -12379,7 +12390,7 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
-                        <td class='source'>      alias AwesomeElixirWeb.Router.Helpers, as: Routes</td>
+                        <td class='source'>      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]</td>
                       </tr>
                   
                 
@@ -12387,7 +12398,7 @@ function find(y) {
                       <tr>
                         <td class='line'>44</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12395,7 +12406,7 @@ function find(y) {
                       <tr>
                         <td class='line'>45</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      # Use all HTML functionality (forms, tags, etc)</td>
                       </tr>
                   
                 
@@ -12403,7 +12414,7 @@ function find(y) {
                       <tr>
                         <td class='line'>46</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>      use Phoenix.HTML</td>
                       </tr>
                   
                 
@@ -12411,7 +12422,7 @@ function find(y) {
                       <tr>
                         <td class='line'>47</td>
                         <td class='hits'></td>
-                        <td class='source'>  def router do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12419,7 +12430,7 @@ function find(y) {
                       <tr>
                         <td class='line'>48</td>
                         <td class='hits'></td>
-                        <td class='source'>    quote do</td>
+                        <td class='source'>      import AwesomeElixirWeb.ErrorHelpers</td>
                       </tr>
                   
                 
@@ -12427,7 +12438,7 @@ function find(y) {
                       <tr>
                         <td class='line'>49</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.Router</td>
+                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
                       </tr>
                   
                 
@@ -12435,7 +12446,7 @@ function find(y) {
                       <tr>
                         <td class='line'>50</td>
                         <td class='hits'></td>
-                        <td class='source'>      import Plug.Conn</td>
+                        <td class='source'>      alias AwesomeElixirWeb.Router.Helpers, as: Routes</td>
                       </tr>
                   
                 
@@ -12443,7 +12454,7 @@ function find(y) {
                       <tr>
                         <td class='line'>51</td>
                         <td class='hits'></td>
-                        <td class='source'>      import Phoenix.Controller</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -12451,7 +12462,7 @@ function find(y) {
                       <tr>
                         <td class='line'>52</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -12459,7 +12470,7 @@ function find(y) {
                       <tr>
                         <td class='line'>53</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12467,7 +12478,7 @@ function find(y) {
                       <tr>
                         <td class='line'>54</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  def router do</td>
                       </tr>
                   
                 
@@ -12475,7 +12486,7 @@ function find(y) {
                       <tr>
                         <td class='line'>55</td>
                         <td class='hits'></td>
-                        <td class='source'>  def channel do</td>
+                        <td class='source'>    quote do</td>
                       </tr>
                   
                 
@@ -12483,7 +12494,7 @@ function find(y) {
                       <tr>
                         <td class='line'>56</td>
                         <td class='hits'></td>
-                        <td class='source'>    quote do</td>
+                        <td class='source'>      use Phoenix.Router</td>
                       </tr>
                   
                 
@@ -12491,7 +12502,7 @@ function find(y) {
                       <tr>
                         <td class='line'>57</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.Channel</td>
+                        <td class='source'>      import Plug.Conn</td>
                       </tr>
                   
                 
@@ -12499,7 +12510,7 @@ function find(y) {
                       <tr>
                         <td class='line'>58</td>
                         <td class='hits'></td>
-                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
+                        <td class='source'>      import Phoenix.Controller</td>
                       </tr>
                   
                 
@@ -12531,7 +12542,7 @@ function find(y) {
                       <tr>
                         <td class='line'>62</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  def channel do</td>
                       </tr>
                   
                 
@@ -12539,7 +12550,7 @@ function find(y) {
                       <tr>
                         <td class='line'>63</td>
                         <td class='hits'></td>
-                        <td class='source'>  When used, dispatch to the appropriate controller/view/etc.</td>
+                        <td class='source'>    quote do</td>
                       </tr>
                   
                 
@@ -12547,7 +12558,7 @@ function find(y) {
                       <tr>
                         <td class='line'>64</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>      use Phoenix.Channel</td>
                       </tr>
                   
                 
@@ -12555,7 +12566,7 @@ function find(y) {
                       <tr>
                         <td class='line'>65</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-start</td>
+                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
                       </tr>
                   
                 
@@ -12563,7 +12574,7 @@ function find(y) {
                       <tr>
                         <td class='line'>66</td>
                         <td class='hits'></td>
-                        <td class='source'>  defmacro __using__(which) when is_atom(which) do</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -12571,7 +12582,7 @@ function find(y) {
                       <tr>
                         <td class='line'>67</td>
                         <td class='hits'></td>
-                        <td class='source'>    apply(__MODULE__, which, [])</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -12579,7 +12590,7 @@ function find(y) {
                       <tr>
                         <td class='line'>68</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12587,7 +12598,7 @@ function find(y) {
                       <tr>
                         <td class='line'>69</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -12595,13 +12606,69 @@ function find(y) {
                       <tr>
                         <td class='line'>70</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-stop</td>
+                        <td class='source'>  When used, dispatch to the appropriate controller/view/etc.</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>71</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>72</td>
+                        <td class='hits'></td>
+                        <td class='source'>  # coveralls-ignore-start</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>73</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defmacro __using__(which) when is_atom(which) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>74</td>
+                        <td class='hits'></td>
+                        <td class='source'>    apply(__MODULE__, which, [])</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>75</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>76</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>77</td>
+                        <td class='hits'></td>
+                        <td class='source'>  # coveralls-ignore-stop</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>78</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -12908,9 +12975,9 @@ function find(y) {
             <h2 id='lib/awesome_elixir_web/controllers/auth_controller.ex'>lib/awesome_elixir_web/controllers/auth_controller.ex</h1>
             <div id='stats' class='terrible'>
               <div class='percentage'>0</div>
-              <div class='sloc'>7</div>
+              <div class='sloc'>5</div>
               <div class='hits'>0</div>
-              <div class='misses'>7</div>
+              <div class='misses'>5</div>
             </div>
             <table id='source'>
               <thead>
@@ -13029,7 +13096,7 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>13</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    redirect_to_root_with_flash(conn, :error, message)</td>
+                        <td class='source'>    redirect_to_with_flash(conn, &quot;/&quot;, :error, message)</td>
                       </tr>
                     
                 
@@ -13093,7 +13160,7 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>21</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    |&gt; redirect_to_root_with_flash(</td>
+                        <td class='source'>    |&gt; redirect_to_with_flash(</td>
                       </tr>
                     
                 
@@ -13101,23 +13168,23 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
+                        <td class='source'>      &quot;/&quot;,</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
                         <td class='source'>      :success,</td>
                       </tr>
                   
                 
                   
-                      <tr class='miss'>
-                        <td class='line'>23</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>      &quot;Successfully authenticated as: #{user.profile.name}&quot;</td>
-                      </tr>
-                    
-                
-                  
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>      &quot;Successfully authenticated&quot;</td>
                       </tr>
                   
                 
@@ -13125,7 +13192,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -13133,7 +13200,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13141,7 +13208,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>  def logout(conn, _params) do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13149,7 +13216,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>    conn</td>
+                        <td class='source'>  def logout(conn, _params) do</td>
                       </tr>
                   
                 
@@ -13157,69 +13224,29 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; Guardian.Plug.sign_out()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='miss'>
-                        <td class='line'>30</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>    |&gt; redirect_to_root_with_flash(:info, &quot;Signed out&quot;)</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>31</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>32</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>33</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp redirect_to_root_with_flash(conn, flash_key, flash_message) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>34</td>
-                        <td class='hits'></td>
                         <td class='source'>    conn</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>35</td>
+                        <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; put_flash(flash_key, flash_message)</td>
+                        <td class='source'>    |&gt; Guardian.Plug.sign_out()</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>36</td>
+                        <td class='line'>31</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    |&gt; redirect(to: &quot;/&quot;)</td>
+                        <td class='source'>    |&gt; redirect_to_with_flash(&quot;/&quot;, :info, &quot;Signed out&quot;)</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>37</td>
+                        <td class='line'>32</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -13227,7 +13254,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>38</td>
+                        <td class='line'>33</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -13562,7 +13589,7 @@ function find(y) {
                       <tr>
                         <td class='line'>38</td>
                         <td class='hits'></td>
-                        <td class='source'>      params: params |&gt; Map.from_struct()</td>
+                        <td class='source'>      params: params |&gt; Map.from_struct(),</td>
                       </tr>
                   
                 
@@ -13570,7 +13597,7 @@ function find(y) {
                       <tr>
                         <td class='line'>39</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>      current_user: AwesomeElixirWeb.Guardian.Plug.current_resource(conn)</td>
                       </tr>
                   
                 
@@ -13578,13 +13605,130 @@ function find(y) {
                       <tr>
                         <td class='line'>40</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/controllers/profile_controller.ex'>lib/awesome_elixir_web/controllers/profile_controller.ex</h1>
+            <div id='stats' class='terrible'>
+              <div class='percentage'>0</div>
+              <div class='sloc'>1</div>
+              <div class='hits'>0</div>
+              <div class='misses'>1</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.ProfileController do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @moduledoc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Implements Profile actions</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use AwesomeElixirWeb, :controller</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def index(conn, _) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>8</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    redirect_to_with_flash(conn, &quot;/&quot;, :error, &quot;Not yet implemented&quot;)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -14385,7 +14529,7 @@ function find(y) {
                       <tr>
                         <td class='line'>18</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    plug Guardian.Plug.LoadResource, allow_blank: true</td>
                       </tr>
                   
                 
@@ -14393,7 +14537,7 @@ function find(y) {
                       <tr>
                         <td class='line'>19</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -14401,7 +14545,7 @@ function find(y) {
                       <tr>
                         <td class='line'>20</td>
                         <td class='hits'></td>
-                        <td class='source'>  defmodule AuthenticatedPipeline do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14409,7 +14553,7 @@ function find(y) {
                       <tr>
                         <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
+                        <td class='source'>  defmodule AuthenticatedPipeline do</td>
                       </tr>
                   
                 
@@ -14417,7 +14561,7 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
-                        <td class='source'>    plug Guardian.Plug.EnsureAuthenticated</td>
+                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
                       </tr>
                   
                 
@@ -14425,7 +14569,7 @@ function find(y) {
                       <tr>
                         <td class='line'>23</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    plug Guardian.Plug.EnsureAuthenticated</td>
                       </tr>
                   
                 
@@ -14433,7 +14577,7 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -14441,7 +14585,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  defmodule NotAuthenticatedPipeline do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14449,7 +14593,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
+                        <td class='source'>  defmodule NotAuthenticatedPipeline do</td>
                       </tr>
                   
                 
@@ -14457,7 +14601,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>    plug Guardian.Plug.EnsureNotAuthenticated</td>
+                        <td class='source'>    use Guardian.Plug.Pipeline, otp_app: :awesome_elixir</td>
                       </tr>
                   
                 
@@ -14465,7 +14609,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    plug Guardian.Plug.EnsureNotAuthenticated</td>
                       </tr>
                   
                 
@@ -14473,7 +14617,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -14481,7 +14625,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>  defmodule AuthErrorHandler do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14489,7 +14633,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>    import Plug.Conn</td>
+                        <td class='source'>  defmodule AuthErrorHandler do</td>
                       </tr>
                   
                 
@@ -14497,7 +14641,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>    import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]</td>
+                        <td class='source'>    import Plug.Conn</td>
                       </tr>
                   
                 
@@ -14505,7 +14649,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]</td>
                       </tr>
                   
                 
@@ -14513,7 +14657,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'>    @behaviour Guardian.Plug.ErrorHandler</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14521,7 +14665,7 @@ function find(y) {
                       <tr>
                         <td class='line'>35</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    @behaviour Guardian.Plug.ErrorHandler</td>
                       </tr>
                   
                 
@@ -14529,7 +14673,7 @@ function find(y) {
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14537,13 +14681,21 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>38</td>
+                        <td class='hits'></td>
                         <td class='source'>    def auth_error(conn, {:already_authenticated, :already_authenticated}, _opts) do</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>38</td>
+                        <td class='line'>39</td>
                         <td class='hits'>0</td>
                         <td class='source'>      render_response(conn, &quot;Already authenticated&quot;)</td>
                       </tr>
@@ -14551,17 +14703,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>39</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>40</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -14569,7 +14713,7 @@ function find(y) {
                       <tr>
                         <td class='line'>41</td>
                         <td class='hits'></td>
-                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14577,13 +14721,21 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
                         <td class='source'>    def auth_error(conn, {:unauthenticated, :unauthenticated}, _opts) do</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>43</td>
+                        <td class='line'>44</td>
                         <td class='hits'>0</td>
                         <td class='source'>      render_response(conn, &quot;Not authenticated&quot;)</td>
                       </tr>
@@ -14591,17 +14743,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>44</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>45</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -14609,7 +14753,7 @@ function find(y) {
                       <tr>
                         <td class='line'>46</td>
                         <td class='hits'></td>
-                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -14617,13 +14761,21 @@ function find(y) {
                       <tr>
                         <td class='line'>47</td>
                         <td class='hits'></td>
+                        <td class='source'>    @impl Guardian.Plug.ErrorHandler</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>48</td>
+                        <td class='hits'></td>
                         <td class='source'>    def auth_error(conn, {type, reason}, _opts) do</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>48</td>
+                        <td class='line'>49</td>
                         <td class='hits'>0</td>
                         <td class='source'>      render_response(conn, inspect({type, reason}))</td>
                       </tr>
@@ -14631,17 +14783,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>49</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>50</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -14649,13 +14793,21 @@ function find(y) {
                       <tr>
                         <td class='line'>51</td>
                         <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>52</td>
+                        <td class='hits'></td>
                         <td class='source'>    defp render_response(conn, message) do</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>52</td>
+                        <td class='line'>53</td>
                         <td class='hits'>0</td>
                         <td class='source'>      if get_format(conn) == &quot;html&quot; do</td>
                       </tr>
@@ -14663,7 +14815,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>53</td>
+                        <td class='line'>54</td>
                         <td class='hits'></td>
                         <td class='source'>        conn</td>
                       </tr>
@@ -14671,7 +14823,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>54</td>
+                        <td class='line'>55</td>
                         <td class='hits'></td>
                         <td class='source'>        |&gt; put_flash(:error, message)</td>
                       </tr>
@@ -14679,7 +14831,7 @@ function find(y) {
                 
                   
                       <tr class='miss'>
-                        <td class='line'>55</td>
+                        <td class='line'>56</td>
                         <td class='hits'>0</td>
                         <td class='source'>        |&gt; redirect(to: &quot;/&quot;)</td>
                       </tr>
@@ -14687,7 +14839,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>56</td>
+                        <td class='line'>57</td>
                         <td class='hits'></td>
                         <td class='source'>      else</td>
                       </tr>
@@ -14695,7 +14847,7 @@ function find(y) {
                 
                   
                       <tr class='miss'>
-                        <td class='line'>57</td>
+                        <td class='line'>58</td>
                         <td class='hits'>0</td>
                         <td class='source'>        body = Jason.encode!(%{message: message})</td>
                       </tr>
@@ -14703,7 +14855,7 @@ function find(y) {
                 
                   
                       <tr class='miss'>
-                        <td class='line'>58</td>
+                        <td class='line'>59</td>
                         <td class='hits'>0</td>
                         <td class='source'>        send_resp(conn, 401, body)</td>
                       </tr>
@@ -14711,7 +14863,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>59</td>
+                        <td class='line'>60</td>
                         <td class='hits'></td>
                         <td class='source'>      end</td>
                       </tr>
@@ -14719,7 +14871,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>60</td>
+                        <td class='line'>61</td>
                         <td class='hits'></td>
                         <td class='source'>    end</td>
                       </tr>
@@ -14727,7 +14879,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>61</td>
+                        <td class='line'>62</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -14735,7 +14887,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>62</td>
+                        <td class='line'>63</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -14889,10 +15041,10 @@ function find(y) {
           <div class='file'>
             <h2 id='lib/awesome_elixir_web/router.ex'>lib/awesome_elixir_web/router.ex</h1>
             <div id='stats' class='low'>
-              <div class='percentage'>30</div>
-              <div class='sloc'>10</div>
+              <div class='percentage'>27.3</div>
+              <div class='sloc'>11</div>
               <div class='hits'>48</div>
-              <div class='misses'>7</div>
+              <div class='misses'>8</div>
             </div>
             <table id='source'>
               <thead>
@@ -15195,7 +15347,7 @@ function find(y) {
                       <tr>
                         <td class='line'>36</td>
                         <td class='hits'></td>
-                        <td class='source'>  scope &quot;/api&quot; do</td>
+                        <td class='source'>  scope &quot;/&quot;, AwesomeElixirWeb do</td>
                       </tr>
                   
                 
@@ -15203,7 +15355,7 @@ function find(y) {
                       <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'>    pipe_through [:api, :guardian_common]</td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_authenticated]</td>
                       </tr>
                   
                 
@@ -15219,7 +15371,7 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>39</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    forward &quot;/graphql&quot;, Absinthe.Plug, schema: AwesomeElixirWeb.Schema</td>
+                        <td class='source'>    get &quot;/profile&quot;, ProfileController, :index</td>
                       </tr>
                     
                 
@@ -15243,7 +15395,7 @@ function find(y) {
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'>  scope &quot;/auth&quot;, AwesomeElixirWeb do</td>
+                        <td class='source'>  scope &quot;/api&quot; do</td>
                       </tr>
                   
                 
@@ -15251,7 +15403,7 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
-                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_authenticated]</td>
+                        <td class='source'>    pipe_through [:api, :guardian_common]</td>
                       </tr>
                   
                 
@@ -15267,7 +15419,7 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>45</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    get &quot;/logout&quot;, AuthController, :logout</td>
+                        <td class='source'>    forward &quot;/graphql&quot;, Absinthe.Plug, schema: AwesomeElixirWeb.Schema</td>
                       </tr>
                     
                 
@@ -15299,7 +15451,7 @@ function find(y) {
                       <tr>
                         <td class='line'>49</td>
                         <td class='hits'></td>
-                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_not_authenticated]</td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_authenticated]</td>
                       </tr>
                   
                 
@@ -15315,21 +15467,13 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>51</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    get &quot;/:provider&quot;, AuthController, :request</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='miss'>
-                        <td class='line'>52</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>    get &quot;/:provider/callback&quot;, AuthController, :callback</td>
+                        <td class='source'>    get &quot;/logout&quot;, AuthController, :logout</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>53</td>
+                        <td class='line'>52</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -15337,7 +15481,63 @@ function find(y) {
                 
                   
                       <tr>
+                        <td class='line'>53</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>54</td>
+                        <td class='hits'></td>
+                        <td class='source'>  scope &quot;/auth&quot;, AwesomeElixirWeb do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>55</td>
+                        <td class='hits'></td>
+                        <td class='source'>    pipe_through [:browser, :guardian_common, :guardian_not_authenticated]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>56</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>57</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    get &quot;/:provider&quot;, AuthController, :request</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>58</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    get &quot;/:provider/callback&quot;, AuthController, :callback</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>59</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>60</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -16422,11 +16622,11 @@ function find(y) {
         
           <div class='file'>
             <h2 id='lib/awesome_elixir_web/views/shared_view.ex'>lib/awesome_elixir_web/views/shared_view.ex</h1>
-            <div id='stats' class='high'>
-              <div class='percentage'>100</div>
-              <div class='sloc'>1</div>
-              <div class='hits'>16</div>
-              <div class='misses'>0</div>
+            <div id='stats' class='low'>
+              <div class='percentage'>40</div>
+              <div class='sloc'>5</div>
+              <div class='hits'>32</div>
+              <div class='misses'>3</div>
             </div>
             <table id='source'>
               <thead>
@@ -16480,6 +16680,166 @@ function find(y) {
                   
                       <tr>
                         <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def show_notification(conn) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>    conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; get_flash</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>9</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    |&gt; flash_message</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def flash_message(%{&quot;info&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>13</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;primary&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def flash_message(%{&quot;error&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>17</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;danger&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def flash_message(%{&quot;success&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>21</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;success&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def flash_message(_), do: nil</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>25</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

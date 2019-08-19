@@ -24,6 +24,13 @@ defmodule AwesomeElixirWeb do
       import Plug.Conn
       import AwesomeElixirWeb.Gettext
       alias AwesomeElixirWeb.Router.Helpers, as: Routes
+
+      # FIXME. Refactor to helper module
+      def redirect_to_with_flash(conn, to, flash_key, flash_message) do
+        conn
+        |> put_flash(flash_key, flash_message)
+        |> redirect(to: to)
+      end
     end
   end
 

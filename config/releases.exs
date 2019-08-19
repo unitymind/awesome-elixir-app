@@ -32,6 +32,12 @@ github_client_token =
     environment variable GITHUB_CLIENT_TOKEN is missing.
     """
 
+guardian_secret_key =
+  System.get_env("GUARDIAN_SECRET_KEY") ||
+    raise """
+    environment variable GUARDIAN_SECRET_KEY is missing.
+    """
+
 port = String.to_integer(System.get_env("PORT") || "4000")
 host = System.get_env("HOST") || "localhost"
 run_server = String.to_existing_atom(System.get_env("RUN_SERVER") || "true")
@@ -67,3 +73,7 @@ config :awesome_elixir, AwesomeElixirWeb.GithubApi,
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: github_client_id,
   client_secret: github_client_token
+
+config :awesome_elixir, AwesomeElixirWeb.Guardian,
+  issuer: "awesome_elixir_app",
+  secret_key: guardian_secret_key

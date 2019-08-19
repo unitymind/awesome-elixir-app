@@ -5,6 +5,7 @@ defmodule AwesomeElixirWeb.CatalogController do
   use AwesomeElixirWeb, :controller
 
   alias AwesomeElixir.Catalog
+  alias AwesomeElixirWeb.Guardian
 
   @navigation_filter_list [
     {"all", "All"},
@@ -36,7 +37,8 @@ defmodule AwesomeElixirWeb.CatalogController do
       navigation_filter_list: @navigation_filter_list,
       categories: categories,
       counters: counters,
-      params: params |> Map.from_struct()
+      params: params |> Map.from_struct(),
+      current_user: Guardian.Plug.current_resource(conn)
     )
   end
 end

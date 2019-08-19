@@ -256,7 +256,7 @@ defmodule AwesomeElixirWeb.CatalogControllerTest do
   end
 
   defp assert_counters(html, items: items, categories: categories) do
-    assert Floki.find(html, "#totalCounters") |> Floki.text() ==
+    assert Floki.find(html, "#totalCounters") |> Floki.text() |> String.trim() ==
              "Total items: #{items} (in #{categories} categories)"
 
     html
@@ -315,6 +315,6 @@ defmodule AwesomeElixirWeb.CatalogControllerTest do
   end
 
   defp get_links_for(html, kind) when kind in ~w(item nav)a do
-    Floki.find(html, "a.#{kind}-link") |> Floki.attribute("href")
+    (Floki.find(html, "a.#{kind}-link") |> Floki.attribute("href")) -- ["/auth/github"]
   end
 end
