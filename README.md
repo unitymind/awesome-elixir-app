@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/unitymind/awesome-elixir-app.svg?style=svg)](https://circleci.com/gh/unitymind/awesome-elixir-app)
 
-[![Screenshot-2019-08-15-at-18-31-46.png](https://i.postimg.cc/W4JHJnJ2/Screenshot-2019-08-15-at-18-31-46.png)](https://postimg.cc/SXkrBcr5)
+[![Screenshot-2019-08-19-at-21-54-20.png](https://i.postimg.cc/hj5gMvCK/Screenshot-2019-08-19-at-21-54-20.png)](https://postimg.cc/Q91Rd8Gz)
 
 ## TDLR
 
