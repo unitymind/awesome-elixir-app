@@ -1,6 +1,6 @@
 # AwesomeElixir
 
-[![CircleCI](https://circleci.com/gh/unitymind/awesome-elixir-app.svg?style=svg)](https://circleci.com/gh/unitymind/awesome-elixir-app)
+[![CircleCI](https://circleci.com/gh/unitymind/awesome-elixir-app.svg?style=svg)](https://circleci.com/gh/unitymind/awesome-elixir-app) [![Coverage Status](https://coveralls.io/repos/github/unitymind/awesome-elixir-app/badge.svg?branch=master)](https://coveralls.io/github/unitymind/awesome-elixir-app?branch=master)
 
 [![Screenshot-2019-08-19-at-21-54-20.png](https://i.postimg.cc/hj5gMvCK/Screenshot-2019-08-19-at-21-54-20.png)](https://postimg.cc/Q91Rd8Gz)
 

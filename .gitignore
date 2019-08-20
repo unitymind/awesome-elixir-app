@@ -28,6 +28,7 @@ npm-debug.log
 /priv/static/
 
 /.idea/
+/cover/
 .DS_Store
 config/dev.secret.exs
 

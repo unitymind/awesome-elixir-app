@@ -8,8 +8,6 @@ defmodule AwesomeElixirWeb.ProfileController do
 
   @spec show(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def show(conn, _) do
-    render(conn, "show.html",
-      profile: Guardian.Plug.current_resource(conn).profile
-    )
+    render(conn, "show.html", profile: Guardian.Plug.current_resource(conn).profile)
   end
 end
