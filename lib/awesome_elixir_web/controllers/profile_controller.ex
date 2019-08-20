@@ -1,6 +1,6 @@
 defmodule AwesomeElixirWeb.ProfileController do
   @moduledoc """
-  Implements Profile actions
+  Implements Profile actions.
   """
 
   use AwesomeElixirWeb, :controller

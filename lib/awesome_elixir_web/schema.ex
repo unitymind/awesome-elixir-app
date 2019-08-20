@@ -1,6 +1,9 @@
 defmodule AwesomeElixirWeb.Schema do
-  use Absinthe.Schema
+  @moduledoc """
+  Describes application specific `Absinthe.Schema` (GraphQL).
+  """
 
+  use Absinthe.Schema
   import_types AwesomeElixirWeb.Schema.CatalogTypes
 
   query do

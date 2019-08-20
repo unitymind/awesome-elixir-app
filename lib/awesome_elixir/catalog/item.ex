@@ -38,6 +38,13 @@ defmodule AwesomeElixir.Catalog.Item do
     field :url, EctoFields.URL
 
     embeds_one :git_source, GitSource, on_replace: :delete, primary_key: false do
+      @moduledoc """
+      Embedded schema, holding git source data.
+
+          field :github, :string
+          field :gitlab, :string
+      """
+
       field :github, :string
       field :gitlab, :string
     end

@@ -1,6 +1,14 @@
-defmodule AwesomeElixirWeb.Resolvers do
+defmodule AwesomeElixirWeb.Schema.Resolvers do
+  @moduledoc """
+  Implements GraphQL resolvers for queries.
+  """
+
   alias AwesomeElixir.Catalog
 
+  @doc """
+  List categories with applied filters from `params`.
+  """
+  @spec list_categories(map(), Absinthe.Resolution.t()) :: {:ok, map()}
   def list_categories(params, _) do
     categories = Catalog.FilterParams.execute(params) |> Catalog.list_categories()
 

@@ -1,4 +1,8 @@
 defmodule AwesomeElixirWeb.Guardian do
+  @moduledoc """
+  Implements application specific `Guardian` behaviour.
+  """
+
   use Guardian, otp_app: :awesome_elixir
   alias AwesomeElixir.Accounts
 
@@ -13,6 +17,13 @@ defmodule AwesomeElixirWeb.Guardian do
   end
 
   defmodule CommonPipeline do
+    @moduledoc """
+    Describes common `Guardian.Plug.Pipeline`.
+
+      * Verifies access token in session/header
+      * Load authenticated resource (`AwesomeElixir.Accounts.User`)
+    """
+
     use Guardian.Plug.Pipeline, otp_app: :awesome_elixir
     plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
     plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}
@@ -20,32 +31,45 @@ defmodule AwesomeElixirWeb.Guardian do
   end
 
   defmodule AuthenticatedPipeline do
+    @moduledoc """
+    Describes authenticated `Guardian.Plug.Pipeline`.
+
+      * Ensure authenticated
+    """
+
     use Guardian.Plug.Pipeline, otp_app: :awesome_elixir
     plug Guardian.Plug.EnsureAuthenticated
   end
 
   defmodule NotAuthenticatedPipeline do
+    @moduledoc """
+    Describes not authenticated `Guardian.Plug.Pipeline`.
+
+      * Ensure not authenticated
+    """
+
     use Guardian.Plug.Pipeline, otp_app: :awesome_elixir
     plug Guardian.Plug.EnsureNotAuthenticated
   end
 
   defmodule AuthErrorHandler do
+    @moduledoc """
+    Implements application specific `Guardian.Plug.ErrorHandler` behaviour.
+    """
+
     import Plug.Conn
     import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]
 
     @behaviour Guardian.Plug.ErrorHandler
 
-    @impl Guardian.Plug.ErrorHandler
     def auth_error(conn, {:already_authenticated, :already_authenticated}, _opts) do
       render_response(conn, "Already authenticated")
     end
 
-    @impl Guardian.Plug.ErrorHandler
     def auth_error(conn, {:unauthenticated, :unauthenticated}, _opts) do
       render_response(conn, "Not authenticated")
     end
 
-    @impl Guardian.Plug.ErrorHandler
     def auth_error(conn, {type, reason}, _opts) do
       render_response(conn, inspect({type, reason}))
     end

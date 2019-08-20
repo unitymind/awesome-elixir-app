@@ -1,4 +1,19 @@
 defmodule AwesomeElixir.Accounts.User do
+  @moduledoc """
+  Describes `User` entity using `TypedEctoSchema`.
+
+      field :github_uid, :id
+      field :github_token, :string
+
+      embeds_one :profile, Profile, on_replace: :delete, primary_key: false do
+        field :name, :string
+        field :nickname, :string
+        field :email, EctoFields.Email
+      end
+
+      timestamps()
+  """
+
   use TypedEctoSchema
   import Ecto.Changeset
 
@@ -7,6 +22,14 @@ defmodule AwesomeElixir.Accounts.User do
     field :github_token, :string
 
     embeds_one :profile, Profile, on_replace: :delete, primary_key: false do
+      @moduledoc """
+      Embedded schema, holding users's profile details.
+
+          field :name, :string
+          field :nickname, :string
+          field :email, EctoFields.Email
+      """
+
       field :name, :string
       field :nickname, :string
       field :email, EctoFields.Email
@@ -18,7 +41,13 @@ defmodule AwesomeElixir.Accounts.User do
   @fields ~w(github_uid github_token)a
   @profile_fields ~w(name nickname email)a
 
-  @doc false
+  @doc """
+  Cast and validate data for insert or update.
+
+    * Allowed and required: `github_uid` and `github_token`
+    * Cast `profile` on embedded schema
+  """
+  @spec changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def changeset(%__MODULE__{} = user, attrs) when is_map(attrs) do
     user
     |> cast(attrs, @fields)

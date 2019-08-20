@@ -9,25 +9,25 @@ defmodule AwesomeElixir.Catalog do
   alias AwesomeElixir.Repo
 
   @doc """
-  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `id`
+  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `id`.
   """
   @spec get_item_by_id(integer()) :: Item.t() | nil
   def get_item_by_id(item_id), do: Repo.get(Item, item_id)
 
   @doc """
-  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `url`
+  Get `AwesomeElixir.Catalog.Item` from `AwesomeElixir.Repo` by `url`.
   """
   @spec get_item_by_url(String.t()) :: Item.t() | nil
   def get_item_by_url(url), do: Repo.get_by(Item, url: url)
 
   @doc """
-  Get `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by `slug`
+  Get `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by `slug`.
   """
   @spec get_category_by_slug(String.t()) :: Category.t() | nil
   def get_category_by_slug(slug), do: Repo.get_by(Category, slug: slug)
 
   @doc """
-  Insert `AwesomeElixir.Catalog.Item` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.insert_changeset/1`
+  Insert `AwesomeElixir.Catalog.Item` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.insert_changeset/1`.
   """
   @spec insert_item(Item.t()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def insert_item(%Item{} = item) do
@@ -38,7 +38,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Update `AwesomeElixir.Catalog.Item` in `AwesomeElixir.Repo`,  using `AwesomeElixir.Catalog.Item.update_changeset/2`
+  Update `AwesomeElixir.Catalog.Item` in `AwesomeElixir.Repo`,  using `AwesomeElixir.Catalog.Item.update_changeset/2`.
   """
   @spec update_item(Item.t(), map()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def update_item(%Item{} = item, %{} = changes) do
@@ -47,7 +47,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Insert `AwesomeElixir.Catalog.Category` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Category.insert_changeset/1`
+  Insert `AwesomeElixir.Catalog.Category` to `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Category.insert_changeset/1`.
   """
   @spec insert_category(Category.t()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def insert_category(%Category{} = category) do
@@ -58,7 +58,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Update `AwesomeElixir.Catalog.Category` in `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.update_changeset/2`
+  Update `AwesomeElixir.Catalog.Category` in `AwesomeElixir.Repo`, using `AwesomeElixir.Catalog.Item.update_changeset/2`.
   """
   @spec update_category(Category.t(), map()) :: {:ok, Item.t()} | {:error, Ecto.Changeset.t()}
   def update_category(%Category{} = category, %{} = changes) do
@@ -67,7 +67,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  List `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by applying `AwesomeElixir.Catalog.FilterParams`
+  List `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by applying `AwesomeElixir.Catalog.FilterParams`.
   """
   @spec list_categories(FilterParams.t()) :: [Category.t()]
   defmemo list_categories(filter_params) do
@@ -77,7 +77,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
+  Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.
   """
   @spec categories_count([Category.t()]) :: non_neg_integer()
   defmemo categories_count(categories) do
@@ -85,7 +85,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`
+  Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.
   """
   @spec items_count([Category.t()]) :: non_neg_integer()
   defmemo items_count(categories) do
@@ -93,7 +93,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `never` for empty dataset
+  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `never` for empty dataset.
   """
   @spec last_updated_at() :: String.t() | DateTime.t()
   defmemo last_updated_at do
@@ -106,7 +106,7 @@ defmodule AwesomeElixir.Catalog do
   end
 
   @doc """
-  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls
+  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls.
   """
   def invalidate_cached do
     for method <- ~w(list_categories categories_count items_count last_updated_at)a do
@@ -118,8 +118,9 @@ defmodule AwesomeElixir.Catalog do
     select =
       ~w(id name slug description inserted_at updated_at)a ++
         [
-          items:
-            ~w(id category_id name description url git_source is_dead is_scrapped stars_count updated_in pushed_at inserted_at updated_at)a
+          items: ~w(
+              id category_id name description url git_source is_dead is_scrapped stars_count
+              updated_in pushed_at inserted_at updated_at)a
         ]
 
     from(categories in Category,

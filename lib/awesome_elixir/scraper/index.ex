@@ -40,7 +40,7 @@ defmodule AwesomeElixir.Scraper.Index do
 
   defmodule NotFetchedError do
     @moduledoc """
-    Raised on not 200 response on fetching
+    Raised on not 200 response on fetching.
     """
 
     defexception message: nil, full_response: nil

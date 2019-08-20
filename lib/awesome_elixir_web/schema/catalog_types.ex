@@ -1,8 +1,12 @@
 defmodule AwesomeElixirWeb.Schema.CatalogTypes do
+  @moduledoc """
+  Describes GraphQL types and queries for `AwesomeElixir.Catalog` context.
+  """
+
   use Absinthe.Schema.Notation
   import_types Absinthe.Type.Custom
 
-  alias AwesomeElixirWeb.Resolvers
+  alias AwesomeElixirWeb.Schema.Resolvers
 
   @desc "Hold verified uris to github/gitlab source"
   object :git_source do

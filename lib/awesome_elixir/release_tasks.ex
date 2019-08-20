@@ -5,7 +5,7 @@ defmodule AwesomeElixir.ReleaseTasks do
   @app :awesome_elixir
 
   @doc """
-  Migrate all pending migration
+  Migrate all pending migration.
 
       $ bin/awesome_elixir eval "AwesomeElixir.ReleaseTasks.migrate()"
   """

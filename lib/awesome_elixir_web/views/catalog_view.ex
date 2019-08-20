@@ -1,6 +1,6 @@
 defmodule AwesomeElixirWeb.CatalogView do
   @moduledoc """
-  Helper module for `Catalog` view
+  Helper module for `Catalog` view.
   """
 
   use AwesomeElixirWeb, :view
