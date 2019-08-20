@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
+<%= render("navigation.html", conn: @conn, min_stars_filter_list: min_stars_filter_list(), params: filtered_params(@conn), current_user: current_user(@conn)) %>
+<%= show_notification(@conn) %>
 <%= render @view_module, @view_template, assigns %>
+<%= render("footer.html", conn: @conn, last_updated_at: last_updated_at()) %>
   <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

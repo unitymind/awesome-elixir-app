@@ -712,7 +712,7 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov high'>100</span>
+            <span class='cov none'>100</span>
             <a href='#lib/awesome_elixir_web/views/catalog_view.ex'>
               
               
@@ -734,7 +734,7 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov none'>100</span>
+            <span class='cov low'>25</span>
             <a href='#lib/awesome_elixir_web/views/layout_view.ex'>
               
               
@@ -745,22 +745,22 @@ function find(y) {
           </li>
         
           <li>
-            <span class='cov low'>40</span>
-            <a href='#lib/awesome_elixir_web/views/shared_view.ex'>
+            <span class='cov high'>100</span>
+            <a href='#lib/awesome_elixir_web/views/view_helpers.ex'>
               
               
                 <span class='dirname'>lib/awesome_elixir_web/views/</span>
               
-              <span class='basename'>shared_view.ex</span>
+              <span class='basename'>view_helpers.ex</span>
             </a>
           </li>
         
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>80.8</div>
-        <div class='sloc'>203</div>
-        <div class='hits'>142900</div>
+        <div class='percentage'>81.3</div>
+        <div class='sloc'>208</div>
+        <div class='hits'>143040</div>
         <div class='misses'>39</div>
       </div>
       <div id='files'>
@@ -2859,8 +2859,24 @@ function find(y) {
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>72</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def list_categories(filter_params)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>73</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>74</td>
                         <td class='hits'>16</td>
                         <td class='source'>  defmemo list_categories(filter_params) do</td>
                       </tr>
@@ -2868,7 +2884,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>73</td>
+                        <td class='line'>75</td>
                         <td class='hits'></td>
                         <td class='source'>    build_query(filter_params)</td>
                       </tr>
@@ -2876,7 +2892,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>74</td>
+                        <td class='line'>76</td>
                         <td class='hits'></td>
                         <td class='source'>    |&gt; filter_by_updated_in(filter_params)</td>
                       </tr>
@@ -2884,7 +2900,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>75</td>
+                        <td class='line'>77</td>
                         <td class='hits'>16</td>
                         <td class='source'>    |&gt; Repo.all()</td>
                       </tr>
@@ -2892,25 +2908,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>76</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>77</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>78</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2918,7 +2918,7 @@ function find(y) {
                       <tr>
                         <td class='line'>79</td>
                         <td class='hits'></td>
-                        <td class='source'>  Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -2926,7 +2926,7 @@ function find(y) {
                       <tr>
                         <td class='line'>80</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -2934,31 +2934,31 @@ function find(y) {
                       <tr>
                         <td class='line'>81</td>
                         <td class='hits'></td>
+                        <td class='source'>  Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>82</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>83</td>
+                        <td class='hits'></td>
                         <td class='source'>  @spec categories_count([Category.t()]) :: non_neg_integer()</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
-                        <td class='line'>82</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>  defmemo categories_count(categories) do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>83</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    length(categories)</td>
-                      </tr>
-                    
-                
-                  
                       <tr>
                         <td class='line'>84</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  def categories_count(categories)</td>
                       </tr>
                   
                 
@@ -2971,26 +2971,26 @@ function find(y) {
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>86</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  defmemo categories_count(categories) do</td>
                       </tr>
-                  
+                    
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>87</td>
-                        <td class='hits'></td>
-                        <td class='source'>  Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    length(categories)</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>88</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -2998,31 +2998,31 @@ function find(y) {
                       <tr>
                         <td class='line'>89</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec items_count([Category.t()]) :: non_neg_integer()</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>90</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>  defmemo items_count(categories) do</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
-                    
+                  
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>91</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    Enum.reduce(categories, 0, fn %{items: items}, acc -&gt; acc + length(items) end)</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>92</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3030,7 +3030,7 @@ function find(y) {
                       <tr>
                         <td class='line'>93</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @spec items_count([Category.t()]) :: non_neg_integer()</td>
                       </tr>
                   
                 
@@ -3038,7 +3038,7 @@ function find(y) {
                       <tr>
                         <td class='line'>94</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>  def items_count(categories)</td>
                       </tr>
                   
                 
@@ -3046,85 +3046,29 @@ function find(y) {
                       <tr>
                         <td class='line'>95</td>
                         <td class='hits'></td>
-                        <td class='source'>  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `never` for empty dataset.</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>96</td>
-                        <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  defmemo items_count(categories) do</td>
                       </tr>
-                  
+                    
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>97</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @spec last_updated_at() :: String.t() | DateTime.t()</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    Enum.reduce(categories, 0, fn %{items: items}, acc -&gt; acc + length(items) end)</td>
                       </tr>
-                  
+                    
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>98</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>  defmemo last_updated_at do</td>
-                      </tr>
-                    
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>99</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    case Repo.one(</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>100</td>
-                        <td class='hits'></td>
-                        <td class='source'>           from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>101</td>
-                        <td class='hits'></td>
-                        <td class='source'>         ) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>102</td>
-                        <td class='hits'>13</td>
-                        <td class='source'>      %Item{updated_at: updated_at} -&gt; updated_at</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>103</td>
-                        <td class='hits'></td>
-                        <td class='source'>      _ -&gt; &quot;never&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>104</td>
-                        <td class='hits'></td>
-                        <td class='source'>    end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>105</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -3132,7 +3076,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>106</td>
+                        <td class='line'>99</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -3140,7 +3084,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>107</td>
+                        <td class='line'>100</td>
                         <td class='hits'></td>
                         <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
@@ -3148,15 +3092,15 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>108</td>
+                        <td class='line'>101</td>
                         <td class='hits'></td>
-                        <td class='source'>  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls.</td>
+                        <td class='source'>  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `:never` for empty dataset.</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>109</td>
+                        <td class='line'>102</td>
                         <td class='hits'></td>
                         <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
@@ -3164,31 +3108,63 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>110</td>
+                        <td class='line'>103</td>
                         <td class='hits'></td>
-                        <td class='source'>  def invalidate_cached do</td>
+                        <td class='source'>  @spec last_updated_at() :: :never | DateTime.t()</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>111</td>
-                        <td class='hits'>23</td>
-                        <td class='source'>    for method &lt;- ~w(list_categories categories_count items_count last_updated_at)a do</td>
+                        <td class='line'>104</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  defmemo last_updated_at do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>105</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    case Repo.one(</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>112</td>
+                        <td class='line'>106</td>
                         <td class='hits'></td>
-                        <td class='source'>      Memoize.invalidate(AwesomeElixir.Catalog, method)</td>
+                        <td class='source'>           from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>113</td>
+                        <td class='line'>107</td>
+                        <td class='hits'></td>
+                        <td class='source'>         ) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>108</td>
+                        <td class='hits'>13</td>
+                        <td class='source'>      %Item{updated_at: updated_at} -&gt; updated_at</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>109</td>
+                        <td class='hits'></td>
+                        <td class='source'>      _ -&gt; :never</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>110</td>
                         <td class='hits'></td>
                         <td class='source'>    end</td>
                       </tr>
@@ -3196,9 +3172,33 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>114</td>
+                        <td class='line'>111</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>112</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>113</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>114</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Invalidate memoization for `list_categories/1`, `categories_count/1`, `items_count/1` and `last_updated_at/0` calls.</td>
                       </tr>
                   
                 
@@ -3206,7 +3206,7 @@ function find(y) {
                       <tr>
                         <td class='line'>115</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -3214,15 +3214,15 @@ function find(y) {
                       <tr>
                         <td class='line'>116</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp base_query do</td>
+                        <td class='source'>  def invalidate_cached do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
                         <td class='line'>117</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    select =</td>
+                        <td class='hits'>23</td>
+                        <td class='source'>    for method &lt;- ~w(list_categories categories_count items_count last_updated_at)a do</td>
                       </tr>
                     
                 
@@ -3230,7 +3230,7 @@ function find(y) {
                       <tr>
                         <td class='line'>118</td>
                         <td class='hits'></td>
-                        <td class='source'>      ~w(id name slug description inserted_at updated_at)a ++</td>
+                        <td class='source'>      Memoize.invalidate(AwesomeElixir.Catalog, method)</td>
                       </tr>
                   
                 
@@ -3238,7 +3238,7 @@ function find(y) {
                       <tr>
                         <td class='line'>119</td>
                         <td class='hits'></td>
-                        <td class='source'>        [</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -3246,7 +3246,7 @@ function find(y) {
                       <tr>
                         <td class='line'>120</td>
                         <td class='hits'></td>
-                        <td class='source'>          items:</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -3254,7 +3254,7 @@ function find(y) {
                       <tr>
                         <td class='line'>121</td>
                         <td class='hits'></td>
-                        <td class='source'>            ~w(id category_id name description url git_source is_dead is_scrapped stars_count updated_in pushed_at inserted_at updated_at)a</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -3262,31 +3262,31 @@ function find(y) {
                       <tr>
                         <td class='line'>122</td>
                         <td class='hits'></td>
-                        <td class='source'>        ]</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>123</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  defp base_query do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>124</td>
+                        <td class='line'>123</td>
                         <td class='hits'>16</td>
-                        <td class='source'>    from(categories in Category,</td>
+                        <td class='source'>    select =</td>
                       </tr>
                     
                 
                   
                       <tr>
+                        <td class='line'>124</td>
+                        <td class='hits'></td>
+                        <td class='source'>      ~w(id name slug description inserted_at updated_at)a ++</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>125</td>
                         <td class='hits'></td>
-                        <td class='source'>      left_join: items in Item,</td>
+                        <td class='source'>        [</td>
                       </tr>
                   
                 
@@ -3294,7 +3294,7 @@ function find(y) {
                       <tr>
                         <td class='line'>126</td>
                         <td class='hits'></td>
-                        <td class='source'>      on: categories.id == items.category_id,</td>
+                        <td class='source'>          items: ~w(</td>
                       </tr>
                   
                 
@@ -3302,7 +3302,7 @@ function find(y) {
                       <tr>
                         <td class='line'>127</td>
                         <td class='hits'></td>
-                        <td class='source'>      where: items.is_scrapped == true and items.is_dead == false,</td>
+                        <td class='source'>              id category_id name description url git_source is_dead is_scrapped stars_count</td>
                       </tr>
                   
                 
@@ -3310,7 +3310,7 @@ function find(y) {
                       <tr>
                         <td class='line'>128</td>
                         <td class='hits'></td>
-                        <td class='source'>      order_by: [categories.name, items.name],</td>
+                        <td class='source'>              updated_in pushed_at inserted_at updated_at)a</td>
                       </tr>
                   
                 
@@ -3318,7 +3318,7 @@ function find(y) {
                       <tr>
                         <td class='line'>129</td>
                         <td class='hits'></td>
-                        <td class='source'>      select: ^select,</td>
+                        <td class='source'>        ]</td>
                       </tr>
                   
                 
@@ -3326,23 +3326,23 @@ function find(y) {
                       <tr>
                         <td class='line'>130</td>
                         <td class='hits'></td>
-                        <td class='source'>      preload: [items: items]</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>131</td>
-                        <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    from(categories in Category,</td>
                       </tr>
-                  
+                    
                 
                   
                       <tr>
                         <td class='line'>132</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>      left_join: items in Item,</td>
                       </tr>
                   
                 
@@ -3350,7 +3350,7 @@ function find(y) {
                       <tr>
                         <td class='line'>133</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>      on: categories.id == items.category_id,</td>
                       </tr>
                   
                 
@@ -3358,7 +3358,7 @@ function find(y) {
                       <tr>
                         <td class='line'>134</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true})</td>
+                        <td class='source'>      where: items.is_scrapped == true and items.is_dead == false,</td>
                       </tr>
                   
                 
@@ -3366,23 +3366,23 @@ function find(y) {
                       <tr>
                         <td class='line'>135</td>
                         <td class='hits'></td>
-                        <td class='source'>       when min_stars != &quot;all&quot; do</td>
+                        <td class='source'>      order_by: [categories.name, items.name],</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>136</td>
-                        <td class='hits'>1</td>
-                        <td class='source'>    from([categories, item] in base_query(),</td>
+                        <td class='hits'></td>
+                        <td class='source'>      select: ^select,</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>137</td>
                         <td class='hits'></td>
-                        <td class='source'>      where: item.stars_count &gt;= ^min_stars or is_nil(item.stars_count)</td>
+                        <td class='source'>      preload: [items: items]</td>
                       </tr>
                   
                 
@@ -3414,7 +3414,7 @@ function find(y) {
                       <tr>
                         <td class='line'>141</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false})</td>
+                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: true})</td>
                       </tr>
                   
                 
@@ -3429,7 +3429,7 @@ function find(y) {
                   
                       <tr class='hit'>
                         <td class='line'>143</td>
-                        <td class='hits'>6</td>
+                        <td class='hits'>1</td>
                         <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
                     
@@ -3438,7 +3438,7 @@ function find(y) {
                       <tr>
                         <td class='line'>144</td>
                         <td class='hits'></td>
-                        <td class='source'>      where: item.stars_count &gt;= ^min_stars</td>
+                        <td class='source'>      where: item.stars_count &gt;= ^min_stars or is_nil(item.stars_count)</td>
                       </tr>
                   
                 
@@ -3470,31 +3470,31 @@ function find(y) {
                       <tr>
                         <td class='line'>148</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp build_query(%FilterParams{min_stars: &quot;all&quot;, show_unstarred: false}) do</td>
+                        <td class='source'>  defp build_query(%FilterParams{min_stars: min_stars, show_unstarred: false})</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>149</td>
+                        <td class='hits'></td>
+                        <td class='source'>       when min_stars != &quot;all&quot; do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>149</td>
-                        <td class='hits'>5</td>
+                        <td class='line'>150</td>
+                        <td class='hits'>6</td>
                         <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>150</td>
-                        <td class='hits'></td>
-                        <td class='source'>      where: not is_nil(item.stars_count)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>151</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>      where: item.stars_count &gt;= ^min_stars</td>
                       </tr>
                   
                 
@@ -3502,7 +3502,7 @@ function find(y) {
                       <tr>
                         <td class='line'>152</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -3510,47 +3510,47 @@ function find(y) {
                       <tr>
                         <td class='line'>153</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>154</td>
-                        <td class='hits'>4</td>
-                        <td class='source'>  defp build_query(%FilterParams{}), do: base_query()</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>155</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>156</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp filter_by_updated_in(query, %FilterParams{show_just_updated: true}) do</td>
+                        <td class='source'>  defp build_query(%FilterParams{min_stars: &quot;all&quot;, show_unstarred: false}) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>157</td>
-                        <td class='hits'>4</td>
-                        <td class='source'>    from([categories, item] in query,</td>
+                        <td class='line'>156</td>
+                        <td class='hits'>5</td>
+                        <td class='source'>    from([categories, item] in base_query(),</td>
                       </tr>
                     
                 
                   
                       <tr>
+                        <td class='line'>157</td>
+                        <td class='hits'></td>
+                        <td class='source'>      where: not is_nil(item.stars_count)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
                         <td class='line'>158</td>
                         <td class='hits'></td>
-                        <td class='source'>      where: item.updated_in &lt;= 7 or is_nil(item.updated_in)</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -3558,7 +3558,7 @@ function find(y) {
                       <tr>
                         <td class='line'>159</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -3566,13 +3566,21 @@ function find(y) {
                       <tr>
                         <td class='line'>160</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr>
+                      <tr class='hit'>
                         <td class='line'>161</td>
+                        <td class='hits'>4</td>
+                        <td class='source'>  defp build_query(%FilterParams{}), do: base_query()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>162</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -3580,33 +3588,25 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>162</td>
+                        <td class='line'>163</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp filter_by_updated_in(query, %FilterParams{hide_outdated: true}) do</td>
+                        <td class='source'>  defp filter_by_updated_in(query, %FilterParams{show_just_updated: true}) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>163</td>
-                        <td class='hits'>2</td>
+                        <td class='line'>164</td>
+                        <td class='hits'>4</td>
                         <td class='source'>    from([categories, item] in query,</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>164</td>
-                        <td class='hits'></td>
-                        <td class='source'>      where: item.updated_in &lt; 365 or is_nil(item.updated_in)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>165</td>
                         <td class='hits'></td>
-                        <td class='source'>    )</td>
+                        <td class='source'>      where: item.updated_in &lt;= 7 or is_nil(item.updated_in)</td>
                       </tr>
                   
                 
@@ -3614,7 +3614,7 @@ function find(y) {
                       <tr>
                         <td class='line'>166</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    )</td>
                       </tr>
                   
                 
@@ -3622,13 +3622,69 @@ function find(y) {
                       <tr>
                         <td class='line'>167</td>
                         <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>168</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>169</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp filter_by_updated_in(query, %FilterParams{hide_outdated: true}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>170</td>
+                        <td class='hits'>2</td>
+                        <td class='source'>    from([categories, item] in query,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>171</td>
+                        <td class='hits'></td>
+                        <td class='source'>      where: item.updated_in &lt; 365 or is_nil(item.updated_in)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>172</td>
+                        <td class='hits'></td>
+                        <td class='source'>    )</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>173</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>174</td>
+                        <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>168</td>
+                        <td class='line'>175</td>
                         <td class='hits'>10</td>
                         <td class='source'>  defp filter_by_updated_in(query, %FilterParams{}), do: query</td>
                       </tr>
@@ -3636,7 +3692,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>169</td>
+                        <td class='line'>176</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -4095,8 +4151,8 @@ function find(y) {
             <h2 id='lib/awesome_elixir/catalog/filters_params.ex'>lib/awesome_elixir/catalog/filters_params.ex</h1>
             <div id='stats' class='high'>
               <div class='percentage'>100</div>
-              <div class='sloc'>5</div>
-              <div class='hits'>64</div>
+              <div class='sloc'>6</div>
+              <div class='hits'>108</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -4208,7 +4264,7 @@ function find(y) {
                       <tr>
                         <td class='line'>12</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  use Memoize</td>
                       </tr>
                   
                 
@@ -4216,7 +4272,7 @@ function find(y) {
                       <tr>
                         <td class='line'>13</td>
                         <td class='hits'></td>
-                        <td class='source'>  @primary_key false</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4224,21 +4280,29 @@ function find(y) {
                       <tr>
                         <td class='line'>14</td>
                         <td class='hits'></td>
+                        <td class='source'>  @primary_key false</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>15</td>
-                        <td class='hits'>16</td>
+                        <td class='line'>16</td>
+                        <td class='hits'>15</td>
                         <td class='source'>  typed_embedded_schema do</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>16</td>
+                        <td class='line'>17</td>
                         <td class='hits'></td>
                         <td class='source'>    field :min_stars, :string, default: &quot;all&quot;</td>
                       </tr>
@@ -4246,7 +4310,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>17</td>
+                        <td class='line'>18</td>
                         <td class='hits'></td>
                         <td class='source'>    field :show_unstarred, :boolean, default: false</td>
                       </tr>
@@ -4254,7 +4318,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>18</td>
+                        <td class='line'>19</td>
                         <td class='hits'></td>
                         <td class='source'>    field :hide_outdated, :boolean, default: false</td>
                       </tr>
@@ -4262,7 +4326,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>19</td>
+                        <td class='line'>20</td>
                         <td class='hits'></td>
                         <td class='source'>    field :show_just_updated, :boolean, default: false</td>
                       </tr>
@@ -4270,17 +4334,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>20</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -4288,7 +4344,7 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
-                        <td class='source'>  @fields ~w(min_stars show_unstarred hide_outdated show_just_updated)a</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4296,7 +4352,7 @@ function find(y) {
                       <tr>
                         <td class='line'>23</td>
                         <td class='hits'></td>
-                        <td class='source'>  @allowed_min_stars_values ~w(all 10 50 100 500 1000)</td>
+                        <td class='source'>  @fields ~w(min_stars show_unstarred hide_outdated show_just_updated)a</td>
                       </tr>
                   
                 
@@ -4304,7 +4360,7 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @allowed_min_stars_values ~w(all 10 50 100 500 1000)</td>
                       </tr>
                   
                 
@@ -4312,7 +4368,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4320,7 +4376,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    Cast and validate incoming params according to field&#39;s types.</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -4328,7 +4384,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    Cast and validate incoming params according to field&#39;s types.</td>
                       </tr>
                   
                 
@@ -4336,7 +4392,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Allowed: `min_stars`, `show_unstarred`, `hide_outdated` and `show_just_updated`</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -4344,7 +4400,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'>    * Validate inclusion of `min_stars` in list ```[&quot;all&quot;, &quot;10&quot;, &quot;50&quot;, &quot;100&quot;, &quot;500&quot;, &quot;1000&quot;]```</td>
+                        <td class='source'>    * Allowed: `min_stars`, `show_unstarred`, `hide_outdated` and `show_just_updated`</td>
                       </tr>
                   
                 
@@ -4352,7 +4408,7 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>    * Validate inclusion of `min_stars` in list ```[&quot;all&quot;, &quot;10&quot;, &quot;50&quot;, &quot;100&quot;, &quot;500&quot;, &quot;1000&quot;]```</td>
                       </tr>
                   
                 
@@ -4360,7 +4416,7 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec validate(map()) :: Ecto.Changeset.t()</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -4368,7 +4424,7 @@ function find(y) {
                       <tr>
                         <td class='line'>32</td>
                         <td class='hits'></td>
-                        <td class='source'>  def validate(params) do</td>
+                        <td class='source'>  @spec validate(map()) :: Ecto.Changeset.t()</td>
                       </tr>
                   
                 
@@ -4376,7 +4432,7 @@ function find(y) {
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>    %__MODULE__{}</td>
+                        <td class='source'>  def validate(params) do</td>
                       </tr>
                   
                 
@@ -4384,31 +4440,31 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
+                        <td class='source'>    %__MODULE__{}</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
                         <td class='source'>    |&gt; cast(params, @fields)</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>35</td>
-                        <td class='hits'>16</td>
+                        <td class='line'>36</td>
+                        <td class='hits'>15</td>
                         <td class='source'>    |&gt; validate_inclusion(:min_stars, @allowed_min_stars_values)</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>36</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
                         <td class='line'>37</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -4416,39 +4472,39 @@ function find(y) {
                       <tr>
                         <td class='line'>38</td>
                         <td class='hits'></td>
-                        <td class='source'>  def execute(params) do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>39</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    case validate(params) do</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>40</td>
                         <td class='hits'></td>
-                        <td class='source'>      %Ecto.Changeset{valid?: true} = changeset -&gt;</td>
+                        <td class='source'>  Make call `validate/1` and produce default values for invalid fields.</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>41</td>
-                        <td class='hits'>15</td>
-                        <td class='source'>        Ecto.Changeset.apply_changes(changeset)</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>42</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @spec execute(map()) :: __MODULE__.t()</td>
                       </tr>
                   
                 
@@ -4456,13 +4512,69 @@ function find(y) {
                       <tr>
                         <td class='line'>43</td>
                         <td class='hits'></td>
+                        <td class='source'>  def execute(params)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>45</td>
+                        <td class='hits'>48</td>
+                        <td class='source'>  defmemo execute(params) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>46</td>
+                        <td class='hits'>15</td>
+                        <td class='source'>    case validate(params) do</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'>      %Ecto.Changeset{valid?: true} = changeset -&gt;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>48</td>
+                        <td class='hits'>14</td>
+                        <td class='source'>        Ecto.Changeset.apply_changes(changeset)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
                         <td class='source'>      %Ecto.Changeset{} = changeset -&gt;</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>44</td>
+                        <td class='line'>51</td>
                         <td class='hits'>1</td>
                         <td class='source'>        changeset.data |&gt; Map.merge(Map.drop(changeset.changes, Keyword.keys(changeset.errors)))</td>
                       </tr>
@@ -4470,7 +4582,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>45</td>
+                        <td class='line'>52</td>
                         <td class='hits'></td>
                         <td class='source'>    end</td>
                       </tr>
@@ -4478,7 +4590,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>46</td>
+                        <td class='line'>53</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -4486,7 +4598,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>47</td>
+                        <td class='line'>54</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -7233,7 +7345,7 @@ function find(y) {
                       <tr>
                         <td class='line'>14</td>
                         <td class='hits'></td>
-                        <td class='source'>    for repo &lt;- repos() do</td>
+                        <td class='source'>    load_app()</td>
                       </tr>
                   
                 
@@ -7241,7 +7353,7 @@ function find(y) {
                       <tr>
                         <td class='line'>15</td>
                         <td class='hits'></td>
-                        <td class='source'>      with {:ok, _, _} &lt;- Ecto.Migrator.with_repo(repo, &amp;Ecto.Migrator.run(&amp;1, :up, all: true)),</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7249,7 +7361,7 @@ function find(y) {
                       <tr>
                         <td class='line'>16</td>
                         <td class='hits'></td>
-                        <td class='source'>           do: :ok</td>
+                        <td class='source'>    for repo &lt;- repos() do</td>
                       </tr>
                   
                 
@@ -7257,7 +7369,7 @@ function find(y) {
                       <tr>
                         <td class='line'>17</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'>      with {:ok, _, _} &lt;- Ecto.Migrator.with_repo(repo, &amp;Ecto.Migrator.run(&amp;1, :up, all: true)),</td>
                       </tr>
                   
                 
@@ -7265,7 +7377,7 @@ function find(y) {
                       <tr>
                         <td class='line'>18</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>           do: :ok</td>
                       </tr>
                   
                 
@@ -7273,7 +7385,7 @@ function find(y) {
                       <tr>
                         <td class='line'>19</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -7281,7 +7393,7 @@ function find(y) {
                       <tr>
                         <td class='line'>20</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc false</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -7289,7 +7401,7 @@ function find(y) {
                       <tr>
                         <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'>  def rollback(repo, version) do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7297,7 +7409,7 @@ function find(y) {
                       <tr>
                         <td class='line'>22</td>
                         <td class='hits'></td>
-                        <td class='source'>    {:ok, _, _} = Ecto.Migrator.with_repo(repo, &amp;Ecto.Migrator.run(&amp;1, :down, to: version))</td>
+                        <td class='source'>  @doc false</td>
                       </tr>
                   
                 
@@ -7305,7 +7417,7 @@ function find(y) {
                       <tr>
                         <td class='line'>23</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  def rollback(repo, version) do</td>
                       </tr>
                   
                 
@@ -7313,7 +7425,7 @@ function find(y) {
                       <tr>
                         <td class='line'>24</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    load_app()</td>
                       </tr>
                   
                 
@@ -7321,7 +7433,7 @@ function find(y) {
                       <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp repos do</td>
+                        <td class='source'>    {:ok, _, _} = Ecto.Migrator.with_repo(repo, &amp;Ecto.Migrator.run(&amp;1, :down, to: version))</td>
                       </tr>
                   
                 
@@ -7329,7 +7441,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>    Application.load(@app)</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -7337,7 +7449,7 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>    Application.fetch_env!(@app, :ecto_repos)</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -7345,7 +7457,7 @@ function find(y) {
                       <tr>
                         <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  defp repos do</td>
                       </tr>
                   
                 
@@ -7353,7 +7465,7 @@ function find(y) {
                       <tr>
                         <td class='line'>29</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    Application.fetch_env!(@app, :ecto_repos)</td>
                       </tr>
                   
                 
@@ -7361,13 +7473,61 @@ function find(y) {
                       <tr>
                         <td class='line'>30</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-stop</td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>31</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>32</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp load_app do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>33</td>
+                        <td class='hits'></td>
+                        <td class='source'>    Application.load(@app)</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>34</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>35</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>36</td>
+                        <td class='hits'></td>
+                        <td class='source'>  # coveralls-ignore-stop</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -12870,7 +13030,7 @@ function find(y) {
                       <tr>
                         <td class='line'>54</td>
                         <td class='hits'></td>
-                        <td class='source'>      alias AwesomeElixirWeb.Router.Helpers, as: Routes</td>
+                        <td class='source'>      import AwesomeElixirWeb.ViewHelpers</td>
                       </tr>
                   
                 
@@ -12878,7 +13038,7 @@ function find(y) {
                       <tr>
                         <td class='line'>55</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'>      alias AwesomeElixirWeb.Router.Helpers, as: Routes</td>
                       </tr>
                   
                 
@@ -12886,7 +13046,7 @@ function find(y) {
                       <tr>
                         <td class='line'>56</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -12894,7 +13054,7 @@ function find(y) {
                       <tr>
                         <td class='line'>57</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -12902,7 +13062,7 @@ function find(y) {
                       <tr>
                         <td class='line'>58</td>
                         <td class='hits'></td>
-                        <td class='source'>  def router do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12910,7 +13070,7 @@ function find(y) {
                       <tr>
                         <td class='line'>59</td>
                         <td class='hits'></td>
-                        <td class='source'>    quote do</td>
+                        <td class='source'>  def router do</td>
                       </tr>
                   
                 
@@ -12918,7 +13078,7 @@ function find(y) {
                       <tr>
                         <td class='line'>60</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.Router</td>
+                        <td class='source'>    quote do</td>
                       </tr>
                   
                 
@@ -12926,7 +13086,7 @@ function find(y) {
                       <tr>
                         <td class='line'>61</td>
                         <td class='hits'></td>
-                        <td class='source'>      import Plug.Conn</td>
+                        <td class='source'>      use Phoenix.Router</td>
                       </tr>
                   
                 
@@ -12934,7 +13094,7 @@ function find(y) {
                       <tr>
                         <td class='line'>62</td>
                         <td class='hits'></td>
-                        <td class='source'>      import Phoenix.Controller</td>
+                        <td class='source'>      import Plug.Conn</td>
                       </tr>
                   
                 
@@ -12942,7 +13102,7 @@ function find(y) {
                       <tr>
                         <td class='line'>63</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'>      import Phoenix.Controller</td>
                       </tr>
                   
                 
@@ -12950,7 +13110,7 @@ function find(y) {
                       <tr>
                         <td class='line'>64</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -12958,7 +13118,7 @@ function find(y) {
                       <tr>
                         <td class='line'>65</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -12966,7 +13126,7 @@ function find(y) {
                       <tr>
                         <td class='line'>66</td>
                         <td class='hits'></td>
-                        <td class='source'>  def channel do</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -12974,7 +13134,7 @@ function find(y) {
                       <tr>
                         <td class='line'>67</td>
                         <td class='hits'></td>
-                        <td class='source'>    quote do</td>
+                        <td class='source'>  def channel do</td>
                       </tr>
                   
                 
@@ -12982,7 +13142,7 @@ function find(y) {
                       <tr>
                         <td class='line'>68</td>
                         <td class='hits'></td>
-                        <td class='source'>      use Phoenix.Channel</td>
+                        <td class='source'>    quote do</td>
                       </tr>
                   
                 
@@ -12990,7 +13150,7 @@ function find(y) {
                       <tr>
                         <td class='line'>69</td>
                         <td class='hits'></td>
-                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
+                        <td class='source'>      use Phoenix.Channel</td>
                       </tr>
                   
                 
@@ -12998,7 +13158,7 @@ function find(y) {
                       <tr>
                         <td class='line'>70</td>
                         <td class='hits'></td>
-                        <td class='source'>    end</td>
+                        <td class='source'>      import AwesomeElixirWeb.Gettext</td>
                       </tr>
                   
                 
@@ -13006,7 +13166,7 @@ function find(y) {
                       <tr>
                         <td class='line'>71</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    end</td>
                       </tr>
                   
                 
@@ -13014,7 +13174,7 @@ function find(y) {
                       <tr>
                         <td class='line'>72</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13022,7 +13182,7 @@ function find(y) {
                       <tr>
                         <td class='line'>73</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13030,7 +13190,7 @@ function find(y) {
                       <tr>
                         <td class='line'>74</td>
                         <td class='hits'></td>
-                        <td class='source'>  When used, dispatch to the appropriate controller/view/etc.</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -13038,7 +13198,7 @@ function find(y) {
                       <tr>
                         <td class='line'>75</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  When used, dispatch to the appropriate controller/view/etc.</td>
                       </tr>
                   
                 
@@ -13046,7 +13206,7 @@ function find(y) {
                       <tr>
                         <td class='line'>76</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-start</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -13054,7 +13214,7 @@ function find(y) {
                       <tr>
                         <td class='line'>77</td>
                         <td class='hits'></td>
-                        <td class='source'>  defmacro __using__(which) when is_atom(which) do</td>
+                        <td class='source'>  # coveralls-ignore-start</td>
                       </tr>
                   
                 
@@ -13062,7 +13222,7 @@ function find(y) {
                       <tr>
                         <td class='line'>78</td>
                         <td class='hits'></td>
-                        <td class='source'>    apply(__MODULE__, which, [])</td>
+                        <td class='source'>  defmacro __using__(which) when is_atom(which) do</td>
                       </tr>
                   
                 
@@ -13070,7 +13230,7 @@ function find(y) {
                       <tr>
                         <td class='line'>79</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>    apply(__MODULE__, which, [])</td>
                       </tr>
                   
                 
@@ -13078,7 +13238,7 @@ function find(y) {
                       <tr>
                         <td class='line'>80</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
@@ -13086,13 +13246,21 @@ function find(y) {
                       <tr>
                         <td class='line'>81</td>
                         <td class='hits'></td>
-                        <td class='source'>  # coveralls-ignore-stop</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>82</td>
+                        <td class='hits'></td>
+                        <td class='source'>  # coveralls-ignore-stop</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>83</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -13837,7 +14005,7 @@ function find(y) {
                       <tr>
                         <td class='line'>4</td>
                         <td class='hits'></td>
-                        <td class='source'>  use AwesomeElixirWeb, :controller</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13845,7 +14013,7 @@ function find(y) {
                       <tr>
                         <td class='line'>5</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  use AwesomeElixirWeb, :controller</td>
                       </tr>
                   
                 
@@ -13861,7 +14029,7 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>  alias AwesomeElixirWeb.Guardian</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -13869,7 +14037,7 @@ function find(y) {
                       <tr>
                         <td class='line'>8</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -13877,7 +14045,7 @@ function find(y) {
                       <tr>
                         <td class='line'>9</td>
                         <td class='hits'></td>
-                        <td class='source'>  @navigation_filter_list [</td>
+                        <td class='source'>  Filter params and render Catalog index page.</td>
                       </tr>
                   
                 
@@ -13885,7 +14053,7 @@ function find(y) {
                       <tr>
                         <td class='line'>10</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;all&quot;, &quot;All&quot;},</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -13893,7 +14061,7 @@ function find(y) {
                       <tr>
                         <td class='line'>11</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;10&quot;, &quot;10&quot;},</td>
+                        <td class='source'>  @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
                       </tr>
                   
                 
@@ -13901,93 +14069,13 @@ function find(y) {
                       <tr>
                         <td class='line'>12</td>
                         <td class='hits'></td>
-                        <td class='source'>    {&quot;50&quot;, &quot;50&quot;},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>13</td>
-                        <td class='hits'></td>
-                        <td class='source'>    {&quot;100&quot;, &quot;100&quot;},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>14</td>
-                        <td class='hits'></td>
-                        <td class='source'>    {&quot;500&quot;, &quot;500&quot;},</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>15</td>
-                        <td class='hits'></td>
-                        <td class='source'>    {&quot;1000&quot;, &quot;1000&quot;}</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>16</td>
-                        <td class='hits'></td>
-                        <td class='source'>  ]</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>17</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>18</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>19</td>
-                        <td class='hits'></td>
-                        <td class='source'>  Filter params and render Catalog index page.</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>20</td>
-                        <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>21</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @spec index(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>22</td>
-                        <td class='hits'></td>
                         <td class='source'>  def index(conn, params) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>23</td>
+                        <td class='line'>13</td>
                         <td class='hits'>16</td>
                         <td class='source'>    conn |&gt; render_index(Catalog.FilterParams.execute(params))</td>
                       </tr>
@@ -13995,7 +14083,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>24</td>
+                        <td class='line'>14</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -14003,7 +14091,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>25</td>
+                        <td class='line'>15</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -14011,7 +14099,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>26</td>
+                        <td class='line'>16</td>
                         <td class='hits'></td>
                         <td class='source'>  defp render_index(conn, params) do</td>
                       </tr>
@@ -14019,7 +14107,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>27</td>
+                        <td class='line'>17</td>
                         <td class='hits'>16</td>
                         <td class='source'>    categories = Catalog.list_categories(params)</td>
                       </tr>
@@ -14027,7 +14115,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>28</td>
+                        <td class='line'>18</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -14035,7 +14123,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>29</td>
+                        <td class='line'>19</td>
                         <td class='hits'>16</td>
                         <td class='source'>    counters = %{</td>
                       </tr>
@@ -14043,7 +14131,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>30</td>
+                        <td class='line'>20</td>
                         <td class='hits'></td>
                         <td class='source'>      categories: Catalog.categories_count(categories),</td>
                       </tr>
@@ -14051,23 +14139,15 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>31</td>
+                        <td class='line'>21</td>
                         <td class='hits'></td>
-                        <td class='source'>      items: Catalog.items_count(categories),</td>
+                        <td class='source'>      items: Catalog.items_count(categories)</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>32</td>
-                        <td class='hits'></td>
-                        <td class='source'>      last_updated_at: Catalog.last_updated_at()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>33</td>
+                        <td class='line'>22</td>
                         <td class='hits'></td>
                         <td class='source'>    }</td>
                       </tr>
@@ -14075,7 +14155,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>34</td>
+                        <td class='line'>23</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -14083,7 +14163,7 @@ function find(y) {
                 
                   
                       <tr class='hit'>
-                        <td class='line'>35</td>
+                        <td class='line'>24</td>
                         <td class='hits'>16</td>
                         <td class='source'>    render(conn, &quot;index.html&quot;,</td>
                       </tr>
@@ -14091,15 +14171,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>36</td>
-                        <td class='hits'></td>
-                        <td class='source'>      navigation_filter_list: @navigation_filter_list,</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>37</td>
+                        <td class='line'>25</td>
                         <td class='hits'></td>
                         <td class='source'>      categories: categories,</td>
                       </tr>
@@ -14107,31 +14179,15 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>38</td>
+                        <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'>      counters: counters,</td>
+                        <td class='source'>      counters: counters</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>39</td>
-                        <td class='hits'></td>
-                        <td class='source'>      params: params |&gt; Map.from_struct(),</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>40</td>
-                        <td class='hits'></td>
-                        <td class='source'>      current_user: Guardian.Plug.current_resource(conn)</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>41</td>
+                        <td class='line'>27</td>
                         <td class='hits'></td>
                         <td class='source'>    )</td>
                       </tr>
@@ -14139,7 +14195,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>42</td>
+                        <td class='line'>28</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -14147,7 +14203,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>43</td>
+                        <td class='line'>29</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -17111,10 +17167,10 @@ function find(y) {
         
           <div class='file'>
             <h2 id='lib/awesome_elixir_web/views/catalog_view.ex'>lib/awesome_elixir_web/views/catalog_view.ex</h1>
-            <div id='stats' class='high'>
+            <div id='stats' class='none'>
               <div class='percentage'>100</div>
-              <div class='sloc'>1</div>
-              <div class='hits'>101</div>
+              <div class='sloc'>0</div>
+              <div class='hits'>0</div>
               <div class='misses'>0</div>
             </div>
             <table id='source'>
@@ -17138,7 +17194,7 @@ function find(y) {
                       <tr>
                         <td class='line'>1</td>
                         <td class='hits'></td>
-                        <td class='source'>  @moduledoc &quot;&quot;&quot;</td>
+                        <td class='source'>  @moduledoc false</td>
                       </tr>
                   
                 
@@ -17146,7 +17202,7 @@ function find(y) {
                       <tr>
                         <td class='line'>2</td>
                         <td class='hits'></td>
-                        <td class='source'>  Helper module for `Catalog` view.</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -17154,93 +17210,13 @@ function find(y) {
                       <tr>
                         <td class='line'>3</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>4</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>5</td>
-                        <td class='hits'></td>
                         <td class='source'>  use AwesomeElixirWeb, :view</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>6</td>
-                        <td class='hits'></td>
-                        <td class='source'></td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>7</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>8</td>
-                        <td class='hits'></td>
-                        <td class='source'>  Render Markdown markup to HTML.</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>9</td>
-                        <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>10</td>
-                        <td class='hits'></td>
-                        <td class='source'>  @spec render_markdown([String.t()]) :: String.t()</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>11</td>
-                        <td class='hits'></td>
-                        <td class='source'>  def render_markdown(lines) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='hit'>
-                        <td class='line'>12</td>
-                        <td class='hits'>101</td>
-                        <td class='source'>    lines |&gt; Earmark.as_html!(%Earmark.Options{pure_links: false})</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
-                        <td class='line'>13</td>
-                        <td class='hits'></td>
-                        <td class='source'>  end</td>
-                      </tr>
-                  
-                
-                  
-                      <tr>
-                        <td class='line'>14</td>
+                        <td class='line'>4</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -17409,11 +17385,11 @@ function find(y) {
         
           <div class='file'>
             <h2 id='lib/awesome_elixir_web/views/layout_view.ex'>lib/awesome_elixir_web/views/layout_view.ex</h1>
-            <div id='stats' class='none'>
-              <div class='percentage'>100</div>
-              <div class='sloc'>0</div>
-              <div class='hits'>0</div>
-              <div class='misses'>0</div>
+            <div id='stats' class='low'>
+              <div class='percentage'>25</div>
+              <div class='sloc'>4</div>
+              <div class='hits'>16</div>
+              <div class='misses'>3</div>
             </div>
             <table id='source'>
               <thead>
@@ -17436,7 +17412,7 @@ function find(y) {
                       <tr>
                         <td class='line'>1</td>
                         <td class='hits'></td>
-                        <td class='source'>  @moduledoc false</td>
+                        <td class='source'>  @moduledoc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -17444,13 +17420,221 @@ function find(y) {
                       <tr>
                         <td class='line'>2</td>
                         <td class='hits'></td>
-                        <td class='source'>  use AwesomeElixirWeb, :view</td>
+                        <td class='source'>  Implements `Layout` view helpers.</td>
                       </tr>
                   
                 
                   
                       <tr>
                         <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use AwesomeElixirWeb, :view</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>5</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>6</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>7</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Render notification block according to flash value.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>9</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec show_notification(Plug.Conn.t()) :: Plug.Conn.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>10</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def show_notification(conn) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>    conn</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; get_flash()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>13</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>    |&gt; flash_message()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>14</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>15</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>16</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp flash_message(%{&quot;info&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>17</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;primary&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>18</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>19</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp flash_message(%{&quot;error&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>21</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;danger&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>22</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>23</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>24</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp flash_message(%{&quot;success&quot; =&gt; message}) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>25</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;success&quot;, message: message)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>26</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>27</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>28</td>
+                        <td class='hits'></td>
+                        <td class='source'>  defp flash_message(_), do: nil</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>29</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -17461,12 +17645,12 @@ function find(y) {
           </div>
         
           <div class='file'>
-            <h2 id='lib/awesome_elixir_web/views/shared_view.ex'>lib/awesome_elixir_web/views/shared_view.ex</h1>
-            <div id='stats' class='low'>
-              <div class='percentage'>40</div>
-              <div class='sloc'>5</div>
-              <div class='hits'>32</div>
-              <div class='misses'>3</div>
+            <h2 id='lib/awesome_elixir_web/views/view_helpers.ex'>lib/awesome_elixir_web/views/view_helpers.ex</h1>
+            <div id='stats' class='high'>
+              <div class='percentage'>100</div>
+              <div class='sloc'>6</div>
+              <div class='hits'>213</div>
+              <div class='misses'>0</div>
             </div>
             <table id='source'>
               <thead>
@@ -17481,7 +17665,7 @@ function find(y) {
                       <tr>
                         <td class='line'>0</td>
                         <td class='hits'></td>
-                        <td class='source'>defmodule AwesomeElixirWeb.SharedView do</td>
+                        <td class='source'>defmodule AwesomeElixirWeb.ViewHelpers do</td>
                       </tr>
                   
                 
@@ -17497,7 +17681,7 @@ function find(y) {
                       <tr>
                         <td class='line'>2</td>
                         <td class='hits'></td>
-                        <td class='source'>  Helper module for `Shared` view.</td>
+                        <td class='source'>  Implements common view helpers.</td>
                       </tr>
                   
                 
@@ -17521,7 +17705,7 @@ function find(y) {
                       <tr>
                         <td class='line'>5</td>
                         <td class='hits'></td>
-                        <td class='source'>  use AwesomeElixirWeb, :view</td>
+                        <td class='source'>  alias AwesomeElixir.Catalog</td>
                       </tr>
                   
                 
@@ -17529,7 +17713,7 @@ function find(y) {
                       <tr>
                         <td class='line'>6</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  alias AwesomeElixirWeb.Guardian</td>
                       </tr>
                   
                 
@@ -17537,7 +17721,7 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -17545,7 +17729,7 @@ function find(y) {
                       <tr>
                         <td class='line'>8</td>
                         <td class='hits'></td>
-                        <td class='source'>  Returns application version.</td>
+                        <td class='source'>  @min_stars_filter_list [</td>
                       </tr>
                   
                 
@@ -17553,7 +17737,7 @@ function find(y) {
                       <tr>
                         <td class='line'>9</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>    {&quot;all&quot;, &quot;All&quot;},</td>
                       </tr>
                   
                 
@@ -17561,23 +17745,23 @@ function find(y) {
                       <tr>
                         <td class='line'>10</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec app_version() :: Application.value()</td>
+                        <td class='source'>    {&quot;10&quot;, &quot;10&quot;},</td>
                       </tr>
                   
                 
                   
-                      <tr class='hit'>
+                      <tr>
                         <td class='line'>11</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>  def app_version, do: Application.spec(:awesome_elixir, :vsn)</td>
+                        <td class='hits'></td>
+                        <td class='source'>    {&quot;50&quot;, &quot;50&quot;},</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>12</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>    {&quot;100&quot;, &quot;100&quot;},</td>
                       </tr>
                   
                 
@@ -17585,7 +17769,7 @@ function find(y) {
                       <tr>
                         <td class='line'>13</td>
                         <td class='hits'></td>
-                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                        <td class='source'>    {&quot;500&quot;, &quot;500&quot;},</td>
                       </tr>
                   
                 
@@ -17593,7 +17777,7 @@ function find(y) {
                       <tr>
                         <td class='line'>14</td>
                         <td class='hits'></td>
-                        <td class='source'>  Render notification block according to flash value.</td>
+                        <td class='source'>    {&quot;1000&quot;, &quot;1000&quot;}</td>
                       </tr>
                   
                 
@@ -17601,7 +17785,7 @@ function find(y) {
                       <tr>
                         <td class='line'>15</td>
                         <td class='hits'></td>
-                        <td class='source'>  &quot;&quot;&quot;</td>
+                        <td class='source'>  ]</td>
                       </tr>
                   
                 
@@ -17609,7 +17793,7 @@ function find(y) {
                       <tr>
                         <td class='line'>16</td>
                         <td class='hits'></td>
-                        <td class='source'>  @spec show_notification(Plug.Conn.t()) :: Plug.Conn.t()</td>
+                        <td class='source'></td>
                       </tr>
                   
                 
@@ -17617,7 +17801,7 @@ function find(y) {
                       <tr>
                         <td class='line'>17</td>
                         <td class='hits'></td>
-                        <td class='source'>  def show_notification(conn) do</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -17625,7 +17809,7 @@ function find(y) {
                       <tr>
                         <td class='line'>18</td>
                         <td class='hits'></td>
-                        <td class='source'>    conn</td>
+                        <td class='source'>  Render Markdown markup as HTML.</td>
                       </tr>
                   
                 
@@ -17633,21 +17817,37 @@ function find(y) {
                       <tr>
                         <td class='line'>19</td>
                         <td class='hits'></td>
-                        <td class='source'>    |&gt; get_flash()</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>20</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec render_markdown([String.t()]) :: String.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>21</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def render_markdown(lines) do</td>
                       </tr>
                   
                 
                   
                       <tr class='hit'>
-                        <td class='line'>20</td>
-                        <td class='hits'>16</td>
-                        <td class='source'>    |&gt; flash_message()</td>
+                        <td class='line'>22</td>
+                        <td class='hits'>101</td>
+                        <td class='source'>    lines |&gt; Earmark.as_html!(%Earmark.Options{pure_links: false})</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>21</td>
+                        <td class='line'>23</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -17655,7 +17855,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>22</td>
+                        <td class='line'>24</td>
                         <td class='hits'></td>
                         <td class='source'></td>
                       </tr>
@@ -17663,25 +17863,9 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>23</td>
-                        <td class='hits'></td>
-                        <td class='source'>  defp flash_message(%{&quot;info&quot; =&gt; message}) do</td>
-                      </tr>
-                  
-                
-                  
-                      <tr class='miss'>
-                        <td class='line'>24</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;primary&quot;, message: message)</td>
-                      </tr>
-                    
-                
-                  
-                      <tr>
                         <td class='line'>25</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -17689,7 +17873,7 @@ function find(y) {
                       <tr>
                         <td class='line'>26</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  Current authenticated user or nil otherwise.</td>
                       </tr>
                   
                 
@@ -17697,25 +17881,25 @@ function find(y) {
                       <tr>
                         <td class='line'>27</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp flash_message(%{&quot;error&quot; =&gt; message}) do</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
-                
-                  
-                      <tr class='miss'>
-                        <td class='line'>28</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;danger&quot;, message: message)</td>
-                      </tr>
-                    
                 
                   
                       <tr>
-                        <td class='line'>29</td>
+                        <td class='line'>28</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  @spec current_user(Plug.Conn.t()) :: AwesomeElixir.Accounts.User.t() | nil</td>
                       </tr>
                   
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>29</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  def current_user(conn), do: Guardian.Plug.current_resource(conn)</td>
+                      </tr>
+                    
                 
                   
                       <tr>
@@ -17729,23 +17913,23 @@ function find(y) {
                       <tr>
                         <td class='line'>31</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp flash_message(%{&quot;success&quot; =&gt; message}) do</td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
                       </tr>
                   
                 
                   
-                      <tr class='miss'>
+                      <tr>
                         <td class='line'>32</td>
-                        <td class='hits'>0</td>
-                        <td class='source'>    render(&quot;notification.html&quot;, class: &quot;success&quot;, message: message)</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Filtered query params (via `AwesomeElixir.Catalog.FilterParams.execute/1`).</td>
                       </tr>
-                    
+                  
                 
                   
                       <tr>
                         <td class='line'>33</td>
                         <td class='hits'></td>
-                        <td class='source'>  end</td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
                       </tr>
                   
                 
@@ -17753,7 +17937,7 @@ function find(y) {
                       <tr>
                         <td class='line'>34</td>
                         <td class='hits'></td>
-                        <td class='source'></td>
+                        <td class='source'>  @spec filtered_params(Plug.Conn.t()) :: map()</td>
                       </tr>
                   
                 
@@ -17761,13 +17945,189 @@ function find(y) {
                       <tr>
                         <td class='line'>35</td>
                         <td class='hits'></td>
-                        <td class='source'>  defp flash_message(_), do: nil</td>
+                        <td class='source'>  def filtered_params(conn) do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>36</td>
+                        <td class='hits'>32</td>
+                        <td class='source'>    conn.params</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>37</td>
+                        <td class='hits'></td>
+                        <td class='source'>    |&gt; Catalog.FilterParams.execute()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>38</td>
+                        <td class='hits'>32</td>
+                        <td class='source'>    |&gt; Map.from_struct()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>39</td>
+                        <td class='hits'></td>
+                        <td class='source'>  end</td>
                       </tr>
                   
                 
                   
                       <tr>
-                        <td class='line'>36</td>
+                        <td class='line'>40</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>41</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>42</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Data for rendering min stars navigation filter.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>43</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>44</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec min_stars_filter_list() :: [tuple()]</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>45</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def min_stars_filter_list, do: @min_stars_filter_list</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>46</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>47</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>48</td>
+                        <td class='hits'></td>
+                        <td class='source'>  `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `:never` for empty dataset.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>49</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>50</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec last_updated_at() :: :never | DateTime.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>51</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  def last_updated_at, do: Catalog.last_updated_at()</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>52</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>53</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @doc &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>54</td>
+                        <td class='hits'></td>
+                        <td class='source'>  Application version.</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>55</td>
+                        <td class='hits'></td>
+                        <td class='source'>  &quot;&quot;&quot;</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>56</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @spec app_version() :: Application.value()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr class='hit'>
+                        <td class='line'>57</td>
+                        <td class='hits'>16</td>
+                        <td class='source'>  def app_version, do: Application.spec(:awesome_elixir, :vsn)</td>
+                      </tr>
+                    
+                
+                  
+                      <tr>
+                        <td class='line'>58</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

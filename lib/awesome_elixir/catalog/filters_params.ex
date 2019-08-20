@@ -10,6 +10,7 @@ defmodule AwesomeElixir.Catalog.FilterParams do
 
   use TypedEctoSchema
   import Ecto.Changeset
+  use Memoize
 
   @primary_key false
 
@@ -36,7 +37,13 @@ defmodule AwesomeElixir.Catalog.FilterParams do
     |> validate_inclusion(:min_stars, @allowed_min_stars_values)
   end
 
-  def execute(params) do
+  @doc """
+  Make call `validate/1` and produce default values for invalid fields.
+  """
+  @spec execute(map()) :: __MODULE__.t()
+  def execute(params)
+
+  defmemo execute(params) do
     case validate(params) do
       %Ecto.Changeset{valid?: true} = changeset ->
         Ecto.Changeset.apply_changes(changeset)

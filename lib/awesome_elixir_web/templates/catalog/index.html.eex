@@ -1,5 +1,4 @@
-<%= render(AwesomeElixirWeb.SharedView, "navigation.html", conn: @conn, navigation_filter_list: @navigation_filter_list, counters: @counters, params: @params, current_user: @current_user) %>
-<%= AwesomeElixirWeb.SharedView.show_notification(@conn) %>
+<%= render("filters.html", conn: @conn, counters: @counters, params: filtered_params(@conn)) %>
     <main role="main">
       <div class="container">
         <div class="row">
@@ -51,4 +50,3 @@
         <% end %>
       </div>
     </main>
-<%= render(AwesomeElixirWeb.SharedView, "footer.html", conn: @conn, last_updated_at: @counters.last_updated_at) %>

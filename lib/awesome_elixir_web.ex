@@ -52,6 +52,7 @@ defmodule AwesomeElixirWeb do
 
       import AwesomeElixirWeb.ErrorHelpers
       import AwesomeElixirWeb.Gettext
+      import AwesomeElixirWeb.ViewHelpers
       alias AwesomeElixirWeb.Router.Helpers, as: Routes
     end
   end

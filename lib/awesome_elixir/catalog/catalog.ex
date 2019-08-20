@@ -70,6 +70,8 @@ defmodule AwesomeElixir.Catalog do
   List `AwesomeElixir.Catalog.Category` from `AwesomeElixir.Repo` by applying `AwesomeElixir.Catalog.FilterParams`.
   """
   @spec list_categories(FilterParams.t()) :: [Category.t()]
+  def list_categories(filter_params)
+
   defmemo list_categories(filter_params) do
     build_query(filter_params)
     |> filter_by_updated_in(filter_params)
@@ -80,6 +82,8 @@ defmodule AwesomeElixir.Catalog do
   Count all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.
   """
   @spec categories_count([Category.t()]) :: non_neg_integer()
+  def categories_count(categories)
+
   defmemo categories_count(categories) do
     length(categories)
   end
@@ -88,20 +92,22 @@ defmodule AwesomeElixir.Catalog do
   Count `AwesomeElixir.Catalog.Item` for all `AwesomeElixir.Catalog.Category` according to filtered dataset from `list_categories/1`.
   """
   @spec items_count([Category.t()]) :: non_neg_integer()
+  def items_count(categories)
+
   defmemo items_count(categories) do
     Enum.reduce(categories, 0, fn %{items: items}, acc -> acc + length(items) end)
   end
 
   @doc """
-  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `never` for empty dataset.
+  Returns `DateTime` for last updated `AwesomeElixir.Catalog.Item` or `:never` for empty dataset.
   """
-  @spec last_updated_at() :: String.t() | DateTime.t()
+  @spec last_updated_at() :: :never | DateTime.t()
   defmemo last_updated_at do
     case Repo.one(
            from item in Item, order_by: [desc: item.updated_at], select: [:updated_at], limit: 1
          ) do
       %Item{updated_at: updated_at} -> updated_at
-      _ -> "never"
+      _ -> :never
     end
   end
 

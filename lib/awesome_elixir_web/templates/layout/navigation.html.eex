@@ -1,0 +1,30 @@
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">Awesome Elixir</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+        <%= for {key, value} <- @min_stars_filter_list do %>
+          <li class="nav-item <%= if(@params.min_stars == key, do: "active") %>">
+            <a class="nav-link filter-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) |> raw %>">&ge;<%= value %>&nbsp;⭐</a>
+          </li>
+        <% end %>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+        <%= if is_nil(@current_user) do %>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.auth_path(@conn, :request, "github") |> raw %>">Login via GitHub</a>
+          <li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.profile_path(@conn, :index) |> raw %>"><%= @current_user.profile.name %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="<%= Routes.auth_path(@conn, :logout) |> raw %>">Logout</a>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
