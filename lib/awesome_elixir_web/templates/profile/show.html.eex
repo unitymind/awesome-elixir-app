@@ -1,0 +1,20 @@
+    <main role="main">
+      <div class="container">
+        <div class="row">
+          <table class="table table-dark">
+            <tr>
+              <td>Github Username</td>
+              <td><%= @profile.nickname %></td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td><%= @profile.name %></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><%= @profile.email %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>

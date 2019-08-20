@@ -4,8 +4,12 @@ defmodule AwesomeElixirWeb.ProfileController do
   """
 
   use AwesomeElixirWeb, :controller
+  alias AwesomeElixirWeb.Guardian
 
-  def index(conn, _) do
-    redirect_to_with_flash(conn, "/", :error, "Not yet implemented")
+  @spec show(Plug.Conn.t(), map()) :: Plug.Conn.t()
+  def show(conn, _) do
+    render(conn, "show.html",
+      profile: Guardian.Plug.current_resource(conn).profile
+    )
   end
 end

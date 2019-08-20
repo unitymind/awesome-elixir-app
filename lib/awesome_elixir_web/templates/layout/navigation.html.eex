@@ -6,7 +6,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
         <%= for {key, value} <- @min_stars_filter_list do %>
-          <li class="nav-item <%= if(@params.min_stars == key, do: "active") %>">
+          <li class="nav-item <%= if(@params.min_stars == key and @conn.request_path != Routes.profile_path(@conn, :show), do: "active") %>">
             <a class="nav-link filter-link" href="<%= Routes.catalog_path(@conn, :index, %{@params | min_stars: key}) |> raw %>">&ge;<%= value %>&nbsp;⭐</a>
           </li>
         <% end %>
@@ -18,8 +18,8 @@
             <a class="nav-link"  href="<%= Routes.auth_path(@conn, :request, "github") |> raw %>">Login via GitHub</a>
           <li>
         <% else %>
-          <li class="nav-item">
-            <a class="nav-link"  href="<%= Routes.profile_path(@conn, :index) |> raw %>"><%= @current_user.profile.name %></a>
+          <li class="nav-item <%= if(@conn.request_path == Routes.profile_path(@conn, :show), do: "active") %>">
+            <a class="nav-link"  href="<%= Routes.profile_path(@conn, :show) |> raw %>">Your Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="<%= Routes.auth_path(@conn, :logout) |> raw %>">Logout</a>

@@ -745,6 +745,17 @@ function find(y) {
           </li>
         
           <li>
+            <span class='cov none'>100</span>
+            <a href='#lib/awesome_elixir_web/views/profile_view.ex'>
+              
+              
+                <span class='dirname'>lib/awesome_elixir_web/views/</span>
+              
+              <span class='basename'>profile_view.ex</span>
+            </a>
+          </li>
+        
+          <li>
             <span class='cov high'>100</span>
             <a href='#lib/awesome_elixir_web/views/view_helpers.ex'>
               
@@ -758,10 +769,10 @@ function find(y) {
       </div>
 
       <div id='stats' class='high'>
-        <div class='percentage'>81.3</div>
-        <div class='sloc'>208</div>
+        <div class='percentage'>80.9</div>
+        <div class='sloc'>209</div>
         <div class='hits'>143040</div>
-        <div class='misses'>39</div>
+        <div class='misses'>40</div>
       </div>
       <div id='files'>
         
@@ -14217,9 +14228,9 @@ function find(y) {
             <h2 id='lib/awesome_elixir_web/controllers/profile_controller.ex'>lib/awesome_elixir_web/controllers/profile_controller.ex</h1>
             <div id='stats' class='terrible'>
               <div class='percentage'>0</div>
-              <div class='sloc'>1</div>
+              <div class='sloc'>2</div>
               <div class='hits'>0</div>
-              <div class='misses'>1</div>
+              <div class='misses'>2</div>
             </div>
             <table id='source'>
               <thead>
@@ -14290,21 +14301,45 @@ function find(y) {
                       <tr>
                         <td class='line'>7</td>
                         <td class='hits'></td>
-                        <td class='source'>  def index(conn, _) do</td>
+                        <td class='source'>  @spec show(Plug.Conn.t(), map()) :: Plug.Conn.t()</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>8</td>
+                        <td class='hits'></td>
+                        <td class='source'>  def show(conn, _) do</td>
                       </tr>
                   
                 
                   
                       <tr class='miss'>
-                        <td class='line'>8</td>
+                        <td class='line'>9</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    redirect_to_with_flash(conn, &quot;/&quot;, :error, &quot;Not yet implemented&quot;)</td>
+                        <td class='source'>    render(conn, &quot;show.html&quot;,</td>
+                      </tr>
+                    
+                
+                  
+                      <tr class='miss'>
+                        <td class='line'>10</td>
+                        <td class='hits'>0</td>
+                        <td class='source'>      profile: AwesomeElixirWeb.Guardian.Plug.current_resource(conn).profile</td>
                       </tr>
                     
                 
                   
                       <tr>
-                        <td class='line'>9</td>
+                        <td class='line'>11</td>
+                        <td class='hits'></td>
+                        <td class='source'>    )</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>12</td>
                         <td class='hits'></td>
                         <td class='source'>  end</td>
                       </tr>
@@ -14312,7 +14347,7 @@ function find(y) {
                 
                   
                       <tr>
-                        <td class='line'>10</td>
+                        <td class='line'>13</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>
@@ -16006,7 +16041,7 @@ function find(y) {
                       <tr class='miss'>
                         <td class='line'>39</td>
                         <td class='hits'>0</td>
-                        <td class='source'>    get &quot;/profile&quot;, ProfileController, :index</td>
+                        <td class='source'>    get &quot;/profile&quot;, ProfileController, :show</td>
                       </tr>
                     
                 
@@ -17635,6 +17670,67 @@ function find(y) {
                   
                       <tr>
                         <td class='line'>29</td>
+                        <td class='hits'></td>
+                        <td class='source'>end</td>
+                      </tr>
+                  
+                
+              </tbody>
+            </table>
+          </div>
+        
+          <div class='file'>
+            <h2 id='lib/awesome_elixir_web/views/profile_view.ex'>lib/awesome_elixir_web/views/profile_view.ex</h1>
+            <div id='stats' class='none'>
+              <div class='percentage'>100</div>
+              <div class='sloc'>0</div>
+              <div class='hits'>0</div>
+              <div class='misses'>0</div>
+            </div>
+            <table id='source'>
+              <thead>
+                <tr>
+                  <th>Line</th>
+                  <th>Hits</th>
+                  <th>Source</th>
+                </tr>
+              <tbody>
+                
+                  
+                      <tr>
+                        <td class='line'>0</td>
+                        <td class='hits'></td>
+                        <td class='source'>defmodule AwesomeElixirWeb.ProfileView do</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>1</td>
+                        <td class='hits'></td>
+                        <td class='source'>  @moduledoc false</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>2</td>
+                        <td class='hits'></td>
+                        <td class='source'></td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>3</td>
+                        <td class='hits'></td>
+                        <td class='source'>  use AwesomeElixirWeb, :view</td>
+                      </tr>
+                  
+                
+                  
+                      <tr>
+                        <td class='line'>4</td>
                         <td class='hits'></td>
                         <td class='source'>end</td>
                       </tr>

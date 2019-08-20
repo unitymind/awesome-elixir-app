@@ -37,7 +37,7 @@ defmodule AwesomeElixirWeb.Router do
   scope "/", AwesomeElixirWeb do
     pipe_through [:browser, :guardian_common, :guardian_authenticated]
 
-    get "/profile", ProfileController, :index
+    get "/profile", ProfileController, :show
   end
 
   scope "/api" do
