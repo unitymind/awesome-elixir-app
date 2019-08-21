@@ -1,6 +1,6 @@
 defmodule AwesomeElixir.Catalog.FilterParams do
   @moduledoc """
-  Describes embedded schema using `TypedEctoSchema` for cast and validation incoming params in `AwesomeElixirWeb.CatalogController`.
+  Describes embedded schema using `TypedEctoSchema` for cast and validation incoming params.
 
       field :min_stars, :string, default: "all"
       field :show_unstarred, :boolean, default: false

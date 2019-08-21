@@ -1,6 +1,6 @@
 defmodule AwesomeElixir.Jobs.UpdateIndex do
   @moduledoc """
-  Perform work on updating index data from source `README.md`.
+  Performs work on updating index data from [https://github.com/h4cc/awesome-elixir](https://github.com/h4cc/awesome-elixir) as source.
   """
   @behaviour Rihanna.Job
 

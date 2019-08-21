@@ -1,6 +1,6 @@
 defmodule AwesomeElixirWeb.ControllerHelpers do
   @moduledoc """
-  Common helpers which imported in `use AwesomeElixirWeb, :controller`
+  Implements common controllers helpers.
   """
 
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]

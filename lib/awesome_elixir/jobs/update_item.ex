@@ -1,6 +1,6 @@
 defmodule AwesomeElixir.Jobs.UpdateItem do
   @moduledoc """
-  Perform work on updating item data from source url.
+  Performs work on updating item data from source url.
   """
   @behaviour Rihanna.Job
 
