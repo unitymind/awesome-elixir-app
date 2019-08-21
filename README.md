@@ -10,14 +10,14 @@ Visit the running application at: [https://awesome-elixir.herokuapp.com](https:/
 
 Check generated **ExDoc** at: [https://awesome-elixir.herokuapp.com/docs/index.html](https://awesome-elixir.herokuapp.com/docs/index.html)
 
-## Ongoing efforts on GraphQL API, Vue.JS UI and Guardian Auth with GitHub Signup/Login
+## Ongoing efforts on GraphQL API, Phoenix LiveView, Vue.JS UI and Guardian Auth with GitHub SignUp/Login
 - [x] Basic GraphQL API. Pointed to: `/api/graphql`
 - [x] Endpoints for handling Guardian flow with GitHub strategy. Pointed to: `/auth`
-  - `/auth/github`
-  - `/auth/github/callback`
-  - `/auth/logout` 
+  - `GET /auth/github` - starts GitHub Auth Flow and redirects to GitHub
+  - `GET /auth/github/callback` - handles auth result from GitHub side
+  - `GET /auth/logout` - cleanup current session, which holds JWT token
 - [x] Integrate Guardian flow to current HTML-based app
-- [ ] Base Vue.JS SPA-application, which consumes GraphQL API. Pointed to: `/spa`
+- [ ] Base Vue.JS SPA-application, which consumes GraphQL API. Pointed to: `/vue`
 - [ ] Integrate Guardian flow to Vue.JS application and GraphQL API
 
 ## Development
@@ -61,7 +61,7 @@ Coverage report is placed to: `cover/excoveralls.html`
 
 To start your application Phoenix server packed in docker using multi-stage build and `mix release` feature:
 
-  * Run `GITHUB_TOKEN="your_issued_token" GITHUB_CLIENT_ID="your_client_id" GITHUB_CLIENT_SECRET="your_client_secret" SECRET_KEY_BASE="$(mix phx.gen.secret)" GUARDIAN_SECRET_KEY="$(mix guardian.gen.secret" docker-compose up -d --build`
+  * Run `GITHUB_TOKEN="your_issued_token" GITHUB_CLIENT_ID="your_client_id" GITHUB_CLIENT_SECRET="your_client_secret" SECRET_KEY_BASE="$(mix phx.gen.secret)" GUARDIAN_SECRET_KEY="$(mix guardian.gen.secret)" docker-compose up -d --build`
   
 After build finished and docker-compose services up you can visit [`localhost:4001`](http://localhost:4001) from your browser.
   
@@ -132,7 +132,7 @@ GITHUB_CLIENT_ID:       your_issued_client_id
 GITHUB_CLIENT_SECRET:   your_issued_client_secret
 HOST:                   floating-woodland-78564.herokuapp.com
 SECRET_KEY_BASE:        generated_key
-GUARDIAN_SECRET_KEY:     generated_key
+GUARDIAN_SECRET_KEY:    generated_key
 ```
 
 And deploy:

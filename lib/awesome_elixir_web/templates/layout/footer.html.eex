@@ -1,1 +1,7 @@
-    <footer class="fixed-bottom"><span class="outdated" id="lastUpdateAt"><a href="/doc/index.html" target="_blank">View docs (<%= app_version() %>)</a>. Last updated at: <%= @last_updated_at %></span></footer>
+    <footer class="fixed-bottom">
+      <span class="outdated">
+        <a href="/doc/index.html" target="_blank">View docs (<%= app_version() %>)</a>.
+        <span id="lastUpdateAt">Last updated at: <%= @last_updated_at %></span>
+        &nbsp;<a class="github-button" href="https://github.com/unitymind/awesome-elixir-app" data-icon="octicon-star" data-show-count="true" aria-label="Star unitymind/awesome-elixir-app on GitHub">Star</a>
+      </span>
+    </footer>

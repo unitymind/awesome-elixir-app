@@ -236,21 +236,13 @@ defmodule AwesomeElixirWeb.CatalogControllerTest do
   end
 
   defp assert_last_updated(html) do
-    " Last updated at: " <> last_updated_at =
-      Floki.find(html, "#lastUpdateAt")
-      |> Floki.text()
-      |> String.split(".")
-      |> List.last()
-
+    "Last updated at: " <> last_updated_at = Floki.find(html, "#lastUpdateAt") |> Floki.text()
     assert %NaiveDateTime{} = NaiveDateTime.from_iso8601!(last_updated_at)
     html
   end
 
   defp assert_last_updated(html, :never) do
-    assert Floki.find(html, "#lastUpdateAt")
-           |> Floki.text()
-           |> String.split(".")
-           |> List.last() == " Last updated at: never"
+    assert Floki.find(html, "#lastUpdateAt") |> Floki.text() == "Last updated at: never"
 
     html
   end

@@ -20,6 +20,9 @@ services:
     environment:
       DATABASE_URL: "ecto://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres/${POSTGRES_DB:-awesome_elixir}"
       GITHUB_TOKEN: "${GITHUB_TOKEN}"
+      GITHUB_CLIENT_ID: "${GITHUB_CLIENT_ID}"
+      GITHUB_CLIENT_TOKEN: "${GITHUB_CLIENT_TOKEN}"
+      GUARDIAN_SECRET_KEY: "${GUARDIAN_SECRET_KEY}"
       SECRET_KEY_BASE: "${SECRET_KEY_BASE}"
     ports:
       - "${PORT:-4001}:4000"

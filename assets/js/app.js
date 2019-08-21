@@ -9,17 +9,12 @@ import css from "../css/app.css"
 //
 // Import dependencies
 //
-import 'jquery'
-import 'bootstrap'
-
-// Import local files
-//
-// Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
 
 import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
+
+import 'bootstrap'
 
 $(document).ready(function(e) {
   $(".js-scroll-to").click(function(e) {

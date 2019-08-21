@@ -22,19 +22,9 @@ defmodule AwesomeElixirWeb do
       use Phoenix.Controller, namespace: AwesomeElixirWeb
 
       import Plug.Conn
+      import AwesomeElixirWeb.ControllerHelpers
       import AwesomeElixirWeb.Gettext
       alias AwesomeElixirWeb.Router.Helpers, as: Routes
-
-      # FIXME. Refactor to helper module
-      @doc """
-        Put flash with specified `key` and `message`, then redirect to given `to` arg.
-      """
-      @spec redirect_to_with_flash(Plug.Conn.t(), String.t(), atom(), String.t()) :: Plug.Conn.t()
-      def redirect_to_with_flash(conn, to, key, message) do
-        conn
-        |> put_flash(key, message)
-        |> redirect(to: to)
-      end
     end
   end
 
