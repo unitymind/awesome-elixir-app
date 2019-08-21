@@ -4,10 +4,6 @@ defmodule AwesomeElixirWeb.Endpoint do
   """
   use Phoenix.Endpoint, otp_app: :awesome_elixir
 
-  socket "/socket", AwesomeElixirWeb.UserSocket,
-    websocket: true,
-    longpoll: false
-
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest
@@ -15,7 +11,7 @@ defmodule AwesomeElixirWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :awesome_elixir,
-    gzip: false,
+    gzip: true,
     only: ~w(doc css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the

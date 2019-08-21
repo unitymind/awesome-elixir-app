@@ -33,8 +33,8 @@ defmodule AwesomeElixirWeb.ViewHelpers do
   Filtered query params (via `AwesomeElixir.Catalog.FilterParams.execute/1`).
   """
   @spec filtered_params(Plug.Conn.t()) :: map()
-  def filtered_params(conn) do
-    conn.params
+  def filtered_params(%Plug.Conn{params: params}) do
+    params
     |> Catalog.FilterParams.execute()
     |> Map.from_struct()
   end

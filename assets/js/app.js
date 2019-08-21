@@ -10,11 +10,13 @@ import css from "../css/app.css"
 // Import dependencies
 //
 
-import $ from 'jquery';
+import $ from "jquery";
 window.jQuery = $;
 window.$ = $;
 
-import 'bootstrap'
+import "bootstrap";
+import "phoenix";
+import "phoenix_html";
 
 $(document).ready(function(e) {
   $(".js-scroll-to").click(function(e) {
