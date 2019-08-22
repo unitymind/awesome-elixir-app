@@ -39,19 +39,21 @@ defmodule AwesomeElixir.Accounts.User do
   end
 
   @fields ~w(github_uid github_token)a
+  @required_fields ~w(github_uid)a
   @profile_fields ~w(name nickname email)a
 
   @doc """
   Cast and validate data for insert or update.
 
-    * Allowed and required: `github_uid` and `github_token`
+    * Allowed: `github_uid` and `github_token`
+    * Required: `github_uid`
     * Cast `profile` on embedded schema
   """
   @spec changeset(__MODULE__.t(), map()) :: Ecto.Changeset.t()
   def changeset(%__MODULE__{} = user, attrs) when is_map(attrs) do
     user
     |> cast(attrs, @fields)
-    |> validate_required(@fields)
+    |> validate_required(@required_fields)
     |> cast_embed(:profile, with: &profile_changeset/2)
   end
 

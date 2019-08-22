@@ -26,6 +26,12 @@ COPY assets assets
 RUN cd assets && npm install && npm run deploy
 RUN mix phx.digest
 
+# Build elm application
+COPY elm elm
+RUN cd elm && npm install create-elm-app
+RUN cd elm && PUBLIC_URL=/elm ./node_modules/.bin/elm-app build
+RUN mv elm/build priv/static/elm
+
 # Build project
 COPY priv priv
 COPY lib lib

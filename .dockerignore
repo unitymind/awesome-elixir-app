@@ -2,3 +2,6 @@ assets/node_modules/*
 _build/*
 deps/*
 priv/static
+elm/build/*
+elm/elm-stuff/*
+elm/node_modules/*

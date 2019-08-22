@@ -60,7 +60,7 @@ config :awesome_elixir, AwesomeElixirWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/awesome_elixir_web/{live,views}/.*(ex)$",
+      ~r"lib/awesome_elixir_web/views/.*(ex)$",
       ~r"lib/awesome_elixir_web/templates/.*(eex)$"
     ]
   ]

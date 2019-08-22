@@ -9,6 +9,11 @@ defmodule AwesomeElixir.Scraper.Index do
   defmodule Category do
     @moduledoc """
     Internal `TypedStruct` for holding `Category` fields for source index scraping.
+
+        field :name, String.t(), enforce: true
+        field :slug, String.t(), enforce: true
+        field :description, String.t()
+        field :items, {:array, Item.t()}
     """
 
     use TypedStruct
@@ -25,6 +30,10 @@ defmodule AwesomeElixir.Scraper.Index do
   defmodule Item do
     @moduledoc """
     Internal `TypedStruct` for holding `Item` fields for source index scraping.
+
+        field :name, String.t()
+        field :url, String.t()
+        field :description, String.t()
     """
 
     use TypedStruct

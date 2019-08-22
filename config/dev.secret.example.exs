@@ -1,11 +1,5 @@
 import Config
 
-config :awesome_elixir, AwesomeElixirWeb.GithubApi,
-  # GitHub accept any username
-  username: "awesome_elixir",
-  # Replace with generated GitHub Personal Access Token
-  token: "GITHUB_TOKEN"
-
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   # Replace with your GitHub app Client ID
   client_id: "GITHUB_CLIENT_ID",

@@ -12,9 +12,9 @@ defmodule AwesomeElixirWeb.AuthController do
   @doc """
   Handle specific assigns from `Ueberauth` plug as a part of OAuth flow.
 
-    * On failure: extracts error message and redirect to root with flash message
+    * On failure: extracts error messages and redirect to root with `:error` flash
     * On success: retrieve or create `AwesomeElixir.Accounts.User` based on `Ueberauth.Auth` data,
-      then make `AwesomeElixirWeb.Guardian.Plug.sign_in/2` call and redirect to root with flash message
+      then make `AwesomeElixirWeb.Guardian.Plug.sign_in/2` call and redirect to root with `:success` flash
   """
   @spec callback(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def callback(%{assigns: %{ueberauth_failure: fail}} = conn, _params) do
@@ -23,7 +23,7 @@ defmodule AwesomeElixirWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    {:ok, %Accounts.User{} = user} = Accounts.find_or_create_user_from_auth(auth)
+    {:ok, user} = Accounts.find_or_create_user_from_auth(auth)
 
     conn
     |> Guardian.Plug.sign_in(user)
@@ -35,7 +35,7 @@ defmodule AwesomeElixirWeb.AuthController do
   end
 
   @doc """
-  Make `AwesomeElixirWeb.Guardian.Plug.sign_out/1` call and redirect to root with flash message.
+  Make `AwesomeElixirWeb.Guardian.Plug.sign_out/1` call and redirect to root with `:info` flash.
   """
   @spec logout(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def logout(conn, _params) do
