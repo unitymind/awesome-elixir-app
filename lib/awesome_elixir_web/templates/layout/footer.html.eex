@@ -1,4 +1,4 @@
-    <footer class="fixed-bottom">
+    <footer class="fixed-bottom text-right" style="margin-right: 2em; padding-bottom: 1em;">
       <span class="outdated">
         <a href="/doc/index.html" target="_blank">View docs (<%= app_version() %>)</a>.
         <span id="lastUpdateAt">Last updated at: <%= @last_updated_at %></span>
