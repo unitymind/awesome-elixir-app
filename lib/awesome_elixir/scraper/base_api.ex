@@ -13,6 +13,18 @@ defmodule AwesomeElixir.Scraper.BaseApi do
     quote do
       use HTTPoison.Base
 
+      @doc """
+      Put `:follow_redirect` option and `hackney: [pool: :default]`.
+      """
+      @impl true
+      def process_request_options(options) do
+        options
+        |> Keyword.put(:follow_redirect, true)
+        |> Keyword.put(:hackney, pool: :default)
+      end
+
+      defoverridable process_request_options: 1
+
       @impl true
       def process_request_url(url) do
         unquote(base_uri) <> url

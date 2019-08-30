@@ -13,9 +13,17 @@ defmodule AwesomeElixir.Scraper.GithubApi do
   """
   @impl true
   def process_request_options(options) do
+    options = super(options)
+
     case RandomGithubTokenAgent.get() do
-      nil -> options
-      token -> options |> Keyword.put(:hackney, basic_auth: {"awesome_elixir", token})
+      nil ->
+        options
+
+      token ->
+        Keyword.get_and_update(options, :hackney, fn hackney_options ->
+          {hackney_options, Keyword.put(hackney_options, :basic_auth, {"awesome_elixir", token})}
+        end)
+        |> elem(1)
     end
   end
 

@@ -24,10 +24,10 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
         {:retry, :now} == {result, data} ->
           Jobs.retry_item_in(item_id, Enum.random(50..70))
 
-        result == :retry ->
+        :retry == result ->
           Jobs.retry_item_at(item_id, data)
 
-        result == :ok ->
+        :ok == result ->
           Catalog.invalidate_cached()
           Jobs.schedule_update(item_id)
       end

@@ -11,7 +11,8 @@ defmodule AwesomeElixir.Application do
     children = [
       AwesomeElixir.Repo,
       __MODULE__.ServerModeSupervisor,
-      {AwesomeElixir.Accounts.RandomGithubTokenAgent, String.to_integer(System.get_env("GITHUB_TOKEN_USAGE_THRESHOLD") || "50")}
+      {AwesomeElixir.Accounts.RandomGithubTokenAgent,
+       String.to_integer(System.get_env("GITHUB_TOKEN_USAGE_THRESHOLD") || "50")}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
