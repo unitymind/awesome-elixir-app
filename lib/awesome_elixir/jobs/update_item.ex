@@ -8,7 +8,7 @@ defmodule AwesomeElixir.Jobs.UpdateItem do
   alias AwesomeElixir.{Catalog, Jobs, Scraper}
 
   @doc """
-  Execute update pipeline actions for a given `item_id`.
+  Executes update pipeline actions for a given `item_id`.
 
   * Clear previously scheduled job
   * Scrape data and update in `AwesomeElixir.Repo` (or schedule retry within short period)

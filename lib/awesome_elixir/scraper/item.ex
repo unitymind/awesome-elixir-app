@@ -4,7 +4,7 @@ defmodule AwesomeElixir.Scraper.Item do
   """
 
   alias AwesomeElixir.Catalog
-  alias AwesomeElixir.Scraper.{GithubApi, GitlabApi, HexpmApi}
+  alias AwesomeElixir.Scraper.{CommonHttp, GithubApi, GitlabApi, HexpmApi}
   alias HTTPoison.Response
 
   @doc """
@@ -19,7 +19,8 @@ defmodule AwesomeElixir.Scraper.Item do
           | {:retry, :now}
           | {:retry, DateTime.t()}
 
-  def update(%Catalog.Item{git_source: %{github: github}} = item) when not is_nil(github) do
+  def update(%Catalog.Item{git_source: %{github: github}, is_dead: false} = item)
+      when not is_nil(github) do
     case GithubApi.get_repo(github) do
       {:ok,
        %Response{
@@ -39,8 +40,10 @@ defmodule AwesomeElixir.Scraper.Item do
         )
 
       {:ok, %Response{status_code: 404}} ->
-        item
-        |> Catalog.update_item(%{is_dead: true, is_scrapped: true})
+        case Catalog.update_item(item, %{is_dead: true, is_scrapped: true}) do
+          {:ok, item} -> update(item)
+          error_with_changeset -> error_with_changeset
+        end
 
       {:ok,
        %Response{
@@ -67,6 +70,35 @@ defmodule AwesomeElixir.Scraper.Item do
       # TODO. Handle 401 response
       _ ->
         {:retry, :now}
+    end
+  end
+
+  def update(%Catalog.Item{git_source: %{github: github}, url: url, is_dead: true} = item)
+      when not is_nil(github) do
+    case CommonHttp.get(url) do
+      {:ok, %Response{status_code: 404}} ->
+        {:ok, item}
+
+      {:ok,
+       %Response{
+         status_code: 301,
+         headers: headers
+       }} ->
+        "https://github.com/" <> github =
+          headers
+          |> Enum.map(fn {key, value} -> {key |> String.downcase() |> String.to_atom(), value} end)
+          |> Keyword.get(:location)
+
+        item
+        |> Catalog.update_item(%{
+          git_source: %{github: github},
+          is_dead: false,
+          is_scraped: false
+        })
+        |> case do
+          {:ok, item} -> update(item)
+          error_with_changeset -> error_with_changeset
+        end
     end
   end
 
@@ -185,9 +217,9 @@ defmodule AwesomeElixir.Scraper.Item do
   defp extract_from_hexpm_link(_, repos), do: repos
 
   defp reject_blank_values(map) when is_map(map) do
-    map |> Enum.filter(fn {_key, value} -> is_not_blank(value) end) |> Map.new()
+    map |> Enum.reject(fn {_key, value} -> is_blank(value) end) |> Map.new()
   end
 
-  defp is_not_blank(value) when is_binary(value), do: value != ""
-  defp is_not_blank(value), do: !is_nil(value)
+  defp is_blank(value) when (is_binary(value) and value == "") or is_nil(value), do: true
+  defp is_blank(_), do: false
 end

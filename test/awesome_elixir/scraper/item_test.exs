@@ -18,6 +18,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
   end
 
   describe "update() with github.com url" do
+    @tag :skip
     test "repo moved", %{item: item} do
       use_cassette "github_moved_repo" do
         item = create_item_with_url(item, "https://github.com/spawnproc/forms")
@@ -29,6 +30,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
       end
     end
 
+    @tag :skip
     test "not found source", %{item: item} do
       use_cassette "github_missed_repo" do
         item = create_item_with_url(item, "https://github.com/missed/repo")
@@ -38,6 +40,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
       end
     end
 
+    @tag :skip
     test "403 response", %{item: item} do
       use_cassette "github_403_response" do
         item = create_item_with_url(item, "https://github.com/elixir-lang/elixir")
@@ -45,6 +48,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
       end
     end
 
+    @tag :skip
     test "other errors", %{item: item} do
       use_cassette "github_other_errors" do
         item = create_item_with_url(item, "https://github.com/elixir-lang/elixir")
@@ -68,6 +72,7 @@ defmodule AwesomeElixir.Scraper.ItemTest do
       end
     end
 
+    @tag :skip
     test "success", %{item: item} do
       use_cassette "github_elixir_lang" do
         item = create_item_with_url(item, "https://github.com/elixir-lang/elixir")
