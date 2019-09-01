@@ -4,7 +4,7 @@ defmodule AwesomeElixir.MixProject do
   def project do
     [
       app: :awesome_elixir,
-      version: "0.1.81",
+      version: "0.1.82",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -43,6 +43,7 @@ defmodule AwesomeElixir.MixProject do
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.1"},
       {:ecto_fields, github: "unitymind/ecto_fields", ref: "with_typespecs"},
+      {:ecto_enum, "~> 1.3"},
       {:typed_ecto_schema, "~> 0.1.0"},
       {:typed_struct, "~> 0.1.4"},
       {:memoize, "~> 1.3"},
@@ -54,6 +55,7 @@ defmodule AwesomeElixir.MixProject do
       {:guardian, "~> 2.0"},
       {:ueberauth, "~> 0.6.1"},
       {:ueberauth_github, "~> 0.7.0"},
+      {:bodyguard, "~> 2.4"},
       {:gettext, "~> 0.17"},
       {:jason, "~> 1.1"},
       {:poison, "~> 4.0"},

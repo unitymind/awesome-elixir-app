@@ -4,6 +4,7 @@ defmodule AwesomeElixir.Accounts.User do
 
       field :github_uid, :id
       field :github_token, :string
+      field :role, UserRole
 
       embeds_one :profile, Profile, on_replace: :delete, primary_key: false do
         field :name, :string
@@ -14,12 +15,14 @@ defmodule AwesomeElixir.Accounts.User do
       timestamps()
   """
 
+  alias AwesomeElixir.EctoEnums.Accounts.UserRole
   use TypedEctoSchema
   import Ecto.Changeset
 
   typed_schema "users" do
     field :github_uid, :id
     field :github_token, :string
+    field :role, UserRole
 
     embeds_one :profile, Profile, on_replace: :delete, primary_key: false do
       @moduledoc """
