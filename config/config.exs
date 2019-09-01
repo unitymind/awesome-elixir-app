@@ -25,6 +25,15 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :exq,
+  start_on_application: false,
+  concurrency: 10,
+  scheduler_enable: true,
+  max_retries: 25
+
+config :exq_ui,
+  server: false
+
 # Configure Rihanna Producer and Dispatcher
 config :rihanna,
   producer_postgres_connection: {Ecto, AwesomeElixir.Repo},

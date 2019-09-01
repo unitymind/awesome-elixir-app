@@ -4,7 +4,7 @@ defmodule AwesomeElixir.MixProject do
   def project do
     [
       app: :awesome_elixir,
-      version: "0.1.80",
+      version: "0.1.81",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -54,6 +54,17 @@ defmodule AwesomeElixir.MixProject do
       {:guardian, "~> 2.0"},
       {:ueberauth, "~> 0.6.1"},
       {:ueberauth_github, "~> 0.7.0"},
+      {:gettext, "~> 0.17"},
+      {:jason, "~> 1.1"},
+      {:poison, "~> 4.0"},
+      {:plug_cowboy, "~> 2.1"},
+      {:httpoison, "~> 1.5"},
+      {:earmark, "~> 1.3"},
+      {:exq, "~> 0.13.3"},
+      {:exq_ui, "~> 0.10.0"},
+      {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
+      {:timex, "~> 3.6"},
+      {:observer_cli, "~> 1.5"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.6", only: :dev, runtime: false},
@@ -63,16 +74,7 @@ defmodule AwesomeElixir.MixProject do
       {:faker, "~> 0.12", only: :test},
       {:floki, "~> 0.21.0", only: :test},
       {:excoveralls, "~> 0.11.1", only: :test},
-      {:ex_doc, "~> 0.21.1", runtime: false},
-      {:gettext, "~> 0.17"},
-      {:jason, "~> 1.1"},
-      {:poison, "~> 4.0"},
-      {:plug_cowboy, "~> 2.1"},
-      {:httpoison, "~> 1.5"},
-      {:earmark, "~> 1.3"},
-      {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
-      {:timex, "~> 3.6"},
-      {:observer_cli, "~> 1.5"}
+      {:ex_doc, "~> 0.21.1", runtime: false}
     ]
   end
 

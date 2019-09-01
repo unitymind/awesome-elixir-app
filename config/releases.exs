@@ -7,6 +7,13 @@ database_url =
     For example: ecto://USER:PASS@HOST/DATABASE
     """
 
+redis_url =
+  System.get_env("REDIS_URL") ||
+    raise """
+    environment variable REDIS_URL is missing.
+    For example: redis://[:password@]host[:port][/database]
+    """
+
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
     raise """
@@ -59,6 +66,9 @@ pool_size =
 config :awesome_elixir, AwesomeElixir.Repo,
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || pool_size)
+
+config :exq,
+  url: redis_url
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
   client_id: github_client_id,

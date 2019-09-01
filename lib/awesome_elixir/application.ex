@@ -45,13 +45,13 @@ defmodule AwesomeElixir.Application do
         if Phoenix.Endpoint.server?(:awesome_elixir, AwesomeElixirWeb.Endpoint) do
           # coveralls-ignore-start
 
-          [
-            {Rihanna.Supervisor, [postgrex: AwesomeElixir.Repo.config()]},
-            Supervisor.child_spec(
-              {Task, fn -> Jobs.schedule_update_in(5) end},
-              id: {Task, :update_index}
-            )
-          ]
+          Exq.Support.Mode.children([]) ++
+            [
+              Supervisor.child_spec(
+                {Task, fn -> Jobs.schedule_update_in(5) end},
+                id: {Task, :update_index}
+              )
+            ]
 
           # coveralls-ignore-stop
         else
