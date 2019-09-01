@@ -12,11 +12,14 @@ defmodule AwesomeElixirWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :exq do
+  pipeline :exq_browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :put_secure_browser_headers
+  end
+
+  pipeline :exq_router do
     plug ExqUi.RouterPlug, namespace: "exq"
   end
 
@@ -34,6 +37,10 @@ defmodule AwesomeElixirWeb.Router do
 
   pipeline :guardian_not_authenticated do
     plug AwesomeElixirWeb.Guardian.NotAuthenticatedPipeline
+  end
+
+  pipeline :as_admin do
+    plug AwesomeElixirWeb.Plugs.AuthenticatedAsAdmin
   end
 
   scope "/", AwesomeElixirWeb do
@@ -68,7 +75,7 @@ defmodule AwesomeElixirWeb.Router do
   end
 
   scope "/exq", ExqUi do
-    pipe_through :exq
+    pipe_through [:exq_browser, :guardian_common, :guardian_authenticated, :as_admin, :exq_router]
     forward "/", RouterPlug.Router, :index
   end
 end

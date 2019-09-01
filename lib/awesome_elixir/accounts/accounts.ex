@@ -19,7 +19,7 @@ defmodule AwesomeElixir.Accounts do
   @spec find_or_create_user_from_auth(Ueberauth.Auth.t()) ::
           {:ok, User.t()} | {:error, Ecto.Changeset.t()}
   def find_or_create_user_from_auth(%Ueberauth.Auth{} = auth) do
-    attrs = extract_attrs_from_auth(auth)
+    attrs = extract_attrs_from_auth(auth) |> set_admin_role()
 
     case Repo.get_by(User, github_uid: attrs.github_uid) do
       nil -> User.changeset(%User{}, attrs) |> Repo.insert()
@@ -73,5 +73,13 @@ defmodule AwesomeElixir.Accounts do
       github_token: github_token,
       profile: %{email: email, name: name, nickname: nickname}
     }
+  end
+
+  defp set_admin_role(attrs) do
+    if Repo.aggregate(User, :count, :id) == 0 do
+      Map.put(attrs, :role, :admin)
+    else
+      attrs
+    end
   end
 end

@@ -41,14 +41,14 @@ defmodule AwesomeElixir.Accounts.User do
     timestamps()
   end
 
-  @fields ~w(github_uid github_token)a
+  @fields ~w(github_uid github_token role)a
   @required_fields ~w(github_uid)a
   @profile_fields ~w(name nickname email)a
 
   @doc """
   Cast and validate data for insert or update.
 
-    * Allowed: `github_uid` and `github_token`
+    * Allowed: `github_uid`, `github_token`, `role`, `profile`
     * Required: `github_uid`
     * Cast `profile` on embedded schema
   """

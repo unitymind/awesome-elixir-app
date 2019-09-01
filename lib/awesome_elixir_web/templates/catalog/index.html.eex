@@ -1,6 +1,6 @@
 <%= render("filters.html", conn: @conn, counters: @counters, params: filtered_params(@conn)) %>
     <main role="main">
-      <div class="container">
+      <div class="container" style="margin-top: 3.5em;">
         <div class="row">
           <h5>
               Elixir is awesome. And it has a vast awesome list: <a href="https://github.com/h4cc/awesome-elixir" target="_blank">h4cc/awesome-elixir</a>.<br/>

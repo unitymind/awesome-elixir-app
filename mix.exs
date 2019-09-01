@@ -4,7 +4,7 @@ defmodule AwesomeElixir.MixProject do
   def project do
     [
       app: :awesome_elixir,
-      version: "0.1.82",
+      version: "0.1.85",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -64,7 +64,6 @@ defmodule AwesomeElixir.MixProject do
       {:earmark, "~> 1.3"},
       {:exq, "~> 0.13.3"},
       {:exq_ui, "~> 0.10.0"},
-      {:rihanna, github: "unitymind/rihanna", ref: "feature/delete-by-with-args"},
       {:timex, "~> 3.6"},
       {:observer_cli, "~> 1.5"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
