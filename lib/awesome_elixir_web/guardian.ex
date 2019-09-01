@@ -59,6 +59,7 @@ defmodule AwesomeElixirWeb.Guardian do
 
     import Plug.Conn
     import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]
+    import AwesomeElixirWeb.ControllerHelpers
 
     @behaviour Guardian.Plug.ErrorHandler
 
@@ -77,8 +78,7 @@ defmodule AwesomeElixirWeb.Guardian do
     defp render_response(conn, message) do
       if get_format(conn) == "html" do
         conn
-        |> put_flash(:error, message)
-        |> redirect(to: "/")
+        |> redirect_to_with_flash("/", :error, message)
       else
         body = Jason.encode!(%{message: message})
         send_resp(conn, 401, body)
