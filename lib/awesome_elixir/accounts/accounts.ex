@@ -6,6 +6,7 @@ defmodule AwesomeElixir.Accounts do
   alias AwesomeElixir.Accounts.User
   alias AwesomeElixir.Repo
   import Ecto.Query
+  use Memoize
 
   @doc """
   Retrieve `AwesomeElixir.Accounts.User` by `id`
@@ -76,10 +77,14 @@ defmodule AwesomeElixir.Accounts do
   end
 
   defp set_admin_role(attrs) do
-    if Repo.aggregate(User, :count, :id) == 0 do
+    if users_count() == 0 do
       Map.put(attrs, :role, :admin)
     else
       attrs
     end
+  end
+
+  defmemop users_count do
+    Repo.aggregate(User, :count, :id)
   end
 end

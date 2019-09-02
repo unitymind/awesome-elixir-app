@@ -58,7 +58,7 @@ defmodule AwesomeElixirWeb.Guardian do
     """
 
     import Plug.Conn
-    import Phoenix.Controller, only: [get_format: 1, put_flash: 3, redirect: 2]
+    import Phoenix.Controller, only: [get_format: 1]
     import AwesomeElixirWeb.ControllerHelpers
 
     @behaviour Guardian.Plug.ErrorHandler

@@ -34,13 +34,6 @@ config :exq,
 config :exq_ui,
   server: false
 
-# Configure Rihanna Producer and Dispatcher
-config :rihanna,
-  producer_postgres_connection: {Ecto, AwesomeElixir.Repo},
-  behaviour_only: true,
-  dispatcher_max_concurrency: 10,
-  dispatcher_poll_interval: :timer.seconds(1)
-
 config :ueberauth, Ueberauth,
   providers: [
     github: {Ueberauth.Strategy.Github, []}
